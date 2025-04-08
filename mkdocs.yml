@@ -3,6 +3,7 @@ theme:
   name: 'material'
 
 nav:
+- Home: index.md
 - Physics: 
   - 热传递: physics/热传递.md
 
