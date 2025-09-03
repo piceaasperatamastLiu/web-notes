@@ -507,8 +507,7 @@ $$
 > \langle v,u\rangle=\sum g_{ij}\overline{v}_iu_j
 > $$
 >
-> 这里的$g_{ij}$称为度规，在张量代数中它将经常用到
-> 不难得出在这里
+> 这里的$g_{ij}$称为度规，在张量代数中它将经常用到。不难得出在这里
 >
 > $$
 > g_{ij}=\langle e_i,e_j\rangle
