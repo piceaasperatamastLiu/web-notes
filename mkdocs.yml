@@ -8,6 +8,9 @@ nav:
   - 杂碎:
     - 热传递: physics/热传递.md
     - 麦克斯韦方程组的复数形式: physics\麦克斯韦方程组的复数形式.md
+- Math:
+  - 线性代数:
+    - 向量空间: math/linear/vector.md
 
 extra_css:
 - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css
