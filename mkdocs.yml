@@ -11,6 +11,8 @@ nav:
 - Math:
   - 线性代数:
     - 向量空间: math/linear/vector.md
+    - 矩阵代数: math/linear/mat.md
+    - 线性算子: math/linear/operator.md
 
 extra_css:
 - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css
