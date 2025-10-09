@@ -15,6 +15,9 @@ nav:
     - 线性算子: math/linear/operator.md
   - 拓扑:
     - 基本概念: math/topo/basic.md
+    - 紧性与连通性: math/topo/compact.md
+  - 杂碎:
+    - 函数的极值: math/others/extreme.md
 
 extra_css:
 - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css
