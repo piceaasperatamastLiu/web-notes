@@ -161,7 +161,7 @@ $$
 
 从而只需要取到
 $$
-\varepsilon<\min\\{\lambda_{1},\dots,\lambda_{n}\\}
+\varepsilon<\min\\{\lambda_{1},\dots,\lambda_{n}\\}/2
 $$
 
 即可证明$f(x+h)\ge f(x)$，即$x$是极小值点。类似的，如果所有特征值均小于$0$，可以得到$x$是极大值点。如果特征值中既有正数又有负数，不妨设$\lambda_{1}>0,\lambda_{2}<0$，那么取$h$沿$e_{1}$方向，不难得出
