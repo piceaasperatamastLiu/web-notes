@@ -18,6 +18,7 @@ nav:
     - 紧性与连通性: math/topo/compact.md
   - 杂碎:
     - 函数的极值: math/others/extreme.md
+    - 流形上的微积分: math/others/manifolds.md
 
 extra_css:
 - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css
