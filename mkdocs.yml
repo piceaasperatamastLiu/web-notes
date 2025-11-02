@@ -7,7 +7,7 @@ nav:
 - Physics: 
   - 杂碎:
     - 热传递: physics/heat.md
-    - 麦克斯韦方程组的复数形式: physics\Maxwell.md
+    - 麦克斯韦方程组的复数形式: physics/Maxwell.md
 - Math:
   - 线性代数:
     - 向量空间: math/linear/vector.md
