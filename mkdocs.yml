@@ -23,6 +23,7 @@ nav:
     - 关于方差估计的无偏性的证明: math/others/variance.md
     - 欧拉积分: math/others/Euler.md
     - 含参变量的积分: math/others/parameter.md
+    - 有理函数的积分: math/others/rational.md
 
 extra_css:
 - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css
