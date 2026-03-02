@@ -1,0 +1,1721 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../extreme/">
+      
+      
+        <link rel="next" href="../variance/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>流形上的微积分 - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              流形上的微积分
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂碎
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    杂碎
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../physics/heat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    热传递
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../physics/Maxwell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    麦克斯韦方程组的复数形式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Math
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性代数
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    线性代数
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear/vector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    向量空间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear/mat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    矩阵代数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear/operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性算子
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂谈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    拓扑
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    拓扑
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topo/basic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基本概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topo/compact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    紧性与连通性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂碎
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    杂碎
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extreme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    函数的极值
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    流形上的微积分
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    流形上的微积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.流形
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.切空间
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.微分形式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.微分形式上的积分
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.例子
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6de-rham" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.de Rham 上同调群
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于方差估计的无偏性的证明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Euler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    欧拉积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    含参变量的积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rational/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    有理函数的积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rotation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    旋转
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Others
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Others
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/Kalman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    卡尔曼滤波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/factor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    因子图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.流形
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.切空间
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.微分形式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.微分形式上的积分
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.例子
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6de-rham" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.de Rham 上同调群
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>流形上的微积分</h1>
+
+<h2 id="1">1.流形</h2>
+<p>我们首先给出最一般的拓扑流形的概念：</p>
+<blockquote>
+<p>集合$M$被称为是一个<strong>拓扑流形</strong>，如果它是第二可数的Hausdorff空间，并且对于任意$p\in M$，总存在$p$的开邻域$U\subseteq M$使得映射$\phi:U\rightarrow\phi(U)$是同胚的，其中$\phi(U)$为$\mathbb{R}^{n}$中的开集，$n$称为流形的该点的局部维数，$(U,\phi)$称为一个<strong>坐标卡</strong>，坐标卡的集合称为<strong>图册</strong></p>
+</blockquote>
+<p>拓扑流形不是我们研究的重点，因为无法在上面定义微积分。为此我们引入微分流形：</p>
+<blockquote>
+<p>拓扑流形$M$被称为是一个<strong>微分流形</strong>，如果对于图册中的任意两个坐标卡$(U,\phi)$和$(V,\psi)$，当$U\cap V\neq\varnothing$时映射
+$$
+\psi\circ\phi^{-1}:\phi(U\cap V)\rightarrow \psi(U\cap V)
+$$
+是微分同胚，即该映射是光滑的，并且它的逆映射也是光滑的</p>
+</blockquote>
+<p>此处我们默认光滑指的是$C^{\infty}$，当然通常$C^{1}$也能给出同样的结果。关于判断一个集合是否是流形，比较经典的定理有<em>嵌入定理</em>和<em>正则值定理</em>，这些我们都不做介绍</p>
+<p>流形的常用表示方法包括表示为一个光滑函数的零点的集合或者表示为一组参数方程</p>
+<p>在某些时候（主要是研究积分时），我们希望流形是有边界的，但是按照上面的定义，显然上半平面$\mathbb{H}^{n}$不是一个流形，因此我们引入<strong>带边流形</strong>的概念，它和前面的流形的定义一致，只是同胚的对象从$\mathbb{R}^{n}$改为了$\mathbb{H}^{n}$中的限制拓扑下的某个开集。如果对于$p\in M$，仍然能够找到包含$p$的某个坐标卡$(U,\phi)$，使得$U\cong\mathbb{R}^{n}$，则称$p$为带边流形的<strong>内点</strong>，否则称为<strong>边界点</strong>。所有边界点构成带边流形的边界，记为$\partial M$.可以证明
+$$
+\dim\partial M=\dim M-1
+$$</p>
+<hr />
+<p>考虑微分流形$M$的两个坐标卡$(U_{\alpha},\phi_{\alpha})$和$(U_{\beta},\phi_{\beta})$，如果$U_{\alpha}\cap U_{\beta}\neq\varnothing$，则在$U_{\alpha}\cap U_{\beta}$上可以定义转移函数$\phi:=\phi_{\beta}\circ\phi_{\alpha}^{-1}$，如果对于任意$p\in U_{\alpha}\cap U_{\beta}$，都有$\det\phi'&gt;0$，则称两个坐标卡是定向相容的。如果一个流形的所有有交集的坐标卡之间都是定向相容的，则称流形是<strong>可定向</strong>的。定向相容关系构成的等价类称为流形的一个定向。对于一般流形的定向需要用到复杂的拓扑知识，这里不做介绍。我们可以证明：</p>
+<blockquote>
+<p>连通可定向流形有且仅有两个定向</p>
+<p>可定向的带边流形的边界也是可定向的</p>
+</blockquote>
+<h2 id="2">2.切空间</h2>
+<p>传统上通过嵌入映射定义切空间。假定$p\in M$，$(U,\phi)$是包含$p$的一个坐标卡，则$\psi:=\phi^{-1}$是光滑的。考虑$x\in U,t=\phi(x),t_{0}=\phi(p)$，则根据多元函数的导数的定义有
+$$
+x=\psi(t)=p+\psi'(t_{0})(t-t_{0})+\omicron(\|t-t_{0}\|)
+$$</p>
+<p>显然由参数方程
+$$
+x=p+\psi'(t_{0})(t-t_{0})
+$$</p>
+<p>确定的曲面也是一个流形，称为$M$在$p$处的切空间。这一定义便于我们计算给定流形的切空间。例如，对于三维曲线，有
+$$
+\psi:\mathbb{R}\rightarrow\mathbb{R}^{3},t\longmapsto \begin{pmatrix}
+x(t) \\ y(t) \\ z(t)
+\end{pmatrix}
+$$</p>
+<p>考虑$t_{0}$处的结果，有
+$$
+\psi'(t_{0})=\begin{pmatrix}
+x'(t_{0})\\ y'(t_{0})\\ z'(t_{0})
+\end{pmatrix}^{T}
+$$</p>
+<p>于是曲线方程为</p>
+<p>$$
+\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}=\begin{pmatrix}
+x(t_{0})\\ y(t_{0})\\ z(t_{0})
+\end{pmatrix}+\begin{pmatrix}
+x'(t_{0})\\ y'(t_{0})\\ z'(t_{0})
+\end{pmatrix}(t-t_{0})
+$$</p>
+<p>显然，导数即代表曲线的切向量。又如，对于三维曲面
+$$
+\psi:\mathbb{R}^{2}\rightarrow\mathbb{R}^{3},\begin{pmatrix}
+u\\ v
+\end{pmatrix}\longmapsto\begin{pmatrix}
+x(u,v)\\ y(u,v) \\ z(u,v)
+\end{pmatrix}
+$$</p>
+<p>有
+$$
+\psi'(u_{0},v_{0})=\begin{pmatrix}
+x_{u}(u_{0},v_{0})&amp;x_{v}(u_{0},v_{0})\\
+y_{u}(u_{0},v_{0})&amp;y_{v}(u_{0},v_{0})\\
+z_{u}(u_{0},v_{0})&amp;z_{v}(u_{0},v_{0})
+\end{pmatrix}
+$$</p>
+<p>从而
+$$
+\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}=\begin{pmatrix}
+x(u_{0},v_{0})\\ y(u_{0},v_{0})\\ z(u_{0},v_{0})
+\end{pmatrix}+\begin{pmatrix}
+x_{u}(u_{0},v_{0})&amp;x_{v}(u_{0},v_{0})\\
+y_{u}(u_{0},v_{0})&amp;y_{v}(u_{0},v_{0})\\
+z_{u}(u_{0},v_{0})&amp;z_{v}(u_{0},v_{0})
+\end{pmatrix}\begin{pmatrix}
+u-u_{0}\\ v-v_{0}
+\end{pmatrix}
+$$</p>
+<p>作为特例，如果取$u=x,v=y$，则
+$$
+z=z(x_{0},y_{0})+z_{x}(x_{0},y_{0})(x-x_{0})+z_{y}(x_{0},y_{0})(y-y_{0})
+$$</p>
+<p>相应的法向量为$(z_{x},z_{y},-1)$.对应的，如果使用隐函数描述，则法向量为$(F_{x},F_{y},F_{z})$</p>
+<hr />
+<p>以上定义需要利用嵌入映射，而切空间的现代定义是完全内蕴的：</p>
+<blockquote>
+<p>点$p\in M$处的<strong>切向量</strong>定义为线性映射
+$$
+v:C^{\infty}(M,p)\rightarrow \mathbb{R}
+$$
+它满足<em>莱布尼兹律</em>
+$$
+v(fg)=v(f)g(p)+f(p)v(g)
+$$
+其中$f$是定义在$p$点的某个邻域内的光滑映射。$p$点的所有切向量构成$p$点处的<strong>切空间</strong>，记为$T_{p}M$</p>
+</blockquote>
+<p>考虑坐标卡$(U,\phi)$，可以定义算子
+$$
+\frac{\partial }{\partial x^{i}}(f):=\frac{\partial (f\circ\phi^{-1})}{\partial r^{i}}(\phi(p))
+$$</p>
+<p>可以证明$\frac{\partial }{\partial x^{i}}$张成了整个切空间，即对于任意$v\in T_{p}M$都有
+$$
+v=\sum_{i}v(x^{i})\frac{\partial }{\partial x^{i}}
+$$</p>
+<p>这正是方向导数算子，因此可以将切平面上的向量和切空间中的算子建立一一对应关系，从而建立了这两种定义之间的联系</p>
+<h2 id="3">3.微分形式</h2>
+<p>微分形式的定义从余切空间开始：</p>
+<blockquote>
+<p>对于$p\in M$，切空间$T_{p}M$的对偶空间称为<strong>余切空间</strong>，记为$T_{p}^{*}M$，其中的元素称为<strong>余切向量</strong></p>
+</blockquote>
+<p>余切空间中的元素正是我们所谓的1-形式的值。根据对偶空间的定义，我们考虑切空间的基$\frac{\partial }{\partial x^{j}}$，我们显然可以找到余切空间中的基$dx_{i}$，使得
+$$
+dx^{i}\left( \frac{\partial }{\partial x^{j}} \right)=\delta_{j}^{i}
+$$</p>
+<p>在此基础之上，我们定义微分形式：</p>
+<blockquote>
+<p>定义<strong>外积</strong>
+$$
+T_{p}^{*}M\times\cdots\times T_{p}^{*}M\rightarrow \Lambda^{k}(T_{p}^{*}M),(\omega^{(1)},\cdots,\omega^{(k)})\longmapsto \omega^{(1)}\wedge\cdots\wedge\omega^{(k)}
+$$</p>
+<p>它满足
+$$
+\omega\wedge\cdots\wedge\eta\wedge\cdots\wedge\eta\wedge\cdots\xi=0
+$$</p>
+<p>则映射$\omega_{p}:p\longmapsto\Lambda^{k}(T_{p}^{*}M)$称为流形$M$上的一个<strong>$k$次微分形式</strong></p>
+</blockquote>
+<p>根据这个定义不难证明
+$$
+\omega\wedge\eta=-\eta\wedge\omega
+$$</p>
+<p>根据对偶的定义，显然微分形式同构于$T_{p}M\times\cdots\times T_{p}M$到$\mathbb{R}$的反对称的线性映射，而后者表示切向量组成的体积元</p>
+<p>对于$k$次微分形式
+$$
+\omega=\sum_{I}f_{I}dx^{I}
+$$</p>
+<p>我们可以定义其<strong>外微分</strong>为
+$$
+d\omega:=\sum_{i=1}^{n}\frac{\partial f_{I}}{\partial x^{i}}dx^{i}\wedge dx^{I}
+$$</p>
+<p>可以证明外微分满足
+$$
+\omega\in\Omega^{k},\eta\in\Omega^{l}\Rightarrow d(\omega\wedge\eta)=d\omega\wedge\eta+(-1)^{k}\omega\wedge d\eta
+$$</p>
+<p>以及
+$$
+\omega\in\Omega^{k}\Rightarrow d(d\omega)=0
+$$</p>
+<h2 id="4">4.微分形式上的积分</h2>
+<p>为了定义微分形式上的积分，首先我们定义$\mathbb{R}^{n}$上的微分形式的积分。考虑可测集$D\subseteq\mathbb{R}^{n}$，它上面的微分形式为
+$$
+\omega=f(x^{1},\dots,x^{n})dx^{1}\wedge\cdots\wedge dx^{n}
+$$</p>
+<p>则$\omega$在$D$上的积分定义为
+$$
+\int_{D}\omega:=\int_{D}f(x^{1},\dots,x^{n})
+$$</p>
+<p>后者表示标准的$n$重积分。随后，我们引入如下概念：</p>
+<blockquote>
+<p>考虑光滑映射$\phi:M\rightarrow N,f:N\rightarrow\mathbb{R}$，则$f$沿$\phi$的<strong>拉回</strong>定义为映射
+$$
+\phi^*f:M\rightarrow\mathbb{R},p\longmapsto f(\phi(p))
+$$</p>
+</blockquote>
+<p>也就是说我们可以认为$\phi^*f=f\circ\phi$.可以验证，拉回映射具备如下性质：
+$$
+\begin{aligned}
+(\psi\circ\phi)^{*}&amp;=\phi^{*}\circ\psi^{*} \\
+\phi^{*}(\omega+\eta)&amp;=\phi^*\omega+\phi^*\eta \\
+\phi^{*}(\omega\wedge\eta)&amp;=(\phi^*\omega)\wedge(\phi^*\eta) \\
+\phi^*(d\omega)&amp;=d(\phi^*\omega) \\
+(\phi^{*}\omega)_{p}(v_{1},\dots,v_{k})&amp;=\omega_{\phi(p)}(d\phi_{p}(v_{1}),\dots,d\phi_{p}(v_{k}))
+\end{aligned}
+$$</p>
+<p>其中$d\phi_{p}:T_{p}M\rightarrow T_{\phi(p)}N$也被称为<strong>推前</strong>映射。现在，考虑坐标卡$(U,\phi)$，如果$\omega$的支撑集是$U$的子集，则$\omega$在$M$上的积分可以定义为
+$$
+\int_{M}\omega:=\int_{\phi(U)}(\phi^{-1})^*\omega
+$$</p>
+<p>现在，为了将其推广到整个流形上，我们引入单位分解</p>
+<blockquote>
+<p>流形$M$上的一簇函数$\rho_{\alpha}:M\rightarrow[0,1]$被称为一个<strong>单位分解</strong>，如果每个$\rho_{\alpha}$的支撑集都包含在对应的$U_{\alpha}$中，并且对于任意$p\in M$，都有$\displaystyle\sum_{\alpha}\rho_{\alpha}(p)=1$</p>
+</blockquote>
+<p>可以证明，$k$维紧带边流形一定存在单位分解。现在，考虑一个可定向的流形$M$，它具有有限的坐标卡$(U_{\alpha},\phi_{\alpha})$，考虑其单位分解$\rho_{\alpha}$，则
+$$
+\omega=\sum_{\alpha}\rho_{\alpha}\omega
+$$</p>
+<p>右边的每一项的支撑集都在$U_{\alpha}$中，于是可以定义整个流形上的积分
+$$
+\int_{M}\omega:=\sum_{\alpha}\int_{M}\rho_{\alpha}\omega
+$$</p>
+<p>可以证明，流形上的积分的结果和坐标卡及单位分解的选取无关。利用单位分解和微积分基本定理，我们可以证明著名的斯托克斯定理：</p>
+<blockquote>
+<p>设$M$是一个$n$维可定向带边紧流形，$\omega$是$M$上的一个$n-1$形式，并且具有紧支撑集，则
+$$
+\int_{M}d\omega=\int_{\partial M}\omega
+$$</p>
+</blockquote>
+<hr />
+<p>现在，我们来考虑第一型曲面积分。为此，我们引入黎曼度量的概念：</p>
+<blockquote>
+<p>流形$M$上的<strong>黎曼度量</strong>是光滑映射$g:p\longmapsto g_{p}$，它满足$g_{p}:T_{p}M\times T_{p}M\rightarrow\mathbb{R}$是一个对称的正定的双线性映射。配备的黎曼度量的流形称为<strong>黎曼流形</strong></p>
+</blockquote>
+<p>在定义了黎曼度量后，对于一个可定向流形$M$（为了方便只考虑可定向的情况）可以自然地构造一个坐标变换下不变的体积元
+$$
+dV_{g}:=\sqrt{\det(g_{ij})}dx^{1}\wedge\cdots\wedge dx^{m}
+$$</p>
+<p>从而可以定义第一型曲面积分
+$$
+\int_{U}fdV_{g}:=\int_{\phi(U)}(f\circ\phi^{-1})\sqrt{\det(g_{ij})}dx^{1}\wedge\cdots\wedge dx^{m}
+$$</p>
+<p>最后使用单位分解拼起来即可</p>
+<h2 id="5">5.例子</h2>
+<p>我们先从第一型曲面积分开始。考虑通过拉回映射将$g$拉回到$\mathbb{R}^{n}$上，最终可以得出
+$$
+g_{ij}=\left( \phi'(p)^{T}\phi'(p) \right)_{ij}
+$$</p>
+<p>对于曲线，有$\phi(t)=(x(t),y(t),z(t))^{T}$，于是
+$$
+\phi'(t)=\begin{pmatrix}
+x'(t)\\ y'(t)\\ z'(t)
+\end{pmatrix}
+$$</p>
+<p>从而
+$$
+g_{ij}=\left( x'(t)^{2}+y'(t)^{2}+z'(t)^{2} \right)\delta_{ij}
+$$</p>
+<p>于是第一型曲线积分为
+$$
+\int_{L}fds=\int_{I}(f\circ\phi)(t)\sqrt{x'(t)^{2}+y'(t)^{2}+z'(t)^{2}}
+$$</p>
+<p>现在考虑第二型曲线积分，由于微分形式
+$$
+\omega=Pdx+Qdy+Rdz=\left( (P\circ\phi)x'+(Q\circ\phi)y'+(R\circ\phi)z' \right)dt
+$$</p>
+<p>于是
+$$
+\int_{L}\omega=\int_{I}\left( (P\circ\phi)x'+(Q\circ\phi)y'+(R\circ\phi)z' \right)
+$$</p>
+<p>于是我们有
+$$
+\int_{L}\omega=\int_{L}\frac{Px'+Qy'+Rz'}{\sqrt{x'^2+y'^2+z'^2}}ds
+$$</p>
+<p>左边表示对微分形式的微分，而右边是第一型曲线积分，这就建立了两种曲线积分之间的联系</p>
+<hr />
+<p>类似的，对于曲面积分，有
+$$
+\phi(u,v)=\begin{pmatrix}
+x(u,v)\\ y(u,v) \\ z(u,v)
+\end{pmatrix}
+$$</p>
+<p>于是
+$$
+\phi'=\begin{pmatrix}
+x_{u}&amp;x_{v} \\
+y_{u}&amp;y_{v} \\
+z_{u}&amp;z_{v} 
+\end{pmatrix}
+$$</p>
+<p>于是
+$$
+(g_{ij})=\begin{pmatrix}
+x_{u}^{2}+y_{u}^{2}+z_{u}^{2}&amp;x_{u}x_{v}+y_{u}y_{v}+z_{u}z_{v}\\
+x_{u}x_{v}+y_{u}y_{v}+z_{u}z_{v}&amp;x_{v}^{2}+y_{v}^{2}+z_{v}^{2}
+\end{pmatrix}
+$$</p>
+<p>于是
+$$
+\det(g_{ij})=\left( x_{u}y_{v}-x_{v}y_{u} \right)^{2}+\left( x_{u}z_{v}-x_{v}z_{u} \right)^{2}+\left( y_{u}z_{v}-y_{v}z_{u} \right)^{2}
+$$</p>
+<p>于是
+$$
+\int_{S}fdS=\int_{D}(f\circ\phi)\sqrt{\left( x_{u}y_{v}-x_{v}y_{u} \right)^{2}+\left( x_{u}z_{v}-x_{v}z_{u} \right)^{2}+\left( y_{u}z_{v}-y_{v}z_{u} \right)^{2}}
+$$</p>
+<p>类似的，考虑微分形式
+$$
+\omega=Pdx\wedge dy+Qdy\wedge dz+Rdz\wedge dx
+$$</p>
+<p>由于
+$$
+\begin{aligned}
+dx\wedge dy&amp;=(x_{u}y_{v}-x_{v}y_{u})du\wedge dv \\
+dy\wedge dz&amp;=(y_{u}z_{v}-y_{v}z_{u})du\wedge dv \\
+dz\wedge dx&amp;=(z_{u}x_{v}-z_{v}x_{u})du\wedge dv
+\end{aligned}
+$$</p>
+<p>从而有
+$$
+\int_{S}\omega=\int_{D}\left( (P\circ\phi)(x_{u}y_{v}-x_{v}y_{u})+(Q\circ\phi)(y_{u}z_{v}-y_{v}z_{u})+(R\circ\phi)(z_{u}x_{v}-z_{v}x_{u}) \right)
+$$</p>
+<p>注意这里两个括号间的是乘号而不是复合。因此有
+$$
+\int_{S}\omega=\int_{S}\frac{P(x_{u}y_{v}-x_{v}y_{u})+Q(y_{u}z_{v}-y_{v}z_{u})+R(z_{u}x_{v}-z_{v}x_{u})}{\sqrt{\left( x_{u}y_{v}-x_{v}y_{u} \right)^{2}+\left( x_{u}z_{v}-x_{v}z_{u} \right)^{2}+\left( y_{u}z_{v}-y_{v}z_{u} \right)^{2}}}dS
+$$</p>
+<p>显然后者的几何意义是切平面的法向量。在很多时候使用两个参数计算第一型曲面积分并不方便，并且也没有必要，例如如果映射$(x,y)\longmapsto(x,y,z)\in S$存在，则可以直接选取$x,y$作为参数，这样第一型曲面积分可以简化为
+$$
+\int_{S}fdS=\int_{D}f(x,y,\phi(x,y))\sqrt{z_{x}^{2}+z_{y}^{2}+1}
+$$</p>
+<h2 id="6de-rham">6.de Rham 上同调群</h2>
+<p>我们现在回顾格林公式，它通常要求积分区域是单连通的，但是我们在斯托克斯定理中确并没有这个要求。为此，我们引入如下理论：</p>
+<blockquote>
+<p>微分形式$\omega$被称为<strong>闭形式</strong>，如果$d\omega=0$，所有闭形式的集合记为$Z^{k}(M)$；$\omega$被称为<strong>恰当形式</strong>，如果存在$\eta$使得$\omega=d\eta$，所有恰当形式的集合记为$B^{k}(M)$</p>
+</blockquote>
+<p>显然，恰当形式一定为闭形式，即$B^{k}(M)\subseteq Z^{k}(M)$，因此我们可以引入如下定义：</p>
+<blockquote>
+<p><strong>de Rham上同调群</strong>定义为
+$$
+H^{k}_{dR}(M):=Z^{k}(M)/B^{k}(M)
+$$</p>
+<p>其维数$\beta_{k}:=\dim H^{k}_{dR}(M)$称为<strong>贝蒂数</strong></p>
+</blockquote>
+<p>贝蒂数包含了我们所需要的流形的全部拓扑信息。一般来说，$b_{0}(M)$表示$M$的连通分支的数量，$b_{n}(M)$包含了$M$的定向信息，其余的贝蒂数则表征“洞”的数量。特别的，对于平面上的区域而言，$b_{1}$即代表孔洞的数量。因此，对于单连通区域，$b_{1}=0$，此时所有闭形式都是恰当形式，即
+$$
+\forall\omega\in\Omega^{1}(D)\exist f\in\Omega^{0}(D)(\omega=df)
+$$</p>
+<p>此时曲线积分的结果和路径无关。而对于$b_{1}=m\neq0$的情况，我们在任何一个洞附近都可以构造类似
+$$
+\eta=-\frac{y}{x^{2}+y^{2}}dx+\frac{x}{x^{2}+y^{2}}dy
+$$</p>
+<p>的形式，则任意闭形式可以写为
+$$
+\omega=df+\sum_{i=1}^{m}c_{i}\eta_{i}
+$$</p>
+<p>此时曲线积分的结果和路径的卷绕数有关</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../themes/js/mathjax.js"></script>
+      
+        <script src="../../../themes/js/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.17.1/flowchart.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.6/underscore-min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/@mermaid-js/mermaid-mindmap@9.3.0/dist/diagram-definition.0faef4c2.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/markdown-it-plantuml@1.4.1/index.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-chtml.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-chtml-full.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-svg-full.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

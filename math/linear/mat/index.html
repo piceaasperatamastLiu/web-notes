@@ -1,0 +1,1756 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../vector/">
+      
+      
+        <link rel="next" href="../operator/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>矩阵代数 - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              矩阵代数
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂碎
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    杂碎
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../physics/heat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    热传递
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../physics/Maxwell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    麦克斯韦方程组的复数形式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Math
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性代数
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    线性代数
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    向量空间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    矩阵代数
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    矩阵代数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.线性方程组
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.线性方程组">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        消元
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基变换
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.秩
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.行列式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.行列式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        克莱默法则
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.迹
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.李括号
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性算子
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/linear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂谈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    拓扑
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    拓扑
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topo/basic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基本概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topo/compact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    紧性与连通性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂碎
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    杂碎
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/extreme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    函数的极值
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/manifolds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    流形上的微积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/variance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于方差估计的无偏性的证明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/Euler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    欧拉积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/parameter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    含参变量的积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/rational/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    有理函数的积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/rotation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    旋转
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Others
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Others
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/Kalman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    卡尔曼滤波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/factor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    因子图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.线性方程组
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.线性方程组">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        消元
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基变换
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.秩
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.行列式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.行列式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        克莱默法则
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.迹
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.李括号
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>矩阵代数</h1>
+
+<h2 id="1">1.线性方程组</h2>
+<h3 id="_1">消元</h3>
+<p>最简单的一种线性方程组为：</p>
+<p>$$
+\begin{cases}
+a_{11}x_1+\cdots+a_{1n}x_n&amp;=b_1
+\\ \vdots
+\\ a_{n1}x_1+\cdots+a_{nn}x_n&amp;=b_n
+\end{cases}
+$$</p>
+<p>这个方程可以写为</p>
+<p>$$
+Ax=b
+$$</p>
+<p>的形式，其中$A$是$a_{ij}$组成的方阵，$\displaystyle{x:=\left(\begin{matrix}x_1 \\\vdots \\x_n\end{matrix}\right)}$，$\displaystyle{b:=\left(\begin{matrix}b_1 \\\vdots \\b_n\end{matrix}\right)}$
+我们当然有许多种方法解这个方程，最直接的就是通过消元来解方程，而消元又是由多个步骤复合而成的，最基本的包括在等式的两边同时除以一个数，或是将一行加到另一行上，以及将两行对换，显然这些操作都是可逆的
+我们构造矩阵</p>
+<p>$$
+(A\vert b):=\left(\begin{matrix}
+a_{11}&amp;\cdots&amp;a_{1n}&amp;b_1
+\\ \vdots&amp;\ddots&amp;\vdots&amp;\vdots
+\\ a_{n1}&amp;\cdots&amp;a_{nn}&amp;b_n
+\end{matrix}\right)
+$$</p>
+<p>这样的矩阵称为<strong>增广矩阵</strong>，于是上面所提到的变换都可以认为是对这个矩阵的变换，我们可以写出它们对应的矩阵（以二维的情况为例）：</p>
+<p>$$
+\begin{aligned}
+\text{交换两行}\left(\begin{matrix}
+0&amp;1
+\\1&amp;0
+\end{matrix}\right)
+\\\text{第一行乘}\lambda\left(\begin{matrix}
+\lambda&amp;0 \\0&amp;1
+\end{matrix}\right)
+\\ \text{将第二行加到第一行上}\left(
+    \begin{matrix}
+    1&amp;1 \\0&amp;1
+    \end{matrix}
+\right)
+\end{aligned}
+$$</p>
+<p>我们知道另一种解法为</p>
+<p>$$
+Ax=b\Rightarrow x=A^{-1}b
+$$</p>
+<p>也就是把增广矩阵从$\displaystyle{(A\vert b)}$变为$(I\vert A^{-1}b)$，换句话说就是将增广矩阵的前$n\times n$的部分化为单位矩阵，这就是我们通常的解线性方程组的方法</p>
+<p>类似的，考虑方程组</p>
+<p>$$
+AX=B
+$$</p>
+<p>我们也可以写出</p>
+<p>$$
+(A\vert B)\Rightarrow (I\vert A^{-1}B)
+$$</p>
+<p>如果$B=I$，那么我们可以用这个方法计算逆矩阵。</p>
+<h3 id="_2">基变换</h3>
+<p>作为一个简单的应用，我们来考虑一个问题：
+对于两组向量$v_1,\cdots,v_n$和$u_1,\cdots,u_n$，它们都是基，我们希望能找到一个矩阵$P$，使得</p>
+<p>$$
+Pv=u
+$$</p>
+<p>也就是说可以通过对增广矩阵</p>
+<p>$$
+(u_1|\cdots|u_n|v_1|\cdots|v_n)
+$$</p>
+<p>进行变换，使得左边消为单位矩阵，但这要求向量是列向量。如果是行向量，则对其取转置，则可得出结果
+如果一个向量在$v$下的坐标为$x$，在$u$下的坐标为$x'$，那么我们实际上是在寻求</p>
+<p>$$
+\begin{aligned}
+a&amp;=x_1v_1+\cdots+x_nv_n
+\\&amp;=x_1P^{-1}u_1+\cdots+x_nP^{-1}u_n
+\\&amp;=x_1'Iu_n+\cdots+x_n'Iu_n
+\end{aligned}
+$$</p>
+<p>也就是说可以认为</p>
+<p>$$
+x'=xP^{-1}
+$$</p>
+<h2 id="2">2.秩</h2>
+<p>从上面的讨论中我们知道如果一个矩阵是可逆的，那么它一定可以通过初等变换化为单位矩阵（或者是和单位矩阵<strong>等价</strong>，等价定义为$\displaystyle{A\sim B\Leftrightarrow \exist P,Q\in \text{SL}(n,F)(A=PBQ)}$，但此后我们一般不用$\sim$表示等价），反过来，如果一个矩阵可以通过初等变换化为单位矩阵，则</p>
+<p>$$
+A=E_1E_2\cdots E_n
+$$</p>
+<p>由于这些矩阵都是可逆的，于是$A$也是可逆的，所以一个矩阵可逆，如果它可以化为单位矩阵。那么，如果一个矩阵不可逆，则那一定不能化为单位矩阵，例如矩阵</p>
+<p>$$
+\left(\begin{matrix}
+I_r&amp;
+\\ &amp;0_s
+\end{matrix}\right)
+$$</p>
+<p>就是不可逆的，并且它们彼此之间也不能通过初等变换互化，这样的矩阵我们称为标准型，而$r$称为该矩阵的<strong>秩</strong></p>
+<p>我们前面也定义了秩，为了表示两个定义不矛盾，我们考虑：
+对于$f\in\text{Hom}(V,W)$，我们定义其</p>
+<p>$$
+\text{rank}f:=\dim\text{Im}f,\text{nullity}f:=\dim\ker f
+$$</p>
+<p>这样肯定有</p>
+<p>$$
+\dim V=\text{rank}f+\text{nullity}f
+$$</p>
+<p>如果映射是双射，那么</p>
+<p>$$
+V\cong W\Rightarrow\dim V=\dim W=\text{rank}f
+$$</p>
+<p>反过来，如果如果$\text{rank}f=\dim V$，那么</p>
+<p>$$
+\text{nullity}f=0\Rightarrow \dim\ker f=0\Rightarrow f={0}
+$$</p>
+<p>所以$f$是单射，也因此是双射
+如果$f$不是单射，我们可以假定$f(v_1\cdots,v_n)=(v_1,\cdots,v_r,0,\cdots,0)$，这样$\text{Im}f=r$，类似的可以证明等价性</p>
+<p>在上一节中我们知道一个$m\times n$的矩阵一定可以写为$n$个列向量或是$m$个行向量的增广矩阵，我们乘这些向量张成的空间为<strong>行空间</strong>和<strong>列空间</strong>，它们的维数分别称为<strong>行秩</strong>和<strong>列秩</strong></p>
+<p>不难证明，行秩一定等于列秩，并且也等于秩</p>
+<h2 id="3">3.行列式</h2>
+<h3 id="_3">基本概念</h3>
+<p>考虑一组向量$v_1,\cdots,v_n\in F^n$，，我们希望构造一个反对称泛函：</p>
+<p>$$
+\mathscr{D}:(F^n)^n\rightarrow F,(v_1,\cdots,v_n)\longmapsto \mathscr{D}(v_1,\cdots,v_n)
+$$</p>
+<p>它是$n$重线性的，并且对标准正交基$e_i$，有</p>
+<p>$$
+\mathscr{D}(e_1,\cdots,e_n)=1
+$$</p>
+<p>像这样的泛函我们称为<strong>行列式</strong>，特别的，对于方阵，它可以写为多个列向量的增广矩阵，那么矩阵的行列式就定义为列向量的行列式（也可以用行向量，后面会看到它们是等价的），记为$\det(A)$或$|A|$
+我们知道</p>
+<p>$$
+a_i=\sum_{j}a_{ij}e_j
+$$</p>
+<p>于是</p>
+<p>$$
+\mathscr{D}(a_1,\cdots,a_n)=\sum_{j1}\sum_{j2}\cdots\sum_{jn}\prod_{i}a_{ij}\mathscr{D}(e_{ji},\cdots,e_{jn})
+$$</p>
+<p>如果存在$j_{l}=j_{m}$，那么行列式为$0$，于是上面的求和一定只能取为$S_n$中的某个元素，考虑到</p>
+<p>$$
+\mathscr{D}(e_{\sigma(1)},\cdots,e_{\sigma(n)})=\text{sgn}(\sigma)
+$$</p>
+<p>所以有</p>
+<p>$$
+\det(A)=\sum_{\sigma\in S_n}\text{sgn}(\sigma)\prod_{i=1}^na_{i\sigma(i)}
+$$</p>
+<p>这个结果称为行列式的全展开。从这个式子很容易得出</p>
+<p>$$
+\det(A^T)=\det(A)
+$$</p>
+<p>现在我们可以计算初等变换矩阵的行列式，这里直接给出结论：倍乘变换的行列式等于倍乘的系数，对换的行列式等于$-1$，将一行加到另一行的行列式为$1$（这实际上就是定义），所以对于某个初等变换$E_a$，有</p>
+<p>$$
+\det(E_aA)=\det(E_a)\det(A)
+$$</p>
+<p>这样不断分解下去，就有：对可逆方阵$A,B$，有</p>
+<p>$$
+\det(AB)=\det(A)\det(b)
+$$</p>
+<p>对不可逆的矩阵，有</p>
+<p>$$
+\det(A)=\prod_{a}\det(E_a)\times\det\left(\begin{matrix}
+I_r&amp; \\&amp;0_s
+\end{matrix}\right)=0
+$$</p>
+<p>同理，如果矩阵的行列式为$0$，那么它不可逆，这样就有：对任意$A,B\in F^{n\times n}$，都有</p>
+<p>$$
+\det(AB)=\det(A)\det(B)
+$$</p>
+<p>进而可以得出相似矩阵的行列式相等</p>
+<p>回到前面的全展开式，我们定义</p>
+<p>$$
+\sigma_i\in S_n,\sigma_i(i)=i
+$$</p>
+<p>也就是说存在不动点，于是</p>
+<p>$$
+\det(A)=\sum_{i=1}^na_{il}\sum_{\sigma_i|\{1,\cdots,n\}\backslash\{i\}\in S_{n-1}}\text{sgn}(\sigma_i)\prod_{1\le j\le n;j\neq i}a_{j\sigma(j)}
+$$</p>
+<p>可以证明上面这个式子等于</p>
+<p>$$
+\det(A)=\sum_{1\le i\le n;j=\text{const}} a_{ij}A_{ij}
+$$</p>
+<p>这里$A_{ij}$定义为矩阵去掉第$i$行和第$j$列后的矩阵的行列式乘以$(-1)^{i+j}$，称为<strong>代数余子式</strong>，这个式子也称为行列式按行（列）展开</p>
+<h3 id="_4">克莱默法则</h3>
+<p>如果一个矩阵$A$可逆，则</p>
+<p>$$
+A^{-1}=\frac{1}{\det(A)}A^a
+$$</p>
+<p>其中</p>
+<p>$$
+(A^a)_{ij}:=A_{ji}
+$$</p>
+<p>称为矩阵的<strong>古典伴随</strong>（区别于伴随，它具有一般的意义，而古典伴随没有）。大体的证明过程如下：考虑
+$$
+\begin{aligned}
+(A^aA)_{ij}&amp;=\sum_{k=1}^n A^a_{ik}a_{kj}
+\\ &amp;=\sum_k A_{ki}a_{kj}
+\end{aligned}
+$$</p>
+<p>如果$i=j$那么上式就等于$\det(A)$，而如果$i\neq j$，考虑一个矩&gt;阵，它的第$i$列被$a_{kj}$替换，其他的与$A$一致，则该矩阵的行列式为&gt;$0$，以列$k$展开则可得出上式为$0$，于是</p>
+<p>$$
+(A^aA)_{ij}=\delta_{ij}
+$$</p>
+<p>同理可得</p>
+<p>$$
+(AA^a)_{ij}=\delta_{ij}
+$$</p>
+<p>于是命题得证</p>
+<hr />
+<p>现在，我们将这个结论用到线性方程组上：
+考虑方程$Ax=b$，我们定义向量$\displaystyle{a_i:=\left(\begin{matrix}a_{1i}\\ \vdots \\ a_{ni}\end{matrix} \right)}$则有$A=(a_1,\cdots,a_n)$，考虑</p>
+<p>$$
+\begin{aligned}
+(x)_{i1}&amp;=(A^{-1}b)_{i1}
+\\ &amp;=\frac{\sum_{j}(A^{-1})_{ij}b_{j1}}{\det(A)}
+\\ &amp;=\frac{\sum_j A_{ji} b_{j1}}{\det(A)}
+\end{aligned}
+$$</p>
+<p>于是如果我们定义</p>
+<p>$$
+\begin{aligned}
+D&amp;:=\det(A)
+\\ D_i&amp;:=\det(a_1,\cdots,a_{i-1},b,\cdots,a_n)
+\end{aligned}
+$$</p>
+<p>则有</p>
+<p>$$
+x_i=\frac{D_i}{D}
+$$</p>
+<p>这给出了线性方程组求解的一种方法，称为<strong>克莱默法则</strong>
+不难看出如果$\det(A)\neq0$，则方程有唯一解；如果$\det(A)=0$，则此时克莱默法则失效。如果$b=0$，则$x\in\ker A$，于是一定有解无限多个解；如果$b\neq 0$，此时的情况较复杂，需要根据具体情况讨论</p>
+<h2 id="4">4.迹</h2>
+<p>对于一个方阵，它的对角线元素之和我们定义为<strong>迹</strong>：</p>
+<p>$$
+\text{tr}(A):=\sum_{i=1}^n a_{ii}
+$$</p>
+<p>根据定义，显然它是一个线性泛函。考虑</p>
+<p>$$
+\sum_{i=j}(\sum_{k=1}^na_{ik}b_{kj})=\sum_i\sum_m a_{im}b_{mi}=\sum_{i=j}(\sum_{k=1}^na_{jk}b_{ki})
+$$</p>
+<p>所以有</p>
+<p>$$
+\text{tr}(AB)=\text{tr}(BA)
+$$</p>
+<p>这样就有</p>
+<p>$$
+\text{tr}(P^{-1}AP)=\text{tr}(APP^{-1})=\text{tr}(A)
+$$</p>
+<p>也就是说相似矩阵的迹相等</p>
+<h2 id="5">5.李括号</h2>
+<p>假定$A,B\in F^{n\times n}$，我们定义其<strong>李括号</strong>为</p>
+<p>$$
+[\cdot,\cdot]:F^{n\times n}\times F^{n\times n}\rightarrow F^{n\times n},(A,B)\longmapsto [A,B]
+$$</p>
+<p>它定义为</p>
+<p>$$
+[A,B] := AB-BA
+$$</p>
+<p>显然这个映射是双线性的，并且是反对称的。并且，我们有</p>
+<p>$$
+[A,I]=0
+$$</p>
+<p>此外，根据反对称形式的通常性质，有<strong>雅可比恒等式</strong></p>
+<p>$$
+[[A,B],C]+[[B,C],A]+[[C,A],B]=0
+$$</p>
+<p>证明过程如下：</p>
+<p>$$
+\begin{aligned}
+\text{LHS}&amp;=[AB-BA,C]+[BC-CB,A]+[CA-AC,B]
+\\&amp;=ABC-BAC-CAB+BAC+CBA-CBA-ABC
+\\&amp;\quad+ACB+CAB-ACB-BCA+BAC
+\\&amp;=0
+\end{aligned}
+$$</p>
+<p>此外，我们还有</p>
+<p>$$
+[AB,C]=A[B,C]+[A,C]B
+$$</p>
+<p>证明过程如下：</p>
+<p>$$
+\begin{aligned}
+\text{RHS}&amp;=ABC-ACB+ACB-CAB
+\\&amp;=ABC-CAB=\text{LHS}
+\end{aligned}
+$$</p>
+<p>从中可以看出，李括号充当了微分算子的作用</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../themes/js/mathjax.js"></script>
+      
+        <script src="../../../themes/js/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.17.1/flowchart.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.6/underscore-min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/@mermaid-js/mermaid-mindmap@9.3.0/dist/diagram-definition.0faef4c2.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/markdown-it-plantuml@1.4.1/index.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-chtml.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-chtml-full.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-svg-full.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

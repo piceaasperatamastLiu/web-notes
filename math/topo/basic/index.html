@@ -1,0 +1,1588 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../others/linear/">
+      
+      
+        <link rel="next" href="../compact/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>基本概念 - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              基本概念
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂碎
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    杂碎
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../physics/heat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    热传递
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../physics/Maxwell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    麦克斯韦方程组的复数形式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Math
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性代数
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    线性代数
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear/vector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    向量空间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear/mat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    矩阵代数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear/operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性算子
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/linear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂谈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    拓扑
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    拓扑
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基本概念
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基本概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.拓扑空间
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.分离公理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.基
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.连续映射
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.积拓扑
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.度量空间
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    紧性与连通性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂碎
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    杂碎
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/extreme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    函数的极值
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/manifolds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    流形上的微积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/variance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于方差估计的无偏性的证明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/Euler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    欧拉积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/parameter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    含参变量的积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/rational/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    有理函数的积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/rotation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    旋转
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Others
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Others
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/Kalman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    卡尔曼滤波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/factor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    因子图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.拓扑空间
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.分离公理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.基
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.连续映射
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.积拓扑
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.度量空间
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>基本概念</h1>
+
+<h2 id="1">1.拓扑空间</h2>
+<p>拓扑空间的描述建立如下公理之上：</p>
+<blockquote>
+<p>对于非空集合$X$和非空集族$\mathcal{T}\subseteq\mathcal{P}(X)$，称$\mathcal{T}$为$X$上的一个<strong>拓扑</strong>，$\mathcal{T}$中的集合为<strong>开集</strong>，如果<br />
+(1)$\varnothing$和$X$是开集<br />
+(2)任何两个开集的交也是开集<br />
+(3)任意多个开集的并也是开集</p>
+</blockquote>
+<p>对于点$p\in X$，称包含$p$的开集为点$p$的<strong>邻域</strong>，值得一提的是邻域通常也值包含了包含点$p$在内的某个开集的集合，但这在使用上通常和直接定义它为开集没什么区别，因此我们默认还是采取第一种定义。称一个集合为<strong>闭集</strong>，如果它的补集是开集。显然，闭集满足：</p>
+<blockquote>
+<p>(1)空集和$X$是闭集<br />
+(2)任意两个闭集的并也是闭集<br />
+(3)任意多个闭集的交也是闭集</p>
+</blockquote>
+<p>对于$Y\subseteq X$，定义$U$是$Y$上的开集，如果$U$等于$X$中某个开集与$Y$的交。这样定义主要是因为很多时候开集的概念太过严苛，以至于直接使用开集描述某些拓扑性质（如连通性）很不方便。不难证明子空间拓扑也是拓扑（也满足上面的三条公理）</p>
+<p>集合$A$的最大开子集称为$A$的<strong>内部</strong>，包含$A$的最小闭集称为$A$的<strong>闭包</strong>，记为$\overline{A}$.闭包与内部之差称为<strong>边界</strong>，记为$\partial A$.闭包的补集称为<strong>外部</strong>，显然外部是不与$A$相交的最大开集。以上定义似乎非常自然，但是其存在性是很大的问题，因此，我们修改内部的定义为</p>
+<blockquote>
+<p>集合$A$的内部定义为其所有开子集的并<br />
+集合$A$的闭包定义为所有包含$A$的闭集的交</p>
+</blockquote>
+<p>容易证明两种定义方式是等价的。关于内部、外部、闭包和边界有大量的代数关系，这里不做介绍</p>
+<h2 id="2">2.分离公理</h2>
+<p>如果要将拓扑应用于我们熟知的几何空间之中，单靠以上公理是不够的，因为它会导致一些非常病态的性质。最典型的，我们定理序列的收敛性：</p>
+<blockquote>
+<p>称$X$序列$x_{n}$<strong>收敛</strong>至$x$，如果对于$x$的任意邻域$U$，总存在$N$使得对于任意$n\ge N$都有$x_{n}\in U$</p>
+</blockquote>
+<p>之所以会存在很病态的空间，是因为在某些拓扑空间中，收敛的序列的极限可能并不唯一，这显然不是分析学中希望的性质。为此，需要再加上一条公理以确保可以将两个极限区分开。下面引入<strong>第一分离公理</strong>：</p>
+<blockquote>
+<p>对于拓扑空间中任意两个不同的$a,b$，总存在$a$的邻域$U$是不包含$b$的</p>
+</blockquote>
+<p>第一分离公理给出了如下结论：</p>
+<blockquote>
+<p>拓扑空间$X$满足第一分离公理，当且仅当$X$中的单点集是闭集</p>
+</blockquote>
+<p>对于充分性，假定$V=X\backslash\{x\}$，考虑对于任意$y\in V$，由第一分离公理，存在邻域$U_{y}$，它是不包含$x$的，于是不难证明所有$U_{y}$的并等于$V$，从而$V$是开集</p>
+<p>对于必要性，由于$V$是开集，对于任意$y\in V$，肯定存在邻域$U\subseteq V$，从而$U$不包含$x$，从而得出了第一分离公理</p>
+<hr />
+<p>另一种更加常用的形式是<strong>第二分离公理</strong>：</p>
+<blockquote>
+<p>称拓扑开集$X$是<strong>Hausdorff空间</strong>，如果它满足第二分离公理，即对于$X$中任意两个不同的点$a,b$，总存在$a$和$b$的两个不交邻域</p>
+</blockquote>
+<p>显然，第二分离公理更强。此后若无特别说明，我们默认分离公理为第二分离公理。基于分离公理，可以证明：</p>
+<blockquote>
+<p>对于Hausdorff空间$X$，如果其中某个序列$x_{n}$收敛，那么它收敛到唯一点</p>
+</blockquote>
+<p>为了证明这一结论，假设它收敛到两个不同的点$a,b$，那么存在$a$的邻域$U$和$b$的邻域$V$，使得对于任意$n\ge M$都有$x_{n}\in U$，同理对任意$n\ge N$都有$x_{n}\in V$，那么对于任意$n\ge\max(M,N)$，一定有
+$$
+x_{n}\in U\cap V=\varnothing
+$$</p>
+<p>这显然是矛盾的，于是上述结论得证</p>
+<hr />
+<p>现在继续考虑序列收敛的一些性质：</p>
+<blockquote>
+<p>对于闭集$A$上的序列$x_{n}$，如果它收敛，那么其极限一定在$A$中</p>
+</blockquote>
+<p>如果极限$x$不在$A$中，那么由于$X\backslash A$是开集，一定存在$x$的开邻域$U$它和$A$是不交的，从而存在$N$使得对任意$n\ge N$都有$x_{n}\in X\backslash A$，这显然和$x_{n}\in A$矛盾</p>
+<h2 id="3">3.基</h2>
+<p>我们引入基的概念来刻画拓扑，其一是可以通过较为少量（通常可数个）的开集来完成拓扑的刻画，其二是基对于刻画局部性质（如极限）具有较好的作用。</p>
+<blockquote>
+<p>对于拓扑空间$X$和拓扑$\mathcal{T}$，$\mathcal{T}$的子集$\mathcal{B}$被称为一组<strong>基</strong>，如果每个开集都可以描述为$\mathcal{B}$中元素的并</p>
+</blockquote>
+<p>现在给出一个定理，它用于判断某个集族是否为一个基：</p>
+<blockquote>
+<p>对于非空集族$\mathcal{B}$，它是一组基，如果：<br />
+(1)$\mathcal{B}$中所有元素的并等于$X$<br />
+(2)对于$\mathcal{B}$中的任意两个元素$B_{1},B_{2}$，$B_{1}\cap B_{2}$都可以表示为$\mathcal{B}$中某些元素的并</p>
+</blockquote>
+<p>这个定理的证明是简单的，主要是通过拓扑的定义证明$\mathcal{B}$中元素的并集组成的集族构成拓扑，随后$\mathcal{B}$便显然是一个基</p>
+<hr />
+<p>现在来考虑一个更强的概念。对于点$p$，其<strong>邻域基</strong> $\mathcal{B}_{p}$ 定义为$p$的所有邻域组成的集合的一个子集，它满足对于$p$的任意邻域$U$，总存在$B\in\mathcal{B}_{p}$，使得$B\subseteq U$.这个定义让我们很方便地处理“收敛”这一概念。它和普通的基的关系为：如果$\mathcal{B}$是一组基，那么$\mathcal{B}$中包含$p$的点</p>
+<blockquote>
+<p><strong>第一可数公理</strong>：每个点都有一个可数的邻域基<br />
+<strong>第二可数公理</strong>：拓扑空间存在一个可数基</p>
+</blockquote>
+<p>可以证明第二可数公理更强</p>
+<hr />
+<p>现在引入一个在分析学中很常见的概念：</p>
+<blockquote>
+<p>对于非空集合$A$和点$p$，称$p$是$A$的一个<strong>极限点</strong>，如果对于$p$的任意邻域$U$，$U\backslash\{p\}$和$A$都有交集</p>
+</blockquote>
+<p>“极限点”这一名称的来历主要是由于下面定理：</p>
+<blockquote>
+<p>如果拓扑空间满足第一可数公理，则对于任意非空集合$A$和它的极限点$p$，总存在一个完全位于$A$的序列收敛至$p$</p>
+</blockquote>
+<p>这个定理的证明是简单的，但是需要使用选择公理</p>
+<blockquote>
+<p>$A$的闭包等于$A$和$A$的所有极限点组成的集合的并</p>
+</blockquote>
+<p>这个定理的证明也是简单的，只需要注意到对于任意$p\in\overline{A}$，$p$的邻域与$A$都有交集即可</p>
+<h2 id="4">4.连续映射</h2>
+<p>考虑映射$f:X\rightarrow Y$，其中$X,Y$都是拓扑空间，我们称$f$是<strong>连续映射</strong>，如果对于$Y$中的任意开集$U$，$f^{-1}(U)$在$X$中也是开集。按照分析学中的写法，有时我们将$X$到$Y$的所有连续映射记为$C(X,Y)$</p>
+<blockquote>
+<p>如果$f:X\rightarrow Y,g:Y\rightarrow Z$都是连续的，那么$g\circ f$也是</p>
+</blockquote>
+<p>这个定理是非常显然的。</p>
+<blockquote>
+<p>如果$f:X\rightarrow Y$是连续映射，$x_{n}\in X$收敛到$x$，那么$f(x_{n})$收敛到$f(x)$</p>
+</blockquote>
+<p>对于$y=f(x)$的任意开邻域$V$，$U=f^{-1}(V)$也是开集，而由于$y\in V$，有$x\in U$，即$U$也是$x$的邻域。对于任意$V$唯一确定了一个邻域$U$，从而存在$N$，使得对于任意$n\ge N$，都有$x_{n}\in U$，从而$f(x_{n})\in V$，于是命题得证</p>
+<p>这一命题的逆命题并不一定成立，因为还需要更强的条件：</p>
+<blockquote>
+<p>对于满足第一可数公理的空间$X,Y$以及映射$f:X\rightarrow Y$，如果对任意收敛到$x$的序列$x_{n}$，序列$f(x_{n})$都收敛到$f(x)$，则$f$连续</p>
+</blockquote>
+<p>对于开集$V\subseteq Y$，假定存在$x\in U=f^{-1}(V)$，它不存在一个位于$U$中的开邻域，也就是说，对于它的任意邻域$B$，$B\cap (X\backslash U)$都非空。取一组单调可数的邻域基$B_{n}$，那么$B_{n}\cap (X\backslash U)$非空，从而可以从中选取一个点$x_{n}$，由于单调性，$x_{n}$必然收敛于$x$，从而$f(x_{n})$收敛于$f(x)$，由于$f(x)\in V$，故存在$n$使得$f(x_{n})\in V$，从而$x_{n}\in U$，这显然是矛盾的，于是$U$必须是开集，即$f$连续</p>
+<p>显然，上面这个命题的证明用到了选择公理，但是对于我们更加常用到这个命题的情况（如度量空间中），选择公理通常是可以避免的。由于这个命题对局部性的刻画更好，我们在分析学中对它使用的更多</p>
+<hr />
+<p>对于连续映射$f:X\rightarrow Y$，如果$f$是双射，且$f^{-1}$也是连续的，则称$f$是<strong>同胚映射</strong>，空间$X$和$Y$是<strong>同胚</strong>的。显然，同胚是一个等价关系。在拓扑学中，我们认为两个同胚的空间具有完全相同的拓扑特性</p>
+<h2 id="5">5.积拓扑</h2>
+<p>现在考虑由两个拓扑空间的笛卡尔积生成的拓扑，构建这样的拓扑最简单的方式是使用基:</p>
+<blockquote>
+<p>设$(X,\mathcal{T}_{X})$和$(Y,\mathcal{T}_{Y})$都是拓扑空间，则集族<br />
+$$
+\mathcal{B}_{X\times Y}:=\{U\times V| U\in\mathcal{T}_{X},V\in\mathcal{T}_{Y}\}
+$$</p>
+<p>构成$X\times Y$中的一组基，即$X\times Y$中的开集可以定义为$\mathcal{B}_{X\times Y}$中元素的并。这样生成的拓扑称为<strong>积拓扑</strong></p>
+</blockquote>
+<p>我们此前给出了基的验证方式，因此只需要逐一验证即可。对于第一点，显然$X\times Y\in\mathcal{B}_{X\times Y}$，因此是不证自明的。对于第二点，考虑到</p>
+<p>$$
+(U_{1}\times V_{1})\cap(U_{2}\times V_{2})=(U_{1}\cap U_{2})\times (V_{1}\cap V_{2})
+$$</p>
+<p>也是不难验证的，于是我们证明了积拓扑的存在性</p>
+<p>可以验证满足分离公理的两个空间的积仍然满足分离公理。此外，我们还有</p>
+<blockquote>
+<p>如果$A$和$B$分别是$X$和$Y$中的闭集，那么$A\times B$是$X\times Y$中的闭集</p>
+</blockquote>
+<p>我们没给出这条定理的开集版本，因为那是显然的。为了证明这个定理，我们只需要注意到</p>
+<p>$$
+(X\times Y)\backslash(A\times B)=((X\backslash A)\times Y)\cup (X\times (Y\backslash V))
+$$</p>
+<p>即可</p>
+<p>现在考虑积拓扑下的连续映射。对此，有如下结论：</p>
+<blockquote>
+<p>考虑映射$f:Z\rightarrow X,g:Z\rightarrow Y$，则映射</p>
+<p>$$
+(f,g):Z\rightarrow X\times Y,z\longmapsto (f(z),g(z))
+$$</p>
+<p>是连续映射当且仅当$f$和$g$都是连续的</p>
+</blockquote>
+<p>首先考虑充分性，为此定义投影映射
+$$
+p_{X}:X\times Y\rightarrow X,(x,y)\longmapsto x
+$$</p>
+<p>则由于
+$$
+p_{X}(U)=U\times Y
+$$</p>
+<p>可以得知$p_{X}$是连续映射，而注意到
+$$
+f=p_{X}\circ (f,g),g=p_{Y}\circ (f,g)
+$$</p>
+<p>可以得出$f$和$g$都是连续映射。再考虑必要性，为此我们只需要考虑基中的元素
+$$
+(f,g)^{-1}(U\times V)=f^{-1}(U)\cap g^{-1}(V)
+$$</p>
+<p>从而基中每个元素的原像都是开集，而考虑到</p>
+<p>$$
+f^{-1}\left( \prod_{\alpha}U_{\alpha} \right)= \prod_{\alpha}f^{-1}\left( U_{\alpha} \right)
+$$</p>
+<p>从而$(f,g)$是连续映射</p>
+<p>在分析学中，这个性质可以让我们很方便地证明诸如$f+g$和$fg$这样的函数都是连续的</p>
+<h2 id="6">6.度量空间</h2>
+<p>最后我们再来看一下度量空间，即我们最常用的拓扑空间：</p>
+<blockquote>
+<p>空间$X$被称为<strong>度量空间</strong>，如果存在映射$d:X\times X\rightarrow\mathbb{R}$，满足对于任意$x,y\in X$<br />
+(1)$d(x,y)\ge 0$，当且仅当$x=y$时取等号<br />
+(2)$d(x,y)=d(y,x)$<br />
+(3)对于任意$z\in X$，都有$d(x,y)\le d(x,z)+d(z,y)$<br />
+映射$d$被称为度量映射</p>
+</blockquote>
+<p>为了刻画度量空间中的拓扑，我们首先定义<strong>球</strong>（邻域）
+$$
+B(x,\varepsilon):=\{y\in X|d(x,y)&lt;\varepsilon\}
+$$</p>
+<p>我们称$A$为开集，如果对于任意$x\in A$，总存在$\varepsilon&gt;0$，使得$B(x,\varepsilon)\subseteq A$，不难证明它满足开集的三个公理。此外，不难证明球本身也是一个开集，并且从度量空间中开集的刻画不难看出所有的球构成度量空间的一个拓扑基。根据实数的性质，不难验证度量空间满足第一可数公理。再来考虑分离公理。假定$a\neq b$，定义
+$$
+\varepsilon:=d(a,b)
+$$</p>
+<p>那么考虑球$B(a,\varepsilon/3)$和$B(b,\varepsilon/3)$，它们都是非空的，并且它们是不交的，这是由于对于任意$x\in B(a,\varepsilon/3)\cap B(b,\varepsilon/3)$，都有
+$$
+\varepsilon=d(a,b)\le d(a,x)+d(x,b)\le \frac{\varepsilon}{3}+\frac{\varepsilon}{3}=\frac{2}{3}\varepsilon
+$$</p>
+<p>而这显然是矛盾的，因此度量空间是Hausdorff空间。此外，关于连续映射，我们可以证明：</p>
+<blockquote>
+<p>$f:X\rightarrow Y$连续的，当且仅当对于任意$a\in X$以及$\varepsilon&gt;0$存在$\delta&gt;0$使得对于任意$d(x,a)&lt;\delta$都有$d(f(x),f(a))&lt;\varepsilon$</p>
+</blockquote>
+<p>结合我们此前提到的定理，我们不难证明$f+g,f-g,fg,\max(f,g),\min(f,g)$的连续性</p>
+<hr />
+<p>最后，我们考虑一下$n$维欧几里得空间$\mathbb{R}^{n}$，我们可以定义它上面的度量为</p>
+<p>$$
+d(x,y):=\sqrt{\sum_{i=1}^{n}(x_{i}-y_{2})^{2}}
+$$</p>
+<p>可以证明它确实是一个度量。值得注意的是，度量的定义并不唯一，例如</p>
+<p>$$
+d(x,y):=\sum_{i=1}^{n}|x_{i}-y_{i}|
+$$</p>
+<p>和</p>
+<p>$$
+d(x,y):=\sup_{1\le i\le n}|x_{i}-y_{i}|
+$$</p>
+<p>都满足度量的条件，并且它们刻画了同一个拓扑，这是泛函分析中等价范数定理所描述的内容</p>
+<p>值得一提的是，$\mathbb{R}^{n}$也可以看作是$\mathbb{R}$组成的积空间，可以证明这两种理解下拓扑是一致的</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../themes/js/mathjax.js"></script>
+      
+        <script src="../../../themes/js/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.17.1/flowchart.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.6/underscore-min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/@mermaid-js/mermaid-mindmap@9.3.0/dist/diagram-definition.0faef4c2.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/markdown-it-plantuml@1.4.1/index.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-chtml.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-chtml-full.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-svg-full.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
