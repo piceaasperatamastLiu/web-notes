@@ -24,8 +24,10 @@ nav:
     - 欧拉积分: math/others/Euler.md
     - 含参变量的积分: math/others/parameter.md
     - 有理函数的积分: math/others/rational.md
+    - 旋转: math/others/rotation.md
 - Others:
   - 卡尔曼滤波: others/Kalman.md
+  - 因子图: others/factor.md
 
 extra_css:
 - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css
