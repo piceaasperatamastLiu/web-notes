@@ -14,7 +14,7 @@ $\partial^2=\bar\partial^2=\partial\bar\partial+\bar\partial\partial=0$。
 
 定义
 $H^{p,q}_{\bar\partial}(M)=\ker(\bar\partial:\Omega^{p,q}\to\Omega^{p,q+1})/\operatorname{im}\bar\partial$。
-零次条件 $\bar\partial f=0$ 正是全纯性。局部 $\bar\partial$ 引理与光滑形式层的单位分解性质证明
+零次条件 $\bar\partial f=0$ 正是全纯性。令 $\Omega^p_{\mathrm{hol}}$ 表示全纯 $p$ 形式的层。局部 $\bar\partial$ 引理与光滑形式层的单位分解性质给出
 
 $$
 H^q(M,\Omega^p_{\mathrm{hol}})\cong H^{p,q}_{\bar\partial}(M).
@@ -28,7 +28,7 @@ $$
 $\omega(X,Y)=g(JX,Y)$。若 $d\omega=0$，则为 Kähler 度量。标准 $\mathbb C^n$ 中
 $\omega=(i/2)\sum dz^j\wedge d\overline z^j$，即 $\sum dx^j\wedge dy^j$。
 
-紧 Kähler 流形上，Kähler 恒等式给出 $\Delta_{\mathrm H}=2\Delta_{\bar\partial}$，从而
+定义 $\Delta_{\bar\partial}=\bar\partial\bar\partial^\dagger+\bar\partial^\dagger\bar\partial$。紧 Kähler 流形上，Kähler 恒等式给出 $\Delta_{\mathrm H}=2\Delta_{\bar\partial}$，从而
 $H^k(M;\mathbb C)=\bigoplus_{p+q=k}H^{p,q}_{\bar\partial}(M)$，
 且 $\overline{H^{p,q}}\cong H^{q,p}$。这些结论需要 Kähler 条件；一般紧复流形不能照搬。
 
@@ -42,7 +42,7 @@ $H^k(M;\mathbb C)=\bigoplus_{p+q=k}H^{p,q}_{\bar\partial}(M)$，
 
 ## 11.5 层：把局部数据正确拼起来 ★
 
-层 $\mathcal F$ 给每个开集赋予数据 $\mathcal F(U)$ 与限制映射，要求相同局部数据能唯一拼接。全纯函数、光滑函数与局部常值函数分别组成层。芽把“在足够小邻域上一样”作为等价关系，点 $x$ 的茎记为 $\mathcal F_x$。
+层 $\mathcal F$ 给每个开集赋予数据 $\mathcal F(U)$ 与限制映射，要求在交集上限制相同的局部数据能够唯一拼接为整个开集上的数据。全纯函数、光滑函数与局部常值函数分别组成层。芽把“在足够小邻域上一样”作为等价关系，点 $x$ 的茎记为 $\mathcal F_x$。
 
 局部常值层的截面与常值预层不同：不连通开集上，局部常值函数可以在各分支取不同值。这个例子解释了为什么层化不是多余步骤。
 
@@ -56,9 +56,9 @@ $H^k(M;\mathbb C)=\bigoplus_{p+q=k}H^{p,q}_{\bar\partial}(M)$，
 
 ## 11.7 除子、线丛与 Serre 对偶
 
-曲面上的除子是有限和 $D=\sum_p n_p[p]$，次数为 $\deg D=\sum n_p$。$\mathcal O(D)$ 的截面是满足 $(f)+D\ge0$ 的亚纯函数；其整体截面维数记为 $\ell(D)$。典范线丛 $K_M$ 是全纯一阶形式丛，典范除子写作 $K$。
+以下设 $M$ 为紧连通 Riemann 曲面。曲面上的除子是有限和 $D=\sum_p n_p[p]$，次数为 $\deg D=\sum n_p$。$\mathcal O(D)$ 的截面是满足 $(f)+D\ge0$ 的亚纯函数；其整体截面维数记为 $\ell(D)$。典范线丛 $K_M$ 是全纯一阶形式丛，典范除子写作 $K$。
 
-紧曲面上的 Serre 对偶为
+设 $L$ 是全纯线丛，$H^q(M,L)$ 简写其全纯截面层的上同调。Serre 对偶给出
 
 $$
 H^1(M,L)\cong H^0(M,K_M\otimes L^{-1})^*.

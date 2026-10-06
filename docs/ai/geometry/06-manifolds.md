@@ -20,7 +20,7 @@ $(x^1,\ldots,x^m)\mapsto(x^1,\ldots,x^r,0,\ldots,0)$。
 
 若 $dF_p$ 在 $F(p)=y$ 的所有点满射，则 $y$ 是正则值，秩定理给出 $F^{-1}(y)$ 是余维 $\dim N$ 的子流形。横截条件 $dF_p(T_pM)+T_{F(p)}S=T_{F(p)}N$ 将它推广到逆像 $F^{-1}(S)$。
 
-Sard 定理保证光滑映射的临界值集在目标坐标中具有 Lebesgue 测度 $m_n$ 零；有限可微版本需要足够高的微分阶数。其证明通过坐标分层与小立方体估计，这里作为分析工具引用。它使“选择一个正则值”成为有依据的操作，而不是泛泛地说“一般位置”。
+Sard 定理保证光滑映射的临界值集在目标坐标中的 Lebesgue 测度 $m_n$ 为零；有限可微版本需要足够高的微分阶数。其证明通过坐标分层与小立方体估计，这里作为分析工具引用。它使“选择一个正则值”成为有依据的操作，而不是泛泛地说“一般位置”。
 
 Whitney 嵌入定理保证每个 $n$ 维光滑流形可嵌入 $\mathbb R^{2n}$（$n>0$）。证明需横截与消除双点技术，本讲义不以一句投影论证替代完整证明。
 
@@ -38,19 +38,28 @@ $$
 (\alpha\wedge\beta)(u,v)=\alpha(u)\beta(v)-\alpha(v)\beta(u)
 $$
 
-对一阶形式成立，不加额外的 $1/2$。拉回 $F^*$ 将每个输入先经 $dF$；这是余变对象，无须 $F$ 可逆。
+这里 $\alpha,\beta$ 是一阶形式，$u,v$ 是同一点处的切向量；外积公式中不加额外的 $1/2$。
+
+设 $F:M\to N$ 是光滑映射，$\omega\in\Omega^k(N)$。要把 $\omega$ 拉回到 $M$，先用微分 $dF_p$ 将 $p$ 处的每个输入切向量映到 $F(p)$ 处，再让 $\omega_{F(p)}$ 对这些向量求值：
+
+$$
+(F^*\omega)_p(v_1,\ldots,v_k)
+=\omega_{F(p)}(dF_pv_1,\ldots,dF_pv_k).
+$$
+
+这样定义的 $F^*\omega$ 是 $M$ 上的 $k$ 形式。因此 $F^*:\Omega^k(N)\to\Omega^k(M)$ 的方向与 $F:M\to N$ 相反，这就是拉回的反变性。构造只使用 $dF_p$，不要求 $F$ 可逆。
 
 坐标中若 $\alpha=\sum_I a_I\,dx^{i_1}\wedge\cdots\wedge dx^{i_k}$，定义
-$d\alpha=\sum_I da_I\wedge dx^I$。链式法则与混合偏导对称证明换图相容及 $d^2=0$。还满足
+$d\alpha=\sum_I da_I\wedge dx^I$。这里 $I=(i_1,\ldots,i_k)$，$dx^I$ 是对应的坐标形式外积。链式法则保证定义在换坐标后相容，混合偏导的对称性则给出 $d^2=0$。对 $\alpha\in\Omega^k(M)$、$\beta\in\Omega^\ell(M)$ 与 $\omega\in\Omega^k(N)$，还有
 
 $$
 d(\alpha\wedge\beta)=d\alpha\wedge\beta+(-1)^k\alpha\wedge d\beta,
-\qquad dF^*\alpha=F^*d\alpha.
+\qquad d(F^*\omega)=F^*(d\omega).
 $$
 
 ## 6.6 Poincaré 引理的证明 ★
 
-在星形开集 $U\subset\mathbb R^n$，径向同伦 $F(t,x)=tx$ 将恒等映射缩到原点。把 $F^*\alpha$ 写成 $dt\wedge\beta_t+\gamma_t$，定义 $K\alpha=\int_0^1\beta_t\,dt$。对外微分逐项计算并用微积分基本定理，得到
+在关于原点星形的开集 $U\subset\mathbb R^n$ 中，径向同伦 $F(t,x)=tx$ 将恒等映射缩到原点。把 $F^*\alpha$ 写成 $dt\wedge\beta_t+\gamma_t$，定义 $K\alpha=\int_0^1\beta_t\,dt$。对外微分逐项计算并用微积分基本定理，得到
 
 $$
 dK+Kd=F_1^*-F_0^*.
@@ -84,7 +93,7 @@ $\sum_i d(\rho_i\alpha)=d\alpha$，因 $\sum_i d\rho_i=0$，完成证明。
 
 定义
 $H^k_{\mathrm{dR}}(M)=\ker(d:\Omega^k\to\Omega^{k+1})/\operatorname{im}(d:\Omega^{k-1}\to\Omega^k)$。
-形式在光滑奇异单形上积分，Stokes 说明这是复形映射，诱导
+形式在光滑奇异单形上积分，Stokes 定理说明积分与两边的微分相容，因此诱导上同调之间的自然映射。de Rham 定理断言这个映射是同构：
 
 $$
 H^k_{\mathrm{dR}}(M)\cong H^k(M;\mathbb R).

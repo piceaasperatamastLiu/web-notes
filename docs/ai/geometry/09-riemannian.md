@@ -47,13 +47,13 @@ $$
 
 于是单位球面曲率为 $+1$，双曲模型为 $-1$。常曲率 $c$ 的曲率张量为
 $R(X,Y)Z=c(g(Y,Z)X-g(X,Z)Y)$。
-对正交基 $e_i$，
+对单位正交基 $e_i$，
 $\operatorname{Ric}(v,w)=\sum_i g(R(e_i,v)w,e_i)$，
 标量曲率为其迹。常曲率模型有 $\operatorname{Ric}=(n-1)c\,g$、$\operatorname{Scal}=n(n-1)c$。
 
 ## 9.4 指数映射与局部最短性
 
-令 $\exp_p(v)=\gamma_v(1)$。其在零点微分为恒等，故给出正规坐标。Gauss 引理说径向方向与等半径方向正交。
+令 $\gamma_v$ 为初始位置 $p$、初始速度 $v$ 的测地线。在它能延伸到时刻 $1$ 的范围内，定义 $\exp_p(v)=\gamma_v(1)$。指数映射在零向量处的微分为恒等，故给出正规坐标。Gauss 引理说径向方向与等半径方向正交。
 
 证明取径向测地线变分 $F(t,s)=\exp_p(tv(s))$，记 $T=\partial_tF,J=\partial_sF$。无挠给出 $\nabla_TJ=\nabla_JT$，故
 $\partial_t g(T,J)=\frac12\partial_s g(T,T)$。
@@ -64,7 +64,7 @@ $\partial_t g(T,J)=\frac12\partial_s g(T,T)$。
 对测地线变分，将 $\nabla_TT=0$ 对 $s$ 求导，使用曲率定义与 $[T,J]=0$，得到
 
 $$
-\nabla_\mathbb T^2J+R(J,T)T=0.
+\nabla_T^2J+R(J,T)T=0.
 $$
 
 垂直于单位速测地线时，常曲率模型化为 $J''+cJ=0$。球面解为正弦，出现共轭点；Euclidean 解为线性；双曲解为双曲正弦，体现测地线分离。这个符号检验同时检查了曲率与 Jacobi 方程的相容性。
@@ -86,9 +86,9 @@ Jacobi 场的二阶方程经比较给出 Rauch 与体积比较定理。两个重
 
 ## 9.8 Laplace 算子与 Hodge 定理 ★
 
-函数的约定为 $\Delta_g=\operatorname{div}_g\operatorname{grad}_g$，因此紧无边界时
+对实值光滑函数 $f$，函数 Laplace 算子的约定为 $\Delta_g=\operatorname{div}_g\operatorname{grad}_g$，因此紧无边界时
 $\int f\Delta_g f\,d\operatorname{vol}_g=-\int|df|^2\,d\operatorname{vol}_g$。
-Hodge 算子满足
+以下设 $M$ 是定向 $n$ 维 Riemann 流形。Hodge 星算子将 $k$ 形式变为 $(n-k)$ 形式，满足
 $\alpha\wedge *_g\beta=\langle\alpha,\beta\rangle_g\,d\operatorname{vol}_g$，
 $*_g^2=(-1)^{k(n-k)}$。
 复形式时使用 $\alpha\wedge *_g\overline\beta$，内积对第一变量线性。
@@ -100,14 +100,13 @@ $$
 d^\dagger|_{\Omega^k}=(-1)^{n(k+1)+1}*_g d *_g.
 $$
 
-在函数上 $\Delta_{\mathrm H}=-\Delta_g$。紧、定向、无边界时，椭圆理论给出
+在函数上 $\Delta_{\mathrm H}=-\Delta_g$。紧、定向、无边界时，椭圆理论给出如下正交分解，其中 $\mathcal H^k=\ker\Delta_{\mathrm H}$ 是调和 $k$ 形式空间，正交性与范数均相对于 $L^2$ 内积：
 $\Omega^k=\mathcal H^k\oplus\operatorname{im}d\oplus\operatorname{im}d^\dagger$。
-故每个 de Rham 类有唯一调和代表。具体地，闭形式分解为 $\alpha=h+d\beta+d^\dagger\eta$ 后，$dd^\dagger\eta=0$；分部积分给 $\|d^\dagger\eta\|^2=\langle\eta,dd^\dagger\eta\rangle=0$，所以只剩调和部分与恰当部分。若调和形式恰当，分部积分同样使其范数为零，得到唯一性。分解定理本身需要椭圆估计，不能由这段代数论证独立推出.
+故每个 de Rham 类有唯一调和代表。具体地，闭形式分解为 $\alpha=h+d\beta+d^\dagger\eta$ 后，$dd^\dagger\eta=0$；分部积分给 $\|d^\dagger\eta\|^2=\langle\eta,dd^\dagger\eta\rangle=0$，所以只剩调和部分与恰当部分。若调和形式恰当，分部积分同样使其范数为零，得到唯一性。分解定理本身需要椭圆估计，不能由这段代数论证独立推出。
 
 ## 9.9 谱、极限与非光滑曲率 ☆
 
-紧流形上 $-\Delta_g$ 有离散非负谱。Rayleigh 商
-$\int|df|^2/\int|f|^2$ 描述首个正特征值，但谱一般不能唯一确定流形。
+紧无边界流形上 $-\Delta_g$ 有离散非负谱。若流形连通，首个正特征值是 Rayleigh 商 $\int_M|df|^2\,d\operatorname{vol}_g/\int_M|f|^2\,d\operatorname{vol}_g$ 在非零、均值为零的光滑函数中取下确界的结果。均值条件排除了特征值为零的常数函数。谱一般不能唯一确定流形。
 
 Gromov–Hausdorff 距离比较紧度量空间的形状；极限可能失去光滑结构。Alexandrov 空间用三角形比较描述曲率下界，CAT$(\kappa)$ 描述相应的上界型比较；这两种条件不是同义词。几何测度论则用可整流集与流研究带奇点的面积极小对象。
 

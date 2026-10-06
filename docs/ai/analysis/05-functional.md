@@ -138,7 +138,7 @@ $\|T\|=\sup_{\|x\|\leq1}\|Tx\|$ 是最小可能的界，且 $\|ST\|\leq\|S\|\|T\
 
 ## 5.12 Lp 对偶的积分表示
 
-Hölder 已经说明 $g\in L^q$ 会给连续线性泛函 $\ell_g(f)=\int_X fg\,d\mu$。现在的问题是，是否所有连续线性观察都来自这样的积分。在 $\sigma$-有限测度空间上，对 $1\leq p<\infty$，答案是肯定的，而且 $\|\ell_g\|=\|g\|_q$。
+Hölder 不等式已经说明，每个 $g\in L^q$ 都定义连续线性泛函 $\ell_g(f)=\int_X fg\,d\mu$。现在的问题是，是否所有连续线性观察都来自这样的积分。在 $\sigma$-有限测度空间上，对 $1\leq p<\infty$，答案是肯定的，而且 $\|\ell_g\|=\|g\|_q$。
 
 先设空间测度有限，给定 $\ell\in(L^p)^*$，令 $\nu(A)=\ell(\mathbf1_A)$。若 $A_j$ 不交，则有限部分和的指标函数在 $L^p$ 趋于并集指标函数，因为尾集的测度趋零。连续性给可数可加性。还需验证总变差有限：对任意有限可测分割 $(A_j)$，选模为 1 的系数 $c_j$ 使 $c_j\nu(A_j)=|\nu(A_j)|$，则
 
@@ -165,7 +165,7 @@ $$
 
 证明把泛函看作其全部点值：对每个 $x\in X$，$|\ell(x)|\leq\|x\|$，因此单位球嵌入紧圆盘的乘积 $\prod_x\{z:|z|\leq\|x\|\}$。乘积紧性见附录 A.8。该乘积中，满足 $a(x+y)=a(x)+a(y)$、$a(cx)=ca(x)$ 的点族组成闭集，因为每个等式只涉及有限坐标。每个这样的点族又定义一个范数不超过 1 的连续泛函，所以该闭集恰是对偶单位球。乘积拓扑正是点值收敛拓扑，即弱*拓扑，定理得证。
 
-若 $X$ 可分，选单位球稠密列 $x_j$，在对偶单位球上可用度量 $d(\ell,m)=\sum_j2^{-j}|\ell(x_j)-m_n(x_j)|/(1+|\ell(x_j)-m_n(x_j)|)$。稠密性和统一范数界使这些坐标足以控制任意固定 $x$，故此度量产生弱*拓扑，紧性遂给列紧。
+若 $X$ 可分，选单位球稠密列 $x_j$，在对偶单位球上可用度量 $d(\ell,\ell\prime)=\sum_j2^{-j}|\ell(x_j)-\ell\prime(x_j)|/(1+|\ell(x_j)-\ell\prime(x_j)|)$。稠密性和统一范数界使这些坐标足以控制任意固定 $x$，故此度量产生弱*拓扑，由于紧度量空间具有列紧性，这里的弱*紧性进一步给出弱*列紧性。
 
 ---
 
@@ -233,9 +233,9 @@ Riesz 表示保证存在；$\|T^{\dagger}\|=\|T\|$、$(ST)^{\dagger}=T^{\dagger}
 
 ## 5.18 不动点工具
 
-> **Banach 压缩映射定理。** 完备度量空间上，若 $d(Tx,Ty)\leq qd(x,y)$、$q<1$，则有唯一不动点，迭代 $x_{n+1}=Tx_n$ 收敛，且 $d(x_n,x_*)\leq q^n d(x_1,x_0)/(1-q)$。
+> **Banach 压缩映射定理。** 非空完备度量空间上，若 $d(Tx,Ty)\leq qd(x,y)$、$q<1$，则有唯一不动点，迭代 $x_{n+1}=Tx_n$ 收敛，且 $d(x_n,x_*)\leq q^n d(x_1,x_0)/(1-q)$。
 
-证明把相邻增量界为几何级数，得到 Cauchy；连续性给不动点，压缩性给唯一性。它补足 2.5 的证明工具，并将在 8.1 构造 ODE 解。
+从任意 $x_0$ 出发，令 $x_{n+1}=Tx_n$。压缩性给出 $d(x_{n+1},x_n)\le q^n d(x_1,x_0)$，故对 $m>n$，有 $d(x_m,x_n)\le q^n d(x_1,x_0)/(1-q)$。因此迭代列是 Cauchy 列，由完备性收敛到某个 $x_*$。$T$ 连续，取极限得到 $Tx_*=x_*$。若 $y_*$ 也是不动点，则 $d(x_*,y_*)\le qd(x_*,y_*)$，由 $q<1$ 得 $x_*=y_*$。让上述尾部估计中的 $m\to\infty$，还得到定理中的误差界。它补足 2.5 的证明工具，并将在 8.1 构造 ODE 解。
 
 ## 5.19 Hahn–Banach 定理
 
@@ -307,7 +307,7 @@ $$
 
 ## 5.23 谱与预解集
 
-对非零复 Banach 空间上的有界 $T$，预解集 $\rho(T)$ 是 $T-\lambda I$ 有有界逆的 $\lambda$，谱 $\sigma(T)$ 为其补集。若 $|\lambda|>\|T\|$，Neumann 级数给逆，因此谱有界。在已有逆的点附近，同样的级数使小扰动仍可逆，所以预解集开，谱闭，因而紧。
+对非零复 Banach 空间上的有界 $T$，预解集 $\rho(T)$ 定义为所有使 $T-\lambda I$ 具有有界逆的 $\lambda\in\mathbb C$ 组成的集合，谱 $\sigma(T)$ 为其补集。若 $|\lambda|>\|T\|$，Neumann 级数构造出这个逆算子，因此谱有界。在已有逆的点附近，同样的级数使小扰动仍可逆，所以预解集开，谱闭，因而紧。
 
 谱还非空；这一点使用第 6 章的 Liouville 定理，可学完复分析后回读。若谱空，则 $R(z)=(T-zI)^{-1}$ 处处存在，局部 Neumann 展开使它解析。对固定 $x$ 与连续泛函 $\ell$，标量函数 $\ell(R(z)x)$ 是整函数；在无穷远，$\|R(z)\|\leq(|z|-\|T\|)^{-1}$，所以该函数趋零。在有限闭圆盘上它连续有界，Liouville 迫使它恒为零。Hahn–Banach 使连续泛函分离点，故 $R(z)x=0$ 对全部 $x$ 成立，与可逆性矛盾。复数域是这一论证的必要条件。谱点不一定是特征值。
 
@@ -365,7 +365,7 @@ $$
 \leq\|T\|^2-2\lambda\langle Tx_n,x_n\rangle+\lambda^2\longrightarrow0.
 $$
 
-紧性给 $Tx_n$ 的收敛子列，$\lambda\ne0$ 于是也给 $x_n$ 收敛到单位向量 $x$。取极限得 $Tx=\lambda x$。这样最大绝对特征值确实存在，而不是仅有逼近它的向量。
+由紧性，可选子列使 $Tx_n$ 收敛。沿这条子列，由 $Tx_n-\lambda x_n\to0$ 与 $\lambda\ne0$，$x_n$ 也收敛到某个单位向量 $x$。取极限得 $Tx=\lambda x$。这样最大绝对特征值确实存在，而不是仅有逼近它的向量。
 
 不同特征值的向量正交：若 $Tx=\lambda x$、$Ty=\lambda' y$，自伴性给 $\lambda,\lambda'\in\mathbb R$，且 $\lambda\langle x,y\rangle=\langle Tx,y\rangle=\langle x,Ty\rangle=\lambda'\langle x,y\rangle$。每个非零特征空间有限维，否则其中的无限正交单位列经 $T$ 后仍两两距离固定，违背紧性。同理，对任意 $\varepsilon>0$，绝对值至少为 $\varepsilon$ 的特征值连同重数只可能有限个。
 
@@ -410,9 +410,9 @@ $$
 
 > 设实 Hilbert 空间上双线性形式满足 $|a(u,v)|\leq M\|u\|\|v\|$、$a(u,u)\geq c\|u\|^2$，$c>0$。对每个连续线性 $\ell$，有唯一 $u$ 满足 $a(u,v)=\ell(v)$，且 $\|u\|\leq\|\ell\|/c$。
 
-证明用 Riesz 表示写 $a(u,v)=\langle Au,v\rangle$、$\ell(v)=\langle f,v\rangle$。$A$ 有界，强制性给 $c\|u\|\leq\|Au\|$，故单射且值域闭：若 $Au_n$ Cauchy，则 $u_n$ Cauchy，完备性给原像极限。若 $w\perp\operatorname{im}A$，取输入 $w$，有 $0=\langle Aw,w\rangle=a(w,w)\geq c\|w\|^2$，所以 $w=0$。闭且正交补为零的值域等于全空间，因此 $Au=f$ 有唯一解，估计也由下界得到。
+证明用 Riesz 表示写 $a(u,v)=\langle Au,v\rangle$、$\ell(v)=\langle f,v\rangle$。$A$ 有界，强制性给 $c\|u\|\leq\|Au\|$，故单射且值域闭：若 $Au_n$ Cauchy，则 $u_n$ 为 Cauchy 列，由空间的完备性收敛到某个 $u$；再由 $A$ 连续，$Au_n\to Au$，故值域闭。若 $w\perp\operatorname{im}A$，取输入 $w$，有 $0=\langle Aw,w\rangle=a(w,w)\geq c\|w\|^2$，所以 $w=0$。闭且正交补为零的值域等于全空间，因此 $Au=f$ 有唯一解，估计也由下界得到。
 
-对 Poisson 方程取 $a(u,v)=\int\nabla u\cdot\nabla v$。Poincaré 不等式使梯度范数与 $H_0^1$ 范数等价，因而强制；$f\in L^2$ 时右端由 Hölder 与 Poincaré 连续。定理遂给唯一弱解，而不要求先猜经典公式。
+对 Poisson 方程取 $a(u,v)=\int\nabla u\cdot\nabla v$。Poincaré 不等式使梯度范数与 $H_0^1$ 范数等价，因此存在 $c>0$，使 $a(u,u)\ge c\|u\|_{H^1}^2$，满足强制性条件。若 $f\in L^2$，Cauchy–Schwarz 与 Poincaré 不等式给出 $|\int fv|\le\|f\|_2\|v\|_2\le C\|f\|_2\|\nabla v\|_2$，所以右端定义了连续线性泛函。定理遂给唯一弱解，而不要求先猜经典公式。
 
 同一解还是 $J(v)=\frac12\int|\nabla v|^2-\int fv$ 的唯一极小点。将 $v=u+w$ 代入，利用弱方程消去交叉项，得 $J(u+w)=J(u)+\frac12\int|\nabla w|^2$。这比“Euler–Lagrange 方程必要”更强：它直接证明极小性与唯一性，并将方程解和能量最优化连接起来。
 

@@ -95,7 +95,7 @@ $e_k(x)=e^{2\pi ikx}$ 在 $L^2(\mathbb T)$ 正交归一。Fejér 的一致逼近
 
 > 对 $f\in L^1(\mathbb R^n)$，定义 $\widehat f(\xi)=\int f(x)e^{-2\pi ix\cdot\xi}dx$。
 
-控制收敛给连续性及 $\|\widehat f\|_\infty\leq\|f\|_1$。先对光滑紧支撑函数分部积分得无穷远衰减，再用 $L^1$ 稠密性与这条统一界，得到 Riemann–Lebesgue 引理。
+控制收敛定理证明 $\widehat f$ 连续，而积分的三角不等式给出 $\|\widehat f\|_\infty\leq\|f\|_1$。先对光滑紧支撑函数分部积分得无穷远衰减，再用 $L^1$ 稠密性与这条统一界，得到 Riemann–Lebesgue 引理。
 
 > 若 $f\in L^1(\mathbb R^n)$ 且 $\widehat f\in L^1(\mathbb R^n)$，则
 >
@@ -145,7 +145,7 @@ $$
 =\int f(x)\overline{g(x)}dx.
 $$
 
-取 $g=f$ 得等距性。现在用 $\mathcal S$ 在 $L^2$ 中稠密，给任意 $f\in L^2$ 取 $f_j\to f$，则 $\widehat f_j$ 由等距性是 Cauchy 列，其极限定义为 $\widehat f$。若选另一逼近列，二者变换差的范数等于原差，故定义独立。等距算子的值域闭；又因变换在 $\mathcal S$ 上可逆，值域包含稠密的 $\mathcal S$，所以满射。这证明变换是 $L^2$ 的酉算子。
+取 $g=f$ 得等距性。现在用 $\mathcal S$ 在 $L^2$ 中稠密，给任意 $f\in L^2$ 取 $f_j\to f$，等距性给出 $\|\widehat f_j-\widehat f_k\|_2=\|f_j-f_k\|_2$，因此 $\widehat f_j$ 是 Cauchy 列，其极限定义为 $\widehat f$。若选另一逼近列，二者变换差的范数等于原差，故定义独立。等距算子的值域闭；又因变换在 $\mathcal S$ 上可逆，值域包含稠密的 $\mathcal S$，所以满射。这证明变换是 $L^2$ 的酉算子。
 
 若 $f\in L^1\cap L^2$，用截断和光滑化得到在两种范数下同时逼近的 Schwartz 函数。原始积分定义给变换一致收敛，$L^2$ 定义给均方收敛，抽子列便知两者几乎处处相同。由此，积分定义、反演与 Hilbert 空间延拓彼此相容，但不能把一般 $L^2$ 变换都当成绝对积分。
 
@@ -295,7 +295,7 @@ Haar 小波 $\psi=\mathbf1_{[0,1/2)}-\mathbf1_{[1/2,1)}$，其 $2^{j/2}\psi(2^jx
 
 ## 7.22 Shannon 采样定理
 
-频谱带限使连续函数的全部信息压在有限频率区间内，因此有可能从等距样本重构。设 $f\in L^2(\mathbb R)$，$\widehat f$ 支持于 $[-B,B]$、$B>0$。有限区间上的 Hölder 给 $\widehat f\in L^1$，所以反演产生连续代表，采样点值具有意义。
+频谱带限使连续函数的全部信息压在有限频率区间内，因此有可能从等距样本重构。设 $f\in L^2(\mathbb R)$，$\widehat f$ 支持于 $[-B,B]$、$B>0$。由于频谱支持在有限测度区间内，Cauchy–Schwarz 不等式给出 $\|\widehat f\|_1\le(2B)^{1/2}\|\widehat f\|_2$，因此 $\widehat f\in L^1$，反演公式便产生连续代表，采样点值具有意义。
 
 下面将得到采样公式：
 

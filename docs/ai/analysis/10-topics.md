@@ -55,7 +55,7 @@ $C(K)$ 与 Hilbert 空间的 $\mathcal B(H)$ 是典型例子，前者交换，�
 
 测度保持变换 $T$ 满足 $\mu(T^{-1}A)=\mu(A)$。在概率空间 $(\Omega,\mathcal F,\mathbb P)$ 上，则使用 $\mathbb P(T^{-1}A)=\mathbb P(A)$。Birkhoff 定理说对 $f\in L^1(\Omega,\mathcal F,\mathbb P)$，时间平均 $n^{-1}\sum_{k=0}^{n-1}f(T^kx)$ 几乎处处及 $L^1$ 收敛到 $\mathbb E[f\mid\mathcal I]$，$\mathcal I$ 为不变事件 $\sigma$-代数（模零集）。
 
-遍历表示不变事件只有概率 0 或 1，此时极限为 $\int_\Omega f\,d\mathbb P$。圆周无理旋转 $x\mapsto x+\alpha\pmod1$ 是例子，此时概率测度取 $m_{\mathbb T}$：对指数函数，几何和除以 $n$ 趋零；三角多项式逼近再给连续函数均值收敛。完整可积版本用遍历定理。
+称变换遍历，是指它的不变事件只有概率 0 或 1，此时极限为 $\int_\Omega f\,d\mathbb P$。圆周无理旋转 $x\mapsto x+\alpha\pmod1$ 是例子，此时概率测度取 $m_{\mathbb T}$：对指数函数，几何和除以 $n$ 趋零；三角多项式逼近再给连续函数均值收敛。完整可积版本用遍历定理。
 
 ## 10.7 非标准分析 ☆
 

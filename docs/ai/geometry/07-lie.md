@@ -15,7 +15,7 @@
 
 左不变向量场的积分曲线从单位元出发形成单参数子群，定义 $\exp(tX)$。矩阵群中它就是收敛级数 $\sum_{j\ge0}t^jX^j/j!$。$d\exp_0=\operatorname{id}$，故指数在零点附近为微分同胚，但全局未必单射或满射。
 
-共轭的微分给出 $\operatorname{Ad}_g:\mathfrak g\to\mathfrak g$，其在单位元的微分为 $\operatorname{ad}_X(Y)=[X,Y]$。表示论与最高权理论见代数学讲义；此处关注它们在轨道和丛中的几何作用。
+对共轭映射 $h\mapsto ghg^{-1}$ 在单位元求微分，得到 $\operatorname{Ad}_g:\mathfrak g\to\mathfrak g$。再对 $g\mapsto\operatorname{Ad}_g$ 在单位元求微分，得到 $\operatorname{ad}_X(Y)=[X,Y]$。表示论与最高权理论见代数学讲义；此处关注它们在轨道和丛中的几何作用。
 
 ## 7.3 群作用与商流形 ★
 
@@ -23,7 +23,7 @@
 
 > 自由且适当的光滑李群作用具有光滑商 $M/G$，投影是满秩映射，并局部为主丛。
 
-适当是映射 $G\times M\to M\times M$，$(g,x)\mapsto(gx,x)$ 为适当映射。紧群的作用自动适当。自由消除稳定子，适当性控制不同轨道的分离；局部横截片与逆函数定理给出商图。没有适当性，稠密轨道可能产生非 Hausdorff 商。
+作用适当，指映射 $G\times M\to M\times M$，$(g,x)\mapsto(gx,x)$ 的每个紧集原像都是紧集。紧群的作用自动适当。自由消除稳定子，适当性控制不同轨道的分离；局部横截片与逆函数定理给出商图。没有适当性，稠密轨道可能产生非 Hausdorff 商。
 
 ## 7.4 经典齐性空间
 
@@ -36,7 +36,7 @@ $$
 \cong\operatorname O(n)/(\operatorname O(r)\times\operatorname O(n-r)).
 $$
 
-射影空间是 $r=1$ 的情形。复 Grassmann 流形用酉群代替正交群。这里商空间的维数可由群与稳定子的维数相减计算。
+这里 $\operatorname{Gr}_r(\mathbb R^n)$ 是所有 $r$ 维线性子空间组成的 Grassmann 流形。$r=1$ 时得到实射影空间 $\mathbb{RP}^{n-1}$。复 Grassmann 流形用酉群代替正交群。这里商空间的维数可由群与稳定子的维数相减计算。
 
 ## 7.5 对称空间 ○
 

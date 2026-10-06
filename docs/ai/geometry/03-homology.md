@@ -44,7 +44,7 @@ $$
 [v_0,\ldots,v_i,w_i,\ldots,w_n],\qquad 0\le i\le n
 $$
 
-剖分棱柱。把这些单形经 $(\sigma,\operatorname{id})$ 与 $F$ 映入 $Y$，按 $(-1)^i$ 相加，定义 $P_n(\sigma)$。展开边界时，内部公共面两两抵消，顶面留下 $g_\#\sigma$，底面留下 $-f_\#\sigma$，侧面正好是 $-P_{n-1}\partial\sigma$。于是
+剖分棱柱。先用 $\sigma\times\operatorname{id}$ 把这些单形映入 $X\times[0,1]$，再与 $F$ 复合得到 $Y$ 中的奇异单形，按 $(-1)^i$ 相加，定义 $P_n(\sigma)$。展开边界时，内部公共面两两抵消，顶面留下 $g_\#\sigma$，底面留下 $-f_\#\sigma$，侧面正好是 $-P_{n-1}\partial\sigma$。于是
 
 $$
 \partial P+P\partial=g_\#-f_\#.
@@ -63,7 +63,7 @@ $$
 \xrightarrow{\delta}H_{n-1}(A)\to\cdots.
 $$
 
-连接映射的构造值得掌握。把相对循环 $\bar c$ 提升为 $c\in C_n(X)$，则 $\partial c\in C_{n-1}(A)$，令 $\delta[\bar c]=[\partial c]$。换提升会增加 $A$ 内的边界；换相对同调代表元也不会改变所得同调类。
+连接映射的构造值得掌握。把相对循环 $\bar c$ 提升为 $c\in C_n(X)$，则 $\partial c\in C_{n-1}(A)$，令 $\delta[\bar c]=[\partial c]$。若换一个提升，两提升之差属于 $C_n(A)$，因此所得 $\partial c$ 只相差 $A$ 内的一个边界；换相对同调代表元也不会改变所得同调类。
 
 验证正合性时，例如 $\delta[\bar c]=0$ 意味着 $\partial c=\partial a$，其中 $a\in C_n(A)$，所以 $c-a$ 是 $X$ 中的循环并映到 $[\bar c]$。其余位置同样通过提升、取边界和修改代表元证明，而不是仅凭图形猜测。
 
@@ -97,7 +97,7 @@ $$
 
 CW 复形的 $n$ 骨架记为 $X^n$。相对群 $H_k(X^n,X^{n-1})$ 只在 $k=n$ 非零，此时每个 $n$ 胞腔贡献一个 $\mathbb Z$。这由切除和 $(D^n,S^{n-1})$ 的同调得到。三元组的连接映射给出胞腔边界，骨架的长正合列证明胞腔复形计算奇异同调。
 
-胞腔边界的系数是附着映射向对应低一维胞腔球面的度数。因此 $\mathbb{RP}^2$ 的复形为
+具体地，设 $n\ge2$，取一个 $n$ 胞腔的附着映射 $S^{n-1}\to X^{n-1}$。对每个 $(n-1)$ 胞腔，将 $X^{n-1}$ 中该胞腔之外的部分压成一点，商空间便是 $S^{n-1}$。复合所得映射 $S^{n-1}\to S^{n-1}$ 的度数，就是该胞腔在边界中的系数。次数为一时，边界直接按有向边的终点减起点计算。因此 $\mathbb{RP}^2$ 的复形为
 
 $$
 0\to\mathbb Z\xrightarrow{\times2}\mathbb Z
@@ -108,13 +108,13 @@ $$
 
 ## 3.8 上同调与杯积
 
-定义 $C^n(X;A)=\operatorname{Hom}_{\mathbb Z}(C_n(X;\mathbb Z),A)$，余边界为 $\delta\varphi=\varphi\circ\partial$。其同调记作 $H^n(X;A)$。当系数为交换环时，前面与后面的单形限制定义杯积，诱导
+定义 $C^n(X;A)=\operatorname{Hom}_{\mathbb Z}(C_n(X;\mathbb Z),A)$，余边界为 $\delta\varphi=\varphi\circ\partial$。其同调记作 $H^n(X;A)$。当系数 $A$ 为交换环时，对 $p$ 次余链 $\varphi$ 与 $q$ 次余链 $\psi$，分别把一个 $(p+q)$ 单形限制到前 $p+1$ 个顶点和后 $q+1$ 个顶点张成的面，再将两次求值相乘，定义 $\varphi\smile\psi$。这个构造在上同调上诱导
 
 $$
 \smile:H^p(X;A)\times H^q(X;A)\to H^{p+q}(X;A).
 $$
 
-同调上的关系是 $a\smile b=(-1)^{pq}b\smile a$；链级别不必逐项交换。环面的两条坐标方向给出 $a,b\in H^1(\mathbb T^2;\mathbb Z)$，且 $a\smile b$ 生成 $H^2$。杯积于是能识别同调群本身没有记录的乘法结构。
+上同调类满足 $a\smile b=(-1)^{pq}b\smile a$；链级别不必逐项交换。环面的两条坐标方向给出 $a,b\in H^1(\mathbb T^2;\mathbb Z)$，且 $a\smile b$ 生成 $H^2$。杯积于是能识别同调群本身没有记录的乘法结构。
 
 ## 3.9 系数、泛系数与 Künneth
 
@@ -154,7 +154,7 @@ $$
 
 对 $n\ge1$，连续映射 $f:S^n\to S^n$ 在顶维同调上乘以一个整数，称为 $\deg f$。度数在同伦下不变，复合时相乘。反足映射的度数为 $(-1)^{n+1}$，因为它是 $\mathbb R^{n+1}$ 上 $-I$ 在球面边界上的限制。
 
-若 $n\ge2$ 且存在收缩 $r:D^n\to S^{n-1}$，则 $r\circ i=\operatorname{id}$，但 $i_*$ 经过零群 $H_{n-1}(D^n)$，矛盾。$n=1$ 可由连通性排除。这也证明 Brouwer 不动点定理：假定连续 $f:D^n\to D^n$ 无不动点，从 $f(x)$ 经 $x$ 的射线取球面交点，会连续地构造这样的收缩。
+若 $n\ge2$ 且存在回缩 $r:D^n\to S^{n-1}$，即 $r$ 在边界球面上为恒等映射，则 $r\circ i=\operatorname{id}$，但 $i_*$ 经过零群 $H_{n-1}(D^n)$，矛盾。$n=1$ 可由连通性排除。这也证明 Brouwer 不动点定理：假定连续 $f:D^n\to D^n$ 无不动点，从 $f(x)$ 经 $x$ 的射线取球面交点，便得到一个连续回缩，与上面的结论矛盾。
 
 ## 3.12 与微分形式及高级理论的接口
 

@@ -291,7 +291,7 @@ $$
 
 得到 $B_n=\bigcap_{j\geq n}A_j$ 满足 $\beta\leq\sigma(B_n)\leq\beta+\sum_{j\geq n}2^{-j}$。有限符号测度的连续性允许取无穷交。再取递增并 $N=\bigcup_nB_n$，有 $\sigma(N)=\beta$。若 $N$ 中某子集为正，删掉它会小于下确界；若补集某子集为负，加入它也会小于下确界。因此 $N$ 是负集、$P=N^c$ 是正集。这就是 Hahn 分解。
 
-现在考虑所有满足 $\int_Af\,d\mu\leq\nu(A)$ 对每个可测 $A$ 成立的非负 $f$，把这族记为 $\mathcal C$。它包含零函数，并对取最大值封闭：在 $\{f\geq g\}$ 与补集分别积分即可。令 $s=\sup_{f\in\mathcal C}\int f$，有限性给 $s\leq\nu(X)$。选近极大列并逐项取最大，得到递增 $f_n\in\mathcal C$，积分趋于 $s$。单调收敛给极限 $h\in\mathcal C$、$\int h=s$。
+现在考虑所有满足 $\int_Af\,d\mu\leq\nu(A)$ 对每个可测 $A$ 成立的非负 $f$，把这族记为 $\mathcal C$。它包含零函数，并对取最大值封闭：在 $\{f\geq g\}$ 与补集分别积分即可。令 $s=\sup_{f\in\mathcal C}\int f$，有限性给 $s\leq\nu(X)$。按上确界的定义，选 $g_n\in\mathcal C$ 使 $\int g_n\,d\mu>s-1/n$，再令 $f_n=\max(g_1,\ldots,g_n)$。于是 $f_n\in\mathcal C$ 递增，积分趋于 $s$。令 $h=\lim_n f_n$；对每个可测 $A$ 使用单调收敛定理，得到 $\int_Ah\,d\mu\le\nu(A)$，所以 $h\in\mathcal C$，并且 $\int h\,d\mu=s$。
 
 残余 $\nu_0(A)=\nu(A)-\int_Ah\,d\mu$ 是有限正测度且 $\nu_0\ll\mu$。假设 $\nu_0(X)>0$，则 $\mu(X)>0$，取 $c=\nu_0(X)/(2\mu(X))$。对符号测度 $\nu_0-c\mu$ 作 Hahn 分解，因总质量为正，正集 $P$ 满足 $(\nu_0-c\mu)(P)>0$，故 $\mu(P)>0$。在 $P$ 的每个子集上有 $\nu_0(A)\geq c\mu(A)$。于是 $h+c\mathbf1_P$ 仍在 $\mathcal C$，积分却严格大于 $s$，矛盾。残余只能为零，密度表示得证。
 

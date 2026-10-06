@@ -14,7 +14,7 @@
 
 ## 4.2 换元定理
 
-> 设 $F:U\to V$ 是欧氏开集间的 $C^1$ 微分同胚。Lebesgue 换元定理说，对非负可测 $h$，或满足可积条件的 $h$。
+> 设 $F:U\to V$ 是欧氏开集间的 $C^1$ 微分同胚。Lebesgue 换元定理断言：当 $h:V\to[0,+\infty]$ 可测，或 $h:V\to\mathbb K$ 满足 $\int_V|h|\,dm_n<\infty$ 时，下式成立：
 >
 > $$
 > \int_Vh(y)dy=\int_Uh(F(x))|\det DF(x)|dx.

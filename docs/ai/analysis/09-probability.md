@@ -153,7 +153,7 @@ $$
 \leq C+2|a|+\mathbb E|M_0|.
 $$
 
-令 $N\to\infty$，每个有理 $a<b$ 的总上穿数几乎必然有限。若一条路径下极限小于上极限，其中能放一个有理区间，必有无穷上穿，矛盾。因此几乎每条路径有扩展实极限。Fatou 给极限绝对值期望不超过 $C$，排除无穷，得到可积 $M_\infty$。
+令 $N\to\infty$，每个有理 $a<b$ 的总上穿数几乎必然有限。若一条路径下极限小于上极限，其中能放一个有理区间，必有无穷上穿，矛盾。因此几乎每条路径有扩展实极限。Fatou 引理给出 $\mathbb E|M_\infty|\le\liminf_n\mathbb E|M_n|\le C$，所以极限几乎必然有限，并且 $M_\infty$ 可积。
 
 单有上述界不保证 $L^1$ 收敛。如果族一致可积，即 $\sup_n\mathbb E[|M_n|\mathbf1_{|M_n|>K}]\to0$，则可以把 $|M_n-M_\infty|$ 分成两者都不超过 $K$ 的部分和尾部。前者由控制收敛趋零，后者由一致可积性及 Fatou 得任意小的统一界，因此 $L^1$ 收敛。若过程为鞅，有限时刻关系 $\mathbb E[M_N\mid\mathcal F_n]=M_n$ 在 $L^1$ 极限下保持，得到 $M_n=\mathbb E[M_\infty\mid\mathcal F_n]$。
 

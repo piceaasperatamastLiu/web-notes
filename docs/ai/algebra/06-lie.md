@@ -103,13 +103,13 @@ $$
 
 > Lie 定理：复可解李代数在非零有限维表示中存在共同特征向量，因此可以同时上三角化。
 
-给出关键证明。对 $\dim\mathfrak g$ 归纳，选包含 $[\mathfrak g,\mathfrak g]$ 的余维一理想 $\mathfrak a$，写 $\mathfrak g=\mathfrak a+\mathbb Cx$。归纳得非零 $v$ 满足 $av=\lambda(a)v$。令 $v_j=x^jv$，取首次相关前的循环空间 $U$。利用 $[a,x]\in\mathfrak a$ 归纳可得
+给出关键证明。对 $\dim\mathfrak g$ 归纳；$\mathfrak g=0$ 时任意非零向量都满足要求。若 $\mathfrak g\ne0$，可解性保证 $[\mathfrak g,\mathfrak g]\ne\mathfrak g$，因此可以选包含 $[\mathfrak g,\mathfrak g]$ 的余维一理想 $\mathfrak a$，写 $\mathfrak g=\mathfrak a+\mathbb Cx$。归纳得非零 $v$ 满足 $av=\lambda(a)v$。令 $v_j=x^jv$。由于表示空间有限维，存在最小的 $m\ge1$，使 $v_0,\ldots,v_m$ 线性相关。令 $U=\operatorname{span}(v_0,\ldots,v_{m-1})$；最小性保证这些向量构成 $U$ 的一组基，并且 $xU\subseteq U$。利用 $[a,x]\in\mathfrak a$ 归纳可得
 
 $$
 av_j-\lambda(a)v_j\in\operatorname{span}(v_0,\ldots,v_{j-1}).
 $$
 
-$U$ 对 $\mathfrak a$ 与 $x$ 都不变，$a$ 在此处的迹为 $\dim U\,\lambda(a)$。交换子迹为零，因此 $\lambda([x,a])=0$。共同特征空间 $E=\{w:aw=\lambda(a)w\ \forall a\in\mathfrak a\}$ 非零，且
+$U$ 对 $\mathfrak a$ 与 $x$ 都不变，$a$ 作为 $U$ 上线性算子的迹为 $\dim U\,\lambda(a)$。交换子迹为零，因此 $\lambda([x,a])=0$。共同特征空间 $E=\{w:aw=\lambda(a)w\ \forall a\in\mathfrak a\}$ 非零，且
 $a(xw)=x(aw)+[a,x]w=\lambda(a)xw$，所以 $x$ 保持 $E$。在 $E$ 内取 $x$ 的特征向量即为全体的共同特征向量。再对商空间归纳得到上三角基。这里特征零和代数闭性都实际参与了证明。
 
 Engel 定理说：若所有 $\operatorname{ad}x$ 幂零，则李代数幂零。它涉及共同零向量引理，附录 A 给出证明，勿把“可上三角化”与“严格上三角化”混同。
@@ -130,7 +130,7 @@ $$
 K([x,y],z)=K(x,[y,z]).
 $$
 
-因此 Killing 型的根空间是理想。对 $\mathfrak{sl}_2$，直接在 $e,h,f$ 基中计算得 $K(h,h)=8$、$K(e,f)=4$，其他未由对称性得到的项为零，所以非退化。
+由不变性，Killing 型的零化子 $R=\{x\in\mathfrak g:K(x,y)=0\text{ 对所有 }y\in\mathfrak g\}$ 是理想。这里的零化子与后面由 Cartan 子代数定义的根空间是不同的概念。对 $\mathfrak{sl}_2$，直接在 $e,h,f$ 基中计算得 $K(h,h)=8$、$K(e,f)=4$，其他未由对称性得到的项为零，所以非退化。
 
 $\mathfrak{sl}_n$ 上 $K(X,Y)=2n\operatorname{tr}(XY)$。可以先在 $\operatorname{End}(\mathbb C^n)$ 上将 $\operatorname{ad}X=L_X-R_X$ 展开取迹，再去掉作用为零的标量子空间。Killing 型不是任意选定的内积，复数域上也不涉及共轭。
 
@@ -140,7 +140,7 @@ $\mathfrak{sl}_n$ 上 $K(X,Y)=2n\operatorname{tr}(XY)$。可以先在 $\operator
 
 可解方向可由 Lie 定理看出：伴随矩阵同时上三角，导出代数对应严格上三角，乘积迹为零。逆方向是 Cartan 的迹判据，需将矩阵的半单部分与迹配对，再用 Engel 定理，本节借用该方向，不以一行“由迹为零”代替证明。
 
-半单判据可由可解判据进一步推出。若 Killing 根空间 $R\ne0$，对 $x,y\in R$，$\operatorname{ad}x$ 在 $\mathfrak g/R$ 上为零，故限制到 $R$ 的 Killing 型也为零，可解判据使 $R$ 可解，矛盾。反之若有非零可解理想，取其导出列最后一个非零项 $A$，它是交换理想；对 $a\in A$，$\operatorname{ad}a$ 把 $\mathfrak g$ 送到 $A$ 且在 $A$ 上为零，所以 $\operatorname{ad}a\,\operatorname{ad}x$ 迹为零，对任意 $x$ 成立，Killing 型退化。
+半单判据可由可解判据进一步推出。先设 $\mathfrak g$ 半单。若 Killing 型的零化子 $R\ne0$，对 $x,y\in R$，$\operatorname{ad}x$ 在 $\mathfrak g/R$ 上为零，故限制到 $R$ 的 Killing 型也为零，可解判据使 $R$ 成为非零可解理想，与半单性矛盾。反过来，若 $\mathfrak g$ 不是半单的，便有非零可解理想；取其导出列最后一个非零项 $A$，它是交换理想；对 $a\in A$，$\operatorname{ad}a$ 把 $\mathfrak g$ 送到 $A$ 且在 $A$ 上为零，所以 $\operatorname{ad}a\,\operatorname{ad}x$ 迹为零，对任意 $x$ 成立，Killing 型退化。
 
 ## 6.13 先计算 $\mathfrak{sl}_2$ 的表示 ★
 

@@ -21,9 +21,9 @@ c(E,\nabla)=\det\left(I+\frac{i}{2\pi}\Omega\right),\qquad
 \exp\left(\frac{i}{2\pi}\Omega\right).
 $$
 
-其中次数 $2j$ 部分分别代表实化的 $c_j$ 与 Chern 特征分量。Bianchi 恒等式及共轭不变性证明这些形式闭。
+其中次数 $2j$ 部分分别代表整数 Chern 类映入实上同调后所得的 $c_j$ 与 Chern 特征分量。Bianchi 恒等式及共轭不变性证明这些形式闭。
 
-为什么与连接无关？把两个连接以 $\nabla_t$ 连起来。对次数 $r$ 的不变多项式 $P$，极化后
+为什么与连接无关？用 $\nabla_t=(1-t)\nabla_0+t\nabla_1$ 连接两个给定连接。对次数 $r$ 的不变多项式 $P$，极化后
 $\frac d{dt}P(\Omega_t)=r\,dP(\dot\omega_t,\Omega_t,\ldots,\Omega_t)$；
 协变导数中的交换子项由不变性消失，$D_t\Omega_t=0$ 消去其余项。积分 $t$ 后差是恰当形式。这给出了不依赖性的证明，也产生 Chern–Simons 传递形式。
 
@@ -43,15 +43,15 @@ $$
 
 ## 14.4 Euler、Stiefel–Whitney 与 Pontryagin 类
 
-定向实秩 $r$ 丛有 Euler 类 $e(E)\in H^r(M;\mathbb Z)$，它是零截面拉回 Thom 类的结果。横截截面的零点或零子流形表示其对偶类；处处非零截面使 Euler 类为零，但反向推论还需注意其他障碍。
+设 $\pi:E\to M$ 是定向的实秩 $r$ 向量丛，$r>0$，零截面记为 $s_0$。Thom 类是相对上同调类 $u_E\in H^r(E,E\setminus s_0(M);\mathbb Z)$，其在每根纤维上的限制是由定向选定的 $H^r(\mathbb R^r,\mathbb R^r\setminus\{0\};\mathbb Z)$ 的生成元。将 $u_E$ 映入 $H^r(E;\mathbb Z)$，再沿零截面拉回，得到 Euler 类 $e(E)\in H^r(M;\mathbb Z)$。横截截面的零点或零子流形表示其对偶类；处处非零截面使 Euler 类为零，但反向推论还需注意其他障碍。
 
-实丛的 Stiefel–Whitney 类 $w_j(E)\in H^j(M;\mathbb F_2)$ 记录模 $2$ 障碍；$w_1$ 阻止定向。Pontryagin 类规定
+实丛的 Stiefel–Whitney 类 $w_j(E)\in H^j(M;\mathbb F_2)$ 记录模 $2$ 障碍；$w_1(E)=0$ 当且仅当 $E$ 可定向。Pontryagin 类规定
 $p_j(E)=(-1)^j c_{2j}(E\otimes_{\mathbb R}\mathbb C)$。
 三种类的次数、系数和所需结构不同。
 
 ## 14.5 Gauss–Bonnet：曲率与拓扑 ★
 
-在定向曲面的正交标架下，前述曲率约定给出
+设 $M$ 是闭定向二维 Riemann 流形。在与定向相容的单位正交标架下，前述曲率约定给出
 $\Omega^1{}_2=K\,d\operatorname{vol}_g$。于是 Euler 形式为 $K\,d\operatorname{vol}_g/(2\pi)$，积分定理给出
 
 $$

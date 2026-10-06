@@ -4,7 +4,7 @@
 
 ## 8.1 向量丛与截面 ★
 
-秩 $r$ 向量丛 $E\to M$ 局部同构于 $U\times k^r$，过渡函数为光滑可逆矩阵。截面 $s$ 为每一点选取纤维中的向量。切向量场是切丛截面，微分形式是外幂余切丛的截面。
+本章讨论实或复光滑向量丛，底域统一写为 $\mathbb K\in\{\mathbb R,\mathbb C\}$。秩 $r$ 向量丛 $\pi:E\to M$ 局部同构于 $U\times\mathbb K^r$，过渡函数为光滑可逆矩阵。光滑截面 $s$ 为每一点光滑地选取其纤维中的向量，满足 $\pi\circ s=\operatorname{id}_M$。所有这类截面的空间记为 $\Gamma(E)$，$\Omega^1(M;E)$ 则表示 $E$ 值一阶形式的空间。切向量场是切丛截面，微分形式是外幂余切丛的截面。
 
 张量积、对偶与外幂在各纤维上构造，再按过渡函数拼接。这说明多重线性代数并非只在一个固定向量空间内使用。
 
@@ -15,13 +15,13 @@
 
 写 $\nabla_Xs$ 表示沿 $X$ 的协变导数。局部标架采用 $\nabla e_j=e_i\omega^i{}_j$，故截面 $s=e_i s^i$ 满足
 $\nabla s=e_i(ds^i+\omega^i{}_j s^j)$。
-换标架 $e'=eg$ 时，
+换标架 $e'=eA$ 时，
 
 $$
-\omega'=g^{-1}\omega g+g^{-1}dg.
+\omega'=A^{-1}\omega A+A^{-1}dA.
 $$
 
-这由对 $eg$ 应用 Leibniz 律直接得到。连接矩阵本身不是张量；两个连接的差却是 $\operatorname{End}(E)$ 值一阶形式，因为导数项相消。
+这里 $A$ 是换标架矩阵；对 $eA$ 应用 Leibniz 律便得到上述公式。连接矩阵本身不是张量；两个连接的差却是 $\operatorname{End}(E)$ 值一阶形式，因为导数项相消。
 
 ## 8.3 平行移动与 holonomy
 
@@ -29,7 +29,7 @@ $$
 $\dot s^i+\omega^i{}_j(\dot\gamma)s^j=0$。
 存在唯一性使平行移动成为纤维间的线性同构，反向曲线给逆映射。保持纤维内积的连接给出等距的平行移动。
 
-闭曲线的平行移动组成 holonomy 群。即使局部曲率为零，全局 holonomy 仍可能非平凡：圆周上的平坦线丛可以绕一圈产生固定的非单位标量。
+固定基点 $p$，所有以 $p$ 为起点和终点的闭曲线所产生的平行移动，组成纤维 $E_p$ 上的 holonomy 群。即使局部曲率为零，全局 holonomy 仍可能非平凡：圆周上的平坦线丛可以绕一圈产生固定的非单位标量。
 
 ## 8.4 曲率与 Bianchi 恒等式 ★
 
@@ -39,8 +39,8 @@ $\dot s^i+\omega^i{}_j(\dot\gamma)s^j=0$。
 > R(X,Y)s=\nabla_X\nabla_Ys-\nabla_Y\nabla_Xs-\nabla_{[X,Y]}s.
 > $$
 
-Leibniz 律说明它对 $X,Y,s$ 都是逐点线性的。局部展开得曲率矩阵
-$\Omega=d\omega+\omega\wedge\omega$，其中矩阵乘法与形式外积同时进行。换标架后 $\Omega'=g^{-1}\Omega g$。
+Leibniz 律说明 $R(X,Y)s$ 在一点的值只依赖 $X,Y,s$ 在该点的值，并对这三个输入线性，因此曲率是张量。局部展开得曲率矩阵
+$\Omega=d\omega+\omega\wedge\omega$，其中矩阵乘法与形式外积同时进行。换标架后 $\Omega'=A^{-1}\Omega A$。
 
 对 $\Omega$ 求外微分并展开，$d^2\omega=0$，剩余项抵消，得到
 
@@ -64,7 +64,7 @@ $$
 
 ## 8.6 测地线与参数
 
-测地线满足 $\nabla_{\dot\gamma}\dot\gamma=0$，坐标下为
+测地线满足 $\nabla_{\dot\gamma}\dot\gamma=0$，令 $\nabla_{\partial_i}\partial_j=\Gamma^k_{ij}\partial_k$ 定义连接系数，测地线方程在坐标下为
 
 $$
 \ddot x^k+\Gamma^k_{ij}\dot x^i\dot x^j=0.
@@ -74,7 +74,7 @@ $$
 
 ## 8.7 移动标架与曲线
 
-Euclidean 空间内沿曲线选正交标架，连接矩阵反对称。Frenet 公式是这种矩阵在特殊标架下的形状，曲率与挠率是其中的系数。改用其他光滑正交标架，可以跨越 Frenet 标架在曲率为零处的失效点。
+Euclidean 空间内沿曲线选正交标架，连接矩阵反对称。Frenet 公式是这种矩阵在特殊标架下的形状，曲线的曲率与挠率是其中的系数。这里曲线的挠率描述空间曲线偏离平面的程度，与 8.5 中连接的挠率张量是不同的对象。改用其他光滑正交标架，可以跨越 Frenet 标架在曲率为零处的失效点。
 
 ## 8.8 Finsler 与次 Riemann 几何 ☆
 

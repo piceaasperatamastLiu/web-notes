@@ -53,9 +53,9 @@ $\iota_{[X_f,X_h]}\omega=\mathcal L_{X_f}(dh)=d(X_fh)$
 
 ## 10.4 余切丛与 Lagrange 子流形
 
-$T^*Q$ 有典范一阶形式 $\lambda_{(q,p)}(v)=p(d\pi(v))$，局部为 $p_jdq^j$。本讲义规定 $\omega=-d\lambda=dq^j\wedge dp_j$。
+设 $\pi:T^*Q\to Q$ 为丛投影，$(q,p)$ 中的 $p$ 是 $q$ 处的余向量。$T^*Q$ 有典范一阶形式 $\lambda_{(q,p)}(v)=p(d\pi(v))$，局部为 $p_jdq^j$。本讲义规定 $\omega=-d\lambda=dq^j\wedge dp_j$。
 
-维数为 $n$ 且 $\omega$ 限制为零的子流形叫 Lagrange 子流形。图像 $\operatorname{graph}\alpha\subset T^*Q$ 的辛形式拉回为 $-d\alpha$，故它是 Lagrange 当且仅当 $\alpha$ 闭；特别地，函数微分的图像总是 Lagrange。
+在 $2n$ 维辛流形中，维数为 $n$ 且 $\omega$ 限制为零的子流形叫 Lagrange 子流形。若 $\alpha$ 是 $Q$ 上的一阶形式，截面 $q\mapsto(q,\alpha_q)$ 的像就是 $\operatorname{graph}\alpha$。沿这个截面拉回辛形式得到 $-d\alpha$，故它是 Lagrange 当且仅当 $\alpha$ 闭；特别地，函数微分的图像总是 Lagrange。
 
 ## 10.5 矩映射与守恒量 ★
 
@@ -71,7 +71,7 @@ $\{J_\xi,H\}=-\xi_M(H)=0$，所以各分量守恒。平移对应动量、旋转�
 
 设 $0$ 是 $J$ 的正则值，且 $G$ 在 $J^{-1}(0)$ 上自由、适当。则 $M_{\mathrm{red}}=J^{-1}(0)/G$ 为流形，维数为 $\dim M-2\dim G$。
 
-在水平集上，$v\in TJ^{-1}(0)$ 等价于 $\omega(\xi_M,v)=0$ 对所有 $\xi$ 成立。因而 $\omega$ 限制的核恰为轨道方向：水平集切空间是轨道空间的辛正交补，再取正交补便回到轨道空间。形式又对作用不变，所以唯一下降为商上的非退化闭形式。这里正则值保证余维，自由与适当保证商流形，三者各有作用。
+在水平集上，$v\in TJ^{-1}(0)$ 等价于 $\omega(\xi_M,v)=0$ 对所有 $\xi$ 成立。因而 $\omega$ 限制的核恰为轨道方向：令 $W_x=T_x(Gx)$ 为轨道的切空间，则 $T_xJ^{-1}(0)=W_x^{\omega}$。零水平集上的轨道仍位于水平集内，故 $W_x\subset W_x^{\omega}$，于是限制形式的核为 $W_x^{\omega}\cap(W_x^{\omega})^{\omega}=W_x$。形式又对作用不变，所以唯一下降为商上的非退化闭形式。这里正则值保证余维，自由与适当保证商流形，三者各有作用。
 
 ## 10.7 Poisson 流形、辛拓扑与 Floer 理论 ☆
 
