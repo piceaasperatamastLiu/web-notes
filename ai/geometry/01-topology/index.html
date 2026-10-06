@@ -1,0 +1,3303 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../00-preliminaries/">
+      
+      
+        <link rel="next" href="../02-fundamental/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>第1章 点集拓扑 - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              第1章 点集拓扑
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂碎
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    杂碎
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../physics/heat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    热传递
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../physics/Maxwell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    麦克斯韦方程组的复数形式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Math
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性代数
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    线性代数
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/linear/vector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    向量空间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/linear/mat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    矩阵代数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/linear/operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性算子
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/linear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂谈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    拓扑
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    拓扑
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/topo/basic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基本概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/topo/compact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    紧性与连通性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂碎
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    杂碎
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/extreme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    函数的极值
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/manifolds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    流形上的微积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/variance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于方差估计的无偏性的证明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/Euler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    欧拉积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/parameter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    含参变量的积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/rational/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    有理函数的积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/rotation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    旋转
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Others
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Others
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/Kalman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    卡尔曼滤波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/factor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    因子图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI讲义
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI讲义
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    共同符号约定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    现代分析学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    现代分析学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    讲义首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/study-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习指南与综合自测
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/00-foundations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第0章 预备与统一语言
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/01-limits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第1章 极限、连续与级数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/02-differential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第2章 多元微分与流形几何
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/03-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第3章 测度与Lebesgue积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/04-stokes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第4章 流形积分与Stokes定理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/05-functional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第5章 Lp空间与泛函分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/06-complex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第6章 复分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/07-fourier/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第7章 傅里叶分析与调和分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/08-equations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第8章 微分方程与变分分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/09-probability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第9章 概率与随机分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/10-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第10章 现代专题与交叉分支
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/appendices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录与参考文献
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    代数学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    代数学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    讲义首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/study-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习指南与综合自测
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/00-preliminaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第0章 预备
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/01-groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第1章 群论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/02-rings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第2章 环、模、域
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/03-linear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第3章 线性代数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/04-multilinear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第4章 多重线性与Clifford代数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/05-representations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第5章 表示论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/06-lie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第6章 李代数及其表示
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/07-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第7章 同调代数和高级专题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/appendices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录A–F与参考文献
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    几何与拓扑
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    几何与拓扑
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    讲义首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../study-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习指南与综合自测
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-preliminaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第0章 预备
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第1章 点集拓扑
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第1章 点集拓扑
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 拓扑空间
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 基、子基与邻域
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 闭包、内部与边界
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 连续映射与同胚
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 子空间、积与商
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 分离公理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-urysohn-tietze" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.7 Urysohn 与 Tietze ★
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.8 紧性与列紧性 ★
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.9 局部紧与一点紧化
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#110" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.10 仿紧与度量化
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#111" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.11 连通与道路连通
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#112" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.12 网、滤子与紧性
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#113" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.13 紧开拓扑
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#114-baire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.14 Baire 定理 ★
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#115-stonecech" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.15 Stone–Čech 紧化 ○
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#116" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.16 一致与邻近结构 ○
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#117" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.17 拓扑群
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#118" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.18 拓扑流形
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-fundamental/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第2章 基本群与覆盖空间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-homology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第3章 同调与上同调
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-homotopy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第4章 高阶同伦与纤维化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-classical/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第5章 欧氏、仿射与射影几何
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-manifolds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第6章 光滑流形与微分形式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-lie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第7章 李群、作用与齐性空间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-connections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第8章 向量丛、连接与曲率
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-riemannian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第9章 Riemann几何与几何分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-symplectic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第10章 辛几何与Hamilton系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-complex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第11章 复几何、层与Riemann曲面
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-algebraic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第12章 代数几何
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-convex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第13章 凸、离散与组合几何
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-characteristic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第14章 特征类与指标
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-low-dimensional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第15章 低维拓扑
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第16章 现代交叉专题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录与参考文献
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 拓扑空间
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 基、子基与邻域
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 闭包、内部与边界
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 连续映射与同胚
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 子空间、积与商
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 分离公理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-urysohn-tietze" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.7 Urysohn 与 Tietze ★
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.8 紧性与列紧性 ★
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.9 局部紧与一点紧化
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#110" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.10 仿紧与度量化
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#111" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.11 连通与道路连通
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#112" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.12 网、滤子与紧性
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#113" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.13 紧开拓扑
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#114-baire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.14 Baire 定理 ★
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#115-stonecech" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.15 Stone–Čech 紧化 ○
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#116" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.16 一致与邻近结构 ○
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#117" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.17 拓扑群
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#118" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.18 拓扑流形
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="1">第 1 章 点集拓扑</h1>
+<p>长度可以改变，连续性却仍可能相同。为了只讨论“附近”和“连接”，我们从开集而不是距离出发。这里的一般空间不默认 Hausdorff；每个需要分离性的结论会把它写进假设。</p>
+<h2 id="11">1.1 拓扑空间</h2>
+<blockquote>
+<p><span class="arithmatex">\(X\)</span> 上的拓扑 <span class="arithmatex">\(\mathcal T\)</span> 是包含 <span class="arithmatex">\(\varnothing,X\)</span>、对任意并与有限交封闭的集合族。其成员称开集；<span class="arithmatex">\((X,\mathcal T)\)</span> 称拓扑空间。</p>
+</blockquote>
+<p>无限交不必开：实线中 <span class="arithmatex">\(\bigcap_{n\geq1}(-1/n,1/n)=\{0\}\)</span>。要求无限交开会把通常几何排除在外。离散拓扑令每个子集开；平凡拓扑只有空集与全集。它们说明，同一集合能够承载非常不同的连续性。</p>
+<p>度量球生成一个拓扑：若若干集合都具有“每点有一个小球包含在集合内”的性质，它们的并仍具有这一性质；对有限个这样的集合取交时，在交内每点取各个小球半径的最小值即可。后面会看到，并非每个拓扑都来自度量。</p>
+<h2 id="12">1.2 基、子基与邻域</h2>
+<p>本讲义邻域默认开邻域。<span class="arithmatex">\(\mathcal B\subset\mathcal T\)</span> 是基，指每个开集是基元素的并。检验一个候选基只需检查：它覆盖 <span class="arithmatex">\(X\)</span>；若 <span class="arithmatex">\(x\in B_1\cap B_2\)</span>，存在 <span class="arithmatex">\(B_3\)</span> 使 <span class="arithmatex">\(x\in B_3\subset B_1\cap B_2\)</span>。</p>
+<p>证明是把所有基元素之并组成 <span class="arithmatex">\(\mathcal T\)</span>。任意并显然仍在其中；对有限交，在交内每点取上述 <span class="arithmatex">\(B_3\)</span>，其并恰好恢复交集。子基则先取有限交作为基。例如积拓扑由各坐标投影的开集原像生成。</p>
+<p>第一可数指每点有可数邻域基；第二可数指整个空间有可数基。第二可数推出第一可数，只保留含该点的基元素即可。度量空间第一可数，因为半径 <span class="arithmatex">\(1/n\)</span> 的球足够；不可数离散空间却不第二可数。</p>
+<h2 id="13">1.3 闭包、内部与边界</h2>
+<p><span class="arithmatex">\(A^\circ\)</span> 是包含于 <span class="arithmatex">\(A\)</span> 的开集之并，<span class="arithmatex">\(\overline A\)</span> 是包含 <span class="arithmatex">\(A\)</span> 的闭集之交，<span class="arithmatex">\(\partial A=\overline A\setminus A^\circ\)</span>。</p>
+<blockquote>
+<p><span class="arithmatex">\(x\in\overline A\)</span> 当且仅当 <span class="arithmatex">\(x\)</span> 的每个开邻域与 <span class="arithmatex">\(A\)</span> 相交。</p>
+</blockquote>
+<p>若有不交邻域，其补集是包含 <span class="arithmatex">\(A\)</span> 的闭集，排除 <span class="arithmatex">\(x\)</span>。反之 <span class="arithmatex">\(x\notin\overline A\)</span>，闭包的补集就是所需邻域。由此立即得到 <span class="arithmatex">\(\overline{A\cup B}=\overline A\cup\overline B\)</span>；无限并的等式可能失败，例如实线中的单点集 <span class="arithmatex">\(\{1/n\}\)</span>。</p>
+<p>第一可数空间中，取递减邻域基 <span class="arithmatex">\(U_n\)</span>，在 <span class="arithmatex">\(A\cap U_n\)</span> 选点，即得趋向 <span class="arithmatex">\(x\)</span> 的序列。一般空间不能只用序列检测闭包，1.12 会给出替代工具。</p>
+<h2 id="14">1.4 连续映射与同胚</h2>
+<blockquote>
+<p><span class="arithmatex">\(f:X\to Y\)</span> 连续，指每个开集 <span class="arithmatex">\(V\subset Y\)</span> 的原像 <span class="arithmatex">\(f^{-1}(V)\)</span> 开。</p>
+</blockquote>
+<p>原像保持并、交与补，因此只需检验目标的一个子基；也等价于闭集原像闭。复合连续来自 <span class="arithmatex">\((g\circ f)^{-1}(A)=f^{-1}(g^{-1}(A))\)</span>。同胚是连续双射且逆连续。</p>
+<p>连续映射保持序列极限。若源第一可数，保持所有序列极限也推出连续：假设 <span class="arithmatex">\(f^{-1}(V)\)</span> 不在某点 <span class="arithmatex">\(x\)</span> 附近开，在递减邻域基内选不属于它的 <span class="arithmatex">\(x_n\)</span>。则 <span class="arithmatex">\(x_n\to x\)</span> 而 <span class="arithmatex">\(f(x_n)\notin V\)</span>，与 <span class="arithmatex">\(f(x)\in V\)</span> 矛盾。目标无需第一可数。</p>
+<h2 id="15">1.5 子空间、积与商</h2>
+<p>子空间开集是 <span class="arithmatex">\(Y\cap U\)</span>；积空间的基本开集只限制有限多个坐标。积映射 <span class="arithmatex">\(f:Z\to\prod_iX_i\)</span> 连续，当且仅当各坐标连续，因为投影原像组成子基。盒拓扑允许同时限制所有坐标，无限积时通常更细。</p>
+<p>商拓扑由 <span class="arithmatex">\(V\subset X/{\sim}\)</span> 开当且仅当 <span class="arithmatex">\(q^{-1}(V)\)</span> 开定义。它保证一个重要泛性质：</p>
+<div class="arithmatex">\[
+\bar f:X/{\sim}\to Y\text{ 连续}
+\quad\Longleftrightarrow\quad
+\bar f q:X\to Y\text{ 连续}.
+\]</div>
+<p>两边都是检查同一原像。因而在商上定义函数，要先验证它在等价类上常值，再验证源上的函数连续。</p>
+<p><span class="arithmatex">\(t\mapsto e^{2\pi it}\)</span> 在端点识别后诱导 <span class="arithmatex">\([0,1]/(0\sim1)\to S^1\)</span>。它是连续双射；1.8 的紧到 Hausdorff 定理将证明逆连续。商可能损失 Hausdorff 性：实线把所有有理数识别成一个点，该等价类不闭，而 Hausdorff 商中点的原像必须闭。</p>
+<h2 id="16">1.6 分离公理</h2>
+<p><span class="arithmatex">\(T_0\)</span> 要求不同点可由某个开集区分；<span class="arithmatex">\(T_1\)</span> 要求单点闭；<span class="arithmatex">\(T_2\)</span> 即 Hausdorff，要求不同点有不交开邻域。正则空间在这里包含 <span class="arithmatex">\(T_1\)</span>，还要求点与不含它的闭集可分离；正规空间包含 <span class="arithmatex">\(T_1\)</span>，要求不交闭集可分离。</p>
+<p>Hausdorff 极限唯一：趋向两个不同点的序列最终同时落入两不交邻域，矛盾。相同论证也用于网。</p>
+<p>度量空间正规。对不交非空闭集 <span class="arithmatex">\(A,B\)</span>，函数</p>
+<div class="arithmatex">\[
+u(x)=\frac{d(x,A)}{d(x,A)+d(x,B)}
+\]</div>
+<p>连续，分母每点正，并在 <span class="arithmatex">\(A,B\)</span> 上分别为 <span class="arithmatex">\(0,1\)</span>。两个适当阈值的原像分离它们。距离函数连续因为 <span class="arithmatex">\(|d(x,A)-d(y,A)|\leq d(x,y)\)</span>。</p>
+<h2 id="17-urysohn-tietze">1.7 Urysohn 与 Tietze ★</h2>
+<blockquote>
+<p>正规空间中，对不交闭集 <span class="arithmatex">\(A,B\)</span>，存在连续 <span class="arithmatex">\(u:X\to[0,1]\)</span>，使 <span class="arithmatex">\(u|_A=0,u|_B=1\)</span>。</p>
+</blockquote>
+<p>先注意缩小引理：闭集 <span class="arithmatex">\(F\subset O\)</span>，<span class="arithmatex">\(O\)</span> 开时，正规性给开集 <span class="arithmatex">\(U\)</span>，使 <span class="arithmatex">\(F\subset U\subset\overline U\subset O\)</span>。把 <span class="arithmatex">\(F\)</span> 与 <span class="arithmatex">\(X\setminus O\)</span> 分离即可。</p>
+<p>取 <span class="arithmatex">\(U_1=X\setminus B\)</span>，用引理选 <span class="arithmatex">\(A\subset U_0\)</span> 且 <span class="arithmatex">\(\overline U_0\subset U_1\)</span>。这里 dyadic 数指形如 <span class="arithmatex">\(m/2^j\)</span> 的二进有理数。递归在每两个已选相邻 dyadic 数 <span class="arithmatex">\(r&lt;s\)</span> 之间插入 <span class="arithmatex">\(U_{(r+s)/2}\)</span>，满足
+<span class="arithmatex">\(\overline U_r\subset U_{(r+s)/2}\subset\overline U_{(r+s)/2}\subset U_s\)</span>。
+于是所有 dyadic <span class="arithmatex">\(r&lt;s\)</span> 都满足 <span class="arithmatex">\(\overline U_r\subset U_s\)</span>。</p>
+<p>令 <span class="arithmatex">\(u(x)=\inf\{r:x\in U_r\}\)</span>，集合为空时取 <span class="arithmatex">\(1\)</span>。在 <span class="arithmatex">\(A\)</span> 值为零，在 <span class="arithmatex">\(B\)</span> 值为一。对 <span class="arithmatex">\(0&lt;t&lt;1\)</span>，</p>
+<div class="arithmatex">\[
+\{u&lt;t\}=\bigcup_{r&lt;t}U_r,\qquad
+\{u&gt;t\}=\bigcup_{r&gt;t}(X\setminus\overline U_r).
+\]</div>
+<p>第一式由下确界与稠密性得到；第二式使用闭包嵌套：若 <span class="arithmatex">\(u(x)&gt;t\)</span>，选 <span class="arithmatex">\(t&lt;r&lt;s&lt;u(x)\)</span>，则 <span class="arithmatex">\(x\notin U_s\)</span>，故不在 <span class="arithmatex">\(\overline U_r\)</span>；反向若不在 <span class="arithmatex">\(\overline U_r\)</span>，它不能属于更小的 <span class="arithmatex">\(U_s\)</span>，故 <span class="arithmatex">\(u(x)\geq r&gt;t\)</span>。两个原像开，连同端点情况给连续性。</p>
+<blockquote>
+<p>若 <span class="arithmatex">\(A\subset X\)</span> 闭、<span class="arithmatex">\(X\)</span> 正规，每个连续 <span class="arithmatex">\(f:A\to\mathbb R\)</span> 可连续扩张到 <span class="arithmatex">\(X\)</span>。</p>
+</blockquote>
+<p>先设 <span class="arithmatex">\(|f|\leq M\)</span>，其中 <span class="arithmatex">\(M&gt;0\)</span>。<span class="arithmatex">\(A_+=\{f\geq M/3\}\)</span> 与 <span class="arithmatex">\(A_-=\{f\leq-M/3\}\)</span> 是 <span class="arithmatex">\(X\)</span> 中不交闭集。Urysohn 给连续 <span class="arithmatex">\(g:X\to[-M/3,M/3]\)</span>，在两集分别取端点，于是 <span class="arithmatex">\(|f-g|\leq2M/3\)</span> 在 <span class="arithmatex">\(A\)</span> 成立。</p>
+<p>对余差重复，得到 <span class="arithmatex">\(g_j\)</span> 满足 <span class="arithmatex">\(\|g_j\|_\infty\leq(M/3)(2/3)^j\)</span>，在 <span class="arithmatex">\(A\)</span> 上余差至多 <span class="arithmatex">\(M(2/3)^{j+1}\)</span>。级数 <span class="arithmatex">\(\sum_{j\geq0}g_j\)</span> 一致收敛，故连续，并在 <span class="arithmatex">\(A\)</span> 等于 <span class="arithmatex">\(f\)</span>。这证明有界版本。</p>
+<p>一般 <span class="arithmatex">\(f\)</span> 先用 <span class="arithmatex">\(\phi(t)=t/(1+|t|)\)</span> 送到 <span class="arithmatex">\((-1,1)\)</span>。有界版本给扩张 <span class="arithmatex">\(F:X\to[-1,1]\)</span>。闭集 <span class="arithmatex">\(\{|F|=1\}\)</span> 与 <span class="arithmatex">\(A\)</span> 不交，再用 Urysohn 取 <span class="arithmatex">\(v|_A=1\)</span>、<span class="arithmatex">\(v|_{\{|F|=1\}}=0\)</span>、<span class="arithmatex">\(0\leq v\leq1\)</span>。于是 <span class="arithmatex">\(|vF|&lt;1\)</span> 处处成立，<span class="arithmatex">\(\phi^{-1}(vF)\)</span> 就是所需扩张。</p>
+<h2 id="18">1.8 紧性与列紧性 ★</h2>
+<blockquote>
+<p>紧指每个开覆盖有有限子覆盖。连续像紧；Hausdorff 空间中的紧子集闭。</p>
+</blockquote>
+<p>第一条把目标覆盖拉回，再推回有限子覆盖。第二条对外部点 <span class="arithmatex">\(x\)</span> 与紧集每点选不交邻域；有限个覆盖紧集，把对应 <span class="arithmatex">\(x\)</span> 邻域取交，得到不碰紧集的邻域。</p>
+<p>因此从紧空间到 Hausdorff 空间的连续双射是同胚：闭子集紧，其像紧且闭，故逆映射连续。特别地，闭区间端点识别确实产生圆。</p>
+<p>度量空间中，紧性等价于完备且全有界，也等价于列紧。给出关键步骤。紧空间可用半径 <span class="arithmatex">\(\varepsilon\)</span> 球取有限覆盖，所以全有界；Cauchy 列若无极限，紧性给一个聚点，与 Cauchy 性一起迫使整列收敛。反之在全有界空间，反复选含无限多个序列项的半径 <span class="arithmatex">\(2^{-j}\)</span> 球，抽出 Cauchy 子列；完备给其极限。</p>
+<p>最后列紧推出开覆盖紧。先注意列紧必全有界，否则逐项选与前面所有点至少相距固定正数的点，就得到没有收敛子列的序列。若不存在统一的 Lebesgue 数，可选 <span class="arithmatex">\(x_n\)</span> 使 <span class="arithmatex">\(B(x_n,1/n)\)</span> 不包含于任一覆盖成员。收敛子列的极限属于某个开集，该开集包含极限的小球，矛盾。因此有 <span class="arithmatex">\(\varepsilon&gt;0\)</span>，每个 <span class="arithmatex">\(\varepsilon\)</span> 球包含在某个成员内；全有界性取有限个这样的球，就得到有限子覆盖。</p>
+<p>一般拓扑空间中紧与列紧不等价，不能把这段证明搬过去。有限紧空间之积紧可用管状邻域逐个覆盖；任意积的 Tychonoff 定理在附录 A.1 用超滤子证明。</p>
+<h2 id="19">1.9 局部紧与一点紧化</h2>
+<p>Hausdorff 空间局部紧，指每点有紧邻域。非紧局部紧 Hausdorff 空间 <span class="arithmatex">\(X\)</span> 可加入一点 <span class="arithmatex">\(\infty\)</span>：原开集继续开，含 <span class="arithmatex">\(\infty\)</span> 的开集取紧闭集的补再加 <span class="arithmatex">\(\infty\)</span>。</p>
+<p>含 <span class="arithmatex">\(\infty\)</span> 的覆盖成员只遗漏一个紧集，所以新空间紧；局部紧性使 <span class="arithmatex">\(\infty\)</span> 与任意原点可分离，原点间则沿用 Hausdorff 性。因此 <span class="arithmatex">\(\mathbb R^n\)</span> 的一点紧化是 <span class="arithmatex">\(S^n\)</span>，可由立体投影及无穷远极限验证。若 <span class="arithmatex">\(X\)</span> 已紧，这种构造只多出一个孤立点，不是通常所说的非紧空间紧化。</p>
+<h2 id="110">1.10 仿紧与度量化</h2>
+<p>仿紧指每个开覆盖有局部有限开细化；局部有限指每点某邻域只与有限多个成员相交。这个条件让局部构造可求和，而不在一点附近积累无穷项。</p>
+<p>局部紧、第二可数 Hausdorff 空间有紧集穷竭 <span class="arithmatex">\(K_j\subset K_{j+1}^\circ\)</span>、<span class="arithmatex">\(\bigcup_jK_j=X\)</span>：取可数个相对紧的开集覆盖，每一步把前面紧集与下一个闭包包含于有限个相对紧邻域中，再取这些闭包之并。对任意覆盖，约定 <span class="arithmatex">\(K_j=\varnothing\)</span>，<span class="arithmatex">\(j\le0\)</span>。在紧环带 <span class="arithmatex">\(K_j\setminus K_{j-1}^\circ\)</span> 上选有限个小开集，其闭包位于覆盖成员内，并让它们只落在 <span class="arithmatex">\(K_{j+1}^\circ\setminus K_{j-2}\)</span> 中。所得细化局部有限，因为固定点附近只遇有限个环带。这是流形上拼接所需的版本。</p>
+<blockquote>
+<p>正则第二可数空间可度量化。</p>
+</blockquote>
+<p>取可数基 <span class="arithmatex">\(B_i\)</span>。对每个 <span class="arithmatex">\(\overline B_i\subset B_j\)</span>，正规性给连续 <span class="arithmatex">\(f_{ij}\)</span>，在 <span class="arithmatex">\(\overline B_i\)</span> 为 <span class="arithmatex">\(0\)</span>、在 <span class="arithmatex">\(X\setminus B_j\)</span> 为 <span class="arithmatex">\(1\)</span>。这里所需正规性来自“正则且 Lindelöf 推出正规”：对不交闭集分别取可数个邻域，闭包避开另一集，再逐项删除另一边先前邻域的闭包，得到两不交覆盖。Lindelöf 性指每个开覆盖都有可数子覆盖；第二可数空间具有这一性质。具体的正规性证明见附录 A.2。</p>
+<p>这些函数分离点，并检测原拓扑：给 <span class="arithmatex">\(x\in O\)</span>，正则性与基性质给 <span class="arithmatex">\(x\in B_i\subset\overline B_i\subset B_j\subset O\)</span>，则 <span class="arithmatex">\(\{f_{ij}&lt;1/2\}\)</span> 是包含 <span class="arithmatex">\(x\)</span>、位于 <span class="arithmatex">\(O\)</span> 的邻域。枚举这些函数为 <span class="arithmatex">\(f_r\)</span>，令</p>
+<div class="arithmatex">\[
+d(x,y)=\sum_{r\geq1}2^{-r}|f_r(x)-f_r(y)|.
+\]</div>
+<p>分离点给正定性；三角不等式逐项成立。对任意误差要求，先截去总和足够小的级数尾部，再用有限个 <span class="arithmatex">\(f_r\)</span> 的连续性控制前面的项，就证明了恒等映射从原拓扑到度量拓扑连续。上一段的邻域检测性质则证明反方向连续。因此拓扑相同。一般度量空间仿紧是更广的定理，本节借用其一般版本，不从上面的局部紧证明推出它。</p>
+<h2 id="111">1.11 连通与道路连通</h2>
+<p>连通指不能分成两个不交非空开集；道路连通指任意两点可由 <span class="arithmatex">\(I\)</span> 上的连续路径连接。区间连通可用实数上确界证明，所以道路连通推出连通。</p>
+<p>连续像保持连通：若像被分开，原像也被分开。连通集之闭包连通，因为闭包内非空相对开集必碰原集。若一族连通集有公共点，其并连通；否则一个分离会迫使每个成员位于同一侧。</p>
+<p>局部道路连通空间的道路分支开。因此若它连通，就只有一个道路分支。流形属于此类。一般连通不能推出道路连通，附录 C 的拓扑学家正弦曲线给反例。</p>
+<h2 id="112">1.12 网、滤子与紧性</h2>
+<p>一个有向集允许任意两个指标有共同后继；网是按有向集编号的点族。网趋于 <span class="arithmatex">\(x\)</span>，指最终落入每个开邻域。对 <span class="arithmatex">\(x\in\overline A\)</span>，把邻域按反向包含排序，在每个邻域与 <span class="arithmatex">\(A\)</span> 的交中选点，所得网趋于 <span class="arithmatex">\(x\)</span>。因此在所有空间中，闭包都由网精确检测。</p>
+<p>滤子是非空集合族，不含空集，对有限交和向上扩大封闭。点的邻域滤子包括所有包含某个开邻域的集合；这里明确允许非开成员。极大的真滤子称超滤子。它对每个 <span class="arithmatex">\(A\)</span> 恰好包含 <span class="arithmatex">\(A\)</span> 或 <span class="arithmatex">\(X\setminus A\)</span>，否则可把 <span class="arithmatex">\(A\)</span> 加入生成更大真滤子，违反极大性。</p>
+<blockquote>
+<p>空间紧，当且仅当每个超滤子有极限。</p>
+</blockquote>
+<p>若超滤子无极限，每点有不属于它的邻域；有限子覆盖的补都在滤子中，交为空，矛盾。反之若覆盖无有限子覆盖，所有覆盖成员补集有有限交性质，生成真滤子并由 Zorn 引理扩充为超滤子；它不能趋向任何点。这个判据也是任意紧空间乘积仍紧的证明入口，见附录 A.1。</p>
+<h2 id="113">1.13 紧开拓扑</h2>
+<p>在连续映射集合 <span class="arithmatex">\(C(X,Y)\)</span> 上，用 <span class="arithmatex">\([K,U]=\{f:f(K)\subset U\}\)</span> 作子基，其中 <span class="arithmatex">\(K\)</span> 紧、<span class="arithmatex">\(U\)</span> 开。若 <span class="arithmatex">\(X\)</span> 局部紧 Hausdorff，求值映射 <span class="arithmatex">\(C(X,Y)\times X\to Y\)</span> 连续：当 <span class="arithmatex">\(f(x)\in U\)</span>，选紧邻域 <span class="arithmatex">\(K\)</span>，使 <span class="arithmatex">\(x\in K^\circ\)</span> 且 <span class="arithmatex">\(f(K)\subset U\)</span>，于是 <span class="arithmatex">\([K,U]\times K^\circ\)</span> 被送进 <span class="arithmatex">\(U\)</span>。</p>
+<p>这一条件不可随意删除。它使连续 <span class="arithmatex">\(F:Z\times X\to Y\)</span> 与连续族 <span class="arithmatex">\(z\mapsto F(z,\cdot)\)</span> 相容，是以后路径空间、同伦与映射空间的基础。需要在非常一般的空间中反复取映射空间时，常转入紧生成空间范畴。</p>
+<h2 id="114-baire">1.14 Baire 定理 ★</h2>
+<blockquote>
+<p>完备度量空间中，可数个稠密开集的交稠密。</p>
+</blockquote>
+<p>给非空开集 <span class="arithmatex">\(O\)</span> 与稠密开集 <span class="arithmatex">\(U_j\)</span>，递归选非空闭球
+<span class="arithmatex">\(\overline B(x_j,r_j)\subset O\cap U_1\cap\cdots\cap U_j\)</span>，
+并使下一闭球包含于上一开球、<span class="arithmatex">\(r_j\leq2^{-j}\)</span>。稠密与开性保证每一步可选。中心列 Cauchy，完备给极限；闭球嵌套使极限属于所有 <span class="arithmatex">\(U_j\)</span> 和 <span class="arithmatex">\(O\)</span>。若空间有孤立点，可取以该点为中心的小球，论证同样成立。</p>
+<p>因此完备空间不能由可数个无内点闭集覆盖。<span class="arithmatex">\(\mathbb Q\)</span> 可以由单点覆盖，说明完备性不是装饰性假设。这个原理在分析学导出一致有界与开映射定理。</p>
+<h2 id="115-stonecech">1.15 Stone–Čech 紧化 ○</h2>
+<p>设 <span class="arithmatex">\(X\)</span> 完全正则 Hausdorff，即点与不含它的闭集可由 <span class="arithmatex">\([0,1]\)</span> 值连续函数分离。把所有这类函数作为坐标，求值映射嵌入 <span class="arithmatex">\(X\to[0,1]^{C(X,[0,1])}\)</span>；令 <span class="arithmatex">\(\beta X\)</span> 为其像的闭包。Tychonoff 保证它紧。</p>
+<p>任何连续映射 <span class="arithmatex">\(f:X\to K\)</span>，其中 <span class="arithmatex">\(K\)</span> 紧且 Hausdorff，都唯一地连续延拓到 <span class="arithmatex">\(\beta X\)</span>：先把 <span class="arithmatex">\(K\)</span> 用连续函数嵌入立方体，<span class="arithmatex">\(f\)</span> 的每个坐标已在上述坐标集合中，故延拓；稠密性与 <span class="arithmatex">\(K\)</span> 的闭性保证像仍在 <span class="arithmatex">\(K\)</span> 内，稠密性也给唯一性。这是紧化的泛性质。即使 <span class="arithmatex">\(X=\mathbb N\)</span> 离散，<span class="arithmatex">\(\beta X\)</span> 也远大于一点紧化。</p>
+<h2 id="116">1.16 一致与邻近结构 ○</h2>
+<p>拓扑只知道每点各自的附近；一致结构还规定哪些点对在全空间中“统一接近”。度量产生一族点对集合 <span class="arithmatex">\(\{(x,y):d(x,y)&lt;\varepsilon\}\)</span>，通常称为 entourages；每个集合指定了一个对所有点通用的接近标准，因而能定义一致连续、Cauchy 滤子与完备化。</p>
+<p>邻近结构则规定两个集合是否彼此靠近。不能只用“闭包相交”无条件代替一般定义；度量邻近可由两集合距离为零描述，它们可能闭而不相交。这两种语言把紧化与完备化联系起来，本节只作入口，不使用其一般分类定理。</p>
+<h2 id="117">1.17 拓扑群</h2>
+<p>群的乘法与逆连续时称拓扑群。平移是同胚，所以单位元邻域决定全部局部结构。给单位邻域 <span class="arithmatex">\(U\)</span>，连续性允许选对称邻域 <span class="arithmatex">\(V=V^{-1}\)</span>，使 <span class="arithmatex">\(VV\subset U\)</span>。</p>
+<p>闭正规子群 <span class="arithmatex">\(H\)</span> 的商群带商拓扑，若原群 Hausdorff，则商也 Hausdorff。商映射开，因为 <span class="arithmatex">\(q^{-1}q(O)=OH\)</span> 是平移开集之并；闭性使不在 <span class="arithmatex">\(H\)</span> 的元素有与 <span class="arithmatex">\(H\)</span> 分离的小邻域，再平移给不同陪集的分离。闭性不可去掉，例如 <span class="arithmatex">\(\mathbb R/\mathbb Q\)</span>。</p>
+<h2 id="118">1.18 拓扑流形</h2>
+<p>拓扑 <span class="arithmatex">\(n\)</span> 维流形是 Hausdorff、第二可数、每点有邻域同胚于 <span class="arithmatex">\(\mathbb R^n\)</span> 开集的空间。边界版本使用闭半空间中的相对开集。定义尚未要求坐标变换可微，所以不能在其中直接定义经典切向量与微分形式。</p>
+<p>局部 Euclidean 性给局部道路连通与局部紧；第二可数使这些局部对象能够可数拼接。维数在同胚下不变、边界点与内点可区分，属于不变域与局部同调的结论，不是仅凭图形显然。第 6 章添加光滑结构，而第 15 章会解释这种添加可能并不唯一。</p>
+<h2 id="_1">练习</h2>
+<ol>
+<li>证明连续映射满足 <span class="arithmatex">\(f(\overline A)\subset\overline{f(A)}\)</span>，并给严格包含的例子。</li>
+<li>证明紧 Hausdorff 空间正规。提示：先点与紧集分离，再对两个紧集取有限覆盖。</li>
+<li>证明 <span class="arithmatex">\([0,1]\)</span> 与 <span class="arithmatex">\(S^1\)</span> 不同胚。提示：删去内部点后前者不连通，后者删去任一点仍连通。</li>
+<li>在离散空间上判断局部紧、第二可数、紧性与完备性。</li>
+<li>核对 Tietze 证明的每次余差界，解释为什么只逐点求和还不足以保证扩张连续。</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+      
+        <script src="../../../themes/js/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.17.1/flowchart.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.6/underscore-min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/@mermaid-js/mermaid-mindmap@9.3.0/dist/diagram-definition.0faef4c2.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/markdown-it-plantuml@1.4.1/index.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+      
+    
+  </body>
+</html>

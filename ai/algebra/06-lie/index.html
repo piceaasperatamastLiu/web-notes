@@ -1,0 +1,3660 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../05-representations/">
+      
+      
+        <link rel="next" href="../07-advanced/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>第6章 李代数及其表示 - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#6" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              第6章 李代数及其表示
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂碎
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    杂碎
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../physics/heat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    热传递
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../physics/Maxwell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    麦克斯韦方程组的复数形式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Math
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性代数
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    线性代数
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/linear/vector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    向量空间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/linear/mat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    矩阵代数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/linear/operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性算子
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/linear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂谈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    拓扑
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    拓扑
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/topo/basic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基本概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/topo/compact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    紧性与连通性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂碎
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    杂碎
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/extreme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    函数的极值
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/manifolds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    流形上的微积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/variance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于方差估计的无偏性的证明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/Euler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    欧拉积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/parameter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    含参变量的积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/rational/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    有理函数的积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/rotation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    旋转
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Others
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Others
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/Kalman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    卡尔曼滤波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/factor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    因子图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI讲义
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI讲义
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    共同符号约定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    现代分析学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    现代分析学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    讲义首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/study-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习指南与综合自测
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/00-foundations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第0章 预备与统一语言
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/01-limits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第1章 极限、连续与级数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/02-differential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第2章 多元微分与流形几何
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/03-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第3章 测度与Lebesgue积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/04-stokes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第4章 流形积分与Stokes定理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/05-functional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第5章 Lp空间与泛函分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/06-complex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第6章 复分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/07-fourier/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第7章 傅里叶分析与调和分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/08-equations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第8章 微分方程与变分分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/09-probability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第9章 概率与随机分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/10-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第10章 现代专题与交叉分支
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/appendices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录与参考文献
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    代数学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    代数学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    讲义首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../study-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习指南与综合自测
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-preliminaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第0章 预备
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第1章 群论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-rings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第2章 环、模、域
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-linear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第3章 线性代数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-multilinear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第4章 多重线性与Clifford代数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-representations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第5章 表示论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第6章 李代数及其表示
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第6章 李代数及其表示
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 矩阵群与经典群
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 李群初步 ○
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 切空间与李代数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 李代数定义与例子
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 李括号与结构常数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6 李群与李代数的对应 ○
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#67" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7 指数映射与对数映射
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#68" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8 伴随表示
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#69" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9 可解李代数与幂零李代数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#610" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.10 半单李代数初步
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#611-killing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.11 Killing 型
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#612-cartan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.12 Cartan 判据 ※
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#613-mathfraksl_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.13 先计算 \(\mathfrak{sl}_2\) 的表示 ★
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#614" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.14 复半单李代数的结构入口 ※
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#615-cartan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.15 Cartan 子代数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#616" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.16 根系
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#617-weyl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.17 Weyl 群
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#618" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.18 权与权空间
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#619" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.19 最高权表示
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#620-pbw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.20 普遍包络代数与 PBW 定理 ※
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#621-mathfraksl_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.21 \(\mathfrak{sl}_3\) 表示论初步
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#622" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.22 最高权定理 ★ ※
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#623-weyl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.23 Weyl 特征公式初步 ※
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#624" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.24 完全可约性与典型表示
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#625-clebschgordan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.25 Clebsch–Gordan 分解 ★
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#626" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.26 张量积分解初步
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#627" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.27 无穷维李代数初步 ☆
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#628-kacmoody" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.28 Kac–Moody 代数初步 ☆
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第7章 同调代数和高级专题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录A–F与参考文献
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    几何与拓扑
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    几何与拓扑
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    讲义首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/study-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习指南与综合自测
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/00-preliminaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第0章 预备
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/01-topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第1章 点集拓扑
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/02-fundamental/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第2章 基本群与覆盖空间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/03-homology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第3章 同调与上同调
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/04-homotopy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第4章 高阶同伦与纤维化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/05-classical/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第5章 欧氏、仿射与射影几何
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/06-manifolds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第6章 光滑流形与微分形式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/07-lie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第7章 李群、作用与齐性空间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/08-connections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第8章 向量丛、连接与曲率
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/09-riemannian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第9章 Riemann几何与几何分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/10-symplectic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第10章 辛几何与Hamilton系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/11-complex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第11章 复几何、层与Riemann曲面
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/12-algebraic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第12章 代数几何
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/13-convex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第13章 凸、离散与组合几何
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/14-characteristic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第14章 特征类与指标
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/15-low-dimensional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第15章 低维拓扑
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/16-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第16章 现代交叉专题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/appendices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录与参考文献
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 矩阵群与经典群
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 李群初步 ○
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 切空间与李代数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 李代数定义与例子
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 李括号与结构常数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6 李群与李代数的对应 ○
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#67" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7 指数映射与对数映射
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#68" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8 伴随表示
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#69" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9 可解李代数与幂零李代数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#610" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.10 半单李代数初步
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#611-killing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.11 Killing 型
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#612-cartan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.12 Cartan 判据 ※
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#613-mathfraksl_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.13 先计算 \(\mathfrak{sl}_2\) 的表示 ★
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#614" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.14 复半单李代数的结构入口 ※
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#615-cartan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.15 Cartan 子代数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#616" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.16 根系
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#617-weyl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.17 Weyl 群
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#618" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.18 权与权空间
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#619" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.19 最高权表示
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#620-pbw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.20 普遍包络代数与 PBW 定理 ※
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#621-mathfraksl_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.21 \(\mathfrak{sl}_3\) 表示论初步
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#622" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.22 最高权定理 ★ ※
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#623-weyl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.23 Weyl 特征公式初步 ※
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#624" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.24 完全可约性与典型表示
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#625-clebschgordan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.25 Clebsch–Gordan 分解 ★
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#626" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.26 张量积分解初步
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#627" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.27 无穷维李代数初步 ☆
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#628-kacmoody" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.28 Kac–Moody 代数初步 ☆
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="6">第 6 章 李代数及其表示 ★</h1>
+<p>有限群的对称可以逐个枚举，旋转群却有连续无穷多个元素。对连续对称，可以先研究单位元附近的运动，再用导数记录它们。两个运动交换次序的二阶差别给出李括号，于是一个非线性群的问题有了线性入口。</p>
+<p>6.1–6.3 使用多元微分中的切向量与导数；从 6.4 起，李代数本身可独立作为代数对象学习。结构与最高权部分固定有限维复半单李代数。一般李群的全局理论与半单结构定理有超出本讲义的证明依赖，所在节会明示借用。</p>
+<h2 id="61">6.1 矩阵群与经典群</h2>
+<p><span class="arithmatex">\(\mathrm{GL}_n(\mathbb R)\)</span> 是行列式非零的实矩阵，<span class="arithmatex">\(\mathrm{SL}_n\)</span> 增加行列式为一的条件。正交群满足 <span class="arithmatex">\(A^{\mathsf T}A=I\)</span>，酉群满足 <span class="arithmatex">\(A^\dagger A=I\)</span>，辛群满足 <span class="arithmatex">\(A^{\mathsf T}JA=J\)</span>，其中 <span class="arithmatex">\(J\)</span> 为非退化交替型矩阵。</p>
+<p>这些条件表达保持不同的几何量：体积、长度、Hermitian 内积、辛形式。注意 <span class="arithmatex">\(\mathrm{SO}(n)\)</span> 还要求行列式为一，而 <span class="arithmatex">\(\mathrm O(n)\)</span> 有两个连通分支。复矩阵群作为实流形与作为复流形时维数不同，讨论前应明确底域。</p>
+<h2 id="62">6.2 李群初步 ○</h2>
+<blockquote>
+<p>李群是同时为有限维光滑流形的群，其乘法和逆映射光滑。</p>
+</blockquote>
+<p>一般闭矩阵子群是李群，这是闭子群定理，本节借用。对经典群，也可直接对定义方程求导并用隐函数定理构造局部坐标。</p>
+<p>李群同态在单位元的导数给出李代数同态；局部信息不能自动确定全局拓扑。圆群和实数加法群的李代数都一维交换，但它们并不同构。</p>
+<h2 id="63">6.3 切空间与李代数</h2>
+<p>矩阵群单位元处的切向量可写为曲线 <span class="arithmatex">\(\gamma(0)=I\)</span> 的导数 <span class="arithmatex">\(X=\gamma'(0)\)</span>。对约束求导，分别得到</p>
+<div class="arithmatex">\[
+\mathfrak{sl}_n=\{X:\operatorname{tr}X=0\},\quad
+\mathfrak{so}_n=\{X:X^{\mathsf T}+X=0\},\quad
+\mathfrak u_n=\{X:X^\dagger+X=0\}.
+\]</div>
+<p>辛条件给出 <span class="arithmatex">\(X^{\mathsf T}J+JX=0\)</span>。例如 <span class="arithmatex">\(\det(I+tX)=1+t\operatorname{tr}X+O(t^2)\)</span>，故特殊线性群对应迹零条件。</p>
+<p>曲线的群交换子满足</p>
+<div class="arithmatex">\[
+e^{tX}e^{sY}e^{-tX}e^{-sY}
+=I+ts(XY-YX)+O(|t|^2|s|+|t||s|^2).
+\]</div>
+<p>展开指数乘积即可看到，首阶项相消，混合二阶项保留交换子。李括号因此记录两次无穷小运动不交换的程度。</p>
+<h2 id="64">6.4 李代数定义与例子</h2>
+<blockquote>
+<p>李代数是向量空间 <span class="arithmatex">\(\mathfrak g\)</span> 连同双线性括号，满足 <span class="arithmatex">\([x,x]=0\)</span> 和 Jacobi 恒等式
+$$
+[x,[y,z]]+[y,[z,x]]+[z,[x,y]]=0.
+$$</p>
+</blockquote>
+<p>在特征零，交替性等价于反对称性。结合代数的交换子自动满足 Jacobi：展开十二项，两两消去。因而矩阵迹零空间、斜对称空间都给出李代数。</p>
+<p>另一个例子是代数的导子：<span class="arithmatex">\(D(ab)=D(a)b+aD(b)\)</span>。两个导子的交换子仍是导子，逐项展开乘积法则即可验证。向量场的括号属于这一例子。</p>
+<h2 id="65">6.5 李括号与结构常数</h2>
+<p>选基 <span class="arithmatex">\(x_i\)</span>，写 <span class="arithmatex">\([x_i,x_j]=\sum_k c_{ij}^{k}x_k\)</span>。反对称性给出 <span class="arithmatex">\(c_{ij}^{k}=-c_{ji}^{k}\)</span>，Jacobi 则给出关于这些常数的二次方程。结构常数依赖基，而是否为交换、可解或半单不依赖基。</p>
+<p>最重要的三维模型是 <span class="arithmatex">\(\mathfrak{sl}_2(\mathbb C)\)</span>：</p>
+<div class="arithmatex">\[
+e=\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix},\quad
+f=\begin{pmatrix}0&amp;0\\1&amp;0\end{pmatrix},\quad
+h=\begin{pmatrix}1&amp;0\\0&amp;-1\end{pmatrix},
+\qquad [h,e]=2e,\ [h,f]=-2f,\ [e,f]=h.
+\]</div>
+<p>这三条关系将控制整个有限维表示分类。</p>
+<h2 id="66">6.6 李群与李代数的对应 ○</h2>
+<p>矩阵群同态微分后保持括号。对连通李群，同态由其单位元处微分至多唯一确定，因为指数映射覆盖单位元的一个邻域，而连通群由任何单位邻域生成。</p>
+<p>反向从李代数同态积分成群同态，需要定义域群单连通。存在唯一的连通单连通李群对应每个实有限维李代数，是一般李理论的存在定理，本节借用。</p>
+<p>同一个李代数可对应不同群，例如 <span class="arithmatex">\(\operatorname{SU}(2)\)</span> 与 <span class="arithmatex">\(\operatorname{SO}(3)\)</span>。李代数表示积分到单连通群后，是否下降到一个商群，要检验商掉的离散中心是否作用为恒等。这是“整数权”和全局群形式之间联系的来源。</p>
+<h2 id="67">6.7 指数映射与对数映射</h2>
+<p>矩阵指数 <span class="arithmatex">\(\exp X=\sum_{r\ge0}X^r/r!\)</span> 绝对收敛，且 <span class="arithmatex">\(\exp(tX)\)</span> 为一参数子群。若 <span class="arithmatex">\(\|A-I\|&lt;1\)</span>，矩阵对数级数 <span class="arithmatex">\(\log A=\sum_{r\ge1}(-1)^{r+1}(A-I)^r/r\)</span> 收敛，在足够小的邻域与指数互逆。</p>
+<p>指数在零处的导数为恒等，所以由逆函数定理局部可逆；不意味着全局单射或满射。若 <span class="arithmatex">\(X,Y\)</span> 交换，<span class="arithmatex">\(\exp(X+Y)=\exp X\exp Y\)</span>，可用级数二项式证明。不交换时要使用 BCH 展开：</p>
+<div class="arithmatex">\[
+\log(e^Xe^Y)=X+Y+\tfrac12[X,Y]+\text{更高次交换子项}.
+\]</div>
+<p>本节只使用收敛邻域内的前几项，不把形式级数当作任意大矩阵上的公式。</p>
+<h2 id="68">6.8 伴随表示</h2>
+<p>李代数的伴随作用为 <span class="arithmatex">\(\operatorname{ad}x(y)=[x,y]\)</span>。Jacobi 恰好说明 <span class="arithmatex">\([\operatorname{ad}x,\operatorname{ad}y]=\operatorname{ad}[x,y]\)</span>，因此它是表示。</p>
+<p>矩阵群的伴随作用为 <span class="arithmatex">\(\operatorname{Ad}(g)X=gXg^{-1}\)</span>，微分得到 <span class="arithmatex">\(\operatorname{ad}\)</span>。对固定 <span class="arithmatex">\(X\)</span>，解线性微分方程可得</p>
+<div class="arithmatex">\[
+\operatorname{Ad}(e^X)=e^{\operatorname{ad}X}.
+\]</div>
+<p>其中核分别反映群的中心和李代数的中心。群的离散中心在微分后可能消失，这再次说明微分会丢失全局信息。</p>
+<h2 id="69">6.9 可解李代数与幂零李代数</h2>
+<p>李代数的导出列与下中心列按括号定义，终止分别称可解、幂零。上三角矩阵李代数可解，严格上三角矩阵李代数幂零；迹零矩阵李代数在 <span class="arithmatex">\(n\ge2\)</span> 时不是可解。</p>
+<blockquote>
+<p>Lie 定理：复可解李代数在非零有限维表示中存在共同特征向量，因此可以同时上三角化。</p>
+</blockquote>
+<p>给出关键证明。对 <span class="arithmatex">\(\dim\mathfrak g\)</span> 归纳；<span class="arithmatex">\(\mathfrak g=0\)</span> 时任意非零向量都满足要求。若 <span class="arithmatex">\(\mathfrak g\ne0\)</span>，可解性保证 <span class="arithmatex">\([\mathfrak g,\mathfrak g]\ne\mathfrak g\)</span>，因此可以选包含 <span class="arithmatex">\([\mathfrak g,\mathfrak g]\)</span> 的余维一理想 <span class="arithmatex">\(\mathfrak a\)</span>，写 <span class="arithmatex">\(\mathfrak g=\mathfrak a+\mathbb Cx\)</span>。归纳得非零 <span class="arithmatex">\(v\)</span> 满足 <span class="arithmatex">\(av=\lambda(a)v\)</span>。令 <span class="arithmatex">\(v_j=x^jv\)</span>。由于表示空间有限维，存在最小的 <span class="arithmatex">\(m\ge1\)</span>，使 <span class="arithmatex">\(v_0,\ldots,v_m\)</span> 线性相关。令 <span class="arithmatex">\(U=\operatorname{span}(v_0,\ldots,v_{m-1})\)</span>；最小性保证这些向量构成 <span class="arithmatex">\(U\)</span> 的一组基，并且 <span class="arithmatex">\(xU\subseteq U\)</span>。利用 <span class="arithmatex">\([a,x]\in\mathfrak a\)</span> 归纳可得</p>
+<div class="arithmatex">\[
+av_j-\lambda(a)v_j\in\operatorname{span}(v_0,\ldots,v_{j-1}).
+\]</div>
+<p><span class="arithmatex">\(U\)</span> 对 <span class="arithmatex">\(\mathfrak a\)</span> 与 <span class="arithmatex">\(x\)</span> 都不变，<span class="arithmatex">\(a\)</span> 作为 <span class="arithmatex">\(U\)</span> 上线性算子的迹为 <span class="arithmatex">\(\dim U\,\lambda(a)\)</span>。交换子迹为零，因此 <span class="arithmatex">\(\lambda([x,a])=0\)</span>。共同特征空间 <span class="arithmatex">\(E=\{w:aw=\lambda(a)w\ \forall a\in\mathfrak a\}\)</span> 非零，且
+<span class="arithmatex">\(a(xw)=x(aw)+[a,x]w=\lambda(a)xw\)</span>，所以 <span class="arithmatex">\(x\)</span> 保持 <span class="arithmatex">\(E\)</span>。在 <span class="arithmatex">\(E\)</span> 内取 <span class="arithmatex">\(x\)</span> 的特征向量即为全体的共同特征向量。再对商空间归纳得到上三角基。这里特征零和代数闭性都实际参与了证明。</p>
+<p>Engel 定理说：若所有 <span class="arithmatex">\(\operatorname{ad}x\)</span> 幂零，则李代数幂零。它涉及共同零向量引理，附录 A 给出证明，勿把“可上三角化”与“严格上三角化”混同。</p>
+<h2 id="610">6.10 半单李代数初步</h2>
+<p>所有可解理想的和仍可解：两个可解理想的和对其中一个取商，是另一个的可解商，扩张仍可解；有限维使任意和化为有限和。最大可解理想称根基 <span class="arithmatex">\(\operatorname{rad}\mathfrak g\)</span>。</p>
+<blockquote>
+<p><span class="arithmatex">\(\operatorname{rad}\mathfrak g=0\)</span> 时称半单。非交换且没有非平凡理想时称单。</p>
+</blockquote>
+<p>在复特征零有限维情形，半单李代数是单理想的直和。这是后续结构定理的一部分。<span class="arithmatex">\(\mathfrak{sl}_n(\mathbb C)\)</span> 为单李代数，<span class="arithmatex">\(\mathfrak{gl}_n\)</span> 因标量中心而非半单。</p>
+<h2 id="611-killing">6.11 Killing 型</h2>
+<p>定义 <span class="arithmatex">\(K(x,y)=\operatorname{tr}(\operatorname{ad}x\,\operatorname{ad}y)\)</span>。迹的循环性给出对称性及不变性</p>
+<div class="arithmatex">\[
+K([x,y],z)=K(x,[y,z]).
+\]</div>
+<p>由不变性，Killing 型的零化子 <span class="arithmatex">\(R=\{x\in\mathfrak g:K(x,y)=0\text{ 对所有 }y\in\mathfrak g\}\)</span> 是理想。这里的零化子与后面由 Cartan 子代数定义的根空间是不同的概念。对 <span class="arithmatex">\(\mathfrak{sl}_2\)</span>，直接在 <span class="arithmatex">\(e,h,f\)</span> 基中计算得 <span class="arithmatex">\(K(h,h)=8\)</span>、<span class="arithmatex">\(K(e,f)=4\)</span>，其他未由对称性得到的项为零，所以非退化。</p>
+<p><span class="arithmatex">\(\mathfrak{sl}_n\)</span> 上 <span class="arithmatex">\(K(X,Y)=2n\operatorname{tr}(XY)\)</span>。可以先在 <span class="arithmatex">\(\operatorname{End}(\mathbb C^n)\)</span> 上将 <span class="arithmatex">\(\operatorname{ad}X=L_X-R_X\)</span> 展开取迹，再去掉作用为零的标量子空间。Killing 型不是任意选定的内积，复数域上也不涉及共轭。</p>
+<h2 id="612-cartan">6.12 Cartan 判据 ※</h2>
+<blockquote>
+<p>复有限维李代数可解，当且仅当 <span class="arithmatex">\(K(\mathfrak g,[\mathfrak g,\mathfrak g])=0\)</span>；半单，当且仅当 Killing 型非退化。</p>
+</blockquote>
+<p>可解方向可由 Lie 定理看出：伴随矩阵同时上三角，导出代数对应严格上三角，乘积迹为零。逆方向是 Cartan 的迹判据，需将矩阵的半单部分与迹配对，再用 Engel 定理，本节借用该方向，不以一行“由迹为零”代替证明。</p>
+<p>半单判据可由可解判据进一步推出。先设 <span class="arithmatex">\(\mathfrak g\)</span> 半单。若 Killing 型的零化子 <span class="arithmatex">\(R\ne0\)</span>，对 <span class="arithmatex">\(x,y\in R\)</span>，<span class="arithmatex">\(\operatorname{ad}x\)</span> 在 <span class="arithmatex">\(\mathfrak g/R\)</span> 上为零，故限制到 <span class="arithmatex">\(R\)</span> 的 Killing 型也为零，可解判据使 <span class="arithmatex">\(R\)</span> 成为非零可解理想，与半单性矛盾。反过来，若 <span class="arithmatex">\(\mathfrak g\)</span> 不是半单的，便有非零可解理想；取其导出列最后一个非零项 <span class="arithmatex">\(A\)</span>，它是交换理想；对 <span class="arithmatex">\(a\in A\)</span>，<span class="arithmatex">\(\operatorname{ad}a\)</span> 把 <span class="arithmatex">\(\mathfrak g\)</span> 送到 <span class="arithmatex">\(A\)</span> 且在 <span class="arithmatex">\(A\)</span> 上为零，所以 <span class="arithmatex">\(\operatorname{ad}a\,\operatorname{ad}x\)</span> 迹为零，对任意 <span class="arithmatex">\(x\)</span> 成立，Killing 型退化。</p>
+<h2 id="613-mathfraksl_2">6.13 先计算 <span class="arithmatex">\(\mathfrak{sl}_2\)</span> 的表示 ★</h2>
+<p>李代数表示是线性映射 <span class="arithmatex">\(\rho:\mathfrak g\to\operatorname{End}(V)\)</span>，满足 <span class="arithmatex">\(\rho([x,y])=[\rho(x),\rho(y)]\)</span>。以下省去 <span class="arithmatex">\(\rho\)</span> 的记号。</p>
+<p>在次数为 <span class="arithmatex">\(m\)</span> 的齐次二元多项式空间上令</p>
+<div class="arithmatex">\[
+e=x\partial_y,\qquad f=y\partial_x,\qquad
+h=x\partial_x-y\partial_y.
+\]</div>
+<p>它们满足三条 <span class="arithmatex">\(\mathfrak{sl}_2\)</span> 关系。基 <span class="arithmatex">\(x^{m-j}y^j\)</span> 的 <span class="arithmatex">\(h\)</span> 权为 <span class="arithmatex">\(m-2j\)</span>，相邻基由 <span class="arithmatex">\(e,f\)</span> 连接，因而不可约：任意不变子空间对可对角化的 <span class="arithmatex">\(h\)</span> 分解成权空间，包含一条权线后会包含全部权线。记此表示为 <span class="arithmatex">\(V_m\)</span>，维数 <span class="arithmatex">\(m+1\)</span>。</p>
+<blockquote>
+<p><span class="arithmatex">\(\mathfrak{sl}_2(\mathbb C)\)</span> 的每个有限维不可约表示唯一同构于某个 <span class="arithmatex">\(V_m\)</span>，<span class="arithmatex">\(m\in\mathbb N\)</span>。</p>
+</blockquote>
+<p>从有限个 <span class="arithmatex">\(h\)</span> 特征值中选 <span class="arithmatex">\(\lambda\)</span>，使 <span class="arithmatex">\(\lambda+2\)</span> 不是特征值，并取 <span class="arithmatex">\(hv=\lambda v\)</span>。关系给出 <span class="arithmatex">\(ev=0\)</span>。令 <span class="arithmatex">\(v_j=f^jv\)</span>，归纳计算</p>
+<div class="arithmatex">\[
+hv_j=(\lambda-2j)v_j,\qquad
+ev_j=j(\lambda-j+1)v_{j-1}.
+\]</div>
+<p>非零的 <span class="arithmatex">\(v_j\)</span> 有不同权，所以有限维性使它们终止，设 <span class="arithmatex">\(v_m\ne0\)</span>、<span class="arithmatex">\(v_{m+1}=0\)</span>。第二式在 <span class="arithmatex">\(j=m+1\)</span> 给出 <span class="arithmatex">\((m+1)(\lambda-m)v_m=0\)</span>，故 <span class="arithmatex">\(\lambda=m\)</span>。这些向量张成不变非零空间，不可约性使它等于全空间；与上述多项式模型按非零比例对应即得分类。注意多项式基与 <span class="arithmatex">\(f^jv\)</span> 基归一化不同，系数不能混用。</p>
+<h2 id="614">6.14 复半单李代数的结构入口 ※</h2>
+<p>后面的理论使用复半单结构定理：存在由可交换、伴随作用可对角化元素组成的 Cartan 子代数 <span class="arithmatex">\(\mathfrak h\)</span>，并有根分解</p>
+<div class="arithmatex">\[
+\mathfrak g=\mathfrak h\oplus\bigoplus_{\alpha\in\Phi}\mathfrak g_\alpha,
+\qquad
+\mathfrak g_\alpha=\{x:[h,x]=\alpha(h)x\ \forall h\in\mathfrak h\}.
+\]</div>
+<p>各根空间一维；每个根与负根生成一个 <span class="arithmatex">\(\mathfrak{sl}_2\)</span>；根形成有限约化根系。一般存在性、根空间维数与 Cartan 子代数共轭性在此借用。下面会完整计算 <span class="arithmatex">\(\mathfrak{sl}_n\)</span> 的模型，并在这些结构事实之上证明最高权分类。这样区分“基础结构输入”和“由它推导的表示结果”。</p>
+<h2 id="615-cartan">6.15 Cartan 子代数</h2>
+<p>对 <span class="arithmatex">\(\mathfrak{sl}_n\)</span>，取迹零对角矩阵组成的 <span class="arithmatex">\(\mathfrak h\)</span>，其维数为 <span class="arithmatex">\(n-1\)</span>，称秩。记 <span class="arithmatex">\(\varepsilon_i(H)=H_{ii}\)</span>，则</p>
+<div class="arithmatex">\[
+[H,E_{ij}]=(\varepsilon_i-\varepsilon_j)(H)E_{ij}.
+\]</div>
+<p>因此根是 <span class="arithmatex">\(\varepsilon_i-\varepsilon_j\)</span>，<span class="arithmatex">\(i\ne j\)</span>。对角空间是零权空间，非对角矩阵单位是各根空间的基，直接验证结构分解。一般李代数中的 Cartan 子代数还可以定义为自正规化的幂零子代数；半单复情形与本节的极大环面描述一致，不能把这一定义直接套到所有可解李代数。</p>
+<h2 id="616">6.16 根系</h2>
+<p>对根 <span class="arithmatex">\(\alpha\)</span>，选归一化的根 <span class="arithmatex">\(\mathfrak{sl}_2\)</span> 三元组 <span class="arithmatex">\(e_\alpha,f_\alpha,h_\alpha\)</span>，使 <span class="arithmatex">\([e_\alpha,f_\alpha]=h_\alpha\)</span>、<span class="arithmatex">\(\alpha(h_\alpha)=2\)</span>。余根 <span class="arithmatex">\(\alpha^\vee\)</span> 表示这个 Cartan 元素 <span class="arithmatex">\(h_\alpha\)</span>；权与余根的配对是求值 <span class="arithmatex">\(\langle\lambda,\alpha^\vee\rangle=\lambda(h_\alpha)\)</span>，不是 Hermitian 内积。</p>
+<p>把根放在其张成的实欧氏空间中。反射为</p>
+<div class="arithmatex">\[
+s_\alpha(\beta)=\beta-\langle\beta,\alpha^\vee\rangle\alpha,
+\qquad
+\langle\beta,\alpha^\vee\rangle=\frac{2(\beta,\alpha)}{(\alpha,\alpha)}.
+\]</div>
+<p>根串来自根 <span class="arithmatex">\(\mathfrak{sl}_2\)</span> 的伴随表示，因此这些配对是整数。选正根后，不能进一步写成正根之和的根为简单根；它们构成根格的基，每个正根是简单根的非负整数和。这些是 6.14 结构定理包含的根系事实。</p>
+<p>对简单根 <span class="arithmatex">\(\alpha_i\)</span>，缩写 <span class="arithmatex">\(e_i=e_{\alpha_i}\)</span>、<span class="arithmatex">\(f_i=f_{\alpha_i}\)</span>、<span class="arithmatex">\(h_i=h_{\alpha_i}\)</span>。后文的整性条件 <span class="arithmatex">\(\lambda(h_i)\in\mathbb N\)</span> 和基本权定义使用的都是这些余根元素。</p>
+<p>Cartan 矩阵统一取 <span class="arithmatex">\(a_{ij}=\alpha_j(h_i)=\langle\alpha_j,\alpha_i^\vee\rangle\)</span>；第 6.28 节的 <span class="arithmatex">\([h_i,e_j]=a_{ij}e_j\)</span> 使用同一指标次序。</p>
+<p>对 <span class="arithmatex">\(\mathfrak{sl}_3\)</span> 可取 <span class="arithmatex">\(\alpha_1=\varepsilon_1-\varepsilon_2\)</span>、<span class="arithmatex">\(\alpha_2=\varepsilon_2-\varepsilon_3\)</span>，正根为 <span class="arithmatex">\(\alpha_1,\alpha_2,\alpha_1+\alpha_2\)</span>，根系是一个六边形。此时 Cartan 矩阵为 <span class="arithmatex">\(\begin{pmatrix}2&amp;-1\\-1&amp;2\end{pmatrix}\)</span>。</p>
+<h2 id="617-weyl">6.17 Weyl 群</h2>
+<p>由根反射生成的有限群称 Weyl 群 <span class="arithmatex">\(W\)</span>。<span class="arithmatex">\(\mathfrak{sl}_n\)</span> 的反射交换两个 <span class="arithmatex">\(\varepsilon_i\)</span>，因此 <span class="arithmatex">\(W\cong S_n\)</span>。它与原来的矩阵李群不是同一个群，而是控制 Cartan 上对称的有限群。</p>
+<p>对每个简单根的 <span class="arithmatex">\(\mathfrak{sl}_2\)</span>，算子 <span class="arithmatex">\(\exp(e_i)\exp(-f_i)\exp(e_i)\)</span> 在有限维表示上实现对应反射对权的作用。可在二维标准表示中先算，再利用括号关系验证其共轭作用；指数因 <span class="arithmatex">\(e_i,f_i\)</span> 幂零而是有限和。因此权的重数在 Weyl 群作用下不变。</p>
+<h2 id="618">6.18 权与权空间</h2>
+<p>对表示 <span class="arithmatex">\(V\)</span>，若 <span class="arithmatex">\(hv=\lambda(h)v\)</span> 对全部 <span class="arithmatex">\(h\in\mathfrak h\)</span> 成立，称 <span class="arithmatex">\(v\)</span> 为权 <span class="arithmatex">\(\lambda\)</span> 的向量，所有这种向量组成 <span class="arithmatex">\(V_\lambda\)</span>。有限维半单表示中 <span class="arithmatex">\(\mathfrak h\)</span> 同时可对角化，于是 <span class="arithmatex">\(V=\bigoplus_\lambda V_\lambda\)</span>。</p>
+<p>此处的可对角化也可由各简单根 <span class="arithmatex">\(\mathfrak{sl}_2\)</span> 推出：它们的 <span class="arithmatex">\(h_i\)</span> 在有限维表示中可对角化，彼此交换且生成 <span class="arithmatex">\(\mathfrak h\)</span>。单个 <span class="arithmatex">\(\mathfrak{sl}_2\)</span> 表示的完全可约性在 6.24 独立证明；一般完全可约性也在那里讨论。</p>
+<p>根算子满足 <span class="arithmatex">\(\mathfrak g_\alpha V_\lambda\subseteq V_{\lambda+\alpha}\)</span>，因为
+<span class="arithmatex">\(h(xv)=x(hv)+[h,x]v\)</span>。根是伴随表示的非零权，普通表示的权不必是根。<span class="arithmatex">\(\mathfrak{sl}_3\)</span> 标准表示的权是 <span class="arithmatex">\(\varepsilon_1,\varepsilon_2,\varepsilon_3\)</span>。</p>
+<h2 id="619">6.19 最高权表示</h2>
+<p>取正根子代数 <span class="arithmatex">\(\mathfrak n_+\)</span> 与负根子代数 <span class="arithmatex">\(\mathfrak n_-\)</span>。一个权向量 <span class="arithmatex">\(v\)</span> 若被全部正根算子消去，称最高权向量。有限权集中取一个在正根方向不能再上升的权，就会得到最高权向量。</p>
+<p>对不可约表示，该向量生成全空间。最高权 <span class="arithmatex">\(\lambda\)</span> 必满足 <span class="arithmatex">\(\lambda(h_i)\in\mathbb N\)</span>，因为限制到每个简单根的 <span class="arithmatex">\(\mathfrak{sl}_2\)</span>，最高权串的终止计算与 6.13 相同。满足这些整数条件的权称支配整权。如何证明每个这样的权确实产生一个有限维表示，需要先建立包络代数。</p>
+<h2 id="620-pbw">6.20 普遍包络代数与 PBW 定理 ※</h2>
+<p>定义</p>
+<div class="arithmatex">\[
+U(\mathfrak g)=T(\mathfrak g)/(x\otimes y-y\otimes x-[x,y]).
+\]</div>
+<p>李代数表示唯一延伸为 <span class="arithmatex">\(U(\mathfrak g)\)</span>-模，因为算子交换子恰好满足这些关系。</p>
+<blockquote>
+<p>PBW 定理：选有序基 <span class="arithmatex">\(x_1,\ldots,x_n\)</span>，则 <span class="arithmatex">\(x_1^{a_1}\cdots x_n^{a_n}\)</span>，<span class="arithmatex">\(a_i\ge0\)</span>，为 <span class="arithmatex">\(U(\mathfrak g)\)</span> 的基。</p>
+</blockquote>
+<p>给出排序证明。把逆序对 <span class="arithmatex">\(x_jx_i\)</span>（<span class="arithmatex">\(j&gt;i\)</span>）替换成 <span class="arithmatex">\(x_ix_j+[x_j,x_i]\)</span>。第一项长度不变但逆序数下降，括号项长度下降，因此按“长度优先、逆序数其次”排序，过程终止。</p>
+<p>唯一性要检查不同消去顺序。互不重叠的两个逆序对可以任意次序替换，结果相同。唯一重叠是三个严格递减字母 <span class="arithmatex">\(zyx\)</span>：先处理左对或右对，整理差值后得到</p>
+<div class="arithmatex">\[
+[[z,y],x]+[y,[z,x]]+[[y,x],z]=0,
+\]</div>
+<p>正是 Jacobi 恒等式。括号项长度更小，已可归纳使用唯一约化。由终止性，对最早分叉的两条约化路径作归纳，局部可合流推出最终标准式唯一。每条关系在任意上下文中的两边因此具有同一标准式，约化映射消去定义理想；它在有序词上为恒等，所以有序词在商中线性无关。生成性先前已得，证明完成。</p>
+<p>按负根、Cartan、正根次序取基，得到向量空间分解 <span class="arithmatex">\(U(\mathfrak g)\cong U(\mathfrak n_-)\otimes U(\mathfrak h)\otimes U(\mathfrak n_+)\)</span>。这不是宣称三个代数在乘法上彼此交换。</p>
+<h2 id="621-mathfraksl_3">6.21 <span class="arithmatex">\(\mathfrak{sl}_3\)</span> 表示论初步</h2>
+<p>标准表示为 <span class="arithmatex">\(\mathbb C^3\)</span>，其对偶是另一种三维表示；二者最高权分别为基本权 <span class="arithmatex">\(\omega_1,\omega_2\)</span>，定义为 <span class="arithmatex">\(\omega_i(h_j)=\delta_{ij}\)</span>。</p>
+<p>伴随表示维数八，其权为六个根，加零权重数二。标准表示张量对偶分解为</p>
+<div class="arithmatex">\[
+\mathbb C^3\otimes(\mathbb C^3)^*
+\cong\operatorname{End}(\mathbb C^3)
+=\mathbb CI\oplus\mathfrak{sl}_3.
+\]</div>
+<p>群作用是共轭，李代数作用是交换子，因此标量部分平凡，迹零部分伴随。记 <span class="arithmatex">\(\mathbf3=\mathbb C^3\)</span> 为标准表示，<span class="arithmatex">\(\mathbf6=S^2\mathbf3\)</span>、<span class="arithmatex">\(\mathbf8=\mathfrak{sl}_3\)</span>，<span class="arithmatex">\(\mathbf1\)</span> 为平凡表示；粗体数字在这里表示模，而不是普通整数。另一例子是 <span class="arithmatex">\(\mathbf3\otimes\mathbf3=S^2\mathbf3\oplus\Lambda^2\mathbf3\)</span>，维数为 <span class="arithmatex">\(6+3\)</span>；体积型使 <span class="arithmatex">\(\Lambda^2\mathbf3\cong\mathbf3^*\)</span>，但需要特殊线性群条件。</p>
+<h2 id="622">6.22 最高权定理 ★ ※</h2>
+<blockquote>
+<p>有限维复半单李代数的不可约表示，在同构意义下与支配整权一一对应。</p>
+</blockquote>
+<p>以下证明使用 6.14 中明示借用的根结构事实，并使用刚证明的 PBW 定理。对任意权 <span class="arithmatex">\(\lambda\)</span>，构造 Verma 模</p>
+<div class="arithmatex">\[
+M_\lambda=U(\mathfrak g)\otimes_{U(\mathfrak h+\mathfrak n_+)}
+\mathbb C_\lambda,
+\]</div>
+<p>其中 <span class="arithmatex">\(\mathfrak n_+\)</span> 作用为零，<span class="arithmatex">\(h\)</span> 作用为 <span class="arithmatex">\(\lambda(h)\)</span>。PBW 说明它以负根有序词作用在 <span class="arithmatex">\(v_\lambda\)</span> 上为基；最高权空间一维，其余权形如 <span class="arithmatex">\(\lambda-\sum_i n_i\alpha_i\)</span>。各权空间有限维，因为只有有限种负根，固定简单根总次数的词只有有限种。</p>
+<p>任何真子模不含最高权空间，否则包含生成元而等于全模。子模按权分解，因为一个向量只有有限多个权分量，可用 Cartan 算子的插值多项式分别提取。因此所有真子模之和仍不含最高权空间，是唯一极大真子模。其商 <span class="arithmatex">\(L_\lambda\)</span> 唯一不可约；任何由最高权 <span class="arithmatex">\(\lambda\)</span> 向量生成的不可约模都是这一商。这证明唯一性。</p>
+<p>当 <span class="arithmatex">\(\lambda_i=\lambda(h_i)\in\mathbb N\)</span>，把 <span class="arithmatex">\(M_\lambda\)</span> 再商掉各向量 <span class="arithmatex">\(f_i^{\lambda_i+1}v_\lambda\)</span> 生成的子模，得 <span class="arithmatex">\(Q_\lambda\)</span>。这些向量被全部 <span class="arithmatex">\(e_j\)</span> 消去：<span class="arithmatex">\(j=i\)</span> 用 6.13 的系数公式，<span class="arithmatex">\(j\ne i\)</span> 用 <span class="arithmatex">\([e_j,f_i]=0\)</span>。它们生成的子模全部权严格低于 <span class="arithmatex">\(\lambda\)</span>，故 <span class="arithmatex">\(Q_\lambda\ne0\)</span>。</p>
+<p>在 <span class="arithmatex">\(Q_\lambda\)</span> 上，每个 <span class="arithmatex">\(e_i,f_i\)</span> 都局部幂零。对任意 <span class="arithmatex">\(u\in U(\mathfrak g)\)</span>，<span class="arithmatex">\(\operatorname{ad}e_i\)</span>、<span class="arithmatex">\(\operatorname{ad}f_i\)</span> 在 <span class="arithmatex">\(u\)</span> 上局部幂零：在 <span class="arithmatex">\(\mathfrak g\)</span> 的根串上成立，再由导子乘积法则延伸到有限词。结合 <span class="arithmatex">\(e_iv_\lambda=0\)</span> 与 <span class="arithmatex">\(f_i^{\lambda_i+1}v_\lambda=0\)</span>，展开
+<span class="arithmatex">\(x^Nu=\sum_{r=0}^N\binom Nr(\operatorname{ad}x)^r(u)x^{N-r}\)</span>，足够大 <span class="arithmatex">\(N\)</span> 时每项作用在 <span class="arithmatex">\(v_\lambda\)</span> 上为零。</p>
+<p>因此简单根的指数反射在该模上仍有意义，权集 Weyl 不变。取把全部正根送到负根的最长元素 <span class="arithmatex">\(w_0\)</span>。所有权既在 <span class="arithmatex">\(\lambda-Q_+\)</span>，又在 <span class="arithmatex">\(w_0\lambda+Q_+\)</span>，其中 <span class="arithmatex">\(Q_+\)</span> 为简单根的非负整数锥。若 <span class="arithmatex">\(\mu=\lambda-\sum n_i\alpha_i=w_0\lambda+\sum m_i\alpha_i\)</span>，则
+<span class="arithmatex">\(\lambda-w_0\lambda=\sum(n_i+m_i)\alpha_i\)</span>，每个 <span class="arithmatex">\(n_i,m_i\)</span> 都有界。故只有有限多个权，各权空间有限维，<span class="arithmatex">\(Q_\lambda\)</span> 有限维，其不可约商 <span class="arithmatex">\(L_\lambda\)</span> 也有限维。这证明存在性。</p>
+<p>最后，任意有限维不可约模都有最高权，简单根 <span class="arithmatex">\(\mathfrak{sl}_2\)</span> 串证明其支配整性，且由该最高权向量生成。所以以上构造涵盖全部不可约，定理得证。</p>
+<h2 id="623-weyl">6.23 Weyl 特征公式初步 ※</h2>
+<p>令 <span class="arithmatex">\(\rho=\frac12\sum_{\alpha&gt;0}\alpha\)</span>，用形式符号 <span class="arithmatex">\(e^\mu\)</span> 记录权，特征标为 <span class="arithmatex">\(\operatorname{ch}V=\sum_\mu(\dim V_\mu)e^\mu\)</span>。Weyl 特征公式为</p>
+<div class="arithmatex">\[
+\operatorname{ch}L_\lambda
+=\frac{\sum_{w\in W}\det(w)e^{w(\lambda+\rho)}}
+{\sum_{w\in W}\det(w)e^{w\rho}},
+\qquad
+\sum_w\det(w)e^{w\rho}
+=e^\rho\prod_{\alpha&gt;0}(1-e^{-\alpha}).
+\]</div>
+<p>这里分式最终等于有限形式和，不是选择一个数值点后任意作除法。一般公式的证明还需 Weyl 分母恒等式及特征标的消去论证，本节借用，不以最高权分类代替其证明。</p>
+<p>在 <span class="arithmatex">\(\mathfrak{sl}_2\)</span> 中令 <span class="arithmatex">\(t=e^\omega\)</span>，<span class="arithmatex">\(\alpha=2\omega\)</span>、<span class="arithmatex">\(\rho=\omega\)</span>，公式成为</p>
+<div class="arithmatex">\[
+\frac{t^{m+1}-t^{-(m+1)}}{t-t^{-1}}
+=t^m+t^{m-2}+\cdots+t^{-m},
+\]</div>
+<p>有限等比级数立即证明这一特例，和 6.13 的权串一致。对一般根系，取指数趋近单位元可得维数公式</p>
+<div class="arithmatex">\[
+\dim L_\lambda=
+\prod_{\alpha&gt;0}\frac{\langle\lambda+\rho,\alpha^\vee\rangle}
+{\langle\rho,\alpha^\vee\rangle}.
+\]</div>
+<p><span class="arithmatex">\(\mathfrak{sl}_3\)</span> 的 <span class="arithmatex">\(\lambda=a\omega_1+b\omega_2\)</span> 得维数 <span class="arithmatex">\((a+1)(b+1)(a+b+2)/2\)</span>。这是使用上述借用公式的计算结果。</p>
+<h2 id="624">6.24 完全可约性与典型表示</h2>
+<blockquote>
+<p>Weyl 完全可约定理：有限维复半单李代数的有限维表示是不可约表示的直和。</p>
+</blockquote>
+<p>给出紧群方法的证明及其输入。借用半单复李代数存在紧实形式 <span class="arithmatex">\(\mathfrak k\)</span>，<span class="arithmatex">\(\mathfrak g=\mathfrak k\otimes_{\mathbb R}\mathbb C\)</span>，且对应单连通紧李群 <span class="arithmatex">\(K\)</span>；再借用李代数表示的积分定理与紧群归一化 Haar 测度。把表示积分到 <span class="arithmatex">\(K\)</span>，平均一个正定 Hermitian 内积：</p>
+<div class="arithmatex">\[
+\langle v,w\rangle_K=\int_K\langle kv,kw\rangle_0\,dk.
+\]</div>
+<p>这里 <span class="arithmatex">\(dk\)</span> 简写 <span class="arithmatex">\(dm_K(k)\)</span>，<span class="arithmatex">\(m_K\)</span> 是满足 <span class="arithmatex">\(m_K(K)=1\)</span> 的 Haar 测度，与有限群 Fourier 章使用的计数测度 <span class="arithmatex">\(m_G\)</span> 区分。</p>
+<p>它正定且 <span class="arithmatex">\(K\)</span>-不变。任意 <span class="arithmatex">\(\mathfrak g\)</span>-不变子空间也对积分群不变，正交补对 <span class="arithmatex">\(K\)</span>、<span class="arithmatex">\(\mathfrak k\)</span> 及其复化 <span class="arithmatex">\(\mathfrak g\)</span> 不变。因此每个子表示有不变补，按维数归纳完成。这个证明完整解释平均步骤，但紧实形式和积分定理的建立属于借用的李群结构输入。</p>
+<p>对 <span class="arithmatex">\(\mathfrak{sl}_2\)</span>，输入可直接验证：<span class="arithmatex">\(\mathfrak{su}_2\)</span> 的复化为 <span class="arithmatex">\(\mathfrak{sl}_2\)</span>，<span class="arithmatex">\(\operatorname{SU}(2)\)</span> 同胚于单位四元数的 <span class="arithmatex">\(S^3\)</span>，紧且单连通。因此这一路线独立证明 <span class="arithmatex">\(\mathfrak{sl}_2\)</span> 的完全可约性，没有使用最高权分类来假定分解。</p>
+<p>典型表示包括标准表示、对偶、伴随、对称幂和外幂。<span class="arithmatex">\(\mathfrak{sl}_n\)</span> 的 <span class="arithmatex">\(\Lambda^r\mathbb C^n\)</span> 最高权为 <span class="arithmatex">\(\omega_r\)</span>，对称幂最高权为 <span class="arithmatex">\(m\omega_1\)</span>。正交李代数还有旋量表示，其来源见第 4–5 章。</p>
+<h2 id="625-clebschgordan">6.25 Clebsch–Gordan 分解 ★</h2>
+<blockquote>
+<p>对 <span class="arithmatex">\(\mathfrak{sl}_2\)</span>，
+$$
+V_m\otimes V_n\cong
+\bigoplus_{r=0}^{\min(m,n)}V_{m+n-2r}.
+$$</p>
+</blockquote>
+<p>设 <span class="arithmatex">\(m\le n\)</span>。两边特征标分别为两个权串的乘积，以及最高权为 <span class="arithmatex">\(m+n,m+n-2,\ldots,n-m\)</span> 的权串之和。权 <span class="arithmatex">\(m+n-2s\)</span> 在左边的重数是满足 <span class="arithmatex">\(i+j=s\)</span>、<span class="arithmatex">\(0\le i\le m\)</span>、<span class="arithmatex">\(0\le j\le n\)</span> 的整数对个数，即</p>
+<div class="arithmatex">\[
+\min(m,s)-\max(0,s-n)+1
+\]</div>
+<p>（范围外记零）。右边该权的重数是满足 <span class="arithmatex">\(0\le r\le m\)</span>、<span class="arithmatex">\(r\le s\le m+n-r\)</span> 的整数 <span class="arithmatex">\(r\)</span> 个数；逐段比较 <span class="arithmatex">\(s\le m\)</span>、<span class="arithmatex">\(m\le s\le n\)</span>、<span class="arithmatex">\(n\le s\le m+n\)</span>，得到相同数值。因此特征标相等。</p>
+<p>完全可约性已经独立证明，而不可约权串有不同最高权，故其特征标线性无关：取最大权项即能消去最大最高权的系数。特征标相等因而推出分解同构，证明完成。例子 <span class="arithmatex">\(V_1\otimes V_1=V_2\oplus V_0\)</span> 对应对称平方加外平方。</p>
+<h2 id="626">6.26 张量积分解初步</h2>
+<p>一般半单情形，张量积的权重数由两个权多重集卷积得到，再逐次减去最高权不可约的特征标。不可约的最高权向量张量仍是最高权向量，所以 <span class="arithmatex">\(L_{\lambda+\mu}\)</span> 在 <span class="arithmatex">\(L_\lambda\otimes L_\mu\)</span> 中出现一次。</p>
+<p>这只能确定最高的一项，其余项还需权重数或 Weyl 公式。对 <span class="arithmatex">\(\mathfrak{sl}_3\)</span>，<span class="arithmatex">\(\mathbf3\otimes\mathbf3^*=\mathbf1\oplus\mathbf8\)</span> 与 <span class="arithmatex">\(\mathbf3\otimes\mathbf3=\mathbf6\oplus\mathbf3^*\)</span> 已给出完整例子，记号沿用 6.21。第一遍应先练习这些低维计算，再学习 Littlewood–Richardson 规则。</p>
+<h2 id="627">6.27 无穷维李代数初步 ☆</h2>
+<p>Laurent 多项式向量场有基 <span class="arithmatex">\(L_n=-z^{n+1}\partial_z\)</span>，满足 <span class="arithmatex">\([L_m,L_n]=(m-n)L_{m+n}\)</span>，称 Witt 代数。加上中心元素 <span class="arithmatex">\(C\)</span>，可定义 Virasoro 括号</p>
+<div class="arithmatex">\[
+[L_m,L_n]=(m-n)L_{m+n}
++\frac{m^3-m}{12}\delta_{m+n,0}C,\qquad [C,L_n]=0.
+\]</div>
+<p>额外项是一个 <span class="arithmatex">\(2\)</span>-余循环，Jacobi 可直接代入核验。无穷维表示不再自动完全可约，最高权空间也不保证生成有限维模。研究它们需要拓扑、分次或能量有界等额外条件。</p>
+<h2 id="628-kacmoody">6.28 Kac–Moody 代数初步 ☆</h2>
+<p>以广义 Cartan 矩阵 <span class="arithmatex">\(A=(a_{ij})\)</span> 为数据，生成元 <span class="arithmatex">\(e_i,f_i,h_i\)</span> 满足</p>
+<div class="arithmatex">\[
+[h_i,e_j]=a_{ij}e_j,\quad [h_i,f_j]=-a_{ij}f_j,\quad
+[e_i,f_j]=\delta_{ij}h_i,\quad[h_i,h_j]=0
+\]</div>
+<p>以及 Serre 关系 <span class="arithmatex">\((\operatorname{ad}e_i)^{1-a_{ij}}e_j=0\)</span>、对应的 <span class="arithmatex">\(f\)</span> 关系（<span class="arithmatex">\(i\ne j\)</span>）。有限型返回半单李代数；仿射型联系环路代数的中心扩张。一般定义还需补足 Cartan 空间以处理矩阵的核，本节只给出导出部分的生成关系。</p>
+<h2 id="_1">练习</h2>
+<ol>
+<li>从曲线约束推导 <span class="arithmatex">\(\mathfrak{sp}_{2n}\)</span>，计算其维数 <span class="arithmatex">\(n(2n+1)\)</span>。提示：按 <span class="arithmatex">\(n\times n\)</span> 块分解矩阵。</li>
+<li>验证 <span class="arithmatex">\(\mathfrak{sl}_2\)</span> 的 Killing 型数值，并检查不变性。</li>
+<li>证明 <span class="arithmatex">\(V_m\)</span> 的各权都重数一，用 <span class="arithmatex">\(f^jv\)</span> 基重新计算 <span class="arithmatex">\(e,f,h\)</span> 的矩阵。</li>
+<li>分解 <span class="arithmatex">\(V_2\otimes V_3\)</span>。答案为 <span class="arithmatex">\(V_5\oplus V_3\oplus V_1\)</span>，核对维数。</li>
+<li>在 <span class="arithmatex">\(\mathfrak{sl}_3\)</span> 标准表示中直接找到最高权向量，并写出三个权。</li>
+<li>证明 <span class="arithmatex">\(S^2(\mathbb C^2)\)</span> 与 <span class="arithmatex">\(\mathfrak{sl}_2\)</span> 的伴随表示同构。提示：最高权都是 <span class="arithmatex">\(2\)</span>，维数都是三。</li>
+<li>对 Virasoro 中心项验证 <span class="arithmatex">\((m,n,r)\)</span> 满足 <span class="arithmatex">\(m+n+r=0\)</span> 时的 Jacobi 系数恒等式。</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+      
+        <script src="../../../themes/js/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.17.1/flowchart.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.6/underscore-min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/@mermaid-js/mermaid-mindmap@9.3.0/dist/diagram-definition.0faef4c2.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/markdown-it-plantuml@1.4.1/index.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+      
+    
+  </body>
+</html>

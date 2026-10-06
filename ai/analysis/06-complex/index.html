@@ -1,0 +1,3430 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../05-functional/">
+      
+      
+        <link rel="next" href="../07-fourier/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>第6章 复分析 - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#6" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              第6章 复分析
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂碎
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    杂碎
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../physics/heat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    热传递
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../physics/Maxwell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    麦克斯韦方程组的复数形式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Math
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性代数
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    线性代数
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/linear/vector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    向量空间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/linear/mat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    矩阵代数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/linear/operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性算子
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/linear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂谈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    拓扑
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    拓扑
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/topo/basic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基本概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/topo/compact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    紧性与连通性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂碎
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    杂碎
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/extreme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    函数的极值
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/manifolds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    流形上的微积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/variance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于方差估计的无偏性的证明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/Euler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    欧拉积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/parameter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    含参变量的积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/rational/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    有理函数的积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/rotation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    旋转
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Others
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Others
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/Kalman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    卡尔曼滤波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/factor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    因子图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI讲义
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI讲义
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    共同符号约定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    现代分析学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    现代分析学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    讲义首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../study-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习指南与综合自测
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-foundations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第0章 预备与统一语言
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-limits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第1章 极限、连续与级数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-differential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第2章 多元微分与流形几何
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第3章 测度与Lebesgue积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-stokes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第4章 流形积分与Stokes定理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-functional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第5章 Lp空间与泛函分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第6章 复分析
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第6章 复分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 复数与复平面
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 复极限与复连续
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 全纯函数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64-cauchyriemann" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Cauchy–Riemann 方程
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 调和函数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6 复积分
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#67-goursat-cauchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7 Goursat 细分与 Cauchy 定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#68-cauchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8 Cauchy 积分公式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#69-liouville" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9 高阶导数、Liouville 与最大模原理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#610-morera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.10 Morera 定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#611-taylor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.11 Taylor 级数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#612-laurent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.12 Laurent 级数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#613" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.13 孤立奇点与分类
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#614" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.14 留数定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#615-rouche" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.15 辐角原理与 Rouché 定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#616-mobius" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.16 Möbius 变换
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#617" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.17 共形映射
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#618-riemann" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.18 Riemann 映射定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#619-weierstrass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.19 Weierstrass 乘积
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#620-mittagleffler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.20 Mittag–Leffler 定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#621" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.21 解析延拓与黎曼曲面初步
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#622" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.22 多复变初步 ☆
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习与提示
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-fourier/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第7章 傅里叶分析与调和分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-equations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第8章 微分方程与变分分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-probability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第9章 概率与随机分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第10章 现代专题与交叉分支
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录与参考文献
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    代数学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    代数学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    讲义首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/study-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习指南与综合自测
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/00-preliminaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第0章 预备
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/01-groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第1章 群论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/02-rings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第2章 环、模、域
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/03-linear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第3章 线性代数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/04-multilinear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第4章 多重线性与Clifford代数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/05-representations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第5章 表示论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/06-lie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第6章 李代数及其表示
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/07-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第7章 同调代数和高级专题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/appendices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录A–F与参考文献
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    几何与拓扑
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    几何与拓扑
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    讲义首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/study-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习指南与综合自测
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/00-preliminaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第0章 预备
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/01-topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第1章 点集拓扑
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/02-fundamental/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第2章 基本群与覆盖空间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/03-homology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第3章 同调与上同调
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/04-homotopy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第4章 高阶同伦与纤维化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/05-classical/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第5章 欧氏、仿射与射影几何
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/06-manifolds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第6章 光滑流形与微分形式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/07-lie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第7章 李群、作用与齐性空间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/08-connections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第8章 向量丛、连接与曲率
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/09-riemannian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第9章 Riemann几何与几何分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/10-symplectic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第10章 辛几何与Hamilton系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/11-complex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第11章 复几何、层与Riemann曲面
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/12-algebraic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第12章 代数几何
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/13-convex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第13章 凸、离散与组合几何
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/14-characteristic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第14章 特征类与指标
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/15-low-dimensional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第15章 低维拓扑
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/16-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第16章 现代交叉专题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/appendices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录与参考文献
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 复数与复平面
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 复极限与复连续
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 全纯函数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64-cauchyriemann" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Cauchy–Riemann 方程
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 调和函数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6 复积分
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#67-goursat-cauchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7 Goursat 细分与 Cauchy 定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#68-cauchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8 Cauchy 积分公式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#69-liouville" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9 高阶导数、Liouville 与最大模原理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#610-morera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.10 Morera 定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#611-taylor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.11 Taylor 级数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#612-laurent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.12 Laurent 级数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#613" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.13 孤立奇点与分类
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#614" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.14 留数定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#615-rouche" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.15 辐角原理与 Rouché 定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#616-mobius" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.16 Möbius 变换
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#617" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.17 共形映射
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#618-riemann" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.18 Riemann 映射定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#619-weierstrass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.19 Weierstrass 乘积
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#620-mittagleffler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.20 Mittag–Leffler 定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#621" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.21 解析延拓与黎曼曲面初步
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#622" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.22 多复变初步 ☆
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习与提示
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="6">第 6 章 复分析</h1>
+<p>实可微允许任意实线性近似，复可微却要求近似只能是乘以一个复数。这样强的局部限制最终会产生惊人的整体结果：一个函数的边界值决定内部值，一个小邻域的幂级数决定整个连通域上的解析函数。</p>
+<p>我们从这条限制出发，先建立 Cauchy–Riemann 方程和复积分，再用 Goursat 的细分证明把可微性转化为积分恒等式。Cauchy 公式随后给出高阶导数、幂级数和刚性结论。因此证明顺序重要：不能在证明一般 Cauchy 定理时预先假定全纯函数已经光滑。</p>
+<p>基础部分以后，我们将用留数计算积分，用零点计数研究方程，再证明 Riemann 映射与整函数构造定理。初读可先掌握到留数定理，后面的长证明宜在熟悉局部一致收敛和最大模原理后阅读。</p>
+<h2 id="61">6.1 复数与复平面</h2>
+<p><span class="arithmatex">\(z=x+iy\)</span>，<span class="arithmatex">\(\overline z=x-iy\)</span>，<span class="arithmatex">\(|z|=\sqrt{x^2+y^2}\)</span>。乘法对应模相乘、辐角相加。非零复数可写 <span class="arithmatex">\(re^{i\theta}\)</span>，<span class="arithmatex">\(\theta\)</span> 只确定到 <span class="arithmatex">\(2\pi\)</span> 的整数倍，故连续辐角在有洞区域未必能全球选取。</p>
+<p>复数不是有序域，不能直接使用实数的大小比较；估计采用模与实部。<span class="arithmatex">\(\mathbb C\)</span> 作为度量空间就是 <span class="arithmatex">\(\mathbb R^2\)</span>，所以紧性、完备性沿用前面结果。</p>
+<h2 id="62">6.2 复极限与复连续</h2>
+<p>复极限要求从平面任意方向趋近结果一致，等价于实、虚部分分别收敛。连续、局部一致收敛的定义同样沿用度量语言。</p>
+<p>例如 <span class="arithmatex">\(z\mapsto\overline z\)</span> 连续且实意义光滑，但未必复可微；对 <span class="arithmatex">\(h\)</span> 的差商为 <span class="arithmatex">\(\overline h/h\)</span>，沿实轴为 1、沿虚轴为 -1。这是区别两种可微的最直接例子。</p>
+<h2 id="63">6.3 全纯函数</h2>
+<blockquote>
+<p><span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(z_0\)</span> 复可微指 <span class="arithmatex">\(f'(z_0)=\lim_{h\to0}[f(z_0+h)-f(z_0)]/h\)</span> 存在；在开集每点复可微称全纯。</p>
+</blockquote>
+<p>线性近似必须为乘以同一个复数，因此对应实矩阵只能形如 <span class="arithmatex">\(\begin{pmatrix}a&amp;-b\\b&amp;a\end{pmatrix}\)</span>。</p>
+<p>和、积、链式法则成立，倒数要求函数非零。多项式和指数全纯，<span class="arithmatex">\(1/z\)</span> 在穿孔平面全纯。全纯将推出局部幂级数表示，但这一结论必须经 Cauchy 理论证明，不能当作定义替代推导。</p>
+<h2 id="64-cauchyriemann">6.4 Cauchy–Riemann 方程</h2>
+<p>写 <span class="arithmatex">\(f=u+iv\)</span>。复可微蕴含 <span class="arithmatex">\(u_x=v_y\)</span>、<span class="arithmatex">\(u_y=-v_x\)</span>。若 <span class="arithmatex">\(u,v\)</span> 在邻域为 <span class="arithmatex">\(C^1\)</span> 且满足这些方程，则实微分矩阵具有复乘法形状，故全纯。只有偏导存在并满足方程，不足以保证复可微。</p>
+<p>例如，<span class="arithmatex">\(f(z)=|z|^2=x^2+y^2\)</span>，CR 要求 <span class="arithmatex">\(2x=0\)</span> 与 <span class="arithmatex">\(2y=0\)</span>，仅原点满足；原点差商 <span class="arithmatex">\(|h|^2/h=\overline h\to0\)</span>，所以在那里复可微，但任何邻域内都不全纯。“某点可微”与“全纯”不同。</p>
+<h2 id="65">6.5 调和函数</h2>
+<blockquote>
+<p>调和函数是 <span class="arithmatex">\(C^2\)</span> 且 <span class="arithmatex">\(\Delta u=0\)</span> 的实函数。</p>
+</blockquote>
+<p>全纯函数的实、虚部分调和：对 CR 求导并用混合偏导相等即可得到。调和函数局部可作为全纯函数实部；在单连通平面域上可全球构造共轭调和函数。</p>
+<p>构造时取 <span class="arithmatex">\(dv=-u_y dx+u_xdy\)</span>，右侧因 <span class="arithmatex">\(\Delta u=0\)</span> 为闭形式；单连通性消去 1-形式周期障碍。<span class="arithmatex">\(u=\log|z|\)</span> 在穿孔平面调和，但全球共轭 <span class="arithmatex">\(\arg z\)</span> 不存在。</p>
+<h2 id="66">6.6 复积分</h2>
+<blockquote>
+<p>对分段 <span class="arithmatex">\(C^1\)</span> 路径 <span class="arithmatex">\(\gamma:[a,b]\to\Omega\)</span> 和连续 <span class="arithmatex">\(f\)</span>，定义复值 1-形式积分</p>
+<div class="arithmatex">\[
+\int_\gamma f(z)\,dz=\int_a^bf(\gamma(t))\gamma'(t)\,dt.
+\]</div>
+</blockquote>
+<p>右侧是第 3 章的 Lebesgue 积分，正向重参数化不改变结果，逆向变号。估计 <span class="arithmatex">\(|\int_\gamma fdz|\leq\sup_\gamma|f|\,\operatorname{length}(\gamma)\)</span>。</p>
+<p>若 <span class="arithmatex">\(F'=f\)</span>，链式法则与 3.20 给积分等于端点差。单位圆上 <span class="arithmatex">\(\int dz/z=2\pi i\)</span>，因为拉回为 <span class="arithmatex">\(i\,dt\)</span>；这是复对数无法全球选支的积分证据。</p>
+<h2 id="67-goursat-cauchy">6.7 Goursat 细分与 Cauchy 定理</h2>
+<p>若全纯函数已知为 <span class="arithmatex">\(C^1\)</span>，CR 与 Stokes 可以证明无奇点区域的边界积分为零。但我们只有每点复可微，导数连续性尚未建立。因此先证明不需要导数连续的 Goursat 三角形定理。</p>
+<p>设闭三角形 <span class="arithmatex">\(T\)</span> 及邻域都在全纯域中，记 <span class="arithmatex">\(I(T)=\int_{\partial T}f(z)dz\)</span>。连接边中点把它分成四个三角形，内部边方向相反而抵消，所以四个积分之和为 <span class="arithmatex">\(I(T)\)</span>。至少一个子三角形 <span class="arithmatex">\(T_1\)</span> 满足 <span class="arithmatex">\(|I(T_1)|\geq|I(T)|/4\)</span>。反复选择，得到闭三角形套 <span class="arithmatex">\(T_n\)</span>，直径为初始的 <span class="arithmatex">\(2^{-n}\)</span> 倍，边长总和也为 <span class="arithmatex">\(2^{-n}\)</span> 倍，且 <span class="arithmatex">\(|I(T)|\leq4^n|I(T_n)|\)</span>。紧性与直径趋零给唯一公共点 <span class="arithmatex">\(z_*\)</span>。</p>
+<p>在该点复可微，因此 <span class="arithmatex">\(f(z)=f(z_*)+f'(z_*)(z-z_*)+r(z)\)</span>，且给任意 <span class="arithmatex">\(\varepsilon&gt;0\)</span>，充分靠近时 <span class="arithmatex">\(|r(z)|\leq\varepsilon|z-z_*|\)</span>。常数项与线性项沿三角形边界积分都为零，因为有显式原函数。设初始直径为 <span class="arithmatex">\(d\)</span>、周长为 <span class="arithmatex">\(p\)</span>，则充分大的 <span class="arithmatex">\(n\)</span> 有</p>
+<div class="arithmatex">\[
+|I(T_n)|\leq\varepsilon d2^{-n}\,p2^{-n},\qquad
+|I(T)|\leq\varepsilon dp.
+\]</div>
+<p><span class="arithmatex">\(\varepsilon\)</span> 任意，所以 <span class="arithmatex">\(I(T)=0\)</span>。这里细分的 <span class="arithmatex">\(4^{-n}\)</span> 与余项估计中的面积尺度恰好抵消，解释了为何只用一点的可微性已足够。</p>
+<p>在凸小圆盘中，从基点沿线段定义 <span class="arithmatex">\(F(z)=\int f\)</span>。三角形积分为零使比较两条折线时路径无关；因此 <span class="arithmatex">\(F(z+h)-F(z)\)</span> 可直接沿短线段积分，连续性给差商趋于 <span class="arithmatex">\(f(z)\)</span>。于是局部原函数存在。</p>
+<p>对一般单连通域，闭路径有连续零伦。零伦图像紧，可用有限个上述小圆盘覆盖；把参数方形细分足够小，使每个小格的像落在一个圆盘内。在小格顶点间选落在该圆盘的短折线路径，局部原函数使每格边界积分为零；内部边相消，原路径各小段也可由局部原函数替换为对应折线，所以得到原闭路径积分为零。由此全纯函数在单连通域上有全局原函数，并得到 Cauchy 定理。域有洞时不一定成立，<span class="arithmatex">\(1/z\)</span> 绕原点的积分就是反例。</p>
+<h2 id="68-cauchy">6.8 Cauchy 积分公式</h2>
+<p>设 <span class="arithmatex">\(f\)</span> 在闭圆盘 <span class="arithmatex">\(\{|\zeta-a|\leq r\}\)</span> 的邻域全纯，固定内部点 <span class="arithmatex">\(z\)</span>。虽然 <span class="arithmatex">\(f(\zeta)/(\zeta-z)\)</span> 在 <span class="arithmatex">\(z\)</span> 有奇点，但在挖去小圆的区域全纯。用上一节的局部原函数与分割抵消，或把环形区域切开再应用 Cauchy 定理，可得外圆积分等于以 <span class="arithmatex">\(z\)</span> 为中心、正向的小圆积分。</p>
+<p>令小圆半径为 <span class="arithmatex">\(\varepsilon\)</span>，写 <span class="arithmatex">\(f(\zeta)=f(z)+[f(\zeta)-f(z)]\)</span>。参数化 <span class="arithmatex">\(\zeta=z+\varepsilon e^{it}\)</span>，常数项积分为 <span class="arithmatex">\(2\pi if(z)\)</span>。余项满足</p>
+<div class="arithmatex">\[
+\left|\int_{|\zeta-z|=\varepsilon}\frac{f(\zeta)-f(z)}{\zeta-z}d\zeta\right|
+\leq2\pi\sup_{|\zeta-z|=\varepsilon}|f(\zeta)-f(z)|\longrightarrow0.
+\]</div>
+<p>所以</p>
+<div class="arithmatex">\[
+f(z)=\frac1{2\pi i}\int_{|\zeta-a|=r}\frac{f(\zeta)}{\zeta-z}d\zeta.
+\]</div>
+<p>这一步把内部函数值变成边界积分。由此再对内部变量求导时，只需对显式核求导；边界紧且与内部点有正距离，控制收敛保证每次换序。全纯函数的高阶正则性将成为结果，而不是先验假设。</p>
+<h2 id="69-liouville">6.9 高阶导数、Liouville 与最大模原理</h2>
+<p>在内部紧集上，<span class="arithmatex">\(|\zeta-z|\)</span> 有统一正下界，Cauchy 核的各阶差商由可积常数控制。因此逐次求导得到</p>
+<div class="arithmatex">\[
+f^{(n)}(z)=\frac{n!}{2\pi i}\int\frac{f(\zeta)}{(\zeta-z)^{n+1}}d\zeta,\qquad
+|f^{(n)}(a)|\leq\frac{n!M_r}{r^n}.
+\]</div>
+<p>这证明全纯函数无限可微。若整函数在整个复平面被 <span class="arithmatex">\(M\)</span> 控制，对任意半径用 <span class="arithmatex">\(n=1\)</span> 的估计，令 <span class="arithmatex">\(r\to\infty\)</span>，得 <span class="arithmatex">\(f'(a)=0\)</span>。因为 <span class="arithmatex">\(a\)</span> 任意，函数恒定，这就是 Liouville 定理。</p>
+<p>还要证明最大模原理。若 <span class="arithmatex">\(|f|\)</span> 在内部点 <span class="arithmatex">\(a\)</span> 有局部最大，取小圆盘使 <span class="arithmatex">\(|f|\leq|f(a)|\)</span>。若 <span class="arithmatex">\(f(a)=0\)</span>，盘上直接为零。否则乘相位使 <span class="arithmatex">\(f(a)&gt;0\)</span> 为实数。Cauchy 的中心公式给 <span class="arithmatex">\(f(a)\)</span> 是圆周值的平均；每个圆周值实部都不超过 <span class="arithmatex">\(f(a)\)</span>，平均恰好相等，连续性迫使实部处处等于它。模的上界再迫使虚部为零。因此小圆周上 <span class="arithmatex">\(f\)</span> 恒定，Cauchy 公式使内部也恒定。接下来 6.11 的恒等定理将此局部常值延伸到整个连通域。于是非恒定全纯函数的模不能在内部取局部最大。</p>
+<h2 id="610-morera">6.10 Morera 定理</h2>
+<blockquote>
+<p>若 <span class="arithmatex">\(f\)</span> 连续，且每个闭合三角形（含内部均在域内）的边界积分为零，则 <span class="arithmatex">\(f\)</span> 全纯。</p>
+</blockquote>
+<p>在小圆盘内定义从基点到 <span class="arithmatex">\(z\)</span> 的路径积分，三角形条件保证路径独立，连续性给原函数导数为 <span class="arithmatex">\(f\)</span>；原函数全纯，由上一节得 <span class="arithmatex">\(f\)</span> 全纯。</p>
+<p>应用：全纯函数的局部一致极限全纯。先保连续，沿固定三角形由一致收敛交换积分，再用 Morera。只逐点收敛不提供这些保证。</p>
+<h2 id="611-taylor">6.11 Taylor 级数</h2>
+<p>在 Cauchy 公式中把 <span class="arithmatex">\(1/(\zeta-z)\)</span> 展为几何级数，小闭圆盘上一致收敛允许逐项积分，得到 <span class="arithmatex">\(f(z)=\sum f^{(n)}(a)(z-a)^n/n!\)</span>。收敛至少持续到以 <span class="arithmatex">\(a\)</span> 为中心留在全纯域内的圆盘。</p>
+<p>例如，<span class="arithmatex">\(1/(1-z)=\sum_{n\geq0}z^n\)</span>，半径 1，因为 <span class="arithmatex">\(z=1\)</span> 是奇点。</p>
+<p>幂级数还给恒等定理：</p>
+<blockquote>
+<p>连通域内两个全纯函数若在域内有聚点的一组点相同，则处处相同。</p>
+</blockquote>
+<p>对它们的差 <span class="arithmatex">\(h\)</span>，若在零点 <span class="arithmatex">\(a\)</span> 有首个非零 Taylor 系数，便可写 <span class="arithmatex">\(h(z)=(z-a)^mg(z)\)</span>、<span class="arithmatex">\(g(a)\ne0\)</span>；连续性使邻近的 <span class="arithmatex">\(g\)</span> 不为零，所以 <span class="arithmatex">\(a\)</span> 是孤立零点。零点聚集只能迫使该点的全部 Taylor 系数为零，故 <span class="arithmatex">\(h\)</span> 在某邻域恒零。</p>
+<p>令 <span class="arithmatex">\(S\)</span> 为那些有邻域使 <span class="arithmatex">\(h\)</span> 恒零的点。它非空且开。若 <span class="arithmatex">\(a\)</span> 是 <span class="arithmatex">\(S\)</span> 在域内的极限点，<span class="arithmatex">\(h\)</span> 的零点在 <span class="arithmatex">\(a\)</span> 聚集，刚才的论证又给 <span class="arithmatex">\(a\in S\)</span>，所以它也相对闭。连通性使 <span class="arithmatex">\(S\)</span> 等于全域，恒等定理得证。这说明局部相同如何沿着连通域传播为全域相同。</p>
+<h2 id="612-laurent">6.12 Laurent 级数</h2>
+<p>Taylor 级数适合包含中心的圆盘。若中心被挖掉，函数仍可能在环域全纯，但必须允许负次幂；这些负次幂准确记录中心可能存在的奇性。</p>
+<blockquote>
+<p>环域 <span class="arithmatex">\(r&lt;|z-a|&lt;R\)</span> 上全纯函数有唯一 Laurent 展开 <span class="arithmatex">\(\sum_{n\in\mathbb Z}c_n(z-a)^n\)</span>，在紧子环域上一致收敛，系数为</p>
+<div class="arithmatex">\[
+c_n=\frac1{2\pi i}\int_{|\zeta-a|=\rho}
+f(\zeta)(\zeta-a)^{-n-1}d\zeta,\qquad r&lt;\rho&lt;R,
+\]</div>
+</blockquote>
+<p>圆周均取正向。系数不依赖 <span class="arithmatex">\(\rho\)</span>，因为被积函数在任意两条这样的圆周之间全纯，Cauchy 定理使积分相同。</p>
+<p>为证明展开，取 <span class="arithmatex">\(r&lt;\rho&lt;|z-a|&lt;s&lt;R\)</span>。将外圆与内圆之间的区域再挖去 <span class="arithmatex">\(z\)</span> 附近小圆，Cauchy 公式的同一论证给</p>
+<div class="arithmatex">\[
+f(z)=\frac1{2\pi i}\int_{|\zeta-a|=s}\frac{f(\zeta)}{\zeta-z}d\zeta
+-\frac1{2\pi i}\int_{|\zeta-a|=\rho}\frac{f(\zeta)}{\zeta-z}d\zeta.
+\]</div>
+<p>外圆上的核展开为 <span class="arithmatex">\(\sum_{k\geq0}(z-a)^k/(\zeta-a)^{k+1}\)</span>，产生非负次幂。内圆上的核展开为 <span class="arithmatex">\(-\sum_{k\geq0}(\zeta-a)^k/(z-a)^{k+1}\)</span>，与前面的负号相消，产生负次幂。在任意固定紧子环域上可把 <span class="arithmatex">\(\rho,s\)</span> 选在其两侧，两个几何比值均统一小于 1，因而展开一致收敛并允许逐项积分。最后，对展开乘 <span class="arithmatex">\((z-a)^{-n-1}\)</span> 沿内部圆周积分，只有第 <span class="arithmatex">\(n\)</span> 项留下 <span class="arithmatex">\(2\pi i\)</span>，故系数公式也证明了唯一性。</p>
+<p>负次部分为主部。例：<span class="arithmatex">\(e^{1/z}=\sum_{n\geq0}z^{-n}/n!\)</span>；<span class="arithmatex">\(1/[z(1-z)]=z^{-1}+1+z+\cdots\)</span> 在 <span class="arithmatex">\(0&lt;|z|&lt;1\)</span>。选择环域后再展开，同一函数在不同环域可能有不同 Laurent 表达。</p>
+<h2 id="613">6.13 孤立奇点与分类</h2>
+<p>若穿孔邻域全纯，则中心为孤立奇点。主部为零称可去；有限且非零主部称极点；无限主部称本性奇点。可去奇点等价于附近有界，极点等价于模趋于无穷。</p>
+<p>为什么有界就可去？若穿孔邻域中 <span class="arithmatex">\(|f|\leq M\)</span>，负次系数估计给 <span class="arithmatex">\(|c_{-k}|\leq M\rho^k\)</span>，令 <span class="arithmatex">\(\rho\downarrow0\)</span>，得到所有 <span class="arithmatex">\(k\geq1\)</span> 的系数为零。反向由延拓的连续性立即得到。有限主部的最高负次幂使模趋于无穷；若模趋于无穷，<span class="arithmatex">\(1/f\)</span> 在足够小穿孔邻域全纯并趋零，可去延拓后在中心有有限阶零点，故 <span class="arithmatex">\(f\)</span> 为极点。</p>
+<p>例：<span class="arithmatex">\(\sin z/z\)</span> 在零点可去、<span class="arithmatex">\(1/z^m\)</span> 为 <span class="arithmatex">\(m\)</span> 阶极点、<span class="arithmatex">\(e^{1/z}\)</span> 为本性奇点。Casorati–Weierstrass 定理说本性奇点任意穿孔邻域的像在复平面稠密。假如某个圆盘 <span class="arithmatex">\(B(w,\varepsilon)\)</span> 被遗漏，则 <span class="arithmatex">\(g=1/(f-w)\)</span> 有界并可去。若延拓的 <span class="arithmatex">\(g(a)\ne0\)</span>，<span class="arithmatex">\(f=w+1/g\)</span> 也可去；若 <span class="arithmatex">\(g(a)=0\)</span>，它不能恒零，所以有有限阶零点，<span class="arithmatex">\(f\)</span> 就是极点。两种情况都与本性奇点矛盾，稠密性得证。更强的 Picard 定理不在本讲义证明。</p>
+<h2 id="614">6.14 留数定理</h2>
+<p>留数是 Laurent 系数 <span class="arithmatex">\(c_{-1}\)</span>。</p>
+<blockquote>
+<p>设 <span class="arithmatex">\(\gamma\)</span> 是正向分段光滑简单闭曲线，<span class="arithmatex">\(f\)</span> 在曲线及内部的邻域除有限个孤立奇点 <span class="arithmatex">\(a_j\)</span> 外全纯，则 <span class="arithmatex">\(\int_\gamma fdz=2\pi i\sum\operatorname{Res}(f,a_j)\)</span>。</p>
+</blockquote>
+<p>证明把各奇点周围挖去互不相交的小圆盘。在剩下区域，<span class="arithmatex">\(f(z)dz\)</span> 是光滑闭 1-形式，因为 CR 给 <span class="arithmatex">\(d(fdz)=0\)</span>；Stokes 使外边界积分等于各小圆的正向积分之和。分段光滑的边界可按第 4 章的分块抵消方式处理。每个小圆上 Laurent 级数一致收敛，逐项积分时除了 <span class="arithmatex">\((z-a_j)^{-1}\)</span> 项全部为零，留下 <span class="arithmatex">\(2\pi ic_{-1}\)</span>，定理得证。一般闭链版本需乘绕数，并要求链在去掉奇点的定义域中满足相应的零同调条件；不能忽略定义域本身的洞。</p>
+<p>简单极点 <span class="arithmatex">\(f=g/h\)</span>、<span class="arithmatex">\(h(a)=0,h'(a)\ne0\)</span> 时留数为 <span class="arithmatex">\(g(a)/h'(a)\)</span>。<span class="arithmatex">\(m\)</span> 阶极点可对 <span class="arithmatex">\((z-a)^mf(z)\)</span> 求 <span class="arithmatex">\(m-1\)</span> 阶导数除以 <span class="arithmatex">\((m-1)!\)</span>。</p>
+<p>例如，计算 <span class="arithmatex">\(\int_{\mathbb R}(1+x^2)^{-1}dx\)</span>。上半平面半圆内只有极点 <span class="arithmatex">\(i\)</span>，留数 <span class="arithmatex">\(1/(2i)\)</span>，闭链积分为 <span class="arithmatex">\(\pi\)</span>。半圆弧积分绝对值至多 <span class="arithmatex">\(\pi R/(R^2-1)\to0\)</span>；实线函数绝对可积，因此令 <span class="arithmatex">\(R\to\infty\)</span> 得结果 <span class="arithmatex">\(\pi\)</span>。不能略过弧的估计与实线可积性。</p>
+<h2 id="615-rouche">6.15 辐角原理与 Rouché 定理</h2>
+<p>亚纯 <span class="arithmatex">\(f\)</span> 在分段光滑简单闭曲线及内部邻域定义，边界无零点、极点，则 <span class="arithmatex">\((2\pi i)^{-1}\int f'/f=N-P\)</span>，计重数。若 <span class="arithmatex">\(a\)</span> 是 <span class="arithmatex">\(m\)</span> 阶零点，写 <span class="arithmatex">\(f=(z-a)^mh\)</span>、<span class="arithmatex">\(h(a)\ne0\)</span>，就有 <span class="arithmatex">\(f'/f=m/(z-a)+h'/h\)</span>，留数为 <span class="arithmatex">\(m\)</span>；极点同样给负阶数。对 <span class="arithmatex">\(f'/f\)</span> 使用留数定理，便证明辐角原理。</p>
+<p>Rouché 定理说：</p>
+<blockquote>
+<p>若 <span class="arithmatex">\(f,g\)</span> 在曲线及内部邻域全纯，且边界 <span class="arithmatex">\(|g|&lt;|f|\)</span>，则 <span class="arithmatex">\(f\)</span> 与 <span class="arithmatex">\(f+g\)</span> 内部零点数相同。</p>
+</blockquote>
+<p>令 <span class="arithmatex">\(f_t=f+tg\)</span>，<span class="arithmatex">\(0\leq t\leq1\)</span>。边界上 <span class="arithmatex">\(|f_t|\geq|f|-|g|\)</span> 有严格正的统一下界，因此 <span class="arithmatex">\(N(t)=(2\pi i)^{-1}\int f_t'/f_t\)</span> 连续依赖 <span class="arithmatex">\(t\)</span>。辐角原理又使每个 <span class="arithmatex">\(N(t)\)</span> 都是整数，连通区间上的连续整数函数只能恒定，于是 <span class="arithmatex">\(N(0)=N(1)\)</span>。这里“同伦保持零点数”已经化为一个连续性与整数值的具体证明。</p>
+<p>例：<span class="arithmatex">\(z^5+3z+1\)</span> 在 <span class="arithmatex">\(|z|=2\)</span> 上，<span class="arithmatex">\(|3z+1|\leq7&lt;32=|z^5|\)</span>，所以圆内恰有 5 个零点。这是无需显式求根的计数方法。</p>
+<h2 id="616-mobius">6.16 Möbius 变换</h2>
+<p><span class="arithmatex">\(T(z)=(az+b)/(cz+d)\)</span>，<span class="arithmatex">\(ad-bc\ne0\)</span>，作用在扩充复平面 <span class="arithmatex">\(\widehat{\mathbb C}\)</span>，将广义圆（圆或直线）送到广义圆。它由平移、缩放、倒数生成，保持交比。</p>
+<p><span class="arithmatex">\(T(z)=(z-i)/(z+i)\)</span> 把上半平面送到单位圆盘：对 <span class="arithmatex">\(\operatorname{Im}z&gt;0\)</span> 有 <span class="arithmatex">\(|z-i|&lt;|z+i|\)</span>，实轴送到单位圆周。这是构造共形映射的常用起点。</p>
+<h2 id="617">6.17 共形映射</h2>
+<p>全纯函数在 <span class="arithmatex">\(f'(z)\ne0\)</span> 处，其微分是非零复数乘法，局部保持有向角度并等比例缩放。双全纯映射称两个域的共形等价。</p>
+<p><span class="arithmatex">\(z^2\)</span> 在非零点局部共形，在零点导数为零。全局单射必须另外检查；共形局部性质不等于全球双全纯。把二维调和边值问题变换到圆盘，常能显著简化几何。</p>
+<h2 id="618-riemann">6.18 Riemann 映射定理</h2>
+<p>单连通真平面域的边界可以很复杂，但从全纯映射的角度看，它仍等价于单位圆盘。准确地说，</p>
+<blockquote>
+<p>非空单连通 <span class="arithmatex">\(\Omega\subsetneq\mathbb C\)</span> 与 <span class="arithmatex">\(\mathbb D\)</span> 双全纯等价；指定 <span class="arithmatex">\(a\in\Omega\)</span> 映到 0，并要求导数为正实数，映射唯一。</p>
+</blockquote>
+<p>下面给出极值法证明。</p>
+<p>首先证明至少存在一个单射全纯 <span class="arithmatex">\(\Omega\to\mathbb D\)</span>。选 <span class="arithmatex">\(b\notin\Omega\)</span>；由于域单连通，非零函数 <span class="arithmatex">\(z-b\)</span> 有全纯对数：对 <span class="arithmatex">\(1/(z-b)\)</span> 积分得到原函数，再指数比较并调整常数即可。因此存在全纯平方根 <span class="arithmatex">\(h\)</span>，<span class="arithmatex">\(h(z)^2=z-b\)</span>。它单射，且 <span class="arithmatex">\(h(\Omega)\)</span> 与 <span class="arithmatex">\(-h(\Omega)\)</span> 不交，否则平方后给相同输入，却要求非零值同时等于其相反数。</p>
+<p>取 <span class="arithmatex">\(c\in h(\Omega)\)</span>，开映射性给某小圆盘 <span class="arithmatex">\(B(c,r)\subset h(\Omega)\)</span>，故 <span class="arithmatex">\(B(-c,r)\)</span> 与 <span class="arithmatex">\(h(\Omega)\)</span> 不交。于是 <span class="arithmatex">\(1/(h+c)\)</span> 全纯、单射且有界。缩放使像在单位圆盘内，再用圆盘自同构及旋转把 <span class="arithmatex">\(a\)</span> 送到 0、导数调为正。开映射性可由局部 Taylor 首个非零项配合 Rouché 定理证明；单射全纯函数导数非零也由同一局部零点计数得到。</p>
+<p>令 <span class="arithmatex">\(\mathcal F\)</span> 为所有这样的归一化单射映射，取 <span class="arithmatex">\(M=\sup_{f\in\mathcal F}f'(a)\)</span>。已有一个映射保证 <span class="arithmatex">\(M&gt;0\)</span>，<span class="arithmatex">\(a\)</span> 附近固定小圆上的 Cauchy 估计保证 <span class="arithmatex">\(M&lt;\infty\)</span>。选 <span class="arithmatex">\(f_n'(a)\to M\)</span>。有界全纯函数族在每个内部紧集上由 Cauchy 导数估计一致等度连续；用 Arzelà–Ascoli，再在可数紧集穷竭上对角抽取，得到局部一致极限 <span class="arithmatex">\(f\)</span>。该紧性结论的实质是有限网格选取及等度连续控制，与 0.10 的紧性论证类似。Morera 保全纯，Cauchy 公式保导数收敛，所以 <span class="arithmatex">\(f'(a)=M&gt;0\)</span>。最大模原理使 <span class="arithmatex">\(f(\Omega)\subset\mathbb D\)</span>。</p>
+<p>极限仍单射。若不同 <span class="arithmatex">\(z_1,z_2\)</span> 有 <span class="arithmatex">\(f(z_1)=f(z_2)\)</span>，因 <span class="arithmatex">\(f\)</span> 非恒定，可在 <span class="arithmatex">\(z_2\)</span> 附近取不含 <span class="arithmatex">\(z_1\)</span> 的小圆，其边界 <span class="arithmatex">\(f-f(z_1)\)</span> 无零点。Rouché 使充分晚的 <span class="arithmatex">\(f_n-f_n(z_1)\)</span> 在该圆内有零点，这与 <span class="arithmatex">\(f_n\)</span> 单射矛盾。</p>
+<p>假设极值映射没有铺满圆盘，选 <span class="arithmatex">\(b\in\mathbb D\setminus f(\Omega)\)</span>。因为 0 已在像中，<span class="arithmatex">\(0&lt;|b|&lt;1\)</span>。记 <span class="arithmatex">\(\phi_b(w)=(w-b)/(1-\overline bw)\)</span>。<span class="arithmatex">\(\phi_b\circ f\)</span> 非零，在单连通 <span class="arithmatex">\(\Omega\)</span> 上取平方根 <span class="arithmatex">\(q\)</span>。它仍单射且 <span class="arithmatex">\(|q|&lt;1\)</span>。将 <span class="arithmatex">\(q(a)\)</span> 送到 0 后再旋转，得到新的归一化映射 <span class="arithmatex">\(g\in\mathcal F\)</span>，但</p>
+<div class="arithmatex">\[
+|g'(a)|=\frac{|q'(a)|}{1-|q(a)|^2}
+=\frac{1+|b|}{2\sqrt{|b|}}f'(a)&gt;f'(a).
+\]</div>
+<p>这里用 <span class="arithmatex">\(|q(a)|^2=|b|\)</span>、<span class="arithmatex">\(|\phi_b'(0)|=1-|b|^2\)</span>；最后的严格不等式来自 <span class="arithmatex">\((1-\sqrt{|b|})^2&gt;0\)</span>。这与极值性矛盾，故 <span class="arithmatex">\(f\)</span> 满射。</p>
+<p>唯一性由 Schwarz 引理得到。若 <span class="arithmatex">\(F:\mathbb D\to\mathbb D\)</span> 且 <span class="arithmatex">\(F(0)=0\)</span>，则 <span class="arithmatex">\(F(z)/z\)</span> 可去奇点后全纯，在半径 <span class="arithmatex">\(r\)</span> 圆上模不超过 <span class="arithmatex">\(1/r\)</span>；最大模原理后令 <span class="arithmatex">\(r\uparrow1\)</span> 得 <span class="arithmatex">\(|F(z)|\leq|z|\)</span>。若它可逆，对逆也用此式，得到等号；最大模原理使 <span class="arithmatex">\(F(z)/z\)</span> 为单位常数。两个归一化 Riemann 映射的复合因而是旋转，正实导数条件迫使旋转为恒等。</p>
+<p>整个复平面被排除，因为非恒定有界整函数违反 Liouville；有洞域也不在定理条件内。证明中单连通性用于取对数和平方根，不能删除。</p>
+<h2 id="619-weierstrass">6.19 Weierstrass 乘积</h2>
+<p>多项式是有限个零点因子的乘积。若要指定无穷多个零点，直接乘 <span class="arithmatex">\(\prod(1-z/a_j)\)</span> 可能发散，必须修正每个因子在远处零点带来的低阶误差。设非零零点列无有限聚点，按重数枚举为 <span class="arithmatex">\(a_j\)</span>，则 <span class="arithmatex">\(|a_j|\to\infty\)</span>。</p>
+<p>定义 <span class="arithmatex">\(E_p(w)=(1-w)\exp(w+\cdots+w^p/p)\)</span>。当 <span class="arithmatex">\(|w|&lt;1\)</span>，有</p>
+<div class="arithmatex">\[
+\log E_p(w)=-\sum_{k\geq p+1}\frac{w^k}{k},\qquad
+|\log E_p(w)|\leq2|w|^{p+1}\quad(|w|\leq1/2).
+\]</div>
+<p>取 <span class="arithmatex">\(p_j=j\)</span> 即足以保证收敛。固定 <span class="arithmatex">\(|z|\leq R\)</span>，充分晚的 <span class="arithmatex">\(j\)</span> 有 <span class="arithmatex">\(|a_j|&gt;2R\)</span>，所以尾部对数绝对值被 <span class="arithmatex">\(2\cdot2^{-(j+1)}\)</span> 控制，对数级数在该圆盘上一致收敛。指数后得到尾乘积，它全纯且非零；前面有限个因子仅在规定零点有正确重数的零。因而 <span class="arithmatex">\(P(z)=\prod_jE_j(z/a_j)\)</span> 是具有指定零点的整函数。若零点有限，则普通有限乘积已足够。</p>
+<p>给非零整函数 <span class="arithmatex">\(f\)</span>，先抽取原点零点 <span class="arithmatex">\(z^m\)</span>，再构造其余零点的 <span class="arithmatex">\(P\)</span>。商 <span class="arithmatex">\(f/(z^mP)\)</span> 在各零点有可去奇点，延拓为无零点整函数。整个复平面单连通，对其对数导数积分，得到整函数 <span class="arithmatex">\(g\)</span> 使商等于 <span class="arithmatex">\(e^g\)</span>。因此 <span class="arithmatex">\(f=z^me^gP\)</span>。修正因子保证收敛，无零点的指数因子补足零点数据无法决定的自由度，这解释了分解式的每一部分。</p>
+<h2 id="620-mittagleffler">6.20 Mittag–Leffler 定理</h2>
+<p>零点可以由乘积指定，极点则希望由主部相加指定。设离散极点 <span class="arithmatex">\(a_j\)</span> 无有限聚点，每点规定一个有限负幂多项式 <span class="arithmatex">\(P_j(z)\)</span>。直接求和也可能发散，但减去全纯修正项不会改变主部。</p>
+<p>先把原点等有限个特殊点单独处理。其余枚举使 <span class="arithmatex">\(|a_j|\to\infty\)</span>。<span class="arithmatex">\(P_j\)</span> 在 <span class="arithmatex">\(|z|&lt;|a_j|\)</span> 全纯，故其 Taylor 多项式可在 <span class="arithmatex">\(|z|\leq|a_j|/2\)</span> 一致逼近；选多项式 <span class="arithmatex">\(Q_j\)</span> 使误差小于 <span class="arithmatex">\(2^{-j}\)</span>。于是对任意固定紧圆盘，充分晚的 <span class="arithmatex">\(j\)</span> 都满足该估计，级数 <span class="arithmatex">\(\sum_j(P_j-Q_j)\)</span> 的尾部正常收敛。</p>
+<p>在每个极点附近，只有对应的有限个主部带奇性，其余和全纯，因此所得函数亚纯且恰有指定主部。如果两个函数实现同样主部，差在所有极点都可去，延拓后为整函数。这样完成存在性及自由度的描述。与 Weierstrass 的修正指数相比，这里减去的是 Taylor 多项式；两种构造都以紧集上一致收敛保证最终函数的解析性。</p>
+<h2 id="621">6.21 解析延拓与黎曼曲面初步</h2>
+<p>两个局部解析表示在交叠区域一致即可拼接。沿路径延拓可能绕一圈产生不同分支：<span class="arithmatex">\(\log z\)</span> 增加 <span class="arithmatex">\(2\pi i\)</span>，<span class="arithmatex">\(\sqrt z\)</span> 变号。单连通域上的单值延拓由单值化定理保证，需沿所有相关路径确实可延拓。</p>
+<p>黎曼曲面用复坐标图及全纯转移函数组织这些分支。平方根可用关系 <span class="arithmatex">\(w^2=z\)</span> 的曲面表示，在适当曲面上 <span class="arithmatex">\(w\)</span> 成为单值函数。这是局部解析数据需要新全局空间的例子。</p>
+<h2 id="622">6.22 多复变初步 ☆</h2>
+<p>在 <span class="arithmatex">\(\mathbb C^n\)</span> 中全纯函数局部有多重幂级数表示，分别全纯蕴含联合全纯（Hartogs 定理）。<span class="arithmatex">\(n\geq2\)</span> 时，函数在 Euclidean 球去掉一个点后全纯，可延拓过该点；这与一复变的 <span class="arithmatex">\(1/z\)</span> 孤立极点现象明显不同。</p>
+<p>多个变量的奇异集合、全纯域和边界几何需要新工具。先掌握单变量 Cauchy 公式，再研究多圆盘上的迭代 Cauchy 公式，是可操作的入门路径。</p>
+<h2 id="_1">练习与提示</h2>
+<ol>
+<li>用 CR 与实可微性判断 <span class="arithmatex">\(z^2\)</span> 和 <span class="arithmatex">\(\overline z^2\)</span> 的复可微点。</li>
+<li>计算 <span class="arithmatex">\(\int_{|z|=2}e^z/z^3\,dz\)</span>，正向。答案 <span class="arithmatex">\(\pi i\)</span>。</li>
+<li>找 <span class="arithmatex">\(1/[z(z-1)]\)</span> 在 <span class="arithmatex">\(0&lt;|z|&lt;1\)</span> 与 <span class="arithmatex">\(|z|&gt;1\)</span> 的 Laurent 展开。</li>
+<li>用 Liouville 证明复多项式有根。提示：若无根，则 <span class="arithmatex">\(1/P\)</span> 整且有界。</li>
+</ol>
+<p><a href="../07-fourier/">下一章：傅里叶分析与调和分析</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+      
+        <script src="../../../themes/js/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.17.1/flowchart.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.6/underscore-min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/@mermaid-js/mermaid-mindmap@9.3.0/dist/diagram-definition.0faef4c2.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/markdown-it-plantuml@1.4.1/index.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,3327 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../03-linear/">
+      
+      
+        <link rel="next" href="../05-representations/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>第4章 多重线性与Clifford代数 - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#4-clifford" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              第4章 多重线性与Clifford代数
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂碎
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    杂碎
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../physics/heat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    热传递
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../physics/Maxwell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    麦克斯韦方程组的复数形式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Math
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性代数
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    线性代数
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/linear/vector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    向量空间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/linear/mat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    矩阵代数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/linear/operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性算子
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/linear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂谈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    拓扑
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    拓扑
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/topo/basic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基本概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/topo/compact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    紧性与连通性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂碎
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    杂碎
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/extreme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    函数的极值
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/manifolds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    流形上的微积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/variance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于方差估计的无偏性的证明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/Euler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    欧拉积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/parameter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    含参变量的积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/rational/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    有理函数的积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/rotation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    旋转
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Others
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Others
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/Kalman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    卡尔曼滤波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/factor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    因子图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI讲义
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI讲义
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    共同符号约定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    现代分析学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    现代分析学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    讲义首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/study-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习指南与综合自测
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/00-foundations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第0章 预备与统一语言
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/01-limits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第1章 极限、连续与级数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/02-differential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第2章 多元微分与流形几何
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/03-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第3章 测度与Lebesgue积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/04-stokes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第4章 流形积分与Stokes定理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/05-functional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第5章 Lp空间与泛函分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/06-complex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第6章 复分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/07-fourier/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第7章 傅里叶分析与调和分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/08-equations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第8章 微分方程与变分分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/09-probability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第9章 概率与随机分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/10-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第10章 现代专题与交叉分支
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis/appendices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录与参考文献
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    代数学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    代数学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    讲义首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../study-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习指南与综合自测
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-preliminaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第0章 预备
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第1章 群论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-rings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第2章 环、模、域
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-linear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第3章 线性代数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第4章 多重线性与Clifford代数
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第4章 多重线性与Clifford代数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 多重线性映射
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 张量积的定义与泛性质
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 存在性与唯一性 ※
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 坐标表示与指标运算
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45-einstein" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 缩并与 Einstein 求和
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 结合性、交换性与函子性
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 张量代数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.8 商代数与结合代数初步
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9 对称张量与对称代数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#410" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.10 外代数与行列式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#411-hom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.11 张量积与 Hom
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#412" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.12 对称幂与外幂
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#413-clifford" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.13 Clifford 代数：定义与泛性质 ★
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#414-clifford" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.14 Clifford 代数与正交群
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#415" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.15 旋量群与旋量表示初步
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#416-clifford" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.16 Clifford 代数表示初步 ★
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#417" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.17 张量范畴初步 ☆
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#418" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.18 张量网络与图形演算初步 ☆
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-representations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第5章 表示论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-lie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第6章 李代数及其表示
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第7章 同调代数和高级专题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录A–F与参考文献
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    几何与拓扑
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    几何与拓扑
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    讲义首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/study-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习指南与综合自测
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/00-preliminaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第0章 预备
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/01-topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第1章 点集拓扑
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/02-fundamental/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第2章 基本群与覆盖空间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/03-homology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第3章 同调与上同调
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/04-homotopy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第4章 高阶同伦与纤维化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/05-classical/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第5章 欧氏、仿射与射影几何
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/06-manifolds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第6章 光滑流形与微分形式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/07-lie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第7章 李群、作用与齐性空间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/08-connections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第8章 向量丛、连接与曲率
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/09-riemannian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第9章 Riemann几何与几何分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/10-symplectic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第10章 辛几何与Hamilton系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/11-complex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第11章 复几何、层与Riemann曲面
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/12-algebraic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第12章 代数几何
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/13-convex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第13章 凸、离散与组合几何
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/14-characteristic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第14章 特征类与指标
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/15-low-dimensional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第15章 低维拓扑
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/16-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第16章 现代交叉专题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/appendices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录与参考文献
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 多重线性映射
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 张量积的定义与泛性质
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 存在性与唯一性 ※
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 坐标表示与指标运算
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45-einstein" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 缩并与 Einstein 求和
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 结合性、交换性与函子性
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 张量代数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.8 商代数与结合代数初步
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9 对称张量与对称代数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#410" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.10 外代数与行列式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#411-hom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.11 张量积与 Hom
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#412" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.12 对称幂与外幂
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#413-clifford" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.13 Clifford 代数：定义与泛性质 ★
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#414-clifford" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.14 Clifford 代数与正交群
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#415" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.15 旋量群与旋量表示初步
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#416-clifford" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.16 Clifford 代数表示初步 ★
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#417" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.17 张量范畴初步 ☆
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#418" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.18 张量网络与图形演算初步 ☆
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="4-clifford">第 4 章 多重线性代数与 Clifford 代数 ★</h1>
+<p>两个向量能否“相乘”？内积会把它们变成一个数，外积记录它们张成的有向面积，矩阵外积得到秩一算子。张量积先保留一个最一般的双线性乘积，再让不同的应用通过线性映射提取所需信息。这是本章的出发点。</p>
+<p>本章 <span class="arithmatex">\(k\)</span> 为域。对称张量的平均化、Clifford 代数与正交群部分会另加特征条件；不能把特征零的公式无条件搬到有限域。</p>
+<h2 id="41">4.1 多重线性映射</h2>
+<p>映射 <span class="arithmatex">\(b:V_1\times\cdots\times V_r\to W\)</span> 若固定其他变量后对每一个变量都线性，称多重线性。矩阵乘法、双线性型与行列式都是例子。它不等于从直积空间到 <span class="arithmatex">\(W\)</span> 的普通线性映射：双线性映射满足 <span class="arithmatex">\(b(av,cw)=ac\,b(v,w)\)</span>，而不是只出现一个倍数。</p>
+<p>选基后，多重线性映射完全由各组基向量上的值决定。问题在于，能否把这种决定关系写成一个不依赖选基的线性映射？张量积就是回答。</p>
+<h2 id="42">4.2 张量积的定义与泛性质</h2>
+<blockquote>
+<p><span class="arithmatex">\(V\otimes W\)</span> 连同双线性映射 <span class="arithmatex">\((v,w)\mapsto v\otimes w\)</span> 满足：对任何双线性 <span class="arithmatex">\(b:V\times W\to U\)</span>，存在唯一线性 <span class="arithmatex">\(\widetilde b:V\otimes W\to U\)</span>，使 <span class="arithmatex">\(\widetilde b(v\otimes w)=b(v,w)\)</span>。</p>
+</blockquote>
+<p>于是 <span class="arithmatex">\(v\otimes w\)</span> 必满足双加性和数乘关系。一般张量是有限个纯张量之和，并不一定是单个纯张量。例如若 <span class="arithmatex">\(e_1,e_2\)</span> 是基，<span class="arithmatex">\(e_1\otimes e_1+e_2\otimes e_2\)</span> 对应单位矩阵，秩为二，因此不能表示成一个秩一外积。</p>
+<p>泛性质的用途是：定义张量积上的映射时，先在纯张量上写公式，再证明原公式双线性，延伸与唯一性就自动成立。</p>
+<h2 id="43">4.3 存在性与唯一性 ※</h2>
+<p>以所有符号 <span class="arithmatex">\([v,w]\)</span> 为基构造自由向量空间 <span class="arithmatex">\(F\)</span>，令 <span class="arithmatex">\(R\)</span> 由</p>
+<div class="arithmatex">\[
+[v+v',w]-[v,w]-[v',w],\quad
+[v,w+w']-[v,w]-[v,w'],\quad
+[av,w]-a[v,w],\quad[v,aw]-a[v,w]
+\]</div>
+<p>生成。定义 <span class="arithmatex">\(V\otimes W=F/R\)</span>，<span class="arithmatex">\(v\otimes w=[v,w]+R\)</span>。这些关系使结构映射双线性。</p>
+<p>给定 <span class="arithmatex">\(b\)</span>，先唯一线性延伸为 <span class="arithmatex">\(F\to U\)</span>。双线性恰好保证它在 <span class="arithmatex">\(R\)</span> 上为零，所以经商得到 <span class="arithmatex">\(\widetilde b\)</span>。纯张量生成商空间，保证延伸唯一。这完成存在性。</p>
+<p>记所构造的对象为 <span class="arithmatex">\(T=V\otimes W\)</span>。若另一个对象 <span class="arithmatex">\(T'\)</span> 有同样泛性质，结构映射分别诱导 <span class="arithmatex">\(T\to T'\)</span> 与 <span class="arithmatex">\(T'\to T\)</span>。复合在每个纯张量上为恒等，由唯一性即为恒等。因此张量积在保持结构映射的唯一同构意义下唯一。</p>
+<h2 id="44">4.4 坐标表示与指标运算</h2>
+<p>若 <span class="arithmatex">\(e_i,f_j\)</span> 分别是 <span class="arithmatex">\(V,W\)</span> 的基，<span class="arithmatex">\(\varepsilon^i,\eta^j\)</span> 为相应对偶基，则 <span class="arithmatex">\(e_i\otimes f_j\)</span> 构成张量积的基。生成性由双线性展开得到；无关性可用坐标双线性函数 <span class="arithmatex">\((v,w)\mapsto\varepsilon^i(v)\eta^j(w)\)</span> 逐个提取系数。因此</p>
+<div class="arithmatex">\[
+\dim(V\otimes W)=\dim V\,\dim W,\qquad
+t=\sum_{i,j}t^{ij}e_i\otimes f_j.
+\]</div>
+<p>对 <span class="arithmatex">\(V^{\otimes r}\otimes(V^*)^{\otimes s}\)</span>，向量因子的坐标记上指标，对偶因子的坐标记下指标。指标的位置反映换基方式，而不是装饰：向量坐标按 <span class="arithmatex">\(P^{-1}\)</span> 变换，对偶坐标按 <span class="arithmatex">\(P^{\mathsf T}\)</span> 变换。</p>
+<h2 id="45-einstein">4.5 缩并与 Einstein 求和</h2>
+<p>求值映射 <span class="arithmatex">\(V^*\otimes V\to k\)</span>，<span class="arithmatex">\(\lambda\otimes v\mapsto\lambda(v)\)</span>，可以消去一对对偶因子，这叫缩并。例如 <span class="arithmatex">\(A\in V\otimes V^*\)</span> 对应算子时，缩并得到 <span class="arithmatex">\(A^i_i=\operatorname{tr}A\)</span>。</p>
+<p>Einstein 约定是在同一项中一个上指标与一个下指标重复时求和。于是 <span class="arithmatex">\(y^i=A^i_jx^j\)</span> 表示矩阵乘法。自由指标在等式两边必须一致，哑指标可改名；不能把出现三次的同一个指标当成合法缩并。</p>
+<p>非退化双线性型 <span class="arithmatex">\(B\)</span> 给出线性同构 <span class="arithmatex">\(V\to V^*\)</span>，<span class="arithmatex">\(v\mapsto B(\,\cdot\,,v)\)</span>，此时可写 <span class="arithmatex">\(x_i=B_{ij}x^j\)</span>。一般空间没有自然的“降指标”操作。复内积给出的 <span class="arithmatex">\(v\mapsto\langle\,\cdot\,,v\rangle\)</span> 则是共轭线性的；在第一变量线性的约定下，不能把它与双线性型的公式混用。</p>
+<h2 id="46">4.6 结合性、交换性与函子性</h2>
+<p>公式 <span class="arithmatex">\((u\otimes v)\otimes w\mapsto u\otimes(v\otimes w)\)</span> 由三线性泛性质诱导自然同构，交换两因子的映射 <span class="arithmatex">\(v\otimes w\mapsto w\otimes v\)</span> 也自然可逆。</p>
+<p>线性映射 <span class="arithmatex">\(f,g\)</span> 给出 <span class="arithmatex">\(f\otimes g\)</span>，且 <span class="arithmatex">\((f'\otimes g')\circ(f\otimes g)=(f'\circ f)\otimes(g'\circ g)\)</span>。所谓自然性，就是这些同构与线性映射相容；不必为每个空间另选一组基。</p>
+<p>普通向量空间交换因子没有负号。外代数中出现的符号来自其商关系，分次向量空间的交换规则则是另一种结构。</p>
+<h2 id="47">4.7 张量代数</h2>
+<p>把任意有限次乘积同时放进一个对象：</p>
+<div class="arithmatex">\[
+T(V)=\bigoplus_{r\ge0}V^{\otimes r},\qquad V^{\otimes0}=k.
+\]</div>
+<p>乘法连接张量，次数相加，单位为 <span class="arithmatex">\(1\in k\)</span>。元素只含有限多个非零次数部分。</p>
+<blockquote>
+<p>任意线性映射 <span class="arithmatex">\(f:V\to A\)</span>，其中 <span class="arithmatex">\(A\)</span> 为有单位结合 <span class="arithmatex">\(k\)</span>-代数，唯一延伸为代数同态 <span class="arithmatex">\(T(V)\to A\)</span>。</p>
+</blockquote>
+<p>延伸把 <span class="arithmatex">\(v_1\otimes\cdots\otimes v_r\)</span> 送到 <span class="arithmatex">\(f(v_1)\cdots f(v_r)\)</span>。多重线性保证它在线性层面良定义，张量串接的乘法定义保证延伸保持乘法。因 <span class="arithmatex">\(V\)</span> 生成 <span class="arithmatex">\(T(V)\)</span>，延伸唯一。这是“没有额外乘法关系”的代数。</p>
+<h2 id="48">4.8 商代数与结合代数初步</h2>
+<p>若希望乘积遵守关系，可对 <span class="arithmatex">\(T(V)\)</span> 的双侧理想取商。双侧性使关系在左右乘任意表达式后仍成立。</p>
+<p>例如给定生成元 <span class="arithmatex">\(x,y\)</span>，商 <span class="arithmatex">\(k\langle x,y\rangle/(xy-yx)\)</span> 要求它们交换，而商 <span class="arithmatex">\((xy+yx)\)</span> 要求反交换。非交换多项式代数的词有顺序，<span class="arithmatex">\(xy\)</span> 与 <span class="arithmatex">\(yx\)</span> 原本不同。</p>
+<p>给商代数定义表示时，只需给生成元指定算子并检验它们满足关系。这是 Clifford 表示和普遍包络代数表示的共同方法。</p>
+<h2 id="49">4.9 对称张量与对称代数</h2>
+<p>对称代数定义为</p>
+<div class="arithmatex">\[
+S(V)=T(V)/(u\otimes v-v\otimes u:u,v\in V).
+\]</div>
+<p>选基后，交换关系允许把每个词排列成 <span class="arithmatex">\(e_1^{a_1}\cdots e_n^{a_n}\)</span>。向多项式环 <span class="arithmatex">\(k[x_1,\ldots,x_n]\)</span> 的双向生成元映射互逆，所以这些单项式确实构成基。<span class="arithmatex">\(S(V)\)</span> 是由 <span class="arithmatex">\(V\)</span> 自由生成的交换代数。</p>
+<p><span class="arithmatex">\(S^rV\)</span> 是次数 <span class="arithmatex">\(r\)</span> 的商，即张量幂在置换作用下的余不变量。另一方面，<span class="arithmatex">\(V^{\otimes r}\)</span> 内固定于全部置换的元素称对称张量。若 <span class="arithmatex">\(r!\)</span> 在 <span class="arithmatex">\(k\)</span> 中可逆，平均算子 <span class="arithmatex">\(\frac1{r!}\sum_{\sigma\in S_r}\sigma\)</span> 将二者自然识别；若特征整除 <span class="arithmatex">\(r!\)</span>，这一识别不能照搬。</p>
+<h2 id="410">4.10 外代数与行列式</h2>
+<p>外代数定义为</p>
+<div class="arithmatex">\[
+\Lambda V=T(V)/(v\otimes v:v\in V).
+\]</div>
+<p>写乘法为 <span class="arithmatex">\(\wedge\)</span>。展开 <span class="arithmatex">\((u+v)\wedge(u+v)=0\)</span> 得到 <span class="arithmatex">\(u\wedge v=-v\wedge u\)</span>；即使特征为 <span class="arithmatex">\(2\)</span>，定义仍要求 <span class="arithmatex">\(v\wedge v=0\)</span>，不能只用反交换关系代替。</p>
+<blockquote>
+<p>若 <span class="arithmatex">\(\dim V=n\)</span>，则 <span class="arithmatex">\(\Lambda^rV\)</span> 的基是 <span class="arithmatex">\(e_{i_1}\wedge\cdots\wedge e_{i_r}\)</span>，<span class="arithmatex">\(i_1&lt;\cdots&lt;i_r\)</span>，故维数为 <span class="arithmatex">\(\binom nr\)</span>。</p>
+</blockquote>
+<p>关系允许把词排序，重复指标的项为零，得到生成性。对每组严格递增指标，取向量坐标相应子矩阵的行列式，它是交替多线性函数，故通过商诱导泛函；在上述候选基上取值为 Kronecker 符号，得到无关性。</p>
+<p><span class="arithmatex">\(\Lambda^n V\)</span> 是一维。算子 <span class="arithmatex">\(A\)</span> 在其上的作用是乘以一个标量，定义它为 <span class="arithmatex">\(\det A\)</span>。复合映射诱导复合，立即得到 <span class="arithmatex">\(\det(AB)=\det A\det B\)</span>；展开基向量的外积恢复熟悉的置换公式。</p>
+<h2 id="411-hom">4.11 张量积与 Hom</h2>
+<p>线性映射 <span class="arithmatex">\(V\otimes W\to U\)</span> 与线性映射 <span class="arithmatex">\(V\to\operatorname{Hom}(W,U)\)</span> 一一对应，规则为 <span class="arithmatex">\(F\mapsto(v\mapsto(w\mapsto F(v\otimes w)))\)</span>。这就是张量—Hom 伴随，任意维度成立。</p>
+<p>若 <span class="arithmatex">\(V\)</span> 有限维，还有</p>
+<div class="arithmatex">\[
+V^*\otimes W\cong\operatorname{Hom}(V,W),
+\qquad \lambda\otimes w\mapsto(v\mapsto\lambda(v)w).
+\]</div>
+<p>选基后的逆为 <span class="arithmatex">\(A\mapsto\sum_i\varepsilon^i\otimes A(e_i)\)</span>。虽然公式用了基，正向映射本身无坐标，且逆唯一，所以结果自然。无限维时，左边只产生有限秩算子，不能代表恒等映射等一般算子。</p>
+<h2 id="412">4.12 对称幂与外幂</h2>
+<p>每个 <span class="arithmatex">\(A:V\to W\)</span> 诱导 <span class="arithmatex">\(S^rA\)</span> 与 <span class="arithmatex">\(\Lambda^rA\)</span>，分别把单项式或外积中的每个因子送过 <span class="arithmatex">\(A\)</span>。例如 <span class="arithmatex">\(\Lambda^2A\)</span> 的矩阵项是 <span class="arithmatex">\(A\)</span> 的二阶子式。</p>
+<p>若 <span class="arithmatex">\(A\)</span> 的特征值为 <span class="arithmatex">\(\lambda_i\)</span>，则 <span class="arithmatex">\(S^rA\)</span> 的特征值是允许重复的 <span class="arithmatex">\(r\)</span> 个 <span class="arithmatex">\(\lambda_i\)</span> 之积，而 <span class="arithmatex">\(\Lambda^rA\)</span> 只取互异指标。可以先在三角基中观察对角项，不必要求 <span class="arithmatex">\(A\)</span> 可对角化。维数为</p>
+<div class="arithmatex">\[
+\dim S^rV=\binom{n+r-1}{r},\qquad
+\dim\Lambda^rV=\binom nr.
+\]</div>
+<h2 id="413-clifford">4.13 Clifford 代数：定义与泛性质 ★</h2>
+<p>本节 <span class="arithmatex">\(\operatorname{char}k\ne2\)</span>，<span class="arithmatex">\(q(v)=B(v,v)\)</span>，<span class="arithmatex">\(B\)</span> 对称。外代数把向量的平方设为零；Clifford 代数改为保留二次型：</p>
+<div class="arithmatex">\[
+\mathrm{Cl}(V,q)=T(V)/(v\otimes v-q(v)1:v\in V).
+\]</div>
+<p>于是 <span class="arithmatex">\(uv+vu=2B(u,v)1\)</span>。任何线性映射 <span class="arithmatex">\(c:V\to A\)</span> 满足 <span class="arithmatex">\(c(v)^2=q(v)1\)</span>，都唯一延伸为 Clifford 代数同态。这允许用矩阵实现 Clifford 关系。</p>
+<p>关系把二次词与标量联系起来，所以通常没有按词长的整数分次，但保留词长奇偶的 <span class="arithmatex">\(\mathbb Z/2\mathbb Z\)</span> 分次。记偶、奇部分为 <span class="arithmatex">\(\mathrm{Cl}^0,\mathrm{Cl}^1\)</span>；<span class="arithmatex">\(\mathrm{Cl}^0\)</span> 是偶子代数，不只是标量。</p>
+<blockquote>
+<p>若 <span class="arithmatex">\(e_1,\ldots,e_n\)</span> 是 <span class="arithmatex">\(V\)</span> 的基，则严格递增的单项式 <span class="arithmatex">\(e_{i_1}\cdots e_{i_r}\)</span>（包括 <span class="arithmatex">\(1\)</span>）为 Clifford 代数的基。因此维数为 <span class="arithmatex">\(2^n\)</span>。</p>
+</blockquote>
+<p>反交换关系把任意词排序，平方关系消去重复指标，先得生成性。为证明无关性，在 <span class="arithmatex">\(\Lambda V\)</span> 上定义 <span class="arithmatex">\(L_v(\omega)=v\wedge\omega\)</span> 和收缩</p>
+<div class="arithmatex">\[
+\iota_v(w_1\wedge\cdots\wedge w_r)
+=\sum_{j=1}^r(-1)^{j-1}B(v,w_j)
+w_1\wedge\cdots\widehat{w_j}\cdots\wedge w_r.
+\]</div>
+<p>直接展开得 <span class="arithmatex">\(L_v^2=\iota_v^2=0\)</span>、<span class="arithmatex">\(\iota_vL_v+L_v\iota_v=q(v)I\)</span>，所以 <span class="arithmatex">\(c(v)=L_v+\iota_v\)</span> 满足 Clifford 关系。严格递增词的算子作用于 <span class="arithmatex">\(1\)</span>，最高外次数部分正好是对应外积，其余部分次数更低。若这些词线性相关，取最大词长，最高次部分的外积基迫使该长度全部系数为零，逐级下降得全部系数为零。这完成证明，也说明 <span class="arithmatex">\(V\)</span> 确实嵌入 Clifford 代数。</p>
+<h2 id="414-clifford">4.14 Clifford 代数与正交群</h2>
+<p>若 <span class="arithmatex">\(q(u)\ne0\)</span>，则 <span class="arithmatex">\(u^{-1}=u/q(u)\)</span>。利用 Clifford 关系，</p>
+<div class="arithmatex">\[
+-uvu^{-1}=v-\frac{2B(u,v)}{q(u)}u.
+\]</div>
+<p>右边是沿 <span class="arithmatex">\(u\)</span> 的正交反射：把 <span class="arithmatex">\(u\)</span> 反向，固定 <span class="arithmatex">\(u^\perp\)</span>。负号不能省略；普通共轭 <span class="arithmatex">\(uvu^{-1}\)</span> 给出反射的负。</p>
+<p>实正定空间中的任何正交变换都是反射的乘积。取单位向量 <span class="arithmatex">\(v\)</span>；若 <span class="arithmatex">\(Av\ne v\)</span>，沿 <span class="arithmatex">\(Av-v\)</span> 的反射把 <span class="arithmatex">\(Av\)</span> 送到 <span class="arithmatex">\(v\)</span>，复合后固定 <span class="arithmatex">\(v\)</span>，从而限制到 <span class="arithmatex">\(v^\perp\)</span>。若已固定 <span class="arithmatex">\(v\)</span>，直接限制。按维数归纳完成，至多使用 <span class="arithmatex">\(\dim V\)</span> 个反射。这是正定情形的 Cartan–Dieudonné 定理；一般非退化型的版本需另处理各向同性向量，本章不使用其证明。</p>
+<h2 id="415">4.15 旋量群与旋量表示初步</h2>
+<p>本节取实正定 <span class="arithmatex">\(n\)</span> 维空间，<span class="arithmatex">\(n\ge2\)</span>。由单位向量的乘积组成 <span class="arithmatex">\(\operatorname{Pin}(n)\)</span>，其中偶数个单位向量的乘积组成 <span class="arithmatex">\(\operatorname{Spin}(n)\)</span>。偶数次反射的负号相消，所以</p>
+<div class="arithmatex">\[
+\pi:\operatorname{Spin}(n)\to\operatorname{SO}(n),
+\qquad \pi(a)v=ava^{-1}
+\]</div>
+<p>是满同态：上节反射分解的长度奇偶由行列式决定。</p>
+<p>核恰为 <span class="arithmatex">\(\{\pm1\}\)</span>。核元素在偶 Clifford 子代数中且与所有向量交换；在正交基单项式中逐个检验交换关系，只可能是标量。反序运算 <span class="arithmatex">\(\widetilde{u_1\cdots u_r}=u_r\cdots u_1\)</span> 使每个 Spin 元素满足 <span class="arithmatex">\(a\widetilde a=1\)</span>，所以核标量平方为 <span class="arithmatex">\(1\)</span>。这先给出一个二对一群同态；结合李群结构，它是通常的双覆盖。</p>
+<p>旋量是 Clifford 模或相应 Spin 模的向量，而不是空间 <span class="arithmatex">\(V\)</span> 中的普通向量。它的变换律来自代数作用。把 <span class="arithmatex">\(\mathrm{Cl}_n(\mathbb C)\)</span> 的表示限制到实 <span class="arithmatex">\(\operatorname{Spin}(n)\)</span>，就得到复旋量表示。</p>
+<h2 id="416-clifford">4.16 Clifford 代数表示初步 ★</h2>
+<p>本节 <span class="arithmatex">\(\mathrm{Cl}_n(\mathbb C)\)</span> 是 <span class="arithmatex">\(\mathbb C^n\)</span> 上二次型 <span class="arithmatex">\(q(z)=\sum_{j=1}^n z_j^2\)</span> 的 Clifford 代数，每个标准生成元平方为 <span class="arithmatex">\(+1\)</span>。</p>
+<p>定义 Pauli 矩阵</p>
+<div class="arithmatex">\[
+X=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix},\quad
+Y=\begin{pmatrix}0&amp;-i\\i&amp;0\end{pmatrix},\quad
+Z=\begin{pmatrix}1&amp;0\\0&amp;-1\end{pmatrix}.
+\]</div>
+<p>它们平方为 <span class="arithmatex">\(I\)</span>，两两反交换，且 <span class="arithmatex">\(XY=iZ\)</span>。因此 <span class="arithmatex">\(\mathrm{Cl}_2(\mathbb C)\cong M_2(\mathbb C)\)</span>：把两个生成元送到 <span class="arithmatex">\(X,Y\)</span>，它们生成全部矩阵，两边维数均为四。</p>
+<p>更一般地，旧生成元送到 <span class="arithmatex">\(e_j\otimes Z\)</span>，新增两个送到 <span class="arithmatex">\(1\otimes X,1\otimes Y\)</span>，得到</p>
+<div class="arithmatex">\[
+\mathrm{Cl}_{n+2}(\mathbb C)\cong
+\mathrm{Cl}_n(\mathbb C)\otimes M_2(\mathbb C).
+\]</div>
+<p>新增元的乘积生成 <span class="arithmatex">\(1\otimes Z\)</span>，再恢复 <span class="arithmatex">\(e_j\otimes1\)</span>，故映射满；基定理给出相同维数，故为同构。从 <span class="arithmatex">\(\mathrm{Cl}_0=\mathbb C\)</span>、<span class="arithmatex">\(\mathrm{Cl}_1\cong\mathbb C\oplus\mathbb C\)</span> 归纳，</p>
+<div class="arithmatex">\[
+\mathrm{Cl}_{2m}(\mathbb C)\cong M_{2^m}(\mathbb C),\qquad
+\mathrm{Cl}_{2m+1}(\mathbb C)\cong
+M_{2^m}(\mathbb C)\oplus M_{2^m}(\mathbb C).
+\]</div>
+<p>矩阵代数有唯一简单模，证明见 5.14。因此偶维有一个不可约 Clifford 模，奇维有两个。实 Clifford 代数的分类不同，不能直接把这些复矩阵结论当作实分类。</p>
+<h2 id="417">4.17 张量范畴初步 ☆</h2>
+<p>向量空间、线性映射、张量积与单位对象 <span class="arithmatex">\(k\)</span> 构成最基本的张量范畴。这里的重点是记录结构之间的相容性：结合同构、单位同构和交换同构共同保证括号和因子交换能一致处理。</p>
+<p>群表示也可张量，单位是平凡表示，交换因子仍是等变映射。加入对偶、求值与余求值，就能用封闭回路表达维数或迹。第 7 章的 Hopf 代数解释为什么一个代数的模可以具有这种张量结构。</p>
+<h2 id="418">4.18 张量网络与图形演算初步 ☆</h2>
+<p>把一个张量画成节点，每个向量或对偶因子画成一条腿，连接一对相配的腿表示求值缩并。例如两个矩阵的连接表示 <span class="arithmatex">\(C^i_k=A^i_jB^j_k\)</span>，闭合源与目标表示迹。</p>
+<p>图能帮助记住哪些指标求和，却不能替代类型检查：只有空间与其对偶的腿能自然连接。若没有指定内积，两条同为 <span class="arithmatex">\(V\)</span> 的腿不能直接缩并。张量网络计算的复杂度还取决于缩并次序，这是计算专题而不是泛性质的内容。</p>
+<h2 id="_1">练习</h2>
+<ol>
+<li>用坐标证明 <span class="arithmatex">\(e_1\otimes e_1+e_2\otimes e_2\)</span> 不是纯张量。提示：纯张量的系数矩阵秩至多为一。</li>
+<li>对三维 <span class="arithmatex">\(V\)</span> 写出 <span class="arithmatex">\(\Lambda^2V\)</span> 的基，并计算一个对角算子在该基中的作用。</li>
+<li>验证 <span class="arithmatex">\(\iota_vL_w+L_w\iota_v=B(v,w)I\)</span>，由此重证 Clifford 反交换关系。</li>
+<li>用 <span class="arithmatex">\(X,Y\)</span> 写出 <span class="arithmatex">\(\mathrm{Cl}_2(\mathbb C)\)</span> 的四个基元素对应的矩阵。</li>
+<li>在实二维正定空间令 <span class="arithmatex">\(J=e_1e_2\)</span>，证明 <span class="arithmatex">\(J^2=-1\)</span>，并计算 <span class="arithmatex">\(a=\cos t+\sin t\,J\)</span> 对向量的共轭。提示：所得旋转角为 <span class="arithmatex">\(-2t\)</span>，符号由本讲义的 <span class="arithmatex">\(e_i^2=+1\)</span> 约定决定。</li>
+<li>解释特征为二时，<span class="arithmatex">\(\Lambda V\)</span> 的定义为什么必须包含所有 <span class="arithmatex">\(v^2=0\)</span>，而非只包含反交换关系。</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+      
+        <script src="../../../themes/js/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.17.1/flowchart.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.6/underscore-min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/@mermaid-js/mermaid-mindmap@9.3.0/dist/diagram-definition.0faef4c2.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/markdown-it-plantuml@1.4.1/index.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+      
+    
+  </body>
+</html>

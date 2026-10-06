@@ -1,0 +1,3696 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../04-stokes/">
+      
+      
+        <link rel="next" href="../06-complex/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>第5章 Lp空间与泛函分析 - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#5-lp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              第5章 Lp空间与泛函分析
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂碎
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    杂碎
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../physics/heat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    热传递
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../physics/Maxwell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    麦克斯韦方程组的复数形式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Math
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性代数
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    线性代数
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/linear/vector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    向量空间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/linear/mat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    矩阵代数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/linear/operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性算子
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/linear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂谈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    拓扑
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    拓扑
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/topo/basic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基本概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/topo/compact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    紧性与连通性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂碎
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    杂碎
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/extreme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    函数的极值
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/manifolds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    流形上的微积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/variance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于方差估计的无偏性的证明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/Euler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    欧拉积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/parameter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    含参变量的积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/rational/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    有理函数的积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/rotation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    旋转
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Others
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Others
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/Kalman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    卡尔曼滤波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/factor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    因子图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI讲义
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI讲义
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    共同符号约定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    现代分析学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    现代分析学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    讲义首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../study-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习指南与综合自测
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-foundations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第0章 预备与统一语言
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-limits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第1章 极限、连续与级数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-differential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第2章 多元微分与流形几何
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第3章 测度与Lebesgue积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-stokes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第4章 流形积分与Stokes定理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第5章 Lp空间与泛函分析
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第5章 Lp空间与泛函分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#51-lp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 从积分误差到 Lp 空间
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-holder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Hölder 不等式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-minkowski" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Minkowski 不等式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54-rieszfischer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Riesz–Fischer 完备性定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 稠密性
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 赋范空间
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#57-banach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7 Banach 空间
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#58" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.8 有限维与无限维差异
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#59" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.9 有界线性算子
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#510" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.10 算子范数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#511" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.11 对偶空间
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#512-lp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.12 Lp 对偶的积分表示
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#513" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.13 弱收敛、弱*收敛与对偶紧性
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#514-hilbert-riesz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.14 Hilbert 空间与 Riesz 表示
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#515" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.15 正交投影
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#516-fourier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.16 正交基与 Fourier 展开
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#517" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.17 伴随算子
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#518" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.18 不动点工具
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#519-hahnbanach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.19 Hahn–Banach 定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#520" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.20 一致有界原理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#521" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.21 开映射定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#522" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.22 闭图像定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#523" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.23 谱与预解集
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#524" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.24 紧算子
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#525-fredholm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.25 Fredholm 理论
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#526" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.26 紧自伴算子的谱分解
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#527" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.27 分布
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#528-sobolev-poincare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.28 Sobolev 空间与 Poincaré 不等式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#529-laxmilgram-poisson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.29 从 Lax–Milgram 到 Poisson 弱解
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习与提示
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-complex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第6章 复分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-fourier/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第7章 傅里叶分析与调和分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-equations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第8章 微分方程与变分分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-probability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第9章 概率与随机分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第10章 现代专题与交叉分支
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录与参考文献
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    代数学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    代数学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    讲义首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/study-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习指南与综合自测
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/00-preliminaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第0章 预备
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/01-groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第1章 群论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/02-rings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第2章 环、模、域
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/03-linear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第3章 线性代数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/04-multilinear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第4章 多重线性与Clifford代数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/05-representations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第5章 表示论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/06-lie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第6章 李代数及其表示
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/07-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第7章 同调代数和高级专题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/appendices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录A–F与参考文献
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    几何与拓扑
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    几何与拓扑
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    讲义首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/study-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习指南与综合自测
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/00-preliminaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第0章 预备
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/01-topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第1章 点集拓扑
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/02-fundamental/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第2章 基本群与覆盖空间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/03-homology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第3章 同调与上同调
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/04-homotopy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第4章 高阶同伦与纤维化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/05-classical/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第5章 欧氏、仿射与射影几何
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/06-manifolds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第6章 光滑流形与微分形式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/07-lie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第7章 李群、作用与齐性空间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/08-connections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第8章 向量丛、连接与曲率
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/09-riemannian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第9章 Riemann几何与几何分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/10-symplectic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第10章 辛几何与Hamilton系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/11-complex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第11章 复几何、层与Riemann曲面
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/12-algebraic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第12章 代数几何
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/13-convex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第13章 凸、离散与组合几何
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/14-characteristic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第14章 特征类与指标
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/15-low-dimensional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第15章 低维拓扑
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/16-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第16章 现代交叉专题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/appendices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录与参考文献
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#51-lp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 从积分误差到 Lp 空间
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-holder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Hölder 不等式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-minkowski" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Minkowski 不等式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54-rieszfischer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Riesz–Fischer 完备性定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 稠密性
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 赋范空间
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#57-banach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7 Banach 空间
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#58" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.8 有限维与无限维差异
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#59" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.9 有界线性算子
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#510" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.10 算子范数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#511" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.11 对偶空间
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#512-lp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.12 Lp 对偶的积分表示
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#513" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.13 弱收敛、弱*收敛与对偶紧性
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#514-hilbert-riesz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.14 Hilbert 空间与 Riesz 表示
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#515" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.15 正交投影
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#516-fourier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.16 正交基与 Fourier 展开
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#517" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.17 伴随算子
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#518" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.18 不动点工具
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#519-hahnbanach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.19 Hahn–Banach 定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#520" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.20 一致有界原理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#521" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.21 开映射定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#522" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.22 闭图像定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#523" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.23 谱与预解集
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#524" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.24 紧算子
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#525-fredholm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.25 Fredholm 理论
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#526" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.26 紧自伴算子的谱分解
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#527" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.27 分布
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#528-sobolev-poincare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.28 Sobolev 空间与 Poincaré 不等式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#529-laxmilgram-poisson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.29 从 Lax–Milgram 到 Poisson 弱解
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习与提示
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="5-lp">第 5 章 Lp 空间与泛函分析</h1>
+<p>上一章把局部微分与整体积分连接起来，本章转而把函数本身看作空间中的点。这样做并非只为增加抽象语言：若用一串近似函数求方程的解，我们需要知道这串函数是否有极限、极限是否还在允许的空间里，以及作用在函数上的运算是否保留极限。</p>
+<p>不同范数回答不同的误差问题。一致范数要求所有点都准确，<span class="arithmatex">\(L^2\)</span> 范数要求均方误差小，<span class="arithmatex">\(L^1\)</span> 范数控制总量。先比较这些具体空间，再进入一般 Banach 与 Hilbert 理论，抽象定理就有了可检验的模型。</p>
+<p>本章的核心证明分成两条线。一条从完备性和 Baire 定理出发，建立一致有界、开映射与闭图像定理；另一条从最短距离问题出发，建立正交投影、Riesz 表示和谱分解。Hahn–Banach 则解释连续线性观察为什么足以区分向量。阅读时应当跟随这些问题，并注意各个定理之间的依赖。</p>
+<h2 id="51-lp">5.1 从积分误差到 Lp 空间</h2>
+<p>一般情形固定测度空间 <span class="arithmatex">\((X,\Sigma,\mu)\)</span>，完整写法为 <span class="arithmatex">\(L^p(X,\Sigma,\mu)\)</span>，固定后简写 <span class="arithmatex">\(L^p(X,\mu)\)</span> 或 <span class="arithmatex">\(L^p\)</span>，积分相应对 <span class="arithmatex">\(\mu\)</span> 进行。<span class="arithmatex">\(L^p(\Omega)\)</span>、<span class="arithmatex">\(W^{k,p}(\Omega)\)</span> 中 <span class="arithmatex">\(\Omega\subset\mathbb R^n\)</span>，使用限制到 <span class="arithmatex">\(\Omega\)</span> 的 Lebesgue 测度 <span class="arithmatex">\(m_n\)</span>；实区间使用 <span class="arithmatex">\(m_1\)</span>。下面转入 Euclidean 稠密性与 Sobolev 理论时都沿用此约定。</p>
+<p>两个函数在少数点差很多、其他点几乎相同，一致范数会把这少数点的误差完全算入。若关心整体平均误差，就可以改用 <span class="arithmatex">\(\|f\|_p=(\int_X|f|^p\,d\mu)^{1/p}\)</span>，<span class="arithmatex">\(1\leq p&lt;\infty\)</span>。允许这个量有限的可测函数组成 <span class="arithmatex">\(L^p\)</span> 的候选集合。</p>
+<p>但这里有一个必须处理的问题：只在零测集非零的函数积分范数为零，却不是逐点零函数。因此我们把几乎处处相等的函数取为同一元素，<span class="arithmatex">\(L^p\)</span> 才成为真正的赋范空间。一个 <span class="arithmatex">\(L^p\)</span> 元素不是某个特定逐点函数，而是整类代表。<span class="arithmatex">\(L^\infty\)</span> 同样采用本性上确界，即忽略零测例外后的最小统一上界。后两节将证明三角不等式，不能仅凭记号像范数就跳过这一步。</p>
+<p>例如在 <span class="arithmatex">\((0,1)\)</span>，<span class="arithmatex">\(f=x^{-\alpha}\)</span> 属于有限 <span class="arithmatex">\(L^p\)</span> 恰在 <span class="arithmatex">\(\alpha p&lt;1\)</span>，此时范数为 <span class="arithmatex">\((1-\alpha p)^{-1/p}\)</span>。增大 <span class="arithmatex">\(p\)</span> 会更加惩罚尖峰。有限总测度空间上，<span class="arithmatex">\(q\geq p\)</span> 时由 Hölder 对 <span class="arithmatex">\(|f|^p\)</span> 与 1 配对，得到 <span class="arithmatex">\(\|f\|_p\leq\mu(X)^{1/p-1/q}\|f\|_q\)</span>；零总测度情形直接平凡成立。无限测度上，尾部和局部奇异性可以各自破坏包含关系，因此不能把这条结论直接搬过去。</p>
+<h2 id="52-holder">5.2 Hölder 不等式</h2>
+<p>我们常知道两个函数各自的积分大小，却要判断它们的乘积是否可积。为此有如下不等式：</p>
+<blockquote>
+<p>若 <span class="arithmatex">\(1\leq p,q\leq\infty\)</span>、<span class="arithmatex">\(1/p+1/q=1\)</span>，<span class="arithmatex">\(f\in L^p\)</span>、<span class="arithmatex">\(g\in L^q\)</span>，则 <span class="arithmatex">\(fg\in L^1\)</span>，且</p>
+<div class="arithmatex">\[
+\int|fg|\leq\|f\|_p\|g\|_q.
+\]</div>
+</blockquote>
+<p>先设 <span class="arithmatex">\(1&lt;p&lt;\infty\)</span>。所需数值不等式是 <span class="arithmatex">\(ab\leq a^p/p+b^q/q\)</span>。固定 <span class="arithmatex">\(b\)</span>，右侧减去左侧关于 <span class="arithmatex">\(a\)</span> 的导数为 <span class="arithmatex">\(a^{p-1}-b\)</span>，其最小值在 <span class="arithmatex">\(a=b^{1/(p-1)}\)</span>，代入恰为零。因此不等式成立。若两范数非零，把 <span class="arithmatex">\(f,g\)</span> 分别除以自身范数，对归一化后的绝对值逐点用数值不等式再积分，得到上界 <span class="arithmatex">\(1/p+1/q=1\)</span>，撤销归一化即得结论。零范数表示函数几乎处处零，单独处理即可。</p>
+<p>当 <span class="arithmatex">\(p=1,q=\infty\)</span>，直接用 <span class="arithmatex">\(|g|\leq\|g\|_\infty\)</span> 几乎处处，再积分。交换两函数涵盖另一端点。对 <span class="arithmatex">\(p=q=2\)</span>，它就是 <span class="arithmatex">\(L^2\)</span> 的 Cauchy–Schwarz；对一般指数，它将可积性变成连续线性泛函的范数估计，这将在 5.12 使用。</p>
+<h2 id="53-minkowski">5.3 Minkowski 不等式</h2>
+<p>要让 <span class="arithmatex">\(L^p\)</span> 的大小成为范数，还须证明相加的误差不超过各误差之和。</p>
+<blockquote>
+<p>结论是 <span class="arithmatex">\(\|f+g\|_p\leq\|f\|_p+\|g\|_p\)</span>。</p>
+</blockquote>
+<p><span class="arithmatex">\(p=1,\infty\)</span> 直接由点态三角不等式得到。</p>
+<p>对 <span class="arithmatex">\(1&lt;p&lt;\infty\)</span>，先由 <span class="arithmatex">\(|f+g|^p\leq2^{p-1}(|f|^p+|g|^p)\)</span> 确认 <span class="arithmatex">\(f+g\in L^p\)</span>，这一步避免在待证不等式中假定范数有限。于是可以写</p>
+<div class="arithmatex">\[
+\|f+g\|_p^p\leq\int(|f|+|g|)|f+g|^{p-1}
+\leq(\|f\|_p+\|g\|_p)\big\||f+g|^{p-1}\big\|_q.
+\]</div>
+<p>因为 <span class="arithmatex">\((p-1)q=p\)</span>，最后一项是 <span class="arithmatex">\(\|f+g\|_p^{p-1}\)</span>。若该范数为零，结论已成立；否则相除即得所需结果。这里 Hölder 控制混合项，而指数关系使最后的幂恰能约掉。<span class="arithmatex">\(0&lt;p&lt;1\)</span> 时这个关系不能产生范数三角不等式，故不属于本章的 Banach 范数理论。</p>
+<h2 id="54-rieszfischer">5.4 Riesz–Fischer 完备性定理</h2>
+<p>Cauchy 条件只说明函数之间越来越接近，未必先给出逐点极限。证明 <span class="arithmatex">\(L^p\)</span> 完备的办法是从 Cauchy 列抽出增量足够快变小的子列，让这些增量在几乎每点可求和。</p>
+<blockquote>
+<p>对任意测度空间，<span class="arithmatex">\(1\leq p\leq\infty\)</span> 时 <span class="arithmatex">\(L^p\)</span> 都是完备的。</p>
+</blockquote>
+<p>设 <span class="arithmatex">\(1\leq p&lt;\infty\)</span>，<span class="arithmatex">\((f_n)\)</span> 在 <span class="arithmatex">\(L^p\)</span> 为 Cauchy 列。选 <span class="arithmatex">\(n_k\)</span> 使 <span class="arithmatex">\(\|f_{n_{k+1}}-f_{n_k}\|_p\leq2^{-k}\)</span>，取可测代表并令 <span class="arithmatex">\(g_k=|f_{n_{k+1}}-f_{n_k}|\)</span>。Minkowski 给有限和的范数不超过 <span class="arithmatex">\(\sum2^{-k}\leq1\)</span>。对其 <span class="arithmatex">\(p\)</span> 次幂用单调收敛，得</p>
+<div class="arithmatex">\[
+G=\sum_{k\geq1}g_k\in L^p,\qquad \|G\|_p\leq1.
+\]</div>
+<p>故 <span class="arithmatex">\(G\)</span> 几乎处处有限，在这些点 <span class="arithmatex">\(f_{n_k}\)</span> 的增量绝对可求和，从而存在点态极限 <span class="arithmatex">\(f\)</span>；在例外零测集可定义为零。<span class="arithmatex">\(|f|\leq|f_{n_1}|+G\)</span> 保证 <span class="arithmatex">\(f\in L^p\)</span>。又有</p>
+<div class="arithmatex">\[
+|f-f_{n_k}|\leq\sum_{j\geq k}g_j,\qquad
+\|f-f_{n_k}\|_p\leq\sum_{j\geq k}2^{-j}\longrightarrow0.
+\]</div>
+<p>尾和范数界同样先对有限和用 Minkowski，再单调收敛。最后固定一个充分晚的子列项，把任意晚期 <span class="arithmatex">\(f_n\)</span> 与它比较，Cauchy 条件及三角不等式给整列趋于 <span class="arithmatex">\(f\)</span>。</p>
+<p>对 <span class="arithmatex">\(p=\infty\)</span>，把全部成对本性范数不等式的异常零测集并起来。在其补集上，Cauchy 条件变成一致 Cauchy 条件，得到本性有界极限，且本性一致收敛。这证明所有 <span class="arithmatex">\(1\leq p\leq\infty\)</span> 的完备性。抽取可求和增量这一步值得记住，它把范数信息转换成可见的点态构造。</p>
+<h2 id="55">5.5 稠密性</h2>
+<p>许多定理先对连续或光滑函数证明，再延拓到 <span class="arithmatex">\(L^p\)</span>。这种延拓需要稠密性作保证。对 <span class="arithmatex">\(p&lt;\infty\)</span>，先截断函数值，再向细网格量化，控制收敛使简单函数在 <span class="arithmatex">\(L^p\)</span> 中逼近原函数。在 <span class="arithmatex">\(\mathbb R^n\)</span> 上还可以先截到大盒中，使每个相关值层都有有限测度。</p>
+<p>对有限测度集合 <span class="arithmatex">\(E\)</span>，正则性给紧集 <span class="arithmatex">\(K\subset E\)</span> 和有界开集 <span class="arithmatex">\(O\supset K\)</span>，并可使 <span class="arithmatex">\(m_n(E\triangle K)+m_n(O\setminus K)\)</span> 任意小；先截断 <span class="arithmatex">\(E\)</span> 到大盒后选 <span class="arithmatex">\(O\)</span> 即可。取连续函数 <span class="arithmatex">\(\phi\)</span>，在 <span class="arithmatex">\(K\)</span> 为 1、在 <span class="arithmatex">\(O^c\)</span> 为零、其余在 0 与 1 之间。它可显式写为距离函数之比</p>
+<div class="arithmatex">\[
+\phi(x)=\frac{d(x,O^c)}{d(x,O^c)+d(x,K)}.
+\]</div>
+<p>非空 <span class="arithmatex">\(K\)</span> 紧且包含于 <span class="arithmatex">\(O\)</span>，分母不为零；<span class="arithmatex">\(K\)</span> 为空时直接取零。<span class="arithmatex">\(\phi\)</span> 紧支撑，且 <span class="arithmatex">\(\|\mathbf1_E-\phi\|_p^p\)</span> 被刚才的小测度误差控制。逐个逼近简单函数各层，得到 <span class="arithmatex">\(C_c\)</span> 在 <span class="arithmatex">\(L^p\)</span> 稠密。</p>
+<p>再将 <span class="arithmatex">\(\phi\)</span> 与光滑单位质量核卷积，得到光滑紧支撑逼近。对连续紧支撑函数，统一连续性直接证明卷积一致逼近，支撑又留在固定有界集，因此也在 <span class="arithmatex">\(L^p\)</span> 逼近。这里不需要先证明一般函数的平移连续性；反过来，平移连续性可先在 <span class="arithmatex">\(C_c\)</span> 上验证，再由已经得到的稠密性扩展，这避免循环。</p>
+<p>在 <span class="arithmatex">\(L^\infty\)</span> 中情况不同：紧支撑函数不能本性一致逼近全空间的常数 1，连续函数也不能任意精确地本性一致逼近阶跃。稠密性应当始终附带空间与范数，而不是只说“光滑函数能近似任何函数”。</p>
+<h2 id="56">5.6 赋范空间</h2>
+<p>前面已看到具体的积分范数，现在把它们共有的性质抽出来。这样证明一次的连续性结论就能同时用于向量、数列和函数，而不必逐个重复。</p>
+<p>赋范空间是具有范数的线性空间。线性连续性等价于原点连续性。等价范数诱导相同收敛；有限维空间中所有范数等价，无限维不成立。</p>
+<p>例：<span class="arithmatex">\(C([0,1])\)</span> 上 <span class="arithmatex">\(\|f\|_\infty\)</span> 与 <span class="arithmatex">\(\|f\|_1\)</span> 不等价。取 <span class="arithmatex">\(f_n(x)=\max(1-nx,0)\)</span>，则 <span class="arithmatex">\(\|f_n\|_\infty=1\)</span>，<span class="arithmatex">\(\|f_n\|_1=1/(2n)\)</span>。这说明“函数小”在不同误差指标下有不同含义。</p>
+<h2 id="57-banach">5.7 Banach 空间</h2>
+<p>数列在范数下 Cauchy，只说明近似彼此相容。若想用迭代真正构造一个空间内的答案，必须保证其极限不会落到空间之外。Banach 空间把这一要求直接作为结构的一部分。</p>
+<blockquote>
+<p>完备的赋范空间称 <strong>Banach 空间</strong>。</p>
+</blockquote>
+<p><span class="arithmatex">\(L^p\)</span>、<span class="arithmatex">\(\ell^p\)</span>、一致范数下 <span class="arithmatex">\(C(K)\)</span>（<span class="arithmatex">\(K\)</span> 紧）均是例子。Banach 空间的闭线性子空间仍 Banach；商空间 <span class="arithmatex">\(X/Y\)</span> 对闭子空间 <span class="arithmatex">\(Y\)</span> 配以 <span class="arithmatex">\(\|x+Y\|=\inf_{y\in Y}\|x-y\|\)</span>，也是 Banach。</p>
+<p>完备性保证绝对可求和的向量级数收敛。它是迭代法得出实际解，而非只得 Cauchy 近似的条件。</p>
+<h2 id="58">5.8 有限维与无限维差异</h2>
+<p>有限维空间闭有界集合紧，线性映射自动连续，所有子空间闭。无限维中这三条都可能失败。无限维赋范空间的闭单位球不紧，Riesz 引理可递归选出彼此距离有正下界的单位向量。</p>
+<p>对 <span class="arithmatex">\(\ell^2\)</span>，<span class="arithmatex">\(e_n\)</span> 无范数收敛子列；但会弱收敛到零（5.13）。因此无限维求极限常须换成较弱拓扑，这将成为变分法的核心。</p>
+<h2 id="59">5.9 有界线性算子</h2>
+<p>积分、微分和乘以系数都可看成作用在函数上的算子。线性只描述代数性质，要让算子与近似过程相容，还必须检查连续性；在线性情形，它可以用一个范数界完全刻画。</p>
+<blockquote>
+<p>线性 <span class="arithmatex">\(T:X\to Y\)</span> 有界指存在 <span class="arithmatex">\(C\)</span> 使 <span class="arithmatex">\(\|Tx\|\leq C\|x\|\)</span>，等价于连续。</p>
+</blockquote>
+<p>这里“有界”表示把有界集送为有界集，不表示所有输出大小统一有限。</p>
+<p>例：<span class="arithmatex">\(L^2\)</span> 上乘以 <span class="arithmatex">\(a\in L^\infty\)</span> 的算子满足 <span class="arithmatex">\(\|af\|_2\leq\|a\|_\infty\|f\|_2\)</span>。微分 <span class="arithmatex">\(D:C^1([0,1])\to C([0,1])\)</span> 在 <span class="arithmatex">\(C^1\)</span> 范数下有界，但源若只给一致范数，则 <span class="arithmatex">\(\sin(nx)/n\)</span> 说明不有界。</p>
+<h2 id="510">5.10 算子范数</h2>
+<p><span class="arithmatex">\(\|T\|=\sup_{\|x\|\leq1}\|Tx\|\)</span> 是最小可能的界，且 <span class="arithmatex">\(\|ST\|\leq\|S\|\|T\|\)</span>。若 <span class="arithmatex">\(Y\)</span> Banach，则 <span class="arithmatex">\(\mathcal B(X,Y)\)</span> 配算子范数 Banach。</p>
+<p>若 <span class="arithmatex">\(\|A\|&lt;1\)</span>，Neumann 级数 <span class="arithmatex">\(\sum_{k\geq0}A^k\)</span> 在算子范数收敛，乘以 <span class="arithmatex">\(I-A\)</span> 后有限部分望远镜相消，极限给出 <span class="arithmatex">\((I-A)^{-1}\)</span>。这是一切“小扰动可逆”的基本模型。</p>
+<h2 id="511">5.11 对偶空间</h2>
+<p>当输出只剩一个数时，线性算子成为线性泛函。把所有连续泛函收集成空间，就得到对偶；它记录可以稳定地观察一个向量或函数的全部线性方式。</p>
+<blockquote>
+<p><span class="arithmatex">\(X^*\)</span> 是所有连续线性泛函 <span class="arithmatex">\(\ell:X\to\mathbb K\)</span>，配算子范数。</p>
+</blockquote>
+<p>它总是 Banach。自然嵌入 <span class="arithmatex">\(J:X\to X^{**}\)</span> 给 <span class="arithmatex">\(Jx(\ell)=\ell(x)\)</span>，由 Hahn–Banach 得它等距。<span class="arithmatex">\(J\)</span> 满射时称 <span class="arithmatex">\(X\)</span> 自反。</p>
+<p>把泛函理解为线性观察：积分、坐标、测量方向都可能是观察方式。但 <span class="arithmatex">\(L^p\)</span> 中点值 <span class="arithmatex">\(f(x_0)\)</span> 通常不是良定义泛函，因为等价类可在单点修改。</p>
+<h2 id="512-lp">5.12 Lp 对偶的积分表示</h2>
+<p>Hölder 不等式已经说明，每个 <span class="arithmatex">\(g\in L^q\)</span> 都定义连续线性泛函 <span class="arithmatex">\(\ell_g(f)=\int_X fg\,d\mu\)</span>。现在的问题是，是否所有连续线性观察都来自这样的积分。在 <span class="arithmatex">\(\sigma\)</span>-有限测度空间上，对 <span class="arithmatex">\(1\leq p&lt;\infty\)</span>，答案是肯定的，而且 <span class="arithmatex">\(\|\ell_g\|=\|g\|_q\)</span>。</p>
+<p>先设空间测度有限，给定 <span class="arithmatex">\(\ell\in(L^p)^*\)</span>，令 <span class="arithmatex">\(\nu(A)=\ell(\mathbf1_A)\)</span>。若 <span class="arithmatex">\(A_j\)</span> 不交，则有限部分和的指标函数在 <span class="arithmatex">\(L^p\)</span> 趋于并集指标函数，因为尾集的测度趋零。连续性给可数可加性。还需验证总变差有限：对任意有限可测分割 <span class="arithmatex">\((A_j)\)</span>，选模为 1 的系数 <span class="arithmatex">\(c_j\)</span> 使 <span class="arithmatex">\(c_j\nu(A_j)=|\nu(A_j)|\)</span>，则</p>
+<div class="arithmatex">\[
+\sum_j|\nu(A_j)|=\ell\left(\sum_jc_j\mathbf1_{A_j}\right)
+\leq\|\ell\|\mu(X)^{1/p}.
+\]</div>
+<p>因此 <span class="arithmatex">\(\nu\)</span> 是有限符号或复测度，且 <span class="arithmatex">\(\nu\ll\mu\)</span>。3.19 的 Radon–Nikodym 定理给 <span class="arithmatex">\(g\in L^1\)</span>，先在简单函数上得到 <span class="arithmatex">\(\ell(f)=\int_X fg\,d\mu\)</span>。</p>
+<p>设 <span class="arithmatex">\(1&lt;p&lt;\infty\)</span>。在 <span class="arithmatex">\(\{|g|\leq N\}\)</span> 上取 <span class="arithmatex">\(f_N=\overline g\,|g|^{q-2}\mathbf1_{\{|g|\leq N\}}\)</span>，<span class="arithmatex">\(g=0\)</span> 时取零；它有界，可以用有界简单函数逼近，故仍有积分表示。记 <span class="arithmatex">\(I_N=\int_{|g|\leq N}|g|^q\)</span>，有 <span class="arithmatex">\(I_N\leq\|\ell\|I_N^{1/p}\)</span>，所以 <span class="arithmatex">\(I_N^{1/q}\leq\|\ell\|\)</span>。单调收敛得 <span class="arithmatex">\(g\in L^q\)</span>、<span class="arithmatex">\(\|g\|_q\leq\|\ell\|\)</span>。若 <span class="arithmatex">\(p=1\)</span>，对任意可测 <span class="arithmatex">\(A\)</span> 取 <span class="arithmatex">\(f=\overline g/|g|\,\mathbf1_A\)</span>，得到 <span class="arithmatex">\(\int_A|g|\leq\|\ell\|\mu(A)\)</span>，故 <span class="arithmatex">\(|g|\leq\|\ell\|\)</span> 几乎处处。Hölder 给相反范数界，因而等号成立。再用简单函数的 <span class="arithmatex">\(L^p\)</span> 稠密性，将表示延拓到所有 <span class="arithmatex">\(f\)</span>。</p>
+<p>一般 <span class="arithmatex">\(\sigma\)</span>-有限空间分成不交有限测度块。在每块得到密度，拼成 <span class="arithmatex">\(g\)</span>。上面的测试函数再限制到前有限个块，给出统一范数界；让块数和截断高度趋于无穷，仍得 <span class="arithmatex">\(g\in L^q\)</span>。有限支撑简单函数稠密，故表示成立。唯一性可在有限块上测试密度差的相位，或直接用 Radon–Nikodym 唯一性。</p>
+<p>我们采用线性配对 <span class="arithmatex">\(\int fg\)</span>；若写为 <span class="arithmatex">\(\int f\overline g\)</span>，对应识别对 <span class="arithmatex">\(g\)</span> 是共轭线性的。<span class="arithmatex">\(1&lt;p&lt;\infty\)</span> 时再次对偶得到自反性。<span class="arithmatex">\(p=\infty\)</span> 不在此证明范围内，因为指标函数尾部不一定在本性一致范数下趋零；其对偶一般确实大于 <span class="arithmatex">\(L^1\)</span>。</p>
+<h2 id="513">5.13 弱收敛、弱*收敛与对偶紧性</h2>
+<p>范数要求所有方向上的误差统一小，有时过于严格。若每个固定连续线性观察都趋于正确值，我们称 <span class="arithmatex">\(x_n\rightharpoonup x\)</span>，即 <span class="arithmatex">\(\ell(x_n)\to\ell(x)\)</span> 对全部 <span class="arithmatex">\(\ell\in X^*\)</span> 成立。对对偶中的列，弱*收敛只测试原空间的 <span class="arithmatex">\(x\)</span>：<span class="arithmatex">\(\ell_n(x)\to\ell(x)\)</span>。它未必测试全部 <span class="arithmatex">\(X^{**}\)</span>，因而可能比对偶自身的弱收敛更弱。</p>
+<p>在 <span class="arithmatex">\(\ell^2\)</span> 中，<span class="arithmatex">\(e_n\rightharpoonup0\)</span>，因为任意固定 <span class="arithmatex">\(y\in\ell^2\)</span> 有 <span class="arithmatex">\(y_n\to0\)</span>，而全部连续泛函由 <span class="arithmatex">\(L^2\)</span> 对偶或下一节 Riesz 表示给出。尽管如此，<span class="arithmatex">\(\|e_n\|=1\)</span>。逐个测试趋零，不等于对全部测试同时取上确界也趋零。</p>
+<blockquote>
+<p>Banach–Alaoglu 定理使对偶闭单位球弱*紧。</p>
+</blockquote>
+<p>证明把泛函看作其全部点值：对每个 <span class="arithmatex">\(x\in X\)</span>，<span class="arithmatex">\(|\ell(x)|\leq\|x\|\)</span>，因此单位球嵌入紧圆盘的乘积 <span class="arithmatex">\(\prod_x\{z:|z|\leq\|x\|\}\)</span>。乘积紧性见附录 A.8。该乘积中，满足 <span class="arithmatex">\(a(x+y)=a(x)+a(y)\)</span>、<span class="arithmatex">\(a(cx)=ca(x)\)</span> 的点族组成闭集，因为每个等式只涉及有限坐标。每个这样的点族又定义一个范数不超过 1 的连续泛函，所以该闭集恰是对偶单位球。乘积拓扑正是点值收敛拓扑，即弱*拓扑，定理得证。</p>
+<p>若 <span class="arithmatex">\(X\)</span> 可分，选单位球稠密列 <span class="arithmatex">\(x_j\)</span>，在对偶单位球上可用度量 <span class="arithmatex">\(d(\ell,\ell\prime)=\sum_j2^{-j}|\ell(x_j)-\ell\prime(x_j)|/(1+|\ell(x_j)-\ell\prime(x_j)|)\)</span>。稠密性和统一范数界使这些坐标足以控制任意固定 <span class="arithmatex">\(x\)</span>，故此度量产生弱<em>拓扑，由于紧度量空间具有列紧性，这里的弱</em>紧性进一步给出弱*列紧性。</p>
+<hr />
+<p>自反空间的闭单位球可通过 <span class="arithmatex">\(X=X^{**}\)</span> 识别为对偶弱*紧球，得到弱紧性。一般非可分情况下，从弱紧到弱列紧还需要 Eberlein–Šmulian 定理，作为进阶拓扑结果保留；8.15 则给出可分 Hilbert 空间中有界序列弱子列的直接构造，足以支撑本讲义的主要变分例子。</p>
+<h2 id="514-hilbert-riesz">5.14 Hilbert 空间与 Riesz 表示</h2>
+<p>只有范数时，我们知道距离；有内积时，还知道方向之间的角度。完备内积空间称 Hilbert 空间。<span class="arithmatex">\(L^2\)</span> 取 <span class="arithmatex">\(\langle f,g\rangle=\int_X f\overline g\,d\mu\)</span>，<span class="arithmatex">\(\ell^2\)</span> 取相应级数，均对第一变量线性。下面的投影定理将表明，闭子空间允许唯一的正交分解。</p>
+<blockquote>
+<p>对 Hilbert 空间 <span class="arithmatex">\(H\)</span> 上任意连续线性泛函 <span class="arithmatex">\(\ell\)</span>，存在唯一 <span class="arithmatex">\(y\in H\)</span>，使 <span class="arithmatex">\(\ell(x)=\langle x,y\rangle\)</span> 对全部 <span class="arithmatex">\(x\)</span> 成立，且 <span class="arithmatex">\(\|\ell\|=\|y\|\)</span>。</p>
+</blockquote>
+<p>先借用下一节立即证明的投影结论，建立 Riesz 表示。若连续线性泛函 <span class="arithmatex">\(\ell\)</span> 非零，其核 <span class="arithmatex">\(V\)</span> 为闭子空间。取 <span class="arithmatex">\(z\)</span> 不在核中，正交分解 <span class="arithmatex">\(z=v+w\)</span>，则 <span class="arithmatex">\(w\in V^\perp\)</span> 且 <span class="arithmatex">\(\ell(w)\ne0\)</span>。对任意 <span class="arithmatex">\(x\)</span>，<span class="arithmatex">\(x-[\ell(x)/\ell(w)]w\in V\)</span>，与 <span class="arithmatex">\(w\)</span> 内积为零，因此</p>
+<div class="arithmatex">\[
+\langle x,w\rangle=\frac{\ell(x)}{\ell(w)}\|w\|^2,\qquad
+\ell(x)=\langle x,y\rangle,\quad
+y=\frac{\overline{\ell(w)}}{\|w\|^2}w.
+\]</div>
+<p>零泛函取 <span class="arithmatex">\(y=0\)</span>。如果两个向量表示同一泛函，测试它们之差，得差的范数为零，故唯一。Cauchy–Schwarz 给 <span class="arithmatex">\(\|\ell\|\leq\|y\|\)</span>，取 <span class="arithmatex">\(x=y/\|y\|\)</span> 得反向不等式。因此每个连续线性泛函都由一个向量表示，且范数相同。此证明完全是几何的，不依赖 Radon–Nikodym。</p>
+<h2 id="515">5.15 正交投影</h2>
+<p>现在考虑闭子空间中的最短距离问题：</p>
+<blockquote>
+<p>若 <span class="arithmatex">\(V\)</span> 是 Hilbert 空间 <span class="arithmatex">\(H\)</span> 的闭线性子空间，则每个 <span class="arithmatex">\(x\in H\)</span> 都唯一分解为 <span class="arithmatex">\(x=v+w\)</span>，其中 <span class="arithmatex">\(v\in V\)</span>、<span class="arithmatex">\(w\in V^\perp\)</span>。向量 <span class="arithmatex">\(v\)</span> 是 <span class="arithmatex">\(V\)</span> 中距离 <span class="arithmatex">\(x\)</span> 最近的点，称为 <span class="arithmatex">\(x\)</span> 在 <span class="arithmatex">\(V\)</span> 上的<strong>正交投影</strong>。</p>
+</blockquote>
+<p>给定闭线性子空间 <span class="arithmatex">\(V\subset H\)</span> 和点 <span class="arithmatex">\(x\)</span>，取距离下确界 <span class="arithmatex">\(d=\inf_{v\in V}\|x-v\|\)</span>。下确界的定义只给近似最短点，未必保证达到；在无限维中尤其不能直接调用紧性。</p>
+<p>选极小化列 <span class="arithmatex">\(v_n\)</span> 使 <span class="arithmatex">\(\|x-v_n\|\to d\)</span>。由于 <span class="arithmatex">\((v_n+v_m)/2\in V\)</span>，平行四边形恒等式给</p>
+<div class="arithmatex">\[
+\|v_n-v_m\|^2
+=2\|x-v_n\|^2+2\|x-v_m\|^2
+-4\left\|x-\frac{v_n+v_m}{2}\right\|^2
+\leq2\|x-v_n\|^2+2\|x-v_m\|^2-4d^2.
+\]</div>
+<p>右侧趋零，所以极小化列 Cauchy。完备性给极限 <span class="arithmatex">\(v\)</span>，闭性保证 <span class="arithmatex">\(v\in V\)</span>，范数连续性给 <span class="arithmatex">\(\|x-v\|=d\)</span>。</p>
+<p>任取 <span class="arithmatex">\(z\in V\)</span>，函数 <span class="arithmatex">\(t\mapsto\|x-v-tz\|^2\)</span> 在实 <span class="arithmatex">\(t=0\)</span> 极小，展开并比较一次项，得 <span class="arithmatex">\(\operatorname{Re}\langle x-v,z\rangle=0\)</span>。复空间再对 <span class="arithmatex">\(iz\)</span> 使用同一结论，虚部也为零。因此 <span class="arithmatex">\(x-v\perp V\)</span>。若有另一正交分解，两投影之差既在 <span class="arithmatex">\(V\)</span> 又在 <span class="arithmatex">\(V^\perp\)</span>，只能为零。于是 <span class="arithmatex">\(P_Vx=v\)</span> 唯一，且由分解直接看出线性及 <span class="arithmatex">\(\|P_V\|\leq1\)</span>。</p>
+<p>例如在 <span class="arithmatex">\(L^2([0,1])\)</span> 把 <span class="arithmatex">\(x\)</span> 投到常数子空间，正交条件 <span class="arithmatex">\(\int_0^1(x-c)dx=0\)</span> 给 <span class="arithmatex">\(c=1/2\)</span>，误差平方为 <span class="arithmatex">\(1/12\)</span>。一般有限维子空间同样只需列出与各基向量的正交方程；最优化已变成线性代数。</p>
+<h2 id="516-fourier">5.16 正交基与 Fourier 展开</h2>
+<p>正交归一族 <span class="arithmatex">\((e_j)\)</span> 满足 <span class="arithmatex">\(\langle e_i,e_j\rangle=\delta_{ij}\)</span>；若线性张成稠密，则称正交基，不是 Hamel 基。可分 Hilbert 空间有可数正交基，并且</p>
+<div class="arithmatex">\[
+x=\sum_j\langle x,e_j\rangle e_j,\qquad
+\|x\|^2=\sum_j|\langle x,e_j\rangle|^2.
+\]</div>
+<p>级数按 Hilbert 范数收敛。任意正交族先有 Bessel 不等式；余差对所有基向量正交且基完备，才得到等号。具体 Fourier 指数系在第 7 章验证完备性。</p>
+<h2 id="517">5.17 伴随算子</h2>
+<blockquote>
+<p>有界 <span class="arithmatex">\(T:H\to H\)</span> 的伴随由 <span class="arithmatex">\(\langle Tx,y\rangle=\langle x,T^{\dagger}y\rangle\)</span> 唯一确定。</p>
+</blockquote>
+<p>Riesz 表示保证存在；<span class="arithmatex">\(\|T^{\dagger}\|=\|T\|\)</span>、<span class="arithmatex">\((ST)^{\dagger}=T^{\dagger}S^{\dagger}\)</span>。<span class="arithmatex">\(T=T^{\dagger}\)</span> 称自伴，<span class="arithmatex">\(T^{\dagger}T=TT^{\dagger}\)</span> 称正规。</p>
+<p>矩阵伴随是共轭转置。<span class="arithmatex">\(\ker T^{\dagger}=(\operatorname{im}T)^\perp\)</span> 给出可解性与正交障碍的关系。无界微分算子的伴随还取决于定义域和边界条件，本节的有界理论不能直接套用。</p>
+<p>这里的 <span class="arithmatex">\(T^\dagger\)</span> 与连续对偶上的映射 <span class="arithmatex">\(T^*:H^*\to H^*\)</span> 不同：后者定义为 <span class="arithmatex">\(T^*\ell=\ell\circ T\)</span>，在有限维对偶基中的矩阵是转置。复内积的 Riesz 识别是共轭线性的，正是它使内积伴随出现共轭转置。</p>
+<h2 id="518">5.18 不动点工具</h2>
+<blockquote>
+<p><strong>Banach 压缩映射定理。</strong> 非空完备度量空间上，若 <span class="arithmatex">\(d(Tx,Ty)\leq qd(x,y)\)</span>、<span class="arithmatex">\(q&lt;1\)</span>，则有唯一不动点，迭代 <span class="arithmatex">\(x_{n+1}=Tx_n\)</span> 收敛，且 <span class="arithmatex">\(d(x_n,x_*)\leq q^n d(x_1,x_0)/(1-q)\)</span>。</p>
+</blockquote>
+<p>从任意 <span class="arithmatex">\(x_0\)</span> 出发，令 <span class="arithmatex">\(x_{n+1}=Tx_n\)</span>。压缩性给出 <span class="arithmatex">\(d(x_{n+1},x_n)\le q^n d(x_1,x_0)\)</span>，故对 <span class="arithmatex">\(m&gt;n\)</span>，有 <span class="arithmatex">\(d(x_m,x_n)\le q^n d(x_1,x_0)/(1-q)\)</span>。因此迭代列是 Cauchy 列，由完备性收敛到某个 <span class="arithmatex">\(x_*\)</span>。<span class="arithmatex">\(T\)</span> 连续，取极限得到 <span class="arithmatex">\(Tx_*=x_*\)</span>。若 <span class="arithmatex">\(y_*\)</span> 也是不动点，则 <span class="arithmatex">\(d(x_*,y_*)\le qd(x_*,y_*)\)</span>，由 <span class="arithmatex">\(q&lt;1\)</span> 得 <span class="arithmatex">\(x_*=y_*\)</span>。让上述尾部估计中的 <span class="arithmatex">\(m\to\infty\)</span>，还得到定理中的误差界。它补足 2.5 的证明工具，并将在 8.1 构造 ODE 解。</p>
+<h2 id="519-hahnbanach">5.19 Hahn–Banach 定理</h2>
+<p>我们希望用连续线性泛函区分向量，却不能在无限维空间里任意指定一个代数泛函后就断言连续。Hahn–Banach 的作用是：只要在一个子空间上已有适当控制，就可以保持控制延拓到全空间。</p>
+<blockquote>
+<p>设 <span class="arithmatex">\(X\)</span> 为实赋范空间、<span class="arithmatex">\(V\subset X\)</span> 为线性子空间，<span class="arithmatex">\(\ell:V\to\mathbb R\)</span> 线性且 <span class="arithmatex">\(|\ell(v)|\leq C\|v\|\)</span>。则 <span class="arithmatex">\(\ell\)</span> 可延拓为 <span class="arithmatex">\(X\)</span> 上的线性泛函，且保持同一界。复数域中相应结论也成立。</p>
+</blockquote>
+<p>先证实线性版本。设次线性 <span class="arithmatex">\(p\)</span> 满足 <span class="arithmatex">\(p(x+y)\leq p(x)+p(y)\)</span>、<span class="arithmatex">\(p(tx)=tp(x)\)</span>（<span class="arithmatex">\(t\geq0\)</span>），子空间 <span class="arithmatex">\(V\)</span> 上线性 <span class="arithmatex">\(\ell\leq p\)</span>。取 <span class="arithmatex">\(x_0\notin V\)</span>，希望设 <span class="arithmatex">\(\widetilde\ell(v+tx_0)=\ell(v)+tc\)</span>。对正、负 <span class="arithmatex">\(t\)</span> 缩放后，所需条件恰为</p>
+<div class="arithmatex">\[
+\sup_{v\in V}\bigl(\ell(v)-p(v-x_0)\bigr)
+\leq c\leq
+\inf_{w\in V}\bigl(p(w+x_0)-\ell(w)\bigr).
+\]</div>
+<p>这个区间非空，因为对任意 <span class="arithmatex">\(v,w\)</span>，<span class="arithmatex">\(\ell(v)+\ell(w)=\ell(v+w)\leq p(v+w)\leq p(v-x_0)+p(w+x_0)\)</span>。选择其中一个实数 <span class="arithmatex">\(c\)</span>，便完成一个方向的延拓；两端至少有由 <span class="arithmatex">\(v=w=0\)</span> 给出的有限上下约束。</p>
+<p>把所有受 <span class="arithmatex">\(p\)</span> 控制的延拓按包含关系排序。一条链的并仍是良定义线性泛函：任意有限个输入都落在链中的同一个定义域。Zorn 引理给极大延拓；若其定义域不等于全空间，刚才的一维步骤又可延拓，矛盾。实版本得证。</p>
+<p>取 <span class="arithmatex">\(p(x)=\|\ell\|\|x\|\)</span>，同时对 <span class="arithmatex">\(x\)</span> 与 <span class="arithmatex">\(-x\)</span> 使用控制，便得到保持范数的实延拓。复空间中，先把 <span class="arithmatex">\(\operatorname{Re}\ell\)</span> 视为实线性泛函延拓为 <span class="arithmatex">\(u\)</span>，再设 <span class="arithmatex">\(L(x)=u(x)-iu(ix)\)</span>。直接验证 <span class="arithmatex">\(L(ix)=iL(x)\)</span>，它在原子空间等于 <span class="arithmatex">\(\ell\)</span>。选择单位复数 <span class="arithmatex">\(\alpha\)</span> 使 <span class="arithmatex">\(\alpha L(x)=|L(x)|\)</span>，则 <span class="arithmatex">\(|L(x)|=u(\alpha x)\leq\|\ell\|\|x\|\)</span>，范数也保持。</p>
+<p>对非零 <span class="arithmatex">\(x\)</span>，先在一维空间上定义 <span class="arithmatex">\(\ell(tx)=t\|x\|\)</span>，它的范数为 1，再延拓，得到 <span class="arithmatex">\(\ell(x)=\|x\|\)</span>。因此连续泛函确实能够分离点，自然嵌入 <span class="arithmatex">\(X\to X^{**}\)</span> 是等距的，弱极限也必唯一。</p>
+<h2 id="520">5.20 一致有界原理</h2>
+<p>如果每个固定输入都被一族算子送到一个有界集合，是否能找到对所有输入同时有效的范数界？答案依赖源空间的完备性。</p>
+<blockquote>
+<p>设 <span class="arithmatex">\(X\)</span> Banach、<span class="arithmatex">\(Y\)</span> 赋范，<span class="arithmatex">\(T_\alpha\in\mathcal B(X,Y)\)</span>，且每个 <span class="arithmatex">\(x\)</span> 都有 <span class="arithmatex">\(\sup_\alpha\|T_\alpha x\|&lt;\infty\)</span>。则 <span class="arithmatex">\(\sup_\alpha\|T_\alpha\|&lt;\infty\)</span>。</p>
+</blockquote>
+<p>定义闭集 <span class="arithmatex">\(E_m=\{x:\sup_\alpha\|T_\alpha x\|\leq m\}\)</span>。点态有界保证 <span class="arithmatex">\(X=\bigcup_mE_m\)</span>。Baire 定理使某个 <span class="arithmatex">\(E_m\)</span> 有内点，故存在球 <span class="arithmatex">\(B(x_0,r)\subset E_m\)</span>。若 <span class="arithmatex">\(\|h\|&lt;r\)</span>，两点 <span class="arithmatex">\(x_0+h,x_0\)</span> 都在 <span class="arithmatex">\(E_m\)</span>，所以</p>
+<div class="arithmatex">\[
+\|T_\alpha h\|\leq\|T_\alpha(x_0+h)\|+\|T_\alpha x_0\|\leq2m.
+\]</div>
+<p>对任意单位 <span class="arithmatex">\(u\)</span> 取 <span class="arithmatex">\(h=(r/2)u\)</span>，得到 <span class="arithmatex">\(\|T_\alpha u\|\leq4m/r\)</span>，这个常数不依赖 <span class="arithmatex">\(\alpha\)</span>，证明完成。</p>
+<p>值得注意的是证明顺序：Baire 先把点态信息集中到一个小球，线性再把小球信息搬到原点并缩放到全空间。例如弱收敛列 <span class="arithmatex">\(x_n\)</span> 对每个 <span class="arithmatex">\(\ell\)</span> 有 <span class="arithmatex">\(\ell(x_n)\)</span> 有界；在 Banach 空间 <span class="arithmatex">\(X^*\)</span> 上对 <span class="arithmatex">\(Jx_n\)</span> 用本定理，再由 Hahn–Banach 得 <span class="arithmatex">\(\|x_n\|\)</span> 有界。</p>
+<h2 id="521">5.21 开映射定理</h2>
+<blockquote>
+<p>有界线性满射 <span class="arithmatex">\(T:X\to Y\)</span> 若两空间均 Banach，就把开集送到开集。</p>
+</blockquote>
+<p>满射只给原像存在，开映射则进一步给出原像大小的局部控制，从而使有界线性双射的逆也有界。</p>
+<p>记 <span class="arithmatex">\(B_X\)</span> 为闭单位球。满射使 <span class="arithmatex">\(Y=\bigcup_{n\geq1}T(nB_X)\)</span>，从而也被这些像的闭包覆盖。Baire 给某个 <span class="arithmatex">\(\overline{T(nB_X)}\)</span> 包含球 <span class="arithmatex">\(B(y_0,r)\)</span>。球中两点之差包含 <span class="arithmatex">\(B(0,r)\)</span>，而像闭包之差包含于 <span class="arithmatex">\(\overline{T(2nB_X)}\)</span>，所以缩放后有某个 <span class="arithmatex">\(\delta&gt;0\)</span> 使</p>
+<div class="arithmatex">\[
+B(0,\delta)\subset\overline{T(B_X)}.
+\]</div>
+<p>闭包仍不够：我们要精确原像。取 <span class="arithmatex">\(\|y\|&lt;\delta/2\)</span>。利用上式缩放，先取 <span class="arithmatex">\(\|x_1\|\leq1/2\)</span> 使残差 <span class="arithmatex">\(\|y-Tx_1\|&lt;\delta/4\)</span>；再取 <span class="arithmatex">\(\|x_2\|\leq1/4\)</span> 使新残差小于 <span class="arithmatex">\(\delta/8\)</span>。递归得到 <span class="arithmatex">\(\|x_j\|\leq2^{-j}\)</span>，而 <span class="arithmatex">\(y-T\sum_{j\leq N}x_j\to0\)</span>。<span class="arithmatex">\(X\)</span> 完备，级数和 <span class="arithmatex">\(x\)</span> 存在且 <span class="arithmatex">\(\|x\|\leq1\)</span>；<span class="arithmatex">\(T\)</span> 连续给 <span class="arithmatex">\(Tx=y\)</span>。因此 <span class="arithmatex">\(B(0,\delta/2)\subset T(B_X)\)</span>。</p>
+<p>缩放这一包含关系：任意 <span class="arithmatex">\(B(x_0,\varepsilon)\)</span> 的像包含以 <span class="arithmatex">\(Tx_0\)</span> 为中心的某个开球，取比 <span class="arithmatex">\(\varepsilon\)</span> 小的闭球即可。因此 <span class="arithmatex">\(T\)</span> 开。若 <span class="arithmatex">\(T\)</span> 还单射，则上述原像界给 <span class="arithmatex">\(\|T^{-1}y\|\leq C\|y\|\)</span>。</p>
+<p>证明有两次独立使用完备性：<span class="arithmatex">\(Y\)</span> 的完备性通过 Baire 给近似覆盖，<span class="arithmatex">\(X\)</span> 的完备性让逐步修正的原像级数收敛。只写“由 Baire 可知”会漏掉从近似解到精确解的关键一步。</p>
+<h2 id="522">5.22 闭图像定理</h2>
+<p>有时很难直接估计算子范数，却容易识别所有可能的图像极限。为此有闭图像定理：</p>
+<blockquote>
+<p>设 <span class="arithmatex">\(X,Y\)</span> 为 Banach 空间，线性映射 <span class="arithmatex">\(T:X\to Y\)</span> 在全体 <span class="arithmatex">\(X\)</span> 上定义。如果图像 <span class="arithmatex">\(G=\{(x,Tx):x\in X\}\)</span> 闭，则 <span class="arithmatex">\(T\)</span> 有界。</p>
+</blockquote>
+<p>现在来证明它。配以积范数 <span class="arithmatex">\(\|(x,y)\|=\|x\|+\|y\|\)</span>，<span class="arithmatex">\(X\times Y\)</span> Banach，故闭子空间 <span class="arithmatex">\(G\)</span> 也 Banach。</p>
+<p>投影 <span class="arithmatex">\(P:G\to X\)</span>、<span class="arithmatex">\((x,Tx)\mapsto x\)</span> 是有界线性双射。开映射定理使 <span class="arithmatex">\(P^{-1}\)</span> 有界，因此 <span class="arithmatex">\(\|(x,Tx)\|\leq C\|x\|\)</span>，特别 <span class="arithmatex">\(\|Tx\|\leq C\|x\|\)</span>。这就完整证明了闭图像定理。</p>
+<p>检验闭图像时，正确的条件是：若 <span class="arithmatex">\(x_n\to x\)</span> 且 <span class="arithmatex">\(Tx_n\to y\)</span>，则 <span class="arithmatex">\(y=Tx\)</span>。不需要先假定每个收敛输入列的输出都收敛。微分算子常只在真子空间上定义，即使图像闭也可以无界；此时投影不再满射到整个 <span class="arithmatex">\(X\)</span>，上述证明的关键条件已失效。</p>
+<h2 id="523">5.23 谱与预解集</h2>
+<p>对非零复 Banach 空间上的有界 <span class="arithmatex">\(T\)</span>，预解集 <span class="arithmatex">\(\rho(T)\)</span> 定义为所有使 <span class="arithmatex">\(T-\lambda I\)</span> 具有有界逆的 <span class="arithmatex">\(\lambda\in\mathbb C\)</span> 组成的集合，谱 <span class="arithmatex">\(\sigma(T)\)</span> 为其补集。若 <span class="arithmatex">\(|\lambda|&gt;\|T\|\)</span>，Neumann 级数构造出这个逆算子，因此谱有界。在已有逆的点附近，同样的级数使小扰动仍可逆，所以预解集开，谱闭，因而紧。</p>
+<p>谱还非空；这一点使用第 6 章的 Liouville 定理，可学完复分析后回读。若谱空，则 <span class="arithmatex">\(R(z)=(T-zI)^{-1}\)</span> 处处存在，局部 Neumann 展开使它解析。对固定 <span class="arithmatex">\(x\)</span> 与连续泛函 <span class="arithmatex">\(\ell\)</span>，标量函数 <span class="arithmatex">\(\ell(R(z)x)\)</span> 是整函数；在无穷远，<span class="arithmatex">\(\|R(z)\|\leq(|z|-\|T\|)^{-1}\)</span>，所以该函数趋零。在有限闭圆盘上它连续有界，Liouville 迫使它恒为零。Hahn–Banach 使连续泛函分离点，故 <span class="arithmatex">\(R(z)x=0\)</span> 对全部 <span class="arithmatex">\(x\)</span> 成立，与可逆性矛盾。复数域是这一论证的必要条件。谱点不一定是特征值。</p>
+<p>例：<span class="arithmatex">\(L^2([0,1])\)</span> 上 <span class="arithmatex">\(Tf(x)=xf(x)\)</span> 的谱为 <span class="arithmatex">\([0,1]\)</span>，却没有特征值，因为 <span class="arithmatex">\((x-\lambda)f=0\)</span> 只允许支撑在单点上的等价零函数。靠近 <span class="arithmatex">\(\lambda\)</span> 的短区间上可构造单位近似特征向量，说明逆不可能有界。</p>
+<h2 id="524">5.24 紧算子</h2>
+<blockquote>
+<p>紧算子把有界集送为相对紧集。</p>
+</blockquote>
+<p>有限秩算子紧，算子范数极限保持紧性；无限维空间的恒等算子不紧。紧性常来自积分核的平滑效应。</p>
+<p>在 <span class="arithmatex">\(\ell^2\)</span> 上 <span class="arithmatex">\(Te_n=e_n/n\)</span> 是紧算子，因为截断到前 <span class="arithmatex">\(N\)</span> 项的有限秩算子与它的范数差为 <span class="arithmatex">\(1/(N+1)\)</span>。同类对角算子若系数不趋零，通常不紧。</p>
+<h2 id="525-fredholm">5.25 Fredholm 理论</h2>
+<p>一个算子称 Fredholm，是指值域闭、核有限维、值域的余维也有限；指标为核维数减去余维。紧扰动 <span class="arithmatex">\(I-K\)</span> 的重要性质是指标为零，因此单射等价于满射。下面在 Hilbert 空间上给出完整证明，这也是随后 PDE 中最常用的情形。</p>
+<p>先把紧 <span class="arithmatex">\(K\)</span> 在算子范数下近似为有限秩 <span class="arithmatex">\(F\)</span>。因为 <span class="arithmatex">\(K\)</span> 把单位球送到相对紧集，可选有限个输出点构成任意小的网；令 <span class="arithmatex">\(E\)</span> 为这些点张成的有限维空间，正交投影 <span class="arithmatex">\(P_E\)</span> 满足 <span class="arithmatex">\(\|(I-P_E)K\|\)</span> 任意小。因此取 <span class="arithmatex">\(F=P_EK\)</span>，使 <span class="arithmatex">\(R=K-F\)</span> 的范数小于 1。</p>
+<p>Neumann 级数使 <span class="arithmatex">\(I-R\)</span> 可逆，并有分解</p>
+<div class="arithmatex">\[
+I-K=(I-R)(I-G),\qquad G=(I-R)^{-1}F.
+\]</div>
+<p><span class="arithmatex">\(G\)</span> 有限秩。令 <span class="arithmatex">\(E=\operatorname{im}G\)</span>，相对分解 <span class="arithmatex">\(H=E\oplus E^\perp\)</span>，算子 <span class="arithmatex">\(I-G\)</span> 写成</p>
+<div class="arithmatex">\[
+\begin{pmatrix}A&amp;B\\0&amp;I\end{pmatrix},\qquad A=(I-G)|_E.
+\]</div>
+<p>其核等同于有限维矩阵 <span class="arithmatex">\(A\)</span> 的核。值域中第二分量可任意指定，第一分量仅需模 <span class="arithmatex">\(\operatorname{im}A\)</span> 满足约束，故值域闭且余维为 <span class="arithmatex">\(\dim E-\dim\operatorname{im}A=\dim\ker A\)</span>。左乘可逆算子不改变核维数和余维，也保持闭值域，所以 <span class="arithmatex">\(I-K\)</span> Fredholm且指标零。</p>
+<p>最后，任何有闭值域的 Hilbert 算子 <span class="arithmatex">\(T\)</span> 都有 <span class="arithmatex">\(\operatorname{im}T=(\ker T^{\dagger})^\perp\)</span>：正交关系先给值域闭包，而闭值域去掉闭包。因此 <span class="arithmatex">\((I-K)u=f\)</span> 可解恰当且仅当 <span class="arithmatex">\(f\)</span> 与伴随齐次解正交；解之间的差属于核。这是有限维线性方程兼容条件的直接推广。一般 Banach 空间的同一 Fredholm 结论也成立，但不能使用上面特有的正交投影证明。</p>
+<h2 id="526">5.26 紧自伴算子的谱分解</h2>
+<p>有限维自伴矩阵可以选正交特征基。无限维中，紧性提供类似结论所需的极限：</p>
+<blockquote>
+<p>紧自伴 <span class="arithmatex">\(T\)</span> 的非零谱由实特征值组成，各特征空间有限维，非零特征值只能趋于零；特征空间与核一起正交张成全空间。</p>
+</blockquote>
+<p>先证明自伴算子满足 <span class="arithmatex">\(\|T\|=\sup_{\|x\|=1}|\langle Tx,x\rangle|=:M\)</span>。一方向显然。反方向，对单位 <span class="arithmatex">\(x,y\)</span>，乘一个相位使 <span class="arithmatex">\(\langle Tx,y\rangle\)</span> 为实数，再用二次型之差表示其实部：</p>
+<div class="arithmatex">\[
+4\operatorname{Re}\langle Tx,y\rangle
+=\langle T(x+y),x+y\rangle-\langle T(x-y),x-y\rangle.
+\]</div>
+<p>绝对值不超过 <span class="arithmatex">\(M(\|x+y\|^2+\|x-y\|^2)=4M\)</span>。取所有单位 <span class="arithmatex">\(y\)</span> 的上确界，得 <span class="arithmatex">\(\|Tx\|\leq M\)</span>。因此等号成立。</p>
+<p>若 <span class="arithmatex">\(T\ne0\)</span>，选单位 <span class="arithmatex">\(x_n\)</span> 使二次型趋于 <span class="arithmatex">\(\lambda=\|T\|\)</span> 或 <span class="arithmatex">\(-\|T\|\)</span>（取一子列固定符号）。自伴性使二次型实，并且</p>
+<div class="arithmatex">\[
+\|Tx_n-\lambda x_n\|^2
+\leq\|T\|^2-2\lambda\langle Tx_n,x_n\rangle+\lambda^2\longrightarrow0.
+\]</div>
+<p>由紧性，可选子列使 <span class="arithmatex">\(Tx_n\)</span> 收敛。沿这条子列，由 <span class="arithmatex">\(Tx_n-\lambda x_n\to0\)</span> 与 <span class="arithmatex">\(\lambda\ne0\)</span>，<span class="arithmatex">\(x_n\)</span> 也收敛到某个单位向量 <span class="arithmatex">\(x\)</span>。取极限得 <span class="arithmatex">\(Tx=\lambda x\)</span>。这样最大绝对特征值确实存在，而不是仅有逼近它的向量。</p>
+<p>不同特征值的向量正交：若 <span class="arithmatex">\(Tx=\lambda x\)</span>、<span class="arithmatex">\(Ty=\lambda' y\)</span>，自伴性给 <span class="arithmatex">\(\lambda,\lambda'\in\mathbb R\)</span>，且 <span class="arithmatex">\(\lambda\langle x,y\rangle=\langle Tx,y\rangle=\langle x,Ty\rangle=\lambda'\langle x,y\rangle\)</span>。每个非零特征空间有限维，否则其中的无限正交单位列经 <span class="arithmatex">\(T\)</span> 后仍两两距离固定，违背紧性。同理，对任意 <span class="arithmatex">\(\varepsilon&gt;0\)</span>，绝对值至少为 <span class="arithmatex">\(\varepsilon\)</span> 的特征值连同重数只可能有限个。</p>
+<p>取全部非零特征空间的闭线性包 <span class="arithmatex">\(V\)</span>。<span class="arithmatex">\(V^\perp\)</span> 对 <span class="arithmatex">\(T\)</span> 不变；若其上限制算子非零，刚才的极值论证又会找到一个非零特征向量，与 <span class="arithmatex">\(V\)</span> 的定义矛盾。因此 <span class="arithmatex">\(T\)</span> 在 <span class="arithmatex">\(V^\perp\)</span> 上为零，且 <span class="arithmatex">\(V^\perp=\ker T\)</span>。选各特征空间与核的正交基，得到分解</p>
+<div class="arithmatex">\[
+Tx=\sum_j\lambda_j\langle x,e_j\rangle e_j,
+\]</div>
+<p>级数在 Hilbert 范数下收敛。这证明了紧自伴谱定理。一般有界自伴算子可能有连续谱，例如乘法算子 <span class="arithmatex">\(f(x)\mapsto xf(x)\)</span>；其完整谱定理需要投影值测度 <span class="arithmatex">\(T=\int\lambda\,dE(\lambda)\)</span>，属于本章之外的进阶扩展，不能把紧算子的离散证明直接套上去。</p>
+<h2 id="527">5.27 分布</h2>
+<p>测试函数空间 <span class="arithmatex">\(\mathcal D(\Omega)=C_c^\infty(\Omega)\)</span> 带标准测试函数拓扑；分布是其连续线性泛函。局部可积 <span class="arithmatex">\(f\)</span> 给 <span class="arithmatex">\(T_f(\varphi)=\int_\Omega f\varphi\,dm_n\)</span>，Dirac 分布给 <span class="arithmatex">\(\delta_a(\varphi)=\varphi(a)\)</span>。</p>
+<p>分布导数定义为 <span class="arithmatex">\(\partial_jT(\varphi)=-T(\partial_j\varphi)\)</span>，使分部积分无需经典导数。例如，实线阶跃 <span class="arithmatex">\(H=\mathbf1_{(0,\infty)}\)</span> 满足 <span class="arithmatex">\(H'(\varphi)=-\int_0^\infty\varphi'=\varphi(0)\)</span>，所以 <span class="arithmatex">\(H'=\delta_0\)</span>。分布捕获跳跃带来的集中变化。</p>
+<h2 id="528-sobolev-poincare">5.28 Sobolev 空间与 Poincaré 不等式</h2>
+<p>分布导数允许不光滑函数有导数，但要解能量方程，还需导数本身有积分控制。</p>
+<blockquote>
+<p><span class="arithmatex">\(W^{k,p}(\Omega)\)</span> 由 <span class="arithmatex">\(u\in L^p\)</span> 且所有 <span class="arithmatex">\(|\alpha|\leq k\)</span> 的分布导数也在 <span class="arithmatex">\(L^p\)</span> 的等价类组成，范数取各导数范数之和或等价的 <span class="arithmatex">\(p\)</span> 次和。<span class="arithmatex">\(H^k=W^{k,2}\)</span>，<span class="arithmatex">\(H_0^1\)</span> 是 <span class="arithmatex">\(C_c^\infty\)</span> 在 <span class="arithmatex">\(H^1\)</span> 中的闭包。</p>
+</blockquote>
+<p>它们确实完备。若 <span class="arithmatex">\(u_n\)</span> 在 Sobolev 范数中 Cauchy，各导数由 <span class="arithmatex">\(L^p\)</span> 完备性趋于某个 <span class="arithmatex">\(g_\alpha\)</span>。对任意紧支撑测试函数，Hölder 允许积分取极限，原来的分布恒等式给 <span class="arithmatex">\(\int g_\alpha\varphi=(-1)^{|\alpha|}\int g_0\partial^\alpha\varphi\)</span>。因此这些极限仍是同一函数的弱导数，极限没有离开 Sobolev 空间。</p>
+<p>例如 <span class="arithmatex">\(|x|\)</span> 的弱导数为 <span class="arithmatex">\(\operatorname{sgn}x\)</span>，在有界区间属 <span class="arithmatex">\(W^{1,p}\)</span>，却在原点没有经典导数。对于零边界能量问题，还需要梯度控制函数本身。设有界 <span class="arithmatex">\(\Omega\subset(-R,R)^n\)</span>，先取 <span class="arithmatex">\(u\in C_c^\infty(\Omega)\)</span> 并零延拓。在每条第一坐标线上，</p>
+<div class="arithmatex">\[
+u(x_1,x')=\int_{-R}^{x_1}\partial_1u(s,x')ds,\qquad
+|u(x_1,x')|^2\leq2R\int_{-R}^R|\partial_1u(s,x')|^2ds.
+\]</div>
+<p>再对全部坐标积分，得 <span class="arithmatex">\(\|u\|_2\leq2R\|\partial_1u\|_2\leq2R\|\nabla u\|_2\)</span>。按 <span class="arithmatex">\(H_0^1\)</span> 的闭包定义取极限，就证明 Poincaré 不等式。这使梯度范数成为 <span class="arithmatex">\(H_0^1\)</span> 的等价范数，也是下一节强制性的来源。</p>
+<p>有界 Lipschitz 区域还有连续迹算子，使 <span class="arithmatex">\(H_0^1\)</span> 对应零边界迹；一维 <span class="arithmatex">\(H^1\)</span> 有绝对连续代表。更高的 Sobolev 嵌入把导数积分控制转成更高可积性或 Hölder 正则性，例如 <span class="arithmatex">\(1\leq p&lt;n\)</span> 时 <span class="arithmatex">\(W^{1,p}(\mathbb R^n)\subset L^{np/(n-p)}\)</span>。迹和一般嵌入的完整理论属于进阶部分，此处需要另外的证明。</p>
+<h2 id="529-laxmilgram-poisson">5.29 从 Lax–Milgram 到 Poisson 弱解</h2>
+<p>在有界 Lipschitz 区域上求 <span class="arithmatex">\(-\Delta u=f\)</span>、零边界时，经典二阶导数可能不存在。将一阶导数留在 <span class="arithmatex">\(u\)</span> 上并把另一阶转移到测试函数，便得到弱方程：找实 <span class="arithmatex">\(u\in H_0^1(\Omega)\)</span>，使 <span class="arithmatex">\(\int\nabla u\cdot\nabla v=\int fv\)</span> 对所有 <span class="arithmatex">\(v\in H_0^1\)</span> 成立。</p>
+<p>所需存在定理由 Lax–Milgram 给出。</p>
+<blockquote>
+<p>设实 Hilbert 空间上双线性形式满足 <span class="arithmatex">\(|a(u,v)|\leq M\|u\|\|v\|\)</span>、<span class="arithmatex">\(a(u,u)\geq c\|u\|^2\)</span>，<span class="arithmatex">\(c&gt;0\)</span>。对每个连续线性 <span class="arithmatex">\(\ell\)</span>，有唯一 <span class="arithmatex">\(u\)</span> 满足 <span class="arithmatex">\(a(u,v)=\ell(v)\)</span>，且 <span class="arithmatex">\(\|u\|\leq\|\ell\|/c\)</span>。</p>
+</blockquote>
+<p>证明用 Riesz 表示写 <span class="arithmatex">\(a(u,v)=\langle Au,v\rangle\)</span>、<span class="arithmatex">\(\ell(v)=\langle f,v\rangle\)</span>。<span class="arithmatex">\(A\)</span> 有界，强制性给 <span class="arithmatex">\(c\|u\|\leq\|Au\|\)</span>，故单射且值域闭：若 <span class="arithmatex">\(Au_n\)</span> Cauchy，则 <span class="arithmatex">\(u_n\)</span> 为 Cauchy 列，由空间的完备性收敛到某个 <span class="arithmatex">\(u\)</span>；再由 <span class="arithmatex">\(A\)</span> 连续，<span class="arithmatex">\(Au_n\to Au\)</span>，故值域闭。若 <span class="arithmatex">\(w\perp\operatorname{im}A\)</span>，取输入 <span class="arithmatex">\(w\)</span>，有 <span class="arithmatex">\(0=\langle Aw,w\rangle=a(w,w)\geq c\|w\|^2\)</span>，所以 <span class="arithmatex">\(w=0\)</span>。闭且正交补为零的值域等于全空间，因此 <span class="arithmatex">\(Au=f\)</span> 有唯一解，估计也由下界得到。</p>
+<p>对 Poisson 方程取 <span class="arithmatex">\(a(u,v)=\int\nabla u\cdot\nabla v\)</span>。Poincaré 不等式使梯度范数与 <span class="arithmatex">\(H_0^1\)</span> 范数等价，因此存在 <span class="arithmatex">\(c&gt;0\)</span>，使 <span class="arithmatex">\(a(u,u)\ge c\|u\|_{H^1}^2\)</span>，满足强制性条件。若 <span class="arithmatex">\(f\in L^2\)</span>，Cauchy–Schwarz 与 Poincaré 不等式给出 <span class="arithmatex">\(|\int fv|\le\|f\|_2\|v\|_2\le C\|f\|_2\|\nabla v\|_2\)</span>，所以右端定义了连续线性泛函。定理遂给唯一弱解，而不要求先猜经典公式。</p>
+<p>同一解还是 <span class="arithmatex">\(J(v)=\frac12\int|\nabla v|^2-\int fv\)</span> 的唯一极小点。将 <span class="arithmatex">\(v=u+w\)</span> 代入，利用弱方程消去交叉项，得 <span class="arithmatex">\(J(u+w)=J(u)+\frac12\int|\nabla w|^2\)</span>。这比“Euler–Lagrange 方程必要”更强：它直接证明极小性与唯一性，并将方程解和能量最优化连接起来。</p>
+<h2 id="_1">练习与提示</h2>
+<ol>
+<li>在 <span class="arithmatex">\((0,1)\)</span> 判断 <span class="arithmatex">\(x^{-1/3}\)</span> 属于哪些 <span class="arithmatex">\(L^p\)</span>。答案：有限 <span class="arithmatex">\(p&lt;3\)</span>。</li>
+<li>计算 <span class="arithmatex">\(f(x)=x^2\)</span> 到 <span class="arithmatex">\(\operatorname{span}\{1,x\}\)</span> 的 <span class="arithmatex">\(L^2([0,1])\)</span> 投影。提示：列出与 1、<span class="arithmatex">\(x\)</span> 正交的两个方程；答案 <span class="arithmatex">\(x-1/6\)</span>。</li>
+<li>证明 <span class="arithmatex">\(\ell^2\)</span> 对角算子 <span class="arithmatex">\(Te_n=a_ne_n\)</span> 当 <span class="arithmatex">\(a_n\to0\)</span> 时紧。</li>
+<li>在 <span class="arithmatex">\((0,1)\)</span> 验证 <span class="arithmatex">\(u=x(1-x)/2\)</span> 是 <span class="arithmatex">\(-u''=1\)</span>、零边界的弱解。</li>
+</ol>
+<p><a href="../06-complex/">下一章：复分析</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+      
+        <script src="../../../themes/js/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.17.1/flowchart.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.6/underscore-min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/@mermaid-js/mermaid-mindmap@9.3.0/dist/diagram-definition.0faef4c2.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/markdown-it-plantuml@1.4.1/index.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,3468 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../02-differential/">
+      
+      
+        <link rel="next" href="../04-stokes/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>第3章 测度与Lebesgue积分 - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3-lebesgue" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              第3章 测度与Lebesgue积分
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂碎
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    杂碎
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../physics/heat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    热传递
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../physics/Maxwell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    麦克斯韦方程组的复数形式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Math
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性代数
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    线性代数
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/linear/vector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    向量空间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/linear/mat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    矩阵代数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/linear/operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性算子
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/linear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂谈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    拓扑
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    拓扑
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/topo/basic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基本概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/topo/compact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    紧性与连通性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂碎
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    杂碎
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/extreme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    函数的极值
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/manifolds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    流形上的微积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/variance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于方差估计的无偏性的证明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/Euler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    欧拉积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/parameter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    含参变量的积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/rational/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    有理函数的积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/others/rotation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    旋转
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Others
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Others
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/Kalman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    卡尔曼滤波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/factor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    因子图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI讲义
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI讲义
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    共同符号约定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    现代分析学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    现代分析学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    讲义首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../study-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习指南与综合自测
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-foundations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第0章 预备与统一语言
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-limits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第1章 极限、连续与级数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-differential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第2章 多元微分与流形几何
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第3章 测度与Lebesgue积分
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第3章 测度与Lebesgue积分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 σ代数与可测空间
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 测度与外测度
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-caratheodory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Carathéodory 构造与扩张定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-lebesgue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Lebesgue 测度
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-borel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Borel 集与正则性
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 可测函数与简单函数逼近
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7 几乎处处
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8 依测度收敛
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#39-egorov-lusin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.9 Egorov 定理与 Lusin 定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#310" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.10 简单函数积分
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#311" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.11 非负函数积分
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#312" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.12 一般函数积分
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#313" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.13 单调收敛定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#314-fatou" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.14 Fatou 引理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#315" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.15 控制收敛定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#316-tonellifubini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.16 乘积测度与 Tonelli/Fubini 定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#317" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.17 有界变差
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#318-stieltjes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.18 Stieltjes 测度
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#319-radonnikodym" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.19 Radon–Nikodym 定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#320-newtonleibniz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.20 绝对连续与 Newton–Leibniz 公式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#321" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.21 概率公理初步 △
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习与提示
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-stokes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第4章 流形积分与Stokes定理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-functional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第5章 Lp空间与泛函分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-complex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第6章 复分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-fourier/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第7章 傅里叶分析与调和分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-equations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第8章 微分方程与变分分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-probability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第9章 概率与随机分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第10章 现代专题与交叉分支
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录与参考文献
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    代数学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    代数学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    讲义首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/study-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习指南与综合自测
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/00-preliminaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第0章 预备
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/01-groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第1章 群论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/02-rings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第2章 环、模、域
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/03-linear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第3章 线性代数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/04-multilinear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第4章 多重线性与Clifford代数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/05-representations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第5章 表示论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/06-lie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第6章 李代数及其表示
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/07-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第7章 同调代数和高级专题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algebra/appendices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录A–F与参考文献
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    几何与拓扑
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    几何与拓扑
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    讲义首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/study-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习指南与综合自测
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/00-preliminaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第0章 预备
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/01-topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第1章 点集拓扑
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/02-fundamental/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第2章 基本群与覆盖空间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/03-homology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第3章 同调与上同调
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/04-homotopy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第4章 高阶同伦与纤维化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/05-classical/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第5章 欧氏、仿射与射影几何
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/06-manifolds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第6章 光滑流形与微分形式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/07-lie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第7章 李群、作用与齐性空间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/08-connections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第8章 向量丛、连接与曲率
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/09-riemannian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第9章 Riemann几何与几何分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/10-symplectic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第10章 辛几何与Hamilton系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/11-complex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第11章 复几何、层与Riemann曲面
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/12-algebraic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第12章 代数几何
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/13-convex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第13章 凸、离散与组合几何
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/14-characteristic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第14章 特征类与指标
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/15-low-dimensional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第15章 低维拓扑
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/16-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第16章 现代交叉专题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geometry/appendices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录与参考文献
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 σ代数与可测空间
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 测度与外测度
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-caratheodory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Carathéodory 构造与扩张定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-lebesgue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Lebesgue 测度
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-borel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Borel 集与正则性
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 可测函数与简单函数逼近
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7 几乎处处
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8 依测度收敛
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#39-egorov-lusin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.9 Egorov 定理与 Lusin 定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#310" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.10 简单函数积分
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#311" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.11 非负函数积分
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#312" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.12 一般函数积分
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#313" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.13 单调收敛定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#314-fatou" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.14 Fatou 引理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#315" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.15 控制收敛定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#316-tonellifubini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.16 乘积测度与 Tonelli/Fubini 定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#317" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.17 有界变差
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#318-stieltjes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.18 Stieltjes 测度
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#319-radonnikodym" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.19 Radon–Nikodym 定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#320-newtonleibniz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.20 绝对连续与 Newton–Leibniz 公式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#321" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.21 概率公理初步 △
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习与提示
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="3-lebesgue">第 3 章 测度与 Lebesgue 积分</h1>
+<p>如果把 <span class="arithmatex">\([0,1]\)</span> 中的有理数染成黑色、无理数染成白色，那么每个小区间中都能找到两种颜色。函数 <span class="arithmatex">\(\mathbf1_{\mathbb Q}\)</span> 因而处处不连续。然而，有理数只有可数多个，我们仍希望它们的总长度为零。这说明，积分理论不能只依赖函数的连续性，而应当先回答哪些集合可以测量、如何测量。</p>
+<p>本章沿着这一问题建立积分。我们先从集合的大小出发，把常值函数的积分定义为“高度乘以大小”，再由有限层的简单函数逼近一般函数。这样构造的积分是否能与极限交换，将成为本章的主要定理。最后，我们反过来研究积分产生的函数，说明绝对连续性为什么是微积分基本定理的恰当条件。</p>
+<p>第一次阅读时，应当亲手验证简单函数的构造，并完整读完三个收敛定理的证明。扩张定理、Egorov、Lusin 和 Fubini 的证明虽然较长，但各有明确的步骤；读到困难处，可以先确认当前步骤在解决什么问题，再继续细节。关于“几乎每点的导数”的最后一步使用 Lebesgue 微分定理，其证明在 7.16 给出。</p>
+<p>本章一般测度空间固定为 <span class="arithmatex">\((X,\Sigma,\mu)\)</span>，第二个测度使用 <span class="arithmatex">\(\nu\)</span>。Euclidean 例子使用 <span class="arithmatex">\((\mathbb R^n,\mathcal L_n,m_n)\)</span>；一维时把下标改为 <span class="arithmatex">\(1\)</span>。在已固定测度的一段证明中，<span class="arithmatex">\(\int f\)</span> 简写 <span class="arithmatex">\(\int_Xf\,d\mu\)</span>；写成 <span class="arithmatex">\(\int f(x)dx\)</span> 时则明确使用 <span class="arithmatex">\(m_n\)</span>。这两种情形在转入例子时会区分。</p>
+<h2 id="31">3.1 σ代数与可测空间</h2>
+<p>给集合规定大小之前，需要先确定允许测量的集合。这个集合族应当与我们常做的逻辑运算相容：知道事件 <span class="arithmatex">\(A\)</span> 可以测量，就应当允许测量它不发生的部分；知道每个 <span class="arithmatex">\(A_n\)</span> 可以测量，就应当允许测量至少一个发生的事件 <span class="arithmatex">\(\bigcup_nA_n\)</span>。</p>
+<blockquote>
+<p>对于集合 <span class="arithmatex">\(X\)</span>，包含全集、对补集和可数并封闭的集合族称为一个 <strong><span class="arithmatex">\(\sigma\)</span>-代数</strong>，记为 <span class="arithmatex">\(\Sigma\)</span>；<span class="arithmatex">\((X,\Sigma)\)</span> 称为<strong>可测空间</strong>。</p>
+</blockquote>
+<p>由 De Morgan 律，可数交也在 <span class="arithmatex">\(\Sigma\)</span> 中。有限并和有限交当然包含在内。注意，我们要求的是可数运算，而不是任意运算；稍后不可测集的存在将说明这一区别不能省略。</p>
+<p>最粗的例子是 <span class="arithmatex">\(\{\varnothing,X\}\)</span>，它只区分空集与全集。最细的例子是幂集 <span class="arithmatex">\(\mathcal P(X)\)</span>。如果已经指定了一些必须可测的集合 <span class="arithmatex">\(\mathcal A\)</span>，取所有包含 <span class="arithmatex">\(\mathcal A\)</span> 的 <span class="arithmatex">\(\sigma\)</span>-代数的交，便得到最小的一个，记为 <span class="arithmatex">\(\sigma(\mathcal A)\)</span>。这里暂时没有任何集合的具体大小；可测结构只是给测度准备定义域。</p>
+<h2 id="32">3.2 测度与外测度</h2>
+<blockquote>
+<p>在可测空间上，测度是映射 <span class="arithmatex">\(\mu:\Sigma\to[0,\infty]\)</span>，满足 <span class="arithmatex">\(\mu(\varnothing)=0\)</span>，并且对两两不交的可测集合满足</p>
+<div class="arithmatex">\[
+\mu\left(\bigcup_{n=1}^{\infty}A_n\right)=\sum_{n=1}^{\infty}\mu(A_n).
+\]</div>
+</blockquote>
+<p>允许无穷大，才能测量整条实线。可数可加性比有限可加性强，它使集合的极限与大小的极限相容。例如，若 <span class="arithmatex">\(A_n\uparrow A\)</span>，把 <span class="arithmatex">\(A\)</span> 写成 <span class="arithmatex">\(A_1\)</span> 与各个新增部分 <span class="arithmatex">\(A_n\setminus A_{n-1}\)</span> 的不交并，就得到 <span class="arithmatex">\(\mu(A_n)\uparrow\mu(A)\)</span>。若 <span class="arithmatex">\(A_n\downarrow A\)</span> 且 <span class="arithmatex">\(\mu(A_1)&lt;\infty\)</span>，对 <span class="arithmatex">\(A_1\setminus A_n\)</span> 用刚才的结论，再从 <span class="arithmatex">\(\mu(A_1)\)</span> 中相减，得到 <span class="arithmatex">\(\mu(A_n)\downarrow\mu(A)\)</span>。有限性正是保证相减不出现 <span class="arithmatex">\(\infty-\infty\)</span> 的条件。</p>
+<p>计数测度给有限集合计元素个数，给无限集合值 <span class="arithmatex">\(\infty\)</span>；Dirac 测度 <span class="arithmatex">\(\delta_x(A)=\mathbf1_A(x)\)</span> 把全部质量放在一个点。如果空间能被可数个有限测度集覆盖，称测度 <span class="arithmatex">\(\sigma\)</span>-有限。这比有限总测度弱，例如实线可由有界区间覆盖。</p>
+<p>实际构造中，我们常先对所有子集定义一个覆盖代价。这个代价只需空集为零、单调、可数次可加，称为外测度 <span class="arithmatex">\(\mu^*\)</span>。它未必可加，所以不能马上作为测度。下一节将找出能把外测度“无损切开”的集合。</p>
+<h2 id="33-caratheodory">3.3 Carathéodory 构造与扩张定理</h2>
+<blockquote>
+<p>设 <span class="arithmatex">\(\mu^*\)</span> 为外测度。我们称 <span class="arithmatex">\(A\)</span> 为 Carathéodory 可测集，如果任意 <span class="arithmatex">\(E\subset X\)</span> 都满足</p>
+<div class="arithmatex">\[
+\mu^*(E)=\mu^*(E\cap A)+\mu^*(E\setminus A).
+\]</div>
+</blockquote>
+<p>右侧不小于左侧总由次可加性保证，真正的要求是反向不等式。它要求不仅能切开全集，还能切开任意测试集合 <span class="arithmatex">\(E\)</span>。下面证明这些集合确实组成 <span class="arithmatex">\(\sigma\)</span>-代数，并在其上得到完备测度。</p>
+<p>首先，空集可测，条件交换 <span class="arithmatex">\(A\)</span> 与 <span class="arithmatex">\(A^c\)</span> 不变，所以对补集封闭。若 <span class="arithmatex">\(A,B\)</span> 可测，先用 <span class="arithmatex">\(A\)</span> 切开 <span class="arithmatex">\(E\)</span>，再用 <span class="arithmatex">\(B\)</span> 切开 <span class="arithmatex">\(E\setminus A\)</span>，得</p>
+<div class="arithmatex">\[
+\mu^*(E)=\mu^*(E\cap A)+\mu^*((E\setminus A)\cap B)
++\mu^*(E\setminus(A\cup B)).
+\]</div>
+<p>前两项之和至少是 <span class="arithmatex">\(\mu^*(E\cap(A\cup B))\)</span>，因此 <span class="arithmatex">\(A\cup B\)</span> 可测；有限交也随之可测。</p>
+<p>现在设 <span class="arithmatex">\(A_j\)</span> 可测且两两不交，令 <span class="arithmatex">\(A=\bigcup_jA_j\)</span>。反复切开可得，对每个 <span class="arithmatex">\(N\)</span>，</p>
+<div class="arithmatex">\[
+\mu^*(E)\geq\sum_{j=1}^N\mu^*(E\cap A_j)+\mu^*(E\setminus A).
+\]</div>
+<p>令 <span class="arithmatex">\(N\to\infty\)</span>，再用次可加性 <span class="arithmatex">\(\mu^*(E\cap A)\leq\sum_j\mu^*(E\cap A_j)\)</span>，证明 <span class="arithmatex">\(A\)</span> 可测。一般可数并先作不交化，即以 <span class="arithmatex">\(A_j\setminus\bigcup_{i&lt;j}A_i\)</span> 替换。取 <span class="arithmatex">\(E=A\)</span>，上面的不等式和外测度的次可加性又给可数可加性。最后，若 <span class="arithmatex">\(\mu^*(N)=0\)</span> 且 <span class="arithmatex">\(B\subset N\)</span>，则 <span class="arithmatex">\(\mu^*(E\cap B)=0\)</span>，由单调性与次可加性得到可测判据；故零测集任意子集可测，测度完备。</p>
+<p>还需要说明外测度从哪里来。设 <span class="arithmatex">\(\mathcal A\)</span> 是集合代数，<span class="arithmatex">\(\mu_0\)</span> 是其上的预测度：不交可数并仍在 <span class="arithmatex">\(\mathcal A\)</span> 中时满足可数可加性。定义</p>
+<div class="arithmatex">\[
+\mu^*(E)=\inf\left\{\sum_j\mu_0(A_j):E\subset\bigcup_jA_j, A_j\in\mathcal A\right\}.
+\]</div>
+<p>拼接可数覆盖证明次可加性；没有覆盖时下确界取 <span class="arithmatex">\(\infty\)</span>。对于 <span class="arithmatex">\(A\in\mathcal A\)</span>，把任意覆盖集按 <span class="arithmatex">\(A\)</span> 与 <span class="arithmatex">\(A^c\)</span> 分开，代数的封闭性和有限可加性给可测判据。又有 <span class="arithmatex">\(\mu^*(A)\leq\mu_0(A)\)</span>。反向上，若 <span class="arithmatex">\(A\subset\bigcup_jA_j\)</span>，取 <span class="arithmatex">\(B_j=A\cap(A_j\setminus\bigcup_{i&lt;j}A_i)\)</span>，它们不交且并为 <span class="arithmatex">\(A\)</span>，所以 <span class="arithmatex">\(\mu_0(A)=\sum_j\mu_0(B_j)\leq\sum_j\mu_0(A_j)\)</span>。对覆盖取下确界即得等号。因此限制到 <span class="arithmatex">\(\sigma(\mathcal A)\)</span> 的测度扩张了预测度。</p>
+<p>预测度 <span class="arithmatex">\(\sigma\)</span>-有限时扩张唯一。理由是在每个有限测度覆盖块上，两个扩张相等的集合族可用补集与不交可数并封闭性，再由 <span class="arithmatex">\(\pi\)</span>–<span class="arithmatex">\(\lambda\)</span> 引理扩张到整个生成的 <span class="arithmatex">\(\sigma\)</span>-代数；最后把空间分为不交有限块求和。该集合族引理的证明见附录 A.7。没有 <span class="arithmatex">\(\sigma\)</span>-有限条件时，这个唯一性论证不能照搬。</p>
+<h2 id="34-lebesgue">3.4 Lebesgue 测度</h2>
+<p>我们现在把覆盖代价取为熟悉的盒体积。对 <span class="arithmatex">\(E\subset\mathbb R^n\)</span>，用可数轴平行盒 <span class="arithmatex">\(Q_j\)</span> 覆盖它，定义 <span class="arithmatex">\(m_n^*(E)=\inf\sum_j\prod_{k=1}^n\ell_{j,k}\)</span>，其中 <span class="arithmatex">\(\ell_{j,k}\)</span> 是第 <span class="arithmatex">\(j\)</span> 个盒在第 <span class="arithmatex">\(k\)</span> 个方向上的边长。上一节给出可测集合族与测度，称 Lebesgue 测度，统一记为 <span class="arithmatex">\(m_n\)</span>；其可测集合族记为 <span class="arithmatex">\(\mathcal L_n\)</span>。一维情形记为 <span class="arithmatex">\(m_1\)</span>。积分中的 <span class="arithmatex">\(dx\)</span> 是 <span class="arithmatex">\(dm_n(x)\)</span> 的简写，不是另一个测度的名称。</p>
+<p>盒体积的预测度性质是这里需要核实的几何事实。有限可加可用共同网格细分证明；可数覆盖给出的体积下界则先稍微扩大各盒，再对紧的内缩盒使用有限子覆盖，最后让扩大和内缩的误差趋零。由此覆盖定义在盒上返回原体积。平移不改变覆盖代价，所以测度平移不变。</p>
+<p>一个点可用体积任意小的盒覆盖，因此测度为零。可数可加性随即给可数集测度为零，特别是 <span class="arithmatex">\(m_1(\mathbb Q\cap[0,1])=0\)</span>。这回答了本章开头的问题，却不意味着任意子集都可测。Vitali 构造把 <span class="arithmatex">\([0,1]\)</span> 中按有理差等价的点各选一个；其不同有理平移两两不交，如果代表集可测，平移不变和可数可加性将分别与有限外部长度或正的内部长度矛盾。选择公理允许这种代表集，说明可测性必须作为条件保留。</p>
+<h2 id="35-borel">3.5 Borel 集与正则性</h2>
+<p>连续函数和拓扑开集已经存在，我们自然希望开集都能测量。</p>
+<blockquote>
+<p>由所有开集生成的 <span class="arithmatex">\(\sigma\)</span>-代数称为 Borel <span class="arithmatex">\(\sigma\)</span>-代数，记为 <span class="arithmatex">\(\mathcal B(X)\)</span>。</p>
+</blockquote>
+<p>在实线上，开集是可数个开区间的并，因此区间已足以生成它。闭集、开集的可数交、闭集的可数并都是 Borel 集。</p>
+<p>Euclidean 空间中的 Lebesgue 可测集比 Borel 集多，因为前者还包含 Borel 零测集的所有子集；准确地说，它是 Borel Lebesgue 测度的完备化。两者的区别通常发生在零测例外处，却会影响“任意改动一个零测集是否仍可测”这样的陈述。</p>
+<p>另一个关键性质是正则性。有限测度可测集 <span class="arithmatex">\(E\)</span> 对任意 <span class="arithmatex">\(\varepsilon&gt;0\)</span> 都有紧集 <span class="arithmatex">\(K\subset E\)</span> 与开集 <span class="arithmatex">\(O\supset E\)</span>，使 <span class="arithmatex">\(m_n(O\setminus K)&lt;\varepsilon\)</span>。外部逼近直接来自覆盖定义：选择总长度接近外测度的开盒覆盖。内部逼近先把 <span class="arithmatex">\(E\)</span> 截在大闭盒内，再对盒内的补集作外部逼近，取补得到闭有界集。这个结论允许我们把可测对象近似为连续对象，是下一节 Lusin 定理及后面稠密性证明的几何基础。</p>
+<h2 id="36">3.6 可测函数与简单函数逼近</h2>
+<p>集合可以测量之后，我们希望函数的各个高度层也可以测量。</p>
+<blockquote>
+<p>因此定义实值或扩展实值 <span class="arithmatex">\(f\)</span> 可测，指每个 <span class="arithmatex">\(a\in\mathbb R\)</span> 的集合 <span class="arithmatex">\(\{f&gt;a\}\)</span> 可测。</p>
+</blockquote>
+<p>因为这些半直线生成实线的 Borel 集族，这等价于 Borel 集原像可测。复值函数则分别要求实部与虚部可测。</p>
+<p>这个定义对极限稳定。例如 <span class="arithmatex">\(\{\sup_nf_n&gt;a\}=\bigcup_n\{f_n&gt;a\}\)</span>，所以可数上确界可测；下确界、上下极限也类似。和、积在表达式有意义时可测，可以由相应连续映射的复合或有理阈值分解证明。</p>
+<p>为了建立积分，我们先把 <span class="arithmatex">\(f\geq0\)</span> 的值截在 <span class="arithmatex">\(n\)</span>，再以 <span class="arithmatex">\(2^{-n}\)</span> 的网格向下取整：</p>
+<div class="arithmatex">\[
+s_n=2^{-n}\lfloor2^n\min(f,n)\rfloor.
+\]</div>
+<p>它只取有限多个值，各值层可测，故为简单函数。网格逐步细化、截断高度逐步增加，使 <span class="arithmatex">\(s_n\leq s_{n+1}\leq f\)</span>。若 <span class="arithmatex">\(f(x)\)</span> 有限，充分大的 <span class="arithmatex">\(n\)</span> 后误差小于 <span class="arithmatex">\(2^{-n}\)</span>；若 <span class="arithmatex">\(f(x)=\infty\)</span>，则 <span class="arithmatex">\(s_n(x)=n\to\infty\)</span>。于是 <span class="arithmatex">\(s_n\uparrow f\)</span>。我们不仅知道逼近存在，还得到可直接使用的构造。</p>
+<h2 id="37">3.7 几乎处处</h2>
+<blockquote>
+<p>性质在“几乎处处”成立，指例外集包含于一个可测零测集。</p>
+</blockquote>
+<p>非完备测度空间中，修改零测集上的函数未必保留可测性，因此一般需要求修改后的函数可测，或先取测度完备化。</p>
+<p>积分不区分几乎处处相等的可测函数。<span class="arithmatex">\(\mathbf1_{\mathbb Q}\)</span> 与零函数几乎处处相等，但并非处处相等。后续 <span class="arithmatex">\(L^p\)</span> 将它们视为同一元素；连续函数则不能任意修改单点后仍保持连续。</p>
+<h2 id="38">3.8 依测度收敛</h2>
+<blockquote>
+<p><span class="arithmatex">\(f_n\to f\)</span> 依测度指对每个 <span class="arithmatex">\(\varepsilon&gt;0\)</span>，<span class="arithmatex">\(\mu(\{|f_n-f|&gt;\varepsilon\})\to0\)</span>。</p>
+</blockquote>
+<p>有限测度空间上，几乎处处收敛推出依测度收敛；无限测度时可能失败，例如 <span class="arithmatex">\(\mathbf1_{[n,n+1]}\)</span> 在 <span class="arithmatex">\(\mathbb R\)</span> 上。</p>
+<p>依测度收敛可抽取几乎处处收敛的子列：选 <span class="arithmatex">\(n_k\)</span> 使 <span class="arithmatex">\(\mu(|f_{n_k}-f|&gt;2^{-k})&lt;2^{-k}\)</span>，由这些异常集合的尾并测度趋零得到结论。整列反向不成立，移动的“打字机”区间可依测度趋零却在每点反复取 1。</p>
+<h2 id="39-egorov-lusin">3.9 Egorov 定理与 Lusin 定理</h2>
+<p>逐点收敛允许不同点以不同速度稳定下来，因此一般不能得到一致收敛。不过在有限测度空间中，去掉一个任意小的例外集合，就能把这些速度统一起来。这是 Egorov 定理。</p>
+<blockquote>
+<p>在有限测度空间中，若有限值可测函数 <span class="arithmatex">\(f_n\)</span> 几乎处处趋于 <span class="arithmatex">\(f\)</span>，则对任意 <span class="arithmatex">\(\varepsilon&gt;0\)</span>，可去掉一个测度小于 <span class="arithmatex">\(\varepsilon\)</span> 的可测集，使余下集合上的收敛一致。</p>
+</blockquote>
+<p>设 <span class="arithmatex">\(\mu(X)&lt;\infty\)</span>，有限值可测函数 <span class="arithmatex">\(f_n\)</span> 几乎处处趋于 <span class="arithmatex">\(f\)</span>。去掉收敛失败的零测集后，对每个 <span class="arithmatex">\(k,N\)</span> 令</p>
+<div class="arithmatex">\[
+E_{k,N}=\bigcup_{n\geq N}\{|f_n-f|&gt;1/k\}.
+\]</div>
+<p>固定 <span class="arithmatex">\(k\)</span>，这些集合随 <span class="arithmatex">\(N\)</span> 递减，交为空。测度从上连续给 <span class="arithmatex">\(\mu(E_{k,N})\to0\)</span>。给定 <span class="arithmatex">\(\varepsilon&gt;0\)</span>，选 <span class="arithmatex">\(N_k\)</span> 使 <span class="arithmatex">\(\mu(E_{k,N_k})&lt;\varepsilon2^{-k}\)</span>，并令 <span class="arithmatex">\(E\)</span> 为这些异常集与原来零测集的并。则 <span class="arithmatex">\(\mu(E)&lt;\varepsilon\)</span>；在 <span class="arithmatex">\(X\setminus E\)</span> 上，<span class="arithmatex">\(n\geq N_k\)</span> 时误差统一不超过 <span class="arithmatex">\(1/k\)</span>。这正是一致收敛的定义。有限总测度用在测度从上连续的一步，因而是证明的实质条件。</p>
+<p>Lusin 定理回答另一个问题：任意可测函数虽可能处处不连续，能否在大部分集合上表现得像连续函数？设 <span class="arithmatex">\(E\subset\mathbb R^n\)</span> 可测、<span class="arithmatex">\(m_n(E)&lt;\infty\)</span>，<span class="arithmatex">\(f\)</span> 几乎处处有限。结论是对任意 <span class="arithmatex">\(\varepsilon&gt;0\)</span> 存在紧集 <span class="arithmatex">\(K\subset E\)</span>，使 <span class="arithmatex">\(m_n(E\setminus K)&lt;\varepsilon\)</span>，而 <span class="arithmatex">\(f|_K\)</span> 连续。</p>
+<p>先看有限值简单函数 <span class="arithmatex">\(s=\sum_{j=1}^Na_j\mathbf1_{A_j}\)</span>。用正则性，在每个不交层 <span class="arithmatex">\(A_j\)</span> 内取紧集 <span class="arithmatex">\(K_j\)</span>，把遗漏总测度控制在任意指定值以下。有限个不交紧集的距离为正，故每个 <span class="arithmatex">\(K_j\)</span> 在 <span class="arithmatex">\(\bigcup K_j\)</span> 中相对开；<span class="arithmatex">\(s\)</span> 在该紧集上连续。</p>
+<p>对一般实 <span class="arithmatex">\(f\)</span>，截断并量化得到简单函数 <span class="arithmatex">\(s_n\to f\)</span>。先用 Egorov 找到 <span class="arithmatex">\(G\subset E\)</span>，使遗漏小于 <span class="arithmatex">\(\varepsilon/3\)</span> 且收敛在 <span class="arithmatex">\(G\)</span> 上一致。再为每个 <span class="arithmatex">\(s_n\)</span> 找紧集 <span class="arithmatex">\(L_n\subset E\)</span>，使 <span class="arithmatex">\(m_n(E\setminus L_n)&lt;\varepsilon/(3\cdot2^n)\)</span>，且 <span class="arithmatex">\(s_n|_{L_n}\)</span> 连续。集合 <span class="arithmatex">\(H=G\cap\bigcap_nL_n\)</span> 的遗漏小于 <span class="arithmatex">\(2\varepsilon/3\)</span>。最后在 <span class="arithmatex">\(H\)</span> 内取紧集 <span class="arithmatex">\(K\)</span>，再遗漏小于 <span class="arithmatex">\(\varepsilon/3\)</span>。所有 <span class="arithmatex">\(s_n|_K\)</span> 连续且一致趋于 <span class="arithmatex">\(f|_K\)</span>，所以极限连续。这个证明把正则性、简单逼近、Egorov 和一致极限连续四件事连接起来。</p>
+<h2 id="310">3.10 简单函数积分</h2>
+<p>从这里到 3.15 的一般定义与收敛定理，都在固定的 <span class="arithmatex">\((X,\Sigma,\mu)\)</span> 上讨论；<span class="arithmatex">\(\int\)</span> 未标微分时使用 <span class="arithmatex">\(\mu\)</span>。实区间例子另使用 <span class="arithmatex">\(m_1\)</span>。</p>
+<blockquote>
+<p>简单函数 <span class="arithmatex">\(s=\sum_{j=1}^Na_j\mathbf1_{A_j}\)</span>，其中 <span class="arithmatex">\(a_j\geq0\)</span>、<span class="arithmatex">\(A_j\)</span> 可测不交，定义</p>
+<div class="arithmatex">\[
+\int s\,d\mu=\sum_{j=1}^Na_j\mu(A_j),\qquad 0\cdot\infty=0.
+\]</div>
+</blockquote>
+<p>不同表示通过共同细分给出同一结果。例：<span class="arithmatex">\(s=2\mathbf1_{[0,1]}+3\mathbf1_{(1,2]}\)</span>，积分是 5。对重叠集合也可先把它们分成不交块，再用有限可加性。</p>
+<h2 id="311">3.11 非负函数积分</h2>
+<blockquote>
+<p>对非负可测 <span class="arithmatex">\(f\)</span>，定义 <span class="arithmatex">\(\int f\,d\mu=\sup\{\int s\,d\mu:0\leq s\leq f,\ s\text{ 简单}\}\)</span>，允许结果为 <span class="arithmatex">\(+\infty\)</span>。</p>
+</blockquote>
+<p>因此 <span class="arithmatex">\(f\leq g\)</span> 蕴含积分不等式。</p>
+<p>若 <span class="arithmatex">\(f\geq0\)</span>，则 <span class="arithmatex">\(\int f=0\)</span> 当且仅当 <span class="arithmatex">\(f=0\)</span> 几乎处处：必要性由 <span class="arithmatex">\(\mu(f&gt;1/k)\leq k\int f=0\)</span> 得出，充分性直接来自定义。由此首个贯穿例子有 <span class="arithmatex">\(\int_0^1\mathbf1_{\mathbb Q}=0\)</span>。</p>
+<h2 id="312">3.12 一般函数积分</h2>
+<p>令 <span class="arithmatex">\(f^+=\max(f,0)\)</span>、<span class="arithmatex">\(f^-=\max(-f,0)\)</span>。当正、负部分积分不同时无限时，可定义扩展积分 <span class="arithmatex">\(\int f=\int f^+-\int f^-\)</span>。</p>
+<blockquote>
+<p>称 <span class="arithmatex">\(f\)</span> <strong>可积</strong>是指 <span class="arithmatex">\(\int_X|f|\,d\mu&lt;\infty\)</span>，此时积分为有限实数。复函数按实、虚部分定义，且同样以 <span class="arithmatex">\(\int_X|f|\,d\mu&lt;\infty\)</span> 为可积条件。</p>
+</blockquote>
+<p>可积函数积分线性，且 <span class="arithmatex">\(|\int f|\leq\int|f|\)</span>。不可把 <span class="arithmatex">\(\infty-\infty\)</span> 赋值为零；条件收敛的广义积分也不等于 Lebesgue 可积。</p>
+<h2 id="313">3.13 单调收敛定理</h2>
+<p>我们从下方用简单函数逼近来定义积分，现在需要验证：如果非负函数逐步增加，其积分是否真的增加到极限积分？答案是肯定的。</p>
+<blockquote>
+<p>若 <span class="arithmatex">\(0\leq f_n\uparrow f\)</span> 几乎处处，则</p>
+<div class="arithmatex">\[
+\lim_n\int f_n\,d\mu=\int f\,d\mu,
+\]</div>
+</blockquote>
+<p>两边都允许无穷大，不要求空间总测度有限。</p>
+<p>在公共零测集外工作即可设处处递增。记左侧为 <span class="arithmatex">\(L\)</span>。单调性立即给 <span class="arithmatex">\(L\leq\int f\)</span>；难点是反向。取任意 <span class="arithmatex">\(0\leq s\leq f\)</span> 的简单函数及 <span class="arithmatex">\(0&lt;c&lt;1\)</span>，令 <span class="arithmatex">\(E_n=\{f_n\geq cs\}\)</span>。在 <span class="arithmatex">\(s(x)&gt;0\)</span> 的点，因 <span class="arithmatex">\(cs(x)&lt;f(x)\)</span>，最终必属于 <span class="arithmatex">\(E_n\)</span>；故 <span class="arithmatex">\(E_n\)</span> 递增覆盖 <span class="arithmatex">\(\{s&gt;0\}\)</span>。由简单函数的有限层表示和测度从下连续，</p>
+<div class="arithmatex">\[
+\int f_n\geq c\int_{E_n}s\longrightarrow c\int s.
+\]</div>
+<p>若 <span class="arithmatex">\(\int s\)</span> 有限，令 <span class="arithmatex">\(c\uparrow1\)</span>；若为无穷，上式已给 <span class="arithmatex">\(L=\infty\)</span>。再对全部简单函数取上确界，得到 <span class="arithmatex">\(L\geq\int f\)</span>，完成证明。</p>
+<p>此时可以严格证明非负积分的可加性。分别选简单逼近 <span class="arithmatex">\(s_n\uparrow f,t_n\uparrow g\)</span>，对简单函数已有 <span class="arithmatex">\(\int(s_n+t_n)=\int s_n+\int t_n\)</span>，取极限得到一般结论。再把非负级数看作递增部分和，便得到 <span class="arithmatex">\(\int\sum_jg_j=\sum_j\int g_j\)</span>。因此这里没有预先借用 Fubini，也没有把待证的线性性质暗藏进定义。</p>
+<h2 id="314-fatou">3.14 Fatou 引理</h2>
+<p>当函数不再单调时，积分未必保持极限，但非负性仍能给一个方向的控制。</p>
+<blockquote>
+<p>对非负可测 <span class="arithmatex">\(f_n\)</span>，Fatou 引理断言</p>
+<div class="arithmatex">\[
+\int_X\liminf_nf_n\,d\mu\leq\liminf_n\int_X f_n\,d\mu.
+\]</div>
+</blockquote>
+<p>证明的关键是把不单调的列改造成单调列。令 <span class="arithmatex">\(h_k=\inf_{n\geq k}f_n\)</span>；忽略的前缀越来越长，所以 <span class="arithmatex">\(h_k\uparrow\liminf_nf_n\)</span>。另一方面，对每个 <span class="arithmatex">\(n\geq k\)</span> 有 <span class="arithmatex">\(h_k\leq f_n\)</span>，因此 <span class="arithmatex">\(\int h_k\leq\inf_{n\geq k}\int f_n\)</span>。左侧用单调收敛，右侧按下极限定义取极限，即得结论。</p>
+<p>例如 <span class="arithmatex">\(f_n=n\mathbf1_{(0,1/n)}\)</span> 几乎处处趋于零，左侧是 0，而各项积分为 1。函数在越来越窄的区域越来越高，点态极限看不见保留的质量。Fatou 给出的不等式恰好允许这种损失；若要得到等号，需要控制尖峰的条件。</p>
+<h2 id="315">3.15 控制收敛定理</h2>
+<p>尖峰之所以逃过点态极限，是因为没有一个可积函数能同时压住所有尖峰。控制收敛定理补上这一条件：</p>
+<blockquote>
+<p>若 <span class="arithmatex">\(f_n\to f\)</span> 几乎处处，且 <span class="arithmatex">\(|f_n|\leq g\)</span>，其中 <span class="arithmatex">\(g\in L^1\)</span>，则 <span class="arithmatex">\(f\in L^1\)</span>，而且</p>
+<div class="arithmatex">\[
+\int_X|f_n-f|\,d\mu\longrightarrow0.
+\]</div>
+</blockquote>
+<p>首先由点态极限得 <span class="arithmatex">\(|f|\leq g\)</span>，所以极限可积。对非负函数 <span class="arithmatex">\(2g-|f_n-f|\)</span> 用 Fatou，得到</p>
+<div class="arithmatex">\[
+2\int g\leq\liminf_n\left(2\int g-\int|f_n-f|\right)
+=2\int g-\limsup_n\int|f_n-f|.
+\]</div>
+<p>这里 <span class="arithmatex">\(\int g\)</span> 有限，故相减合法。非负积分的上极限只能为零，所以得到结论。最后 <span class="arithmatex">\(|\int f_n-\int f|\leq\int|f_n-f|\)</span>，从而可交换极限与积分。</p>
+<p>我们用一个含参例题说明怎样实际检查条件。令 <span class="arithmatex">\(F(t)=\int_0^1e^{-tx}dx\)</span>，固定 <span class="arithmatex">\(t_0\)</span>。当 <span class="arithmatex">\(|t-t_0|&lt;1\)</span>，关于参数的中值定理给</p>
+<div class="arithmatex">\[
+\left|\frac{e^{-tx}-e^{-t_0x}}{t-t_0}\right|
+\leq xe^{|t_0|+1}\leq e^{|t_0|+1}.
+\]</div>
+<p>右侧在 <span class="arithmatex">\([0,1]\)</span> 可积，且不依赖正在趋近的 <span class="arithmatex">\(t\)</span>。差商逐点趋于 <span class="arithmatex">\(-xe^{-t_0x}\)</span>，所以控制收敛给 <span class="arithmatex">\(F'(t_0)=-\int_0^1xe^{-t_0x}dx\)</span>。证明先写差商，再找控制函数，最后换序；只有“被积函数光滑”并不足够。</p>
+<h2 id="316-tonellifubini">3.16 乘积测度与 Tonelli/Fubini 定理</h2>
+<p>二维积分应当与逐次一维积分相容，但“先后次序可以交换”不能当作定义后的自动事实。设 <span class="arithmatex">\((X,\Sigma,\mu)\)</span>、<span class="arithmatex">\((Y,\mathcal T,\nu)\)</span> 都 <span class="arithmatex">\(\sigma\)</span>-有限。我们先在矩形规定大小 <span class="arithmatex">\(\mu(A)\nu(B)\)</span>，再构造乘积测度，最后证明换序。</p>
+<p>先设 <span class="arithmatex">\(\nu(Y)&lt;\infty\)</span>。对集合 <span class="arithmatex">\(E\subset X\times Y\)</span>，截面记为 <span class="arithmatex">\(E_x=\{y:(x,y)\in E\}\)</span>。矩形的截面可测，函数 <span class="arithmatex">\(x\mapsto\nu(E_x)\)</span> 也可测。具有这两个性质的集合族对补集封闭，因为 <span class="arithmatex">\(\nu(Y\setminus E_x)=\nu(Y)-\nu(E_x)\)</span>；对不交可数并封闭，因为截面测度可数可加。由 <span class="arithmatex">\(\pi\)</span>–<span class="arithmatex">\(\lambda\)</span> 引理，它包含乘积 <span class="arithmatex">\(\sigma\)</span>-代数 <span class="arithmatex">\(\Sigma\otimes\mathcal T\)</span>。若 <span class="arithmatex">\(\nu\)</span> 只是 <span class="arithmatex">\(\sigma\)</span>-有限，先分 <span class="arithmatex">\(Y\)</span> 为不交有限块，再对截面测度求和，结论仍成立。</p>
+<p>因此可以定义 <span class="arithmatex">\(\eta(E)=\int_X\nu(E_x)d\mu\)</span>。对不交 <span class="arithmatex">\(E_j\)</span>，截面可数可加与单调收敛说明 <span class="arithmatex">\(\eta\)</span> 是测度，并且矩形上返回 <span class="arithmatex">\(\mu(A)\nu(B)\)</span>。反向迭代同样定义测度 <span class="arithmatex">\(\widetilde\eta\)</span>，在矩形上与 <span class="arithmatex">\(\eta\)</span> 一致；在有限乘积块上用唯一性，再把空间分块，得到二者相等。这一共同测度就是 <span class="arithmatex">\(\mu\otimes\nu\)</span>。</p>
+<p>对指标函数，我们已经证明</p>
+<div class="arithmatex">\[
+\int\mathbf1_E\,d(\mu\otimes\nu)
+=\int_X\int_Y\mathbf1_E(x,y)d\nu(y)d\mu(x)
+=\int_Y\int_X\mathbf1_E(x,y)d\mu(x)d\nu(y).
+\]</div>
+<p>有限线性组合得到非负简单函数的结论，再选 <span class="arithmatex">\(s_n\uparrow f\)</span>，分别在截面和整体使用单调收敛，即得 Tonelli 定理：非负乘积可测函数的两种迭代积分与乘积积分相等，允许为无穷。</p>
+<p>若 <span class="arithmatex">\(f\)</span> 有正有负，先对 <span class="arithmatex">\(|f|\)</span> 用 Tonelli。假设其乘积积分有限，则几乎所有截面的绝对积分有限，否则非负迭代积分会无穷。再分别对 <span class="arithmatex">\(f^+,f^-\)</span> 用 Tonelli并作有限相减，得到 Fubini 定理；复值情形拆成实、虚部。完备化后的可测函数先换成几乎处处相等的乘积可测代表，截面结论相应只要求几乎处处成立。</p>
+<p>例如对 <span class="arithmatex">\(a,b&gt;0\)</span>，非负函数 <span class="arithmatex">\(e^{-ax-by}\)</span> 可直接用 Tonelli，结果为 <span class="arithmatex">\(1/(ab)\)</span>。若函数变号，则首先检查 <span class="arithmatex">\(\int|f|\)</span>，不能仅凭两种迭代积分看起来都存在便交换。</p>
+<h2 id="317">3.17 有界变差</h2>
+<p>积分是否能恢复导数，首先取决于函数是否有太多往返振荡。</p>
+<blockquote>
+<p>对 <span class="arithmatex">\(F:[a,b]\to\mathbb R\)</span>，总变差定义为所有分割上的增量绝对值之和的上确界：<span class="arithmatex">\(V_a^b(F)=\sup\sum_j|F(x_j)-F(x_{j-1})|\)</span>。有限时称有界变差，简称 BV。</p>
+</blockquote>
+<p>单调函数的总变差就是端点增量。</p>
+<p>BV 函数可以写成两个单调函数之差。令 <span class="arithmatex">\(V(x)=V_a^x(F)\)</span>，当 <span class="arithmatex">\(x&lt;y\)</span> 时 <span class="arithmatex">\(V(y)-V(x)\geq|F(y)-F(x)|\)</span>，所以 <span class="arithmatex">\(V+F\)</span> 与 <span class="arithmatex">\(V-F\)</span> 都非减，而 <span class="arithmatex">\(F=[(V+F)-(V-F)]/2\)</span>。这个分解说明一切 BV 增量可拆成正变化和负变化，并为相应符号测度作准备。</p>
+<p>单调函数几乎处处可微，但导数可能遗漏一部分变化。Cantor 函数是连续单调函数，从 0 增到 1，却几乎处处导数为零。因此还不能断言 <span class="arithmatex">\(F(b)-F(a)=\int F'\)</span>。接下来我们先用测度记录全部增量，再问哪些增量确实由密度给出。</p>
+<h2 id="318-stieltjes">3.18 Stieltjes 测度</h2>
+<p>若实线上的 <span class="arithmatex">\(F\)</span> 右连续、非减，就在半开区间上规定 <span class="arithmatex">\(\nu_F((s,t])=F(t)-F(s)\)</span>。右连续性保证从上缩小的区间有正确极限；由此得到预测度，经扩张定理得到 Lebesgue–Stieltjes 测度。于是定义 <span class="arithmatex">\(\int h\,dF=\int h\,d\nu_F\)</span>。右连续 BV 函数则由上一节的单调分解产生符号 Stieltjes 测度，仍记为 <span class="arithmatex">\(\nu_F\)</span>；当 <span class="arithmatex">\(F\)</span> 非减时，它正好是前面的正测度。后文基本定理继续使用这一记号。</p>
+<p>测度保留了导数看不见的变化。跳跃点 <span class="arithmatex">\(c\)</span> 的原子为 <span class="arithmatex">\(F(c)-F(c-)\)</span>；阶跃 <span class="arithmatex">\(F=\mathbf1_{[0,\infty)}\)</span> 给 <span class="arithmatex">\(\delta_0\)</span>。Cantor 函数的测度集中于零长度 Cantor 集，却无原子，是奇异连续部分。若增量由可积密度 <span class="arithmatex">\(g\)</span> 给出，则 <span class="arithmatex">\(d\nu_F=g\,dm_1\)</span>。识别最后一种情形需要下面的密度表示定理。</p>
+<h2 id="319-radonnikodym">3.19 Radon–Nikodym 定理</h2>
+<blockquote>
+<p>在同一可测空间 <span class="arithmatex">\((X,\Sigma)\)</span> 上，设 <span class="arithmatex">\(\mu,\nu\)</span> 是 <span class="arithmatex">\(\sigma\)</span>-有限正测度，并且 <span class="arithmatex">\(\nu\ll\mu\)</span>，即 <span class="arithmatex">\(\mu(A)=0\)</span> 时 <span class="arithmatex">\(\nu(A)=0\)</span>。Radon–Nikodym 定理断言存在非负可测 <span class="arithmatex">\(h\)</span>，使 <span class="arithmatex">\(\nu(A)=\int_Ah\,d\mu\)</span>，且 <span class="arithmatex">\(h\)</span> 几乎处处唯一。</p>
+</blockquote>
+<p>它将“没有质量落在 <span class="arithmatex">\(\mu\)</span> 的零集上”转化为“有相对于 <span class="arithmatex">\(\mu\)</span> 的密度”。</p>
+<p>先证明两测度均有限的情形。我们会用一个符号测度引理：有限符号测度 <span class="arithmatex">\(\sigma\)</span> 可把空间分成 <span class="arithmatex">\(P,N\)</span>，使 <span class="arithmatex">\(P\)</span> 的任何可测子集测度非负，<span class="arithmatex">\(N\)</span> 的任何可测子集测度非正。这里的有限符号测度指两个有限正测度之差，因此其取值有界，也继承递增并与递减交的连续性。证明令 <span class="arithmatex">\(\beta=\inf_A\sigma(A)&gt;-\infty\)</span>，选 <span class="arithmatex">\(A_j\)</span> 使 <span class="arithmatex">\(\sigma(A_j)&lt;\beta+2^{-j}\)</span>。由</p>
+<div class="arithmatex">\[
+\sigma(A\cap B)=\sigma(A)+\sigma(B)-\sigma(A\cup B)
+\leq\sigma(A)+\sigma(B)-\beta
+\]</div>
+<p>得到 <span class="arithmatex">\(B_n=\bigcap_{j\geq n}A_j\)</span> 满足 <span class="arithmatex">\(\beta\leq\sigma(B_n)\leq\beta+\sum_{j\geq n}2^{-j}\)</span>。有限符号测度的连续性允许取无穷交。再取递增并 <span class="arithmatex">\(N=\bigcup_nB_n\)</span>，有 <span class="arithmatex">\(\sigma(N)=\beta\)</span>。若 <span class="arithmatex">\(N\)</span> 中某子集为正，删掉它会小于下确界；若补集某子集为负，加入它也会小于下确界。因此 <span class="arithmatex">\(N\)</span> 是负集、<span class="arithmatex">\(P=N^c\)</span> 是正集。这就是 Hahn 分解。</p>
+<p>现在考虑所有满足 <span class="arithmatex">\(\int_Af\,d\mu\leq\nu(A)\)</span> 对每个可测 <span class="arithmatex">\(A\)</span> 成立的非负 <span class="arithmatex">\(f\)</span>，把这族记为 <span class="arithmatex">\(\mathcal C\)</span>。它包含零函数，并对取最大值封闭：在 <span class="arithmatex">\(\{f\geq g\}\)</span> 与补集分别积分即可。令 <span class="arithmatex">\(s=\sup_{f\in\mathcal C}\int f\)</span>，有限性给 <span class="arithmatex">\(s\leq\nu(X)\)</span>。按上确界的定义，选 <span class="arithmatex">\(g_n\in\mathcal C\)</span> 使 <span class="arithmatex">\(\int g_n\,d\mu&gt;s-1/n\)</span>，再令 <span class="arithmatex">\(f_n=\max(g_1,\ldots,g_n)\)</span>。于是 <span class="arithmatex">\(f_n\in\mathcal C\)</span> 递增，积分趋于 <span class="arithmatex">\(s\)</span>。令 <span class="arithmatex">\(h=\lim_n f_n\)</span>；对每个可测 <span class="arithmatex">\(A\)</span> 使用单调收敛定理，得到 <span class="arithmatex">\(\int_Ah\,d\mu\le\nu(A)\)</span>，所以 <span class="arithmatex">\(h\in\mathcal C\)</span>，并且 <span class="arithmatex">\(\int h\,d\mu=s\)</span>。</p>
+<p>残余 <span class="arithmatex">\(\nu_0(A)=\nu(A)-\int_Ah\,d\mu\)</span> 是有限正测度且 <span class="arithmatex">\(\nu_0\ll\mu\)</span>。假设 <span class="arithmatex">\(\nu_0(X)&gt;0\)</span>，则 <span class="arithmatex">\(\mu(X)&gt;0\)</span>，取 <span class="arithmatex">\(c=\nu_0(X)/(2\mu(X))\)</span>。对符号测度 <span class="arithmatex">\(\nu_0-c\mu\)</span> 作 Hahn 分解，因总质量为正，正集 <span class="arithmatex">\(P\)</span> 满足 <span class="arithmatex">\((\nu_0-c\mu)(P)&gt;0\)</span>，故 <span class="arithmatex">\(\mu(P)&gt;0\)</span>。在 <span class="arithmatex">\(P\)</span> 的每个子集上有 <span class="arithmatex">\(\nu_0(A)\geq c\mu(A)\)</span>。于是 <span class="arithmatex">\(h+c\mathbf1_P\)</span> 仍在 <span class="arithmatex">\(\mathcal C\)</span>，积分却严格大于 <span class="arithmatex">\(s\)</span>，矛盾。残余只能为零，密度表示得证。</p>
+<p>若两测度只是 <span class="arithmatex">\(\sigma\)</span>-有限，把两套有限覆盖交叉并不交化，得到每块上两测度都有限的可数分块，逐块构造密度再拼接。唯一性由对 <span class="arithmatex">\(\{h_1&gt;h_2+1/k\}\)</span> 积分比较得到。有限符号测度先 Hahn 分解为正负部分，复测度再拆实虚部，便得到相应版本。</p>
+<h2 id="320-newtonleibniz">3.20 绝对连续与 Newton–Leibniz 公式</h2>
+<p>本节在实区间 <span class="arithmatex">\([a,b]\)</span> 上讨论，所有标量积分使用 <span class="arithmatex">\(m_1\)</span>。函数先在区间外作常值延拓，再使用 3.18 的 Stieltjes 测度 <span class="arithmatex">\(\nu_F\)</span>；下面只取它在 <span class="arithmatex">\((a,b]\)</span> 上的限制。</p>
+<p>Cantor 函数说明连续性还不能排除质量集中于零长度集合。我们需要更强的要求：</p>
+<blockquote>
+<p><span class="arithmatex">\(F\)</span> 绝对连续，指每个 <span class="arithmatex">\(\varepsilon&gt;0\)</span> 都存在 <span class="arithmatex">\(\delta&gt;0\)</span>，使任意有限族不交子区间总长度小于 <span class="arithmatex">\(\delta\)</span> 时，<span class="arithmatex">\(\sum_j|F(v_j)-F(u_j)|&lt;\varepsilon\)</span>。</p>
+</blockquote>
+<p>这里控制的是任意多个小区间的总增量，而不只是每个区间的单独增量。</p>
+<p>如果 <span class="arithmatex">\(g\in L^1([a,b])\)</span>，则 <span class="arithmatex">\(F(x)=F(a)+\int_a^xg\)</span> 绝对连续。证明先选 <span class="arithmatex">\(K\)</span> 使 <span class="arithmatex">\(\int_{|g|&gt;K}|g|&lt;\varepsilon/2\)</span>，再选 <span class="arithmatex">\(\delta&lt;\varepsilon/(2K)\)</span>（<span class="arithmatex">\(g=0\)</span> 时无须选）。任意总长度小于 <span class="arithmatex">\(\delta\)</span> 的区间族，其增量总和不超过 <span class="arithmatex">\(K\delta+\int_{|g|&gt;K}|g|&lt;\varepsilon\)</span>。此外由 Lebesgue 微分定理，几乎每点有 <span class="arithmatex">\(F'=g\)</span>；连续 <span class="arithmatex">\(g\)</span> 时这个结论在每个内点由平均值直接趋近得到。</p>
+<p>反方向稍难。绝对连续性先给 BV：把 <span class="arithmatex">\([a,b]\)</span> 分成有限个长度小于其 <span class="arithmatex">\(\delta\)</span> 的块，在每块内部的任意分割上，增量绝对值和受同一个 <span class="arithmatex">\(\varepsilon\)</span> 界控制，因此总变差有限。更进一步，变差函数 <span class="arithmatex">\(V\)</span> 本身绝对连续。对总长度小的有限区间族，在每个区间内取近乎实现变差的分割，把全部小区间合并使用 <span class="arithmatex">\(F\)</span> 的绝对连续条件，再让逼近误差趋零，即得 <span class="arithmatex">\(\sum[V(v_j)-V(u_j)]&lt;\varepsilon\)</span>。</p>
+<p>于是非减函数 <span class="arithmatex">\((V+F)/2\)</span>、<span class="arithmatex">\((V-F)/2\)</span> 都绝对连续，产生两个有限正 Stieltjes 测度。它们对 Lebesgue 测度绝对连续：零测集可由总长度任意小的开区间覆盖；在前有限个区间上用绝对连续控制增量，再用测度从下连续处理全覆盖。因此符号增量测度 <span class="arithmatex">\(\nu_F\)</span> 也满足 <span class="arithmatex">\(\nu_F\ll m_1\)</span>。</p>
+<p>用上一节得到 <span class="arithmatex">\(g\in L^1\)</span> 使 <span class="arithmatex">\(d\nu_F=g\,dm_1\)</span>，所以每个 <span class="arithmatex">\(x\)</span> 都有 <span class="arithmatex">\(F(x)-F(a)=\nu_F((a,x])=\int_a^xg\)</span>。再用 Lebesgue 微分定理识别 <span class="arithmatex">\(g=F'\)</span> 几乎处处，得到</p>
+<div class="arithmatex">\[
+F\text{ 绝对连续}\quad\Longleftrightarrow\quad
+F(x)=F(a)+\int_a^xg,\quad g\in L^1;
+\qquad F'=g\ \text{几乎处处}.
+\]</div>
+<p>这完整解释了基本定理的条件。<span class="arithmatex">\(C^1\)</span> 函数当然绝对连续，因而 <span class="arithmatex">\(\int_a^bF'=F(b)-F(a)\)</span>；对绝对连续函数的乘积使用乘积求导，便得分部积分。Cantor 函数的增量测度不对 Lebesgue 测度绝对连续，所以不会与上述结论冲突。Lebesgue 微分定理的独立证明见 7.16；它只使用测度与极大估计，不反过来调用此处的一般基本定理。</p>
+<h2 id="321">3.21 概率公理初步 △</h2>
+<p>把总质量规定为 1，测度便成为概率。有限样本空间中的积分是加权求和，连续密度模型中的积分是通常密度平均；Stieltjes 测度还能包含离散和奇异分布。因此概率的基本对象可以直接放入刚建立的积分理论。</p>
+<p>在 <span class="arithmatex">\([0,1]\)</span> 均匀取点 <span class="arithmatex">\(U\)</span>，<span class="arithmatex">\(\mathbb P(U\in\mathbb Q)=0\)</span>，但这个事件并不是空集。“几乎必然”表达测度为 1，不表示没有逻辑上的例外。后面定义随机变量为可测函数、期望为积分，条件期望的存在将再次使用 Radon–Nikodym。</p>
+<h2 id="_1">练习与提示</h2>
+<ol>
+<li>证明 <span class="arithmatex">\(\int_0^1x^{-\alpha}dx\)</span> 有限当且仅当 <span class="arithmatex">\(\alpha&lt;1\)</span>。提示：先在 <span class="arithmatex">\([\varepsilon,1]\)</span> 用基本定理，再用单调收敛令 <span class="arithmatex">\(\varepsilon\downarrow0\)</span>。</li>
+<li>对 <span class="arithmatex">\(f_n(x)=x^n\)</span>，证明 <span class="arithmatex">\(\int_0^1f_n\to0\)</span>。提示：控制函数为 1；也可直接算 <span class="arithmatex">\(1/(n+1)\)</span>。</li>
+<li>证明依测度收敛加 <span class="arithmatex">\(|f_n|\leq g\in L^1\)</span> 蕴含 <span class="arithmatex">\(L^1\)</span> 收敛。提示：假设不成立，抽坏子列，再抽几乎处处收敛子子列并用控制收敛。</li>
+<li>为什么 BV 不能替代 3.20 中的绝对连续？用 Cantor 函数回答。</li>
+</ol>
+<p><a href="../04-stokes/">下一章：流形上的积分与 Stokes 定理</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+      
+        <script src="../../../themes/js/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.17.1/flowchart.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.6/underscore-min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/@mermaid-js/mermaid-mindmap@9.3.0/dist/diagram-definition.0faef4c2.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/markdown-it-plantuml@1.4.1/index.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+      
+    
+  </body>
+</html>
