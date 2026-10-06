@@ -57,6 +57,27 @@ nav:
     - 第6章 李代数及其表示: ai/algebra/06-lie.md
     - 第7章 同调代数和高级专题: ai/algebra/07-advanced.md
     - 附录A–F与参考文献: ai/algebra/appendices.md
+  - 几何与拓扑:
+    - 讲义首页: ai/geometry/index.md
+    - 学习指南与综合自测: ai/geometry/study-guide.md
+    - 第0章 预备: ai/geometry/00-preliminaries.md
+    - 第1章 点集拓扑: ai/geometry/01-topology.md
+    - 第2章 基本群与覆盖空间: ai/geometry/02-fundamental.md
+    - 第3章 同调与上同调: ai/geometry/03-homology.md
+    - 第4章 高阶同伦与纤维化: ai/geometry/04-homotopy.md
+    - 第5章 欧氏、仿射与射影几何: ai/geometry/05-classical.md
+    - 第6章 光滑流形与微分形式: ai/geometry/06-manifolds.md
+    - 第7章 李群、作用与齐性空间: ai/geometry/07-lie.md
+    - 第8章 向量丛、连接与曲率: ai/geometry/08-connections.md
+    - 第9章 Riemann几何与几何分析: ai/geometry/09-riemannian.md
+    - 第10章 辛几何与Hamilton系统: ai/geometry/10-symplectic.md
+    - 第11章 复几何、层与Riemann曲面: ai/geometry/11-complex.md
+    - 第12章 代数几何: ai/geometry/12-algebraic.md
+    - 第13章 凸、离散与组合几何: ai/geometry/13-convex.md
+    - 第14章 特征类与指标: ai/geometry/14-characteristic.md
+    - 第15章 低维拓扑: ai/geometry/15-low-dimensional.md
+    - 第16章 现代交叉专题: ai/geometry/16-topics.md
+    - 附录与参考文献: ai/geometry/appendices.md
 
 markdown_extensions:
   - pymdownx.arithmatex:

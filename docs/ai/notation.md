@@ -1,6 +1,6 @@
-# 两份讲义的共同符号约定
+# 讲义的共同符号约定
 
-现代分析学与代数学共用本页的约定。读公式时，先看对象的类型：同一个标准字母可以在不同章节表示不同对象，但同一种运算的方向、共轭和归一化应保持一致。各章局部引入的记号，只在说明的范围内使用。
+现代分析学、代数学、几何与拓扑共用本页的约定。读公式时，先看对象的类型：同一个标准字母可以在不同章节表示不同对象，但同一种运算的方向、共轭和归一化应保持一致。各章局部引入的记号，只在说明的范围内使用。
 
 ## 数系、编号与阅读标记
 
@@ -69,6 +69,25 @@ $$
 这里没有额外的 $1/2$。一般次数的公式见分析学 2.17，与代数学外代数的乘法一致。拉回 $F^*$ 在每点由 $dF_p$ 的对偶及其外幂产生；它与内积伴随无关。外微分满足 $d^2=0$，收缩把向量插入形式的第一个位置；边界使用“外法向优先”的定向。
 
 Clifford 代数统一取 $v^2=q(v)1$，$uv+vu=2B(u,v)1$，其中 $q(v)=B(v,v)$，底域特征不为 $2$。$\mathrm{Cl}_{p,q}$ 有 $p$ 个平方为 $+1$、$q$ 个平方为 $-1$ 的标准生成元；$\mathrm{Cl}_n(\mathbb C)$ 对应 $\sum_j z_j^2$。$\mathrm{Cl}^0$ 表示偶子代数，不是只由标量组成的零次部分。群交换子取 $xyx^{-1}y^{-1}$，李括号取 $[X,Y]=XY-YX$。
+
+## 拓扑、曲率与辛几何
+
+一般拓扑空间不默认 Hausdorff；流形默认 Hausdorff、第二可数且有限维。$\mathbb T^n=\mathbb R^n/\mathbb Z^n$ 的坐标周期为 $1$。路径乘法 $\alpha\beta$ 表示先走 $\beta$ 再走 $\alpha$，与映射复合方向一致。
+
+射影空间 $\mathbb P(V)$ 表示一维线性子空间。曲面的属（亏格）统一写为 $\gamma$，$g$ 留给 Riemann 度量。奇异同调 $H_n(X;A)$ 与上同调 $H^n(X;A)$ 省略系数时为整数系数；$H^q(X,\mathcal F)$ 表示层上同调。链边界、余链微分、形式外微分分别为 $\partial,\delta,d$。
+
+曲率与截面曲率取
+
+$$
+\begin{aligned}
+R(X,Y)Z&=\nabla_X\nabla_YZ-\nabla_Y\nabla_XZ-\nabla_{[X,Y]}Z,\\
+K(u,v)&=\frac{g(R(u,v)v,u)}{g(u,u)g(v,v)-g(u,v)^2}.
+\end{aligned}
+$$
+
+单位球面 $K=+1$；Jacobi 方程为 $\nabla_T^2J+R(J,T)T=0$。局部标架采用 $\nabla e_j=e_i\omega^i{}_j$，曲率矩阵为 $\Omega=d\omega+\omega\wedge\omega$。函数算子 $\Delta_g=\operatorname{div}_g\operatorname{grad}_g$ 与分析学的 $\Delta$ 同号；非负 Hodge 算子为 $\Delta_{\mathrm H}=dd^\dagger+d^\dagger d$，在函数上等于 $-\Delta_g$。
+
+辛形式取 $\omega=\sum_jdq^j\wedge dp_j$，Hamilton 场满足 $\iota_{X_H}\omega=dH$。Poisson 括号取 $\{f,h\}=\omega(X_f,X_h)=X_hf$，于是 $\dot f=\{f,H\}$，且 $[X_f,X_h]=-X_{\{f,h\}}$。余切丛的典范形式为 $\lambda=p_jdq^j$，辛形式为 $-d\lambda$。复线丛 $\mathcal O(-1)$ 在 $\mathbb{CP}^1$ 上的第一 Chern 数为 $-1$，Chern–Weil 规范为 $c(E,\nabla)=\det(I+i\Omega/(2\pi))$。
 
 ## Fourier 变换与概率
 
