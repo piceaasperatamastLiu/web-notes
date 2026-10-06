@@ -10,7 +10,7 @@
 
 若 $A\subset X$ 且在全部时刻保持 $H(a,t)=f(a)$，称相对于 $A$ 的同伦。路径同伦通常固定两端；只说闭路的自由同伦则不固定基点，这个区别会影响基本群元素是否相等或仅共轭。
 
-$f:X\to Y$ 是同伦等价，若存在 $g$ 使 $gf\simeq\mathrm{id}_X$、$fg\simeq\mathrm{id}_Y$。凸集通过线性收缩同伦等价于点；$\mathbb R^n\setminus\{0\}$ 径向形变收缩到 $S^{n-1}$。同伦等价远弱于同胚：圆与实心圆环同伦等价，局部维数却不同。
+$f:X\to Y$ 是同伦等价，若存在 $g$ 使 $g\circ f\simeq\mathrm{id}_X$、$f\circ g\simeq\mathrm{id}_Y$。凸集通过线性收缩同伦等价于点；$\mathbb R^n\setminus\{0\}$ 径向形变收缩到 $S^{n-1}$。同伦等价远弱于同胚：圆与实心圆环同伦等价，局部维数却不同。
 
 ## 2.2 基本群
 
@@ -18,7 +18,7 @@ $f:X\to Y$ 是同伦等价，若存在 $g$ 使 $gf\simeq\mathrm{id}_X$、$fg\sim
 
 不同括号下的拼接只在各段占用的参数时长上有区别，连续改变这些时长就得到固定端点的同伦，所以乘法在同伦类上结合；路径与逆路径的拼接可逐渐缩短折返部分，故给逆元。这些操作都固定端点，因此在同伦类上得到群。
 
-保基点映射给 $f_*[\alpha]=[f\alpha]$，且 $(gf)_*=g_*f_*$。在道路连通空间，换基点给同构，但它依赖所选连接路径；不同选择相差内自同构，因此一般不存在不依赖连接路径选择的典范同构。
+保基点映射给 $f_*[\alpha]=[f\circ\alpha]$，且 $(g\circ f)_*=g_*\circ f_*$。在道路连通空间，换基点给同构，但它依赖所选连接路径；不同选择相差内自同构，因此一般不存在不依赖连接路径选择的典范同构。
 
 ## 2.3 覆盖空间
 
@@ -30,7 +30,7 @@ $f:X\to Y$ 是同伦等价，若存在 $g$ 使 $gf\simeq\mathrm{id}_X$、$fg\sim
 
 ## 2.4 路径与同伦提升 ★
 
-> 给路径 $\alpha:I\to X$ 和 $e_0\in p^{-1}(\alpha(0))$，存在唯一提升 $\widetilde\alpha$，满足 $p\widetilde\alpha=\alpha$、$\widetilde\alpha(0)=e_0$。
+> 给路径 $\alpha:I\to X$ 和 $e_0\in p^{-1}(\alpha(0))$，存在唯一提升 $\widetilde\alpha$，满足 $p\circ\widetilde\alpha=\alpha$、$\widetilde\alpha(0)=e_0$。
 
 把覆盖邻域沿 $\alpha$ 拉回，紧区间给 Lebesgue 数，选有限分割使每段像落在一个覆盖邻域内。第一段用含 $e_0$ 的分片逆映射提升；其终点确定下一段的分片。逐段拼接即得存在。
 

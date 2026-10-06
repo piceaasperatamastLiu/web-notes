@@ -57,7 +57,7 @@ Einstein 约定是在同一项中一个上指标与一个下指标重复时求�
 
 公式 $(u\otimes v)\otimes w\mapsto u\otimes(v\otimes w)$ 由三线性泛性质诱导自然同构，交换两因子的映射 $v\otimes w\mapsto w\otimes v$ 也自然可逆。
 
-线性映射 $f,g$ 给出 $f\otimes g$，且 $(f'\otimes g')(f\otimes g)=(f'f)\otimes(g'g)$。所谓自然性，就是这些同构与线性映射相容；不必为每个空间另选一组基。
+线性映射 $f,g$ 给出 $f\otimes g$，且 $(f'\otimes g')\circ(f\otimes g)=(f'\circ f)\otimes(g'\circ g)$。所谓自然性，就是这些同构与线性映射相容；不必为每个空间另选一组基。
 
 普通向量空间交换因子没有负号。外代数中出现的符号来自其商关系，分次向量空间的交换规则则是另一种结构。
 

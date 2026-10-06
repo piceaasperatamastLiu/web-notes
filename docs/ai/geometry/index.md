@@ -32,7 +32,7 @@
 
 ## 统一约定
 
-使用[共同符号约定](../notation.md)：**★ 重点；○ 略讲；☆ 选读；※ 证明可跳过；△ 应用**。$\mathbb N$ 包含零；映射从右向左复合；内积第一变量线性；对偶映射写 $T^*$，伴随写 $T^\dagger$。测度沿用 $m_n,\nu_F,\operatorname{vol}_g$，不因换章另起名称。
+使用[共同符号约定](../notation.md)：**★ 重点；○ 略讲；☆ 选读；※ 证明可跳过；△ 应用**。$\mathbb N$ 包含零；映射从右向左复合，非算子语境必须写出 $\circ$；内积第一变量线性；对偶映射写 $T^*$，伴随写 $T^\dagger$。测度沿用 $m_n,\nu_F,\operatorname{vol}_g$，不因换章另起名称。
 
 拓扑写为 $\mathcal T$。一般拓扑空间不默认 Hausdorff，尤其 Zariski 空间常不满足它；流形默认 Hausdorff、第二可数、有限维，光滑表示 $C^\infty$。邻域默认开邻域；滤子章节会明确把它扩充为包含开邻域的集合。闭包、内部、边界分别写 $\overline A,A^\circ,\partial A$。
 

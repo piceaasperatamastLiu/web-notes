@@ -42,7 +42,7 @@ $\mathbb R^n$ 使用标准内积 $\langle x,y\rangle=\sum x_jy_j$ 与范数。�
 
 ## 0.6 链复形与正合 ○
 
-一串 Abel 群及同态 $C_n\xrightarrow{\partial_n}C_{n-1}$，若 $\partial_n\partial_{n+1}=0$，就允许取商
+一串 Abel 群及同态 $C_n\xrightarrow{\partial_n}C_{n-1}$，若 $\partial_n\circ\partial_{n+1}=0$，就允许取商
 
 $$
 H_n(C)=\ker\partial_n/\operatorname{im}\partial_{n+1}.

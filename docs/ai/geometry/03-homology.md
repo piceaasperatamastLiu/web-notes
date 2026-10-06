@@ -9,7 +9,7 @@
 > $$
 > \cdots\longrightarrow C_{n+1}\xrightarrow{\partial_{n+1}}
 > C_n\xrightarrow{\partial_n}C_{n-1}\longrightarrow\cdots,
-> \qquad \partial_n\partial_{n+1}=0.
+> \qquad \partial_n\circ\partial_{n+1}=0.
 > $$
 >
 > 其同调为 $H_n(C)=\ker\partial_n/\operatorname{im}\partial_{n+1}$。

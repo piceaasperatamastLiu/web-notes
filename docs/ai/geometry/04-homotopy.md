@@ -18,7 +18,7 @@ $$
 
 ## 4.2 纤维化与同伦提升
 
-纤维丛局部形如 $U\times F\to U$；纤维化强调同伦提升性质。我们使用 Serre 纤维化，即给定同伦 $H:D^k\times I\to B$ 及其初始时刻的提升 $h_0:D^k\to E$，可以找到 $\widetilde H:D^k\times I\to E$，满足 $p\widetilde H=H$ 与 $\widetilde H(\cdot,0)=h_0$。纤维丛在通常的流形、CW 场景下给出这类纤维化。
+纤维丛局部形如 $U\times F\to U$；纤维化强调同伦提升性质。我们使用 Serre 纤维化，即给定同伦 $H:D^k\times I\to B$ 及其初始时刻的提升 $h_0:D^k\to E$，可以找到 $\widetilde H:D^k\times I\to E$，满足 $p\circ\widetilde H=H$ 与 $\widetilde H(\cdot,0)=h_0$。纤维丛在通常的流形、CW 场景下给出这类纤维化。
 
 一个基本例子是基点道路空间 $PX=\{\gamma:\gamma(0)=x_0\}$ 到 $X$ 的终点评价。$PX$ 可缩，其纤维是环路空间 $\Omega X$；把一条道路逐渐截短给出收缩。于是环路空间并不是另一个孤立的定义，而是把同伦维数下降一维的工具。
 

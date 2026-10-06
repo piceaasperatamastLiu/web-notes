@@ -6,7 +6,7 @@
 
 ## 7.1 范畴、函子与自然变换
 
-第 0 章的函子保持复合。若两个函子 $F,G:\mathcal C\to\mathcal D$ 对每个对象给出态射 $\eta_X:F(X)\to G(X)$，并且对所有 $f:X\to Y$ 有 $G(f)\eta_X=\eta_YF(f)$，称自然变换。
+第 0 章的函子保持复合。若两个函子 $F,G:\mathcal C\to\mathcal D$ 对每个对象给出态射 $\eta_X:F(X)\to G(X)$，并且对所有 $f:X\to Y$ 有 $G(f)\circ\eta_X=\eta_Y\circ F(f)$，称自然变换。
 
 例如有限维空间的 $V\to V^{**}$ 是自然同构；选基得到的 $V\to V^*$ 通常不是。后者的方向还与对偶函子的反变性冲突。自然性要求一个构造能同时与所有允许的映射相容，而不仅在每个对象上碰巧有同构。
 
@@ -46,7 +46,7 @@ $$
 
 $$
 \cdots\longrightarrow C_{n+1}\xrightarrow{d_{n+1}}C_n
-\xrightarrow{d_n}C_{n-1}\longrightarrow\cdots,\qquad d_nd_{n+1}=0.
+\xrightarrow{d_n}C_{n-1}\longrightarrow\cdots,\qquad d_n\circ d_{n+1}=0.
 $$
 
 循环 $Z_n=\ker d_n$，边界 $B_n=\operatorname{im}d_{n+1}$，同调 $H_n=Z_n/B_n$。条件 $d^2=0$ 正好保证商有意义。

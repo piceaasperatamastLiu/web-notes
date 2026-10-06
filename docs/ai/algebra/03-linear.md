@@ -35,7 +35,7 @@ $$
 
 对偶空间 $V^*=\operatorname{Hom}_k(V,k)$ 的元素是线性测量。基 $e_i$ 的对偶基 $\varepsilon^i$ 满足 $\varepsilon^i(e_j)=\delta^i_j$。
 
-映射 $T:V\to W$ 诱导 $T^*:W^*\to V^*$，$T^*(\lambda)=\lambda\circ T$。方向反转，且 $(ST)^*=T^*S^*$。在对偶基中它的矩阵是转置，不是共轭转置。
+映射 $T:V\to W$ 诱导 $T^*:W^*\to V^*$，$T^*(\lambda)=\lambda\circ T$。方向反转，且 $(S\circ T)^*=T^*\circ S^*$。在对偶基中它的矩阵是转置，不是共轭转置。
 
 自然映射 $V\to V^{**}$，$v\mapsto(\lambda\mapsto\lambda(v))$，有限维时是同构。$V\cong V^*$ 则通常需要选基或非退化双线性型，二者不可混同。
 
