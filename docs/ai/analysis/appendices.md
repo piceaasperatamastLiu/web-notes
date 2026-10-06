@@ -24,7 +24,7 @@ Cauchy 列有界，因而有收敛子列 $x_{n_k}\to x$。给定误差，将任�
 
 ### A.5 Lebesgue 微分定理的证明结构
 
-在固定有界区域把 $f\in L^1_{\rm loc}$ 近似为连续 $g$。记局部平均振荡的上极限为 $Df(x)$，有 $Df(x)\leq M(f-g)(x)+|f(x)-g(x)|$，连续 $g$ 的振荡为零。极大弱型与 Markov 控制 $\{Df>\varepsilon\}$ 的测度至多 $C\|f-g\|_1/\varepsilon$，令近似误差趋零，得几乎处处 $Df=0$。局部化排除边界，再用可数覆盖扩到全空间。
+在固定有界区域把 $f\in L^1_{\rm loc}$ 近似为连续 $g$。记局部平均振荡的上极限为 $\mathcal O f(x)$，有 $\mathcal O f(x)\leq M(f-g)(x)+|f(x)-g(x)|$，连续 $g$ 的振荡为零。极大弱型与 Markov 控制 $\{\mathcal O f>\varepsilon\}$ 的测度至多 $C\|f-g\|_1/\varepsilon$，令近似误差趋零，得几乎处处 $\mathcal O f=0$。局部化排除边界，再用可数覆盖扩到全空间。
 
 完整论证见 7.16。它调用 7.15 的覆盖估计，但这些估计只使用测度、积分、正则性与覆盖几何，不调用微积分基本定理的一般版本，故无循环。可把 3.20 的一般版本先作为定理使用，读到第 7 章再补齐这一依赖。
 
@@ -106,6 +106,8 @@ Cauchy 列有界，因而有收敛子列 $x_{n_k}\to x$。给定误差，将任�
 
 ## D. 符号表
 
+跨讲义的约定见[共同符号约定](../notation.md)。本表只补充所在讲义的专门记号。
+
 | 符号 | 含义 |
 | --- | --- |
 | $C^k,C_c^\infty$ | $k$ 阶连续可微；光滑紧支撑 |
@@ -115,8 +117,13 @@ Cauchy 列有界，因而有收敛子列 $x_{n_k}\to x$。给定误差，将任�
 | $\Omega^k(M),d,\wedge,F^*$ | $k$-形式、外微分、外积、拉回 |
 | $\partial M$ | 流形边界，带外法向优先诱导定向 |
 | $\Sigma,\mathcal B,\mu$ | 可测集合族、Borel 集族、测度 |
+| $m_n,\mathcal L_n,m_n^*$ | $n$ 维 Lebesgue 测度、Lebesgue 可测集合族、外测度 |
+| $\nu_F,\mu\otimes\nu,\mu_X$ | Stieltjes 测度、乘积测度、随机变量的分布 |
+| $m_{\mathbb T},\operatorname{vol}_g$ | 圆群归一化 Haar 测度、Riemann 体积测度 |
 | $L^p,W^{k,p},H^k$ | 积分范数空间、Sobolev、$W^{k,2}$ |
 | $X^*,X^{**}$ | 连续线性对偶、双对偶 |
+| $T^*,T^\dagger$ | 对偶映射、Hilbert 内积伴随 |
+| $\mathcal O f,H^k_{\mathrm{dR}}(M)$ | 平均振荡上极限、de Rham 上同调 |
 | $\rightharpoonup,\overset{*}{\rightharpoonup}$ | 弱、弱*收敛 |
 | $\mathcal D',\mathcal S'$ | 分布、缓增分布 |
 | $\widehat f$ | Fourier 系数或变换，依所在定义域区分 |

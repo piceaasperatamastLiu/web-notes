@@ -16,7 +16,7 @@
 
 若 $W\subseteq V$ 对所有 $\rho(g)$ 不变，称子表示；商 $V/W$ 的作用按代表元定义。非零表示若无真非零子表示，称不可约。
 
-$S_3$ 的平面 $U$ 不可约。三循环在 $U$ 上有两个互异特征值 $\omega,\omega^2$，任何不变直线必须是其中一条特征线；一个换位把两条线交换，所以没有同时对全部群元素不变的直线。这使用了共同不变子空间，而非某一个矩阵的对角化。
+$S_3$ 的平面 $U$ 不可约。记 $\omega=e^{2\pi i/3}$；三循环在 $U$ 上有两个互异特征值 $\omega,\omega^2$，任何不变直线必须是其中一条特征线；一个换位把两条线交换，所以没有同时对全部群元素不变的直线。这使用了共同不变子空间，而非某一个矩阵的对角化。
 
 ## 5.3 完全可约性与 Maschke 定理
 
@@ -75,9 +75,9 @@ $$
 =\dim\operatorname{Hom}_G(W,V).
 $$
 
-对不可约表示，Schur 引理给出内积为 $1$ 或 $0$。若 $V=\bigoplus_i m_iV_i$，则 $m_i=\langle\chi_V,\chi_i\rangle$。由此分解的重数唯一，特征标相同当且仅当表示同构。
+对不可约表示，Schur 引理给出内积为 $1$ 或 $0$。记 $\chi_i=\chi_{V_i}$；若 $V=\bigoplus_i m_iV_i$，则 $m_i=\langle\chi_V,\chi_i\rangle_G$。由此分解的重数唯一，特征标相同当且仅当表示同构。
 
-后面 Fourier 变换还需要矩阵系数正交。对酉不可约表示 $\rho,\sigma$，平均映射 $A\mapsto\frac1{|G|}\sum_g\rho(g)A\sigma(g)^{-1}$ 在不等价时为零；在相同表示时由 Schur 为标量，取迹知等于 $(\operatorname{tr}A/d)I$。取 $A$ 为矩阵单位便得
+后面 Fourier 变换还需要矩阵系数正交。记 $d_\rho=\dim V_\rho$，对每个不可约同构类固定同一个酉矩阵代表。对酉不可约表示 $\rho,\sigma$，平均映射 $A\mapsto\frac1{|G|}\sum_g\rho(g)A\sigma(g)^{-1}$ 在不等价时为零；在相同表示时由 Schur 为标量，取迹知等于 $(\operatorname{tr}A/d_\rho)I$。取 $A$ 为矩阵单位便得
 
 $$
 \frac1{|G|}\sum_g\rho(g)_{ij}\overline{\sigma(g)_{kl}}
@@ -184,7 +184,7 @@ $$
 
 ## 5.13 有限群 Fourier 变换初步
 
-固定每个不可约的一组酉基，定义
+对每个不可约表示选一组标准正交基，使其矩阵酉。以下用 $\rho$ 遍历不可约表示的同构类，记 $d_\rho=\dim V_\rho$；有限群上的积分使用计数测度 $m_G$，$m_G(A)=|A|$，因此 $\int_Gf\,dm_G=\sum_{g\in G}f(g)$。定义
 
 $$
 \widehat f(\rho)=\sum_{g\in G}f(g)\rho(g),\qquad
@@ -206,6 +206,15 @@ $$
 \sum_g|f(g)|^2=\frac1{|G|}\sum_\rho d_\rho
 \|\widehat f(\rho)\|_{\rm HS}^2.
 $$
+
+这里 $\|A\|_{\rm HS}^2=\operatorname{tr}(A^\dagger A)$。若 $G=\mathbb Z/N\mathbb Z$，选一维表示 $\rho_k([r])=e^{-2\pi ikr/N}$，则
+
+$$
+\widehat f(k)=\sum_{r=0}^{N-1}f([r])e^{-2\pi ikr/N},\qquad
+f([r])=\frac1N\sum_{k=0}^{N-1}\widehat f(k)e^{2\pi ikr/N}.
+$$
+
+这与分析学的负指数约定相同。分析学圆群使用归一化 Haar 测度，而本节使用计数测度；若把此处求和改成平均，变换与卷积也都相应除以 $N$，逆变换便不再带 $1/N$。
 
 Abel 群的不可约表示都是一维，矩阵变换退化为普通离散 Fourier 变换；非交换群必须保留矩阵信息。
 

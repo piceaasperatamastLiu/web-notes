@@ -212,6 +212,8 @@ Möbius 带是不可定向的带边曲面，圆柱可定向。它们局部都像
 
 > 一般地，$k$-形式在每点是切空间上的交替 $k$ 重线性函数，随点光滑变化。0-形式就是函数，1-形式就是余向量场。
 
+用代数学的外幂记号说，就是 $\omega_p\in\Lambda^k(T_p^*M)$；所有光滑 $k$-形式组成的空间记为 $\Omega^k(M)$。
+
 在平面中，$dx\wedge dy$ 对 $u=(u_1,u_2),v=(v_1,v_2)$ 给 $u_1v_2-u_2v_1$，即有向平行四边形面积。它不是由长度单独决定，而依赖两个输入的方向和次序。
 
 坐标中各个有序指标的外积构成基，因而
@@ -234,6 +236,17 @@ $$
 $$
 
 对 1-形式，$(\alpha\wedge\beta)(u,v)=\alpha(u)\beta(v)-\alpha(v)\beta(u)$。因此 $dx\wedge dx=0$、$dy\wedge dx=-dx\wedge dy$。例：$(dx+2dy)\wedge(3dx+dy)=-5dx\wedge dy$。高级计算仍可逐项展开，先处理重复项，再按有序指标调整符号。
+
+一般次数的归一化为
+
+$$
+(\alpha\wedge\beta)(v_1,\ldots,v_{k+\ell})
+=\frac1{k!\ell!}\sum_{\sigma\in S_{k+\ell}}\operatorname{sgn}(\sigma)
+\alpha(v_{\sigma(1)},\ldots,v_{\sigma(k)})
+\beta(v_{\sigma(k+1)},\ldots,v_{\sigma(k+\ell)}).
+$$
+
+这里 $\alpha$ 为 $k$-形式、$\beta$ 为 $\ell$-形式。分母抵消各自块内的重复排列，因而余向量的外积求值正好是行列式，与代数学外代数的乘法一致。
 
 ## 2.18 拉回
 
@@ -285,7 +298,7 @@ $$
 
 流形边界是内蕴概念，未必等于某个嵌入环境中的拓扑边界。
 
-边界诱导定向采用“外法向优先”：$(v_1,\ldots,v_{n-1})$ 为边界正基，当且仅当 $(\nu_{\rm out},v_1,\ldots,v_{n-1})$ 为 $M$ 正基。标准定向的 $[a,b]$ 在 $b$ 给正号、在 $a$ 给负号。圆盘边界由此逆时针定向。这些符号将在 Stokes 中直接使用。
+边界诱导定向采用“外法向优先”：记 $\mathbf n$ 为指向外侧的横截切向量，$(v_1,\ldots,v_{n-1})$ 为边界正基，当且仅当 $(\mathbf n,v_1,\ldots,v_{n-1})$ 为 $M$ 正基。未指定度量时不要求 $\mathbf n$ 是单位向量；Euclidean 边值问题则取外单位法向。标准定向的 $[a,b]$ 在 $b$ 给正号、在 $a$ 给负号。圆盘边界由此逆时针定向。这些符号将在 Stokes 中直接使用。
 
 ## 2.22 几何与微分的联系
 
@@ -293,7 +306,7 @@ $$
 
 建议现在检查 $F^*(xdy-y dx)=r^2d\theta$，再计算两边外微分均为 $2r\,dr\wedge d\theta$。这同时练习链式法则、外积符号和 $dF^*=F^*d$。
 
-## 2.23 李导数初步 ★
+## 2.23 李导数初步 ☆
 
 若向量场的局部流为 $\Phi_t$，李导数 $\mathcal L_X\omega=\left.\frac{d}{dt}\right|_{t=0}\Phi_t^*\omega$。内乘 $\iota_X\omega$ 把第一个输入替换为 $X$，Cartan 公式为
 

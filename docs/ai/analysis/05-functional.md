@@ -8,7 +8,9 @@
 
 ## 5.1 从积分误差到 Lp 空间
 
-两个函数在少数点差很多、其他点几乎相同，一致范数会把这少数点的误差完全算入。若关心整体平均误差，就可以改用 $\|f\|_p=(\int|f|^p)^{1/p}$，$1\leq p<\infty$。允许这个量有限的可测函数组成 $L^p$ 的候选集合。
+一般情形固定测度空间 $(X,\Sigma,\mu)$，完整写法为 $L^p(X,\Sigma,\mu)$，固定后简写 $L^p(X,\mu)$ 或 $L^p$，积分相应对 $\mu$ 进行。$L^p(\Omega)$、$W^{k,p}(\Omega)$ 中 $\Omega\subset\mathbb R^n$，使用限制到 $\Omega$ 的 Lebesgue 测度 $m_n$；实区间使用 $m_1$。下面转入 Euclidean 稠密性与 Sobolev 理论时都沿用此约定。
+
+两个函数在少数点差很多、其他点几乎相同，一致范数会把这少数点的误差完全算入。若关心整体平均误差，就可以改用 $\|f\|_p=(\int_X|f|^p\,d\mu)^{1/p}$，$1\leq p<\infty$。允许这个量有限的可测函数组成 $L^p$ 的候选集合。
 
 但这里有一个必须处理的问题：只在零测集非零的函数积分范数为零，却不是逐点零函数。因此我们把几乎处处相等的函数取为同一元素，$L^p$ 才成为真正的赋范空间。一个 $L^p$ 元素不是某个特定逐点函数，而是整类代表。$L^\infty$ 同样采用本性上确界，即忽略零测例外后的最小统一上界。后两节将证明三角不等式，不能仅凭记号像范数就跳过这一步。
 
@@ -72,7 +74,7 @@ $$
 
 许多定理先对连续或光滑函数证明，再延拓到 $L^p$。这种延拓需要稠密性作保证。对 $p<\infty$，先截断函数值，再向细网格量化，控制收敛使简单函数在 $L^p$ 中逼近原函数。在 $\mathbb R^n$ 上还可以先截到大盒中，使每个相关值层都有有限测度。
 
-对有限测度集合 $E$，正则性给紧集 $K\subset E$ 和有界开集 $O\supset K$，并可使 $m(E\triangle K)+m(O\setminus K)$ 任意小；先截断 $E$ 到大盒后选 $O$ 即可。取连续函数 $\phi$，在 $K$ 为 1、在 $O^c$ 为零、其余在 0 与 1 之间。它可显式写为距离函数之比
+对有限测度集合 $E$，正则性给紧集 $K\subset E$ 和有界开集 $O\supset K$，并可使 $m_n(E\triangle K)+m_n(O\setminus K)$ 任意小；先截断 $E$ 到大盒后选 $O$ 即可。取连续函数 $\phi$，在 $K$ 为 1、在 $O^c$ 为零、其余在 0 与 1 之间。它可显式写为距离函数之比
 
 $$
 \phi(x)=\frac{d(x,O^c)}{d(x,O^c)+d(x,K)}.
@@ -136,7 +138,7 @@ $\|T\|=\sup_{\|x\|\leq1}\|Tx\|$ 是最小可能的界，且 $\|ST\|\leq\|S\|\|T\
 
 ## 5.12 Lp 对偶的积分表示
 
-Hölder 已经说明 $g\in L^q$ 会给连续线性泛函 $\ell_g(f)=\int fg$。现在的问题是，是否所有连续线性观察都来自这样的积分。在 $\sigma$-有限测度空间上，对 $1\leq p<\infty$，答案是肯定的，而且 $\|\ell_g\|=\|g\|_q$。
+Hölder 已经说明 $g\in L^q$ 会给连续线性泛函 $\ell_g(f)=\int_X fg\,d\mu$。现在的问题是，是否所有连续线性观察都来自这样的积分。在 $\sigma$-有限测度空间上，对 $1\leq p<\infty$，答案是肯定的，而且 $\|\ell_g\|=\|g\|_q$。
 
 先设空间测度有限，给定 $\ell\in(L^p)^*$，令 $\nu(A)=\ell(\mathbf1_A)$。若 $A_j$ 不交，则有限部分和的指标函数在 $L^p$ 趋于并集指标函数，因为尾集的测度趋零。连续性给可数可加性。还需验证总变差有限：对任意有限可测分割 $(A_j)$，选模为 1 的系数 $c_j$ 使 $c_j\nu(A_j)=|\nu(A_j)|$，则
 
@@ -145,7 +147,7 @@ $$
 \leq\|\ell\|\mu(X)^{1/p}.
 $$
 
-因此 $\nu$ 是有限符号或复测度，且 $\nu\ll\mu$。3.19 的 Radon–Nikodym 定理给 $g\in L^1$，先在简单函数上得到 $\ell(f)=\int fg$。
+因此 $\nu$ 是有限符号或复测度，且 $\nu\ll\mu$。3.19 的 Radon–Nikodym 定理给 $g\in L^1$，先在简单函数上得到 $\ell(f)=\int_X fg\,d\mu$。
 
 设 $1<p<\infty$。在 $\{|g|\leq N\}$ 上取 $f_N=\overline g\,|g|^{q-2}\mathbf1_{\{|g|\leq N\}}$，$g=0$ 时取零；它有界，可以用有界简单函数逼近，故仍有积分表示。记 $I_N=\int_{|g|\leq N}|g|^q$，有 $I_N\leq\|\ell\|I_N^{1/p}$，所以 $I_N^{1/q}\leq\|\ell\|$。单调收敛得 $g\in L^q$、$\|g\|_q\leq\|\ell\|$。若 $p=1$，对任意可测 $A$ 取 $f=\overline g/|g|\,\mathbf1_A$，得到 $\int_A|g|\leq\|\ell\|\mu(A)$，故 $|g|\leq\|\ell\|$ 几乎处处。Hölder 给相反范数界，因而等号成立。再用简单函数的 $L^p$ 稠密性，将表示延拓到所有 $f$。
 
@@ -163,7 +165,7 @@ $$
 
 证明把泛函看作其全部点值：对每个 $x\in X$，$|\ell(x)|\leq\|x\|$，因此单位球嵌入紧圆盘的乘积 $\prod_x\{z:|z|\leq\|x\|\}$。乘积紧性见附录 A.8。该乘积中，满足 $a(x+y)=a(x)+a(y)$、$a(cx)=ca(x)$ 的点族组成闭集，因为每个等式只涉及有限坐标。每个这样的点族又定义一个范数不超过 1 的连续泛函，所以该闭集恰是对偶单位球。乘积拓扑正是点值收敛拓扑，即弱*拓扑，定理得证。
 
-若 $X$ 可分，选单位球稠密列 $x_j$，在对偶单位球上可用度量 $d(\ell,m)=\sum_j2^{-j}|\ell(x_j)-m(x_j)|/(1+|\ell(x_j)-m(x_j)|)$。稠密性和统一范数界使这些坐标足以控制任意固定 $x$，故此度量产生弱*拓扑，紧性遂给列紧。
+若 $X$ 可分，选单位球稠密列 $x_j$，在对偶单位球上可用度量 $d(\ell,m)=\sum_j2^{-j}|\ell(x_j)-m_n(x_j)|/(1+|\ell(x_j)-m_n(x_j)|)$。稠密性和统一范数界使这些坐标足以控制任意固定 $x$，故此度量产生弱*拓扑，紧性遂给列紧。
 
 ---
 
@@ -171,7 +173,7 @@ $$
 
 ## 5.14 Hilbert 空间与 Riesz 表示
 
-只有范数时，我们知道距离；有内积时，还知道方向之间的角度。完备内积空间称 Hilbert 空间。$L^2$ 取 $\langle f,g\rangle=\int f\overline g$，$\ell^2$ 取相应级数，均对第一变量线性。下面的投影定理将表明，闭子空间允许唯一的正交分解。
+只有范数时，我们知道距离；有内积时，还知道方向之间的角度。完备内积空间称 Hilbert 空间。$L^2$ 取 $\langle f,g\rangle=\int_X f\overline g\,d\mu$，$\ell^2$ 取相应级数，均对第一变量线性。下面的投影定理将表明，闭子空间允许唯一的正交分解。
 
 > 对 Hilbert 空间 $H$ 上任意连续线性泛函 $\ell$，存在唯一 $y\in H$，使 $\ell(x)=\langle x,y\rangle$ 对全部 $x$ 成立，且 $\|\ell\|=\|y\|$。
 
@@ -221,11 +223,13 @@ $$
 
 ## 5.17 伴随算子
 
-> 有界 $T:H\to H$ 的伴随由 $\langle Tx,y\rangle=\langle x,T^*y\rangle$ 唯一确定。
+> 有界 $T:H\to H$ 的伴随由 $\langle Tx,y\rangle=\langle x,T^{\dagger}y\rangle$ 唯一确定。
 
-Riesz 表示保证存在；$\|T^*\|=\|T\|$、$(ST)^*=T^*S^*$。$T=T^*$ 称自伴，$T^*T=TT^*$ 称正规。
+Riesz 表示保证存在；$\|T^{\dagger}\|=\|T\|$、$(ST)^{\dagger}=T^{\dagger}S^{\dagger}$。$T=T^{\dagger}$ 称自伴，$T^{\dagger}T=TT^{\dagger}$ 称正规。
 
-矩阵伴随是共轭转置。$\ker T^*=(\operatorname{ran}T)^\perp$ 给出可解性与正交障碍的关系。无界微分算子的伴随还取决于定义域和边界条件，本节的有界理论不能直接套用。
+矩阵伴随是共轭转置。$\ker T^{\dagger}=(\operatorname{im}T)^\perp$ 给出可解性与正交障碍的关系。无界微分算子的伴随还取决于定义域和边界条件，本节的有界理论不能直接套用。
+
+这里的 $T^\dagger$ 与连续对偶上的映射 $T^*:H^*\to H^*$ 不同：后者定义为 $T^*\ell=\ell\circ T$，在有限维对偶基中的矩阵是转置。复内积的 Riesz 识别是共轭线性的，正是它使内积伴随出现共轭转置。
 
 ## 5.18 不动点工具
 
@@ -329,15 +333,15 @@ $$
 I-K=(I-R)(I-G),\qquad G=(I-R)^{-1}F.
 $$
 
-$G$ 有限秩。令 $E=\operatorname{ran}G$，相对分解 $H=E\oplus E^\perp$，算子 $I-G$ 写成
+$G$ 有限秩。令 $E=\operatorname{im}G$，相对分解 $H=E\oplus E^\perp$，算子 $I-G$ 写成
 
 $$
 \begin{pmatrix}A&B\\0&I\end{pmatrix},\qquad A=(I-G)|_E.
 $$
 
-其核等同于有限维矩阵 $A$ 的核。值域中第二分量可任意指定，第一分量仅需模 $\operatorname{ran}A$ 满足约束，故值域闭且余维为 $\dim E-\dim\operatorname{ran}A=\dim\ker A$。左乘可逆算子不改变核维数和余维，也保持闭值域，所以 $I-K$ Fredholm且指标零。
+其核等同于有限维矩阵 $A$ 的核。值域中第二分量可任意指定，第一分量仅需模 $\operatorname{im}A$ 满足约束，故值域闭且余维为 $\dim E-\dim\operatorname{im}A=\dim\ker A$。左乘可逆算子不改变核维数和余维，也保持闭值域，所以 $I-K$ Fredholm且指标零。
 
-最后，任何有闭值域的 Hilbert 算子 $T$ 都有 $\operatorname{ran}T=(\ker T^*)^\perp$：正交关系先给值域闭包，而闭值域去掉闭包。因此 $(I-K)u=f$ 可解恰当且仅当 $f$ 与伴随齐次解正交；解之间的差属于核。这是有限维线性方程兼容条件的直接推广。一般 Banach 空间的同一 Fredholm 结论也成立，但不能使用上面特有的正交投影证明。
+最后，任何有闭值域的 Hilbert 算子 $T$ 都有 $\operatorname{im}T=(\ker T^{\dagger})^\perp$：正交关系先给值域闭包，而闭值域去掉闭包。因此 $(I-K)u=f$ 可解恰当且仅当 $f$ 与伴随齐次解正交；解之间的差属于核。这是有限维线性方程兼容条件的直接推广。一般 Banach 空间的同一 Fredholm 结论也成立，但不能使用上面特有的正交投影证明。
 
 ## 5.26 紧自伴算子的谱分解
 
@@ -363,7 +367,7 @@ $$
 
 紧性给 $Tx_n$ 的收敛子列，$\lambda\ne0$ 于是也给 $x_n$ 收敛到单位向量 $x$。取极限得 $Tx=\lambda x$。这样最大绝对特征值确实存在，而不是仅有逼近它的向量。
 
-不同特征值的向量正交，因为 $\lambda\langle x,y\rangle=\langle Tx,y\rangle=\langle x,Ty\rangle=\mu\langle x,y\rangle$。每个非零特征空间有限维，否则其中的无限正交单位列经 $T$ 后仍两两距离固定，违背紧性。同理，对任意 $\varepsilon>0$，绝对值至少为 $\varepsilon$ 的特征值连同重数只可能有限个。
+不同特征值的向量正交：若 $Tx=\lambda x$、$Ty=\lambda' y$，自伴性给 $\lambda,\lambda'\in\mathbb R$，且 $\lambda\langle x,y\rangle=\langle Tx,y\rangle=\langle x,Ty\rangle=\lambda'\langle x,y\rangle$。每个非零特征空间有限维，否则其中的无限正交单位列经 $T$ 后仍两两距离固定，违背紧性。同理，对任意 $\varepsilon>0$，绝对值至少为 $\varepsilon$ 的特征值连同重数只可能有限个。
 
 取全部非零特征空间的闭线性包 $V$。$V^\perp$ 对 $T$ 不变；若其上限制算子非零，刚才的极值论证又会找到一个非零特征向量，与 $V$ 的定义矛盾。因此 $T$ 在 $V^\perp$ 上为零，且 $V^\perp=\ker T$。选各特征空间与核的正交基，得到分解
 
@@ -375,7 +379,7 @@ $$
 
 ## 5.27 分布
 
-测试函数空间 $\mathcal D(\Omega)=C_c^\infty(\Omega)$ 带标准测试函数拓扑；分布是其连续线性泛函。局部可积 $f$ 给 $T_f(\varphi)=\int f\varphi$，Dirac 分布给 $\delta_a(\varphi)=\varphi(a)$。
+测试函数空间 $\mathcal D(\Omega)=C_c^\infty(\Omega)$ 带标准测试函数拓扑；分布是其连续线性泛函。局部可积 $f$ 给 $T_f(\varphi)=\int_\Omega f\varphi\,dm_n$，Dirac 分布给 $\delta_a(\varphi)=\varphi(a)$。
 
 分布导数定义为 $\partial_jT(\varphi)=-T(\partial_j\varphi)$，使分部积分无需经典导数。例如，实线阶跃 $H=\mathbf1_{(0,\infty)}$ 满足 $H'(\varphi)=-\int_0^\infty\varphi'=\varphi(0)$，所以 $H'=\delta_0$。分布捕获跳跃带来的集中变化。
 
@@ -406,7 +410,7 @@ $$
 
 > 设实 Hilbert 空间上双线性形式满足 $|a(u,v)|\leq M\|u\|\|v\|$、$a(u,u)\geq c\|u\|^2$，$c>0$。对每个连续线性 $\ell$，有唯一 $u$ 满足 $a(u,v)=\ell(v)$，且 $\|u\|\leq\|\ell\|/c$。
 
-证明用 Riesz 表示写 $a(u,v)=\langle Au,v\rangle$、$\ell(v)=\langle f,v\rangle$。$A$ 有界，强制性给 $c\|u\|\leq\|Au\|$，故单射且值域闭：若 $Au_n$ Cauchy，则 $u_n$ Cauchy，完备性给原像极限。若 $w\perp\operatorname{ran}A$，取输入 $w$，有 $0=\langle Aw,w\rangle=a(w,w)\geq c\|w\|^2$，所以 $w=0$。闭且正交补为零的值域等于全空间，因此 $Au=f$ 有唯一解，估计也由下界得到。
+证明用 Riesz 表示写 $a(u,v)=\langle Au,v\rangle$、$\ell(v)=\langle f,v\rangle$。$A$ 有界，强制性给 $c\|u\|\leq\|Au\|$，故单射且值域闭：若 $Au_n$ Cauchy，则 $u_n$ Cauchy，完备性给原像极限。若 $w\perp\operatorname{im}A$，取输入 $w$，有 $0=\langle Aw,w\rangle=a(w,w)\geq c\|w\|^2$，所以 $w=0$。闭且正交补为零的值域等于全空间，因此 $Au=f$ 有唯一解，估计也由下界得到。
 
 对 Poisson 方程取 $a(u,v)=\int\nabla u\cdot\nabla v$。Poincaré 不等式使梯度范数与 $H_0^1$ 范数等价，因而强制；$f\in L^2$ 时右端由 Hölder 与 Poincaré 连续。定理遂给唯一弱解，而不要求先猜经典公式。
 

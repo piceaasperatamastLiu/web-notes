@@ -52,6 +52,8 @@ $$
 
 循环群由一个元素生成。考虑同态 $\mathbb Z\to\langle g\rangle$，$n\mapsto g^n$；核或为零，或为 $m\mathbb Z$。所以循环群同构于 $\mathbb Z$ 或 $\mathbb Z/m\mathbb Z$。
 
+有限循环群统一记为 $C_m=\mathbb Z/m\mathbb Z$，其中 $m\geq1$；后文的 $C_2,C_3$ 都使用这一记号。
+
 循环群的子群仍循环：对非平凡子群取最小正指数 $d$，带余除法说明子群恰为 $\langle g^d\rangle$。在阶为 $m$ 的循环群中，$g^r$ 的阶为 $m/\gcd(m,r)$。这给出许多元素阶的直接计算，而不必逐次乘到单位元。
 
 ## 1.7 置换群与对称群
@@ -83,7 +85,7 @@ $$
 
 若 $gG_x=hG_x$，则 $h^{-1}g$ 固定 $x$，所以 $gx=hx$；反之也成立。这证明良定义和单射，满射显然。这里 $G/G_x$ 是陪集集合，$G_x$ 不正规时不要把它当商群。
 
-双重计数还给出 Burnside 计数公式：
+若 $G$ 和 $X$ 都有限，记 $X^g=\{x\in X:gx=x\}$ 为 $g$ 的固定点集。双重计数还给出 Burnside 计数公式：
 
 $$
 \#(X/G)=\frac1{\lvert G\rvert}\sum_{g\in G}\lvert X^g\rvert.

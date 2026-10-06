@@ -4,7 +4,7 @@
 
 我们先在圆周上研究部分和与平均和，再进入全空间变换。正的近似恒等核将反复出现：它既证明 Fejér 收敛，也证明光滑化和 Fourier 反演。之后的极大函数与奇异积分则处理更困难的局部控制和抵消问题。
 
-全章取 $\mathbb T=\mathbb R/\mathbb Z$、圆周积分为 $\int_0^1$，全空间变换指数为 $-2\pi ix\cdot\xi$。公式中的常数由这一约定决定，计算例题时应始终使用同一套约定。
+全章取 $\mathbb T=\mathbb R/\mathbb Z$，其归一化 Haar 测度记为 $m_{\mathbb T}$，总质量为 $1$；圆周积分可在基本域上写成 $\int_0^1\,dm_1(x)$。全空间使用 Lebesgue 测度 $m_n$，$dx,dy,d\xi$ 分别简写 $dm_n(x),dm_n(y),dm_n(\xi)$；7.15–7.18 的集合测度也统一写 $m_n(E)$，不用集合的绝对值符号代替测度。全空间变换指数为 $-2\pi ix\cdot\xi$。公式中的常数由这一约定决定，计算例题时应始终使用同一套约定。
 
 ## 7.1 Fourier 级数
 
@@ -115,7 +115,7 @@ $$
 I_\varepsilon(x)=\int\widehat f(\xi)e^{2\pi ix\cdot\xi}e^{-\pi\varepsilon|\xi|^2}d\xi.
 $$
 
-对 $f\in L^1$，阻尼使二重积分绝对可积，Fubini 合法。代入变换并使用 Gaussian 公式，得到 $I_\varepsilon=f*G_\varepsilon$，其中 $G_\varepsilon(x)=\varepsilon^{-n/2}e^{-\pi|x|^2/\varepsilon}$。核非负、单位质量、远处质量趋零，故在 $L^1$ 中 $f*G_\varepsilon\to f$；证明与 Fejér 一样，先用连续紧支撑函数近似，或用平移连续性。
+对 $f\in L^1$，阻尼使二重积分绝对可积，Fubini 合法。代入变换并使用 Gaussian 公式，得到 $I_\varepsilon=f*\gamma_\varepsilon$，其中 $\gamma_\varepsilon(x)=\varepsilon^{-n/2}e^{-\pi|x|^2/\varepsilon}$。核非负、单位质量、远处质量趋零，故在 $L^1$ 中 $f*\gamma_\varepsilon\to f$；证明与 Fejér 一样，先用连续紧支撑函数近似，或用平移连续性。这里的 $\gamma_\varepsilon$ 与第 8 章热核的参数不同：$\gamma_\varepsilon=G_{\varepsilon/(4\pi)}$。
 
 若还知道 $\widehat f\in L^1$，控制收敛使 $I_\varepsilon$ 一致趋于连续函数 $F(x)=\int\widehat f(\xi)e^{2\pi ix\cdot\xi}d\xi$。另一方面，从 $L^1$ 收敛抽取几乎处处收敛子列，便识别 $F=f$ 几乎处处。若原 $f$ 连续，则处处相等。这样得到反演公式，并明确了一般可积函数只能按等价类理解的原因。
 
@@ -124,6 +124,8 @@ $$
 平移一个核，让它在每个位置对函数取加权平均，就得到卷积。它把平滑、滤波和传播写成同一运算，频率域中的乘法公式则说明这些操作如何改变各频率。
 
 > $(f*g)(x)=\int f(x-y)g(y)dy$。
+
+换元后也等于 $\int f(y)g(x-y)dy$。这一写法对应有限群章的 $\sum_yf(y)g(y^{-1}x)$，因为加法群中的 $y^{-1}x$ 就是 $x-y$。
 
 $L^1*L^1\subset L^1$，Tonelli 给 $\|f*g\|_1\leq\|f\|_1\|g\|_1$；Young 不等式在 $1+1/r=1/p+1/q$、各指数至少 1 时给 $\|f*g\|_r\leq\|f\|_p\|g\|_q$。
 
@@ -167,7 +169,7 @@ Schwartz 函数的快速衰减使无穷远端可控，适合全空间 Fourier �
 
 ## 7.12 分布 Fourier 变换
 
-> 线性配对约定下定义 $\langle\widehat T,\varphi\rangle=\langle T,\widehat\varphi\rangle$。
+> 对线性分布定义 $\widehat T(\varphi)=T(\widehat\varphi)$。这里是泛函求值，不是 Hilbert 内积，因此不对测试函数取共轭。
 
 这与普通函数变换的 Fubini 计算一致。由此 $\widehat{\delta_0}=1$、$\widehat1=\delta_0$，$\widehat{\partial_jT}=2\pi i\xi_j\widehat T$。
 
@@ -201,12 +203,12 @@ Schwartz 函数的快速衰减使无穷远端可控，适合全空间 Fourier �
 
 覆盖引理给出的体积控制，可以用于局部平均的最大值。下面将证明：
 
-> Hardy–Littlewood 极大函数满足 $m(Mf>\lambda)\leq C_n\|f\|_1/\lambda$。对于 $1<p<\infty$，还满足 $\|Mf\|_p\leq C_{n,p}\|f\|_p$。由此可以推出 Lebesgue 微分定理：局部可积函数在几乎每点的局部平均趋于该点的函数值。
+> Hardy–Littlewood 极大函数满足 $m_n(\{x:Mf(x)>\lambda\})\leq C_n\|f\|_1/\lambda$。对于 $1<p<\infty$，还满足 $\|Mf\|_p\leq C_{n,p}\|f\|_p$。由此可以推出 Lebesgue 微分定理：局部可积函数在几乎每点的局部平均趋于该点的函数值。
 
-对 $f\in L^1$，定义 $Mf(x)=\sup_{r>0}m(B(x,r))^{-1}\int_{B(x,r)}|f|$。令 $E_\lambda=\{Mf>\lambda\}$。每点 $x\in E_\lambda$ 有一个中心在 $x$ 的球，其平均超过 $\lambda$。对任意紧集 $K\subset E_\lambda$，选有限个这样的球覆盖它，再用上一节的不交选择，得到
+对 $f\in L^1$，定义 $Mf(x)=\sup_{r>0}m_n(B(x,r))^{-1}\int_{B(x,r)}|f(y)|\,dm_n(y)$。令 $E_\lambda=\{Mf>\lambda\}$。每点 $x\in E_\lambda$ 有一个中心在 $x$ 的球，其平均超过 $\lambda$。对任意紧集 $K\subset E_\lambda$，选有限个这样的球覆盖它，再用上一节的不交选择，得到
 
 $$
-m(K)\leq3^n\sum_jm(B_j)
+m_n(K)\leq3^n\sum_jm(B_j)
 <\frac{3^n}{\lambda}\sum_j\int_{B_j}|f|
 \leq\frac{3^n}{\lambda}\|f\|_1.
 $$
@@ -216,21 +218,21 @@ $$
 若 $p>1$，把 $f$ 分成 $|f|>\lambda/2$ 的大值部分和其余小值部分，后者极大值不超过 $\lambda/2$。因此
 
 $$
-m(Mf>\lambda)\leq\frac{2C_n}{\lambda}
+m_n(\{x:Mf(x)>\lambda\})\leq\frac{2C_n}{\lambda}
 \int_{|f|>\lambda/2}|f|.
 $$
 
-层积分恒等式 $\int h^p=p\int_0^\infty\lambda^{p-1}m(h>\lambda)d\lambda$ 由 Tonelli 得到。代入上界再换序，内部积分是 $\int_0^{2|f|}\lambda^{p-2}d\lambda$，得 $\|Mf\|_p\leq C_{n,p}\|f\|_p$。这是显式插值证明，不需要另外引用插值定理。
+层积分恒等式 $\int h^p=p\int_0^\infty\lambda^{p-1}m_n(\{x:h(x)>\lambda\})d\lambda$ 由 Tonelli 得到。代入上界再换序，内部积分是 $\int_0^{2|f|}\lambda^{p-2}d\lambda$，得 $\|Mf\|_p\leq C_{n,p}\|f\|_p$。这是显式插值证明，不需要另外引用插值定理。
 
 ---
 
-现在证明微分定理。对 $f\in L^1$，令 $Df(x)$ 为 $r\downarrow0$ 时平均 $|f(y)-f(x)|$ 的上极限。选连续紧支撑 $g$ 在 $L^1$ 逼近 $f$；因为 $g$ 连续，
+现在证明微分定理。对 $f\in L^1$，令 $\mathcal O f(x)$ 为 $r\downarrow0$ 时平均 $|f(y)-f(x)|$ 的上极限。选连续紧支撑 $g$ 在 $L^1$ 逼近 $f$；因为 $g$ 连续，
 
 $$
-Df(x)\leq M(f-g)(x)+|f(x)-g(x)|.
+\mathcal O f(x)\leq M(f-g)(x)+|f(x)-g(x)|.
 $$
 
-弱型估计与 Markov 给 $m(Df>\varepsilon)\leq C\|f-g\|_1/\varepsilon$。逼近误差任意小，故此集合零测；再让 $\varepsilon$ 取可数个正有理数，得 $Df=0$ 几乎处处。局部可积函数先截断到每个大球，在更小球中只看足够小半径，然后可数拼接即可。
+弱型估计与 Markov 给 $m_n(\{x:\mathcal O f(x)>\varepsilon\})\leq C\|f-g\|_1/\varepsilon$。逼近误差任意小，故此集合零测；再让 $\varepsilon$ 取可数个正有理数，得 $\mathcal O f=0$ 几乎处处。局部可积函数先截断到每个大球，在更小球中只看足够小半径，然后可数拼接即可。
 
 所以几乎每点的局部平均趋于函数值。在一维，单侧区间平均的误差不超过相应对称区间误差的常数倍，因此 $F(x)=\int_a^xf$ 在这些点满足 $F'=f$。这完成 3.20 中基本定理所需的独立证明。
 
@@ -238,9 +240,9 @@ $$
 
 奇异积分对尖峰输入难以直接控制，我们希望把输入分成一个有界的好部分和局部均值为零的坏部分。取 $f\in L^1(\mathbb R^n)$、阈值 $\lambda>0$，在 dyadic 立方体中选平均 $|f|$ 超过 $\lambda$ 的极大立方体 $Q_j$。
 
-这些极大块存在，因为体积足够大的祖先平均至多 $\|f\|_1/|Q|$，最终低于阈值；dyadic 块彼此嵌套或不交，因此极大块两两不交。父块平均不超过 $\lambda$，所以每个坏块的平均至多 $2^n\lambda$。并且 $\sum_j|Q_j|\leq\|f\|_1/\lambda$。
+这些极大块存在，因为体积足够大的祖先平均至多 $\|f\|_1/m_n(Q)$，最终低于阈值；dyadic 块彼此嵌套或不交，因此极大块两两不交。父块平均不超过 $\lambda$，所以每个坏块的平均至多 $2^n\lambda$。并且 $\sum_jm_n(Q_j)\leq\|f\|_1/\lambda$。
 
-令 $g=f$ 在坏块外，而在 $Q_j$ 上取均值 $f_{Q_j}$；令 $b_j=(f-f_{Q_j})\mathbf1_{Q_j}$。块外每个包含该点的 dyadic 块平均都不超过阈值，Lebesgue 微分定理给 $|f|\leq\lambda$ 几乎处处。故 $|g|\leq2^n\lambda$，且 $\|g\|_1\leq\|f\|_1$。每个 $b_j$ 支撑在 $Q_j$、积分为零，并有 $\sum_j\|b_j\|_1\leq2\|f\|_1$。
+记 $f_{Q_j}=m_n(Q_j)^{-1}\int_{Q_j}f\,dm_n$。令 $g=f$ 在坏块外，而在 $Q_j$ 上取均值 $f_{Q_j}$；令 $b_j=(f-f_{Q_j})\mathbf1_{Q_j}$。块外每个包含该点的 dyadic 块平均都不超过阈值，Lebesgue 微分定理给 $|f|\leq\lambda$ 几乎处处。故 $|g|\leq2^n\lambda$，且 $\|g\|_1\leq\|f\|_1$。每个 $b_j$ 支撑在 $Q_j$、积分为零，并有 $\sum_j\|b_j\|_1\leq2\|f\|_1$。
 
 于是 $f=g+\sum_jb_j$，好部分有 $L^2$ 界 $\|g\|_2^2\leq2^n\lambda\|f\|_1$，坏部分有局部化与均值零。均值零不是附带性质：它允许在积分核中减去一个常值，消去最危险的远场项。
 
@@ -248,7 +250,7 @@ $$
 
 设线性 $T$ 在 $L^2$ 有界，离输入支撑有核表示。假设核大小 $|K(x,y)|\leq C|x-y|^{-n}$，并在 $|y-y'|\leq|x-y|/2$ 时满足 $|K(x,y)-K(x,y')|\leq C|y-y'|^\alpha/|x-y|^{n+\alpha}$，$\alpha>0$；交换两变量也有相应条件。下面证明它在 $1<p<\infty$ 有界。
 
-先对 $f\in L^1\cap L^2$ 作上一节分解。好部分用 $L^2$ 有界性与 Chebyshev，得 $m(|Tg|>\lambda/2)\leq C\|f\|_1/\lambda$。把坏块放大固定维数倍，放大并的体积也不超过同一量级。
+先对 $f\in L^1\cap L^2$ 作上一节分解。好部分用 $L^2$ 有界性与 Chebyshev，得 $m_n(\{x:|Tg(x)|>\lambda/2\})\leq C\|f\|_1/\lambda$。把坏块放大固定维数倍，放大并的体积也不超过同一量级。
 
 在放大块外，记 $c_j$ 为中心。均值零给
 
@@ -256,12 +258,12 @@ $$
 Tb_j(x)=\int_{Q_j}[K(x,y)-K(x,c_j)]b_j(y)dy.
 $$
 
-核差分估计后对外部 $x$ 积分，径向积分 $\int_{r>c\ell_j}\ell_j^\alpha r^{-n-\alpha}dx$ 为统一常数，因此 $\int_{(Q_j^*)^c}|Tb_j|\leq C\|b_j\|_1$。先对有限坏块求和，再用 $L^2$ 连续性及 Fatou 取极限，得到坏部分在放大并之外的 $L^1$ 控制。再用 Markov，合并三项，得 $m(|Tf|>\lambda)\leq C\|f\|_1/\lambda$，即弱 $(1,1)$。
+核差分估计后对外部 $x$ 积分，径向积分 $\int_{r>c\ell_j}\ell_j^\alpha r^{-n-\alpha}dx$ 为统一常数，因此 $\int_{(Q_j^*)^c}|Tb_j|\leq C\|b_j\|_1$。先对有限坏块求和，再用 $L^2$ 连续性及 Fatou 取极限，得到坏部分在放大并之外的 $L^1$ 控制。再用 Markov，合并三项，得 $m_n(\{x:|Tf(x)|>\lambda\})\leq C\|f\|_1/\lambda$，即弱 $(1,1)$。
 
 对 $1<p<2$，以阈值 $\lambda$ 把任意输入分大、小值部分：大部分用弱 $(1,1)$，小部分用强 $(2,2)$，得到
 
 $$
-m(|Tf|>\lambda)\leq\frac C\lambda\int_{|f|>\lambda}|f|
+m_n(\{x:|Tf(x)|>\lambda\})\leq\frac C\lambda\int_{|f|>\lambda}|f|
 +\frac C{\lambda^2}\int_{|f|\leq\lambda}|f|^2.
 $$
 
@@ -269,7 +271,7 @@ $$
 
 这段证明解释了为何仅有核的大小界不足：好部分需要 $L^2$ 前提，坏部分需要均值抵消和核光滑性。Hilbert 变换是这个框架的典型例子；端点 $p=1$ 只能得到弱型，不能由上述积分计算得到强型。
 
-## 7.19 Littlewood–Paley 理论 ★
+## 7.19 Littlewood–Paley 理论 ☆
 
 选光滑 dyadic 频率分割 $\sum_{j\in\mathbb Z}\psi(2^{-j}\xi)=1$（$\xi\ne0$），定义 $\Delta_j$ 为相应乘子。在 Schwartz 函数上，对 $1<p<\infty$，
 
@@ -279,13 +281,13 @@ $$
 
 一般分布的齐次理论有低频与多项式商的细节，不能忽略。$p=2$ 时频率近乎不交直接给出平方和；一般 $p$ 需奇异积分与随机化工具。它把函数大小转换为各频率尺度的能量。
 
-## 7.20 小波与多分辨率分析 ★
+## 7.20 小波与多分辨率分析 ☆
 
 多分辨率分析用嵌套空间 $V_j\subset V_{j+1}$、尺度变换、交为零且并稠密描述分辨率。细节空间 $W_j=V_{j+1}\ominus V_j$ 给小波分解。
 
 Haar 小波 $\psi=\mathbf1_{[0,1/2)}-\mathbf1_{[1/2,1)}$，其 $2^{j/2}\psi(2^jx-k)$ 构成 $L^2(\mathbb R)$ 正交基。一个区间两半的平均差就是细节系数：它测量局部变化，适合跳跃和局部特征。更光滑小波改善导数与压缩表现。
 
-## 7.21 Gabor 变换与时频分析 ★
+## 7.21 Gabor 变换与时频分析 ☆
 
 给窗口 $g\in L^2$，短时 Fourier 变换 $V_gf(x,\xi)=\int f(t)\overline{g(t-x)}e^{-2\pi it\xi}dt$。窗口给位置定位，指数给频率定位。Plancherel 与 Fubini 给 Moyal 等式 $\|V_gf\|_{L^2(\mathbb R^2)}=\|f\|_2\|g\|_2$。
 

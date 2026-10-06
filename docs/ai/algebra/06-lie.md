@@ -6,7 +6,7 @@
 
 ## 6.1 矩阵群与经典群
 
-$\mathrm{GL}_n(\mathbb R)$ 是行列式非零的实矩阵，$\mathrm{SL}_n$ 增加行列式为一的条件。正交群满足 $A^TA=I$，酉群满足 $A^\dagger A=I$，辛群满足 $A^TJA=J$，其中 $J$ 为非退化交替型矩阵。
+$\mathrm{GL}_n(\mathbb R)$ 是行列式非零的实矩阵，$\mathrm{SL}_n$ 增加行列式为一的条件。正交群满足 $A^{\mathsf T}A=I$，酉群满足 $A^\dagger A=I$，辛群满足 $A^{\mathsf T}JA=J$，其中 $J$ 为非退化交替型矩阵。
 
 这些条件表达保持不同的几何量：体积、长度、Hermitian 内积、辛形式。注意 $\mathrm{SO}(n)$ 还要求行列式为一，而 $\mathrm O(n)$ 有两个连通分支。复矩阵群作为实流形与作为复流形时维数不同，讨论前应明确底域。
 
@@ -24,11 +24,11 @@ $\mathrm{GL}_n(\mathbb R)$ 是行列式非零的实矩阵，$\mathrm{SL}_n$ 增�
 
 $$
 \mathfrak{sl}_n=\{X:\operatorname{tr}X=0\},\quad
-\mathfrak{so}_n=\{X:X^T+X=0\},\quad
+\mathfrak{so}_n=\{X:X^{\mathsf T}+X=0\},\quad
 \mathfrak u_n=\{X:X^\dagger+X=0\}.
 $$
 
-辛条件给出 $X^TJ+JX=0$。例如 $\det(I+tX)=1+t\operatorname{tr}X+O(t^2)$，故特殊线性群对应迹零条件。
+辛条件给出 $X^{\mathsf T}J+JX=0$。例如 $\det(I+tX)=1+t\operatorname{tr}X+O(t^2)$，故特殊线性群对应迹零条件。
 
 曲线的群交换子满足
 
@@ -106,7 +106,7 @@ $$
 给出关键证明。对 $\dim\mathfrak g$ 归纳，选包含 $[\mathfrak g,\mathfrak g]$ 的余维一理想 $\mathfrak a$，写 $\mathfrak g=\mathfrak a+\mathbb Cx$。归纳得非零 $v$ 满足 $av=\lambda(a)v$。令 $v_j=x^jv$，取首次相关前的循环空间 $U$。利用 $[a,x]\in\mathfrak a$ 归纳可得
 
 $$
-av_j=\lambda(a)v_j+\operatorname{span}(v_0,\ldots,v_{j-1}).
+av_j-\lambda(a)v_j\in\operatorname{span}(v_0,\ldots,v_{j-1}).
 $$
 
 $U$ 对 $\mathfrak a$ 与 $x$ 都不变，$a$ 在此处的迹为 $\dim U\,\lambda(a)$。交换子迹为零，因此 $\lambda([x,a])=0$。共同特征空间 $E=\{w:aw=\lambda(a)w\ \forall a\in\mathfrak a\}$ 非零，且
@@ -190,6 +190,8 @@ $$
 
 ## 6.16 根系
 
+对根 $\alpha$，选归一化的根 $\mathfrak{sl}_2$ 三元组 $e_\alpha,f_\alpha,h_\alpha$，使 $[e_\alpha,f_\alpha]=h_\alpha$、$\alpha(h_\alpha)=2$。余根 $\alpha^\vee$ 表示这个 Cartan 元素 $h_\alpha$；权与余根的配对是求值 $\langle\lambda,\alpha^\vee\rangle=\lambda(h_\alpha)$，不是 Hermitian 内积。
+
 把根放在其张成的实欧氏空间中。反射为
 
 $$
@@ -199,6 +201,10 @@ s_\alpha(\beta)=\beta-\langle\beta,\alpha^\vee\rangle\alpha,
 $$
 
 根串来自根 $\mathfrak{sl}_2$ 的伴随表示，因此这些配对是整数。选正根后，不能进一步写成正根之和的根为简单根；它们构成根格的基，每个正根是简单根的非负整数和。这些是 6.14 结构定理包含的根系事实。
+
+对简单根 $\alpha_i$，缩写 $e_i=e_{\alpha_i}$、$f_i=f_{\alpha_i}$、$h_i=h_{\alpha_i}$。后文的整性条件 $\lambda(h_i)\in\mathbb N$ 和基本权定义使用的都是这些余根元素。
+
+Cartan 矩阵统一取 $a_{ij}=\alpha_j(h_i)=\langle\alpha_j,\alpha_i^\vee\rangle$；第 6.28 节的 $[h_i,e_j]=a_{ij}e_j$ 使用同一指标次序。
 
 对 $\mathfrak{sl}_3$ 可取 $\alpha_1=\varepsilon_1-\varepsilon_2$、$\alpha_2=\varepsilon_2-\varepsilon_3$，正根为 $\alpha_1,\alpha_2,\alpha_1+\alpha_2$，根系是一个六边形。此时 Cartan 矩阵为 $\begin{pmatrix}2&-1\\-1&2\end{pmatrix}$。
 
@@ -259,7 +265,7 @@ $$
 =\mathbb CI\oplus\mathfrak{sl}_3.
 $$
 
-群作用是共轭，李代数作用是交换子，因此标量部分平凡，迹零部分伴随。另一例子是 $3\otimes3=S^2(3)\oplus\Lambda^2(3)$，维数为 $6+3$；体积型使 $\Lambda^2(3)\cong3^*$，但需要特殊线性群条件。
+群作用是共轭，李代数作用是交换子，因此标量部分平凡，迹零部分伴随。记 $\mathbf3=\mathbb C^3$ 为标准表示，$\mathbf6=S^2\mathbf3$、$\mathbf8=\mathfrak{sl}_3$，$\mathbf1$ 为平凡表示；粗体数字在这里表示模，而不是普通整数。另一例子是 $\mathbf3\otimes\mathbf3=S^2\mathbf3\oplus\Lambda^2\mathbf3$，维数为 $6+3$；体积型使 $\Lambda^2\mathbf3\cong\mathbf3^*$，但需要特殊线性群条件。
 
 ## 6.22 最高权定理 ★ ※
 
@@ -328,6 +334,8 @@ $$
 \langle v,w\rangle_K=\int_K\langle kv,kw\rangle_0\,dk.
 $$
 
+这里 $dk$ 简写 $dm_K(k)$，$m_K$ 是满足 $m_K(K)=1$ 的 Haar 测度，与有限群 Fourier 章使用的计数测度 $m_G$ 区分。
+
 它正定且 $K$-不变。任意 $\mathfrak g$-不变子空间也对积分群不变，正交补对 $K$、$\mathfrak k$ 及其复化 $\mathfrak g$ 不变。因此每个子表示有不变补，按维数归纳完成。这个证明完整解释平均步骤，但紧实形式和积分定理的建立属于借用的李群结构输入。
 
 对 $\mathfrak{sl}_2$，输入可直接验证：$\mathfrak{su}_2$ 的复化为 $\mathfrak{sl}_2$，$\operatorname{SU}(2)$ 同胚于单位四元数的 $S^3$，紧且单连通。因此这一路线独立证明 $\mathfrak{sl}_2$ 的完全可约性，没有使用最高权分类来假定分解。
@@ -356,7 +364,7 @@ $$
 
 一般半单情形，张量积的权重数由两个权多重集卷积得到，再逐次减去最高权不可约的特征标。不可约的最高权向量张量仍是最高权向量，所以 $L_{\lambda+\mu}$ 在 $L_\lambda\otimes L_\mu$ 中出现一次。
 
-这只能确定最高的一项，其余项还需权重数或 Weyl 公式。对 $\mathfrak{sl}_3$，$3\otimes3^*=1\oplus8$ 与 $3\otimes3=6\oplus3^*$ 已给出完整例子。第一遍应先练习这些低维计算，再学习 Littlewood–Richardson 规则。
+这只能确定最高的一项，其余项还需权重数或 Weyl 公式。对 $\mathfrak{sl}_3$，$\mathbf3\otimes\mathbf3^*=\mathbf1\oplus\mathbf8$ 与 $\mathbf3\otimes\mathbf3=\mathbf6\oplus\mathbf3^*$ 已给出完整例子，记号沿用 6.21。第一遍应先练习这些低维计算，再学习 Littlewood–Richardson 规则。
 
 ## 6.27 无穷维李代数初步 ☆
 

@@ -105,6 +105,8 @@ $\mathbb R$ 与圆群有相同的一维交换李代数，前者单连通、后�
 
 ## D. 符号表
 
+跨讲义的约定见[共同符号约定](../notation.md)。本表只补充所在讲义的专门记号。
+
 | 符号 | 含义 |
 | --- | --- |
 | $G_x,C_G(x),N_G(H)$ | 稳定子、中心化子、正规化子 |
@@ -117,6 +119,7 @@ $\mathbb R$ 与圆群有相同的一维交换李代数，前者单连通、后�
 | $\mathfrak h,\Phi,W$ | Cartan 子代数、根系、Weyl 群 |
 | $U(\mathfrak g),M_\lambda,L_\lambda$ | 包络代数、Verma 模、最高权简单模 |
 | $H_n,H^n,\operatorname{Ext},\operatorname{Tor}$ | 同调、上同调、导出函子 |
+| $m_G,m_K$ | 有限群计数测度、紧群归一化 Haar 测度 |
 
 ## E. 定理索引
 

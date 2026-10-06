@@ -10,6 +10,8 @@
 
 > 概率空间 $(\Omega,\mathcal F,\mathbb P)$ 满足 $\mathbb P(\Omega)=1$。
 
+这是第 3 章一般测度空间 $(X,\Sigma,\mu)$ 的特例：此处 $X=\Omega$、$\Sigma=\mathcal F$、$\mu=\mathbb P$。本章样本空间上的几乎处处都指 $\mathbb P$-几乎处处，也称几乎必然；实线上的密度与时间积分使用 $m_1$，不把 $dt$ 当作概率测度。随机变量的分布 $\mu_X$ 是实线上的推前测度，与样本空间上的 $\mathbb P$ 是不同的对象。
+
 事件是可测集合，补事件概率为 $1-\mathbb P(A)$。可数并满足 $\mathbb P(\bigcup A_n)\leq\sum\mathbb P(A_n)$。
 
 有限均匀样本空间中概率就是事件基数除以总基数；连续模型使用密度或其他概率测度。密度不是必须存在，Dirac 与 Cantor 分布都合法。
@@ -19,6 +21,8 @@
 > 随机变量 $X:\Omega\to\mathbb R$ 是可测函数，分布为推前 $\mu_X(A)=\mathbb P(X\in A)$。
 
 分布函数 $F_X(t)=\mathbb P(X\leq t)$ 非减、右连续，并有两端极限 0、1。
+
+正态分布记为 $\mathcal N(m,\sigma^2)$，第二个参数是方差；多维记为 $\mathcal N(m,\Sigma)$，其中 $\Sigma$ 是协方差矩阵。概率特征函数取 $\varphi_X(t)=\mathbb E e^{itX}$。若对分布测度采用第 7 章的负指数 Fourier 约定，则 $\varphi_X(t)=\widehat{\mu_X}(-t/(2\pi))$，两个公式的符号和 $2\pi$ 因子由此对应。
 
 推前公式 $\mathbb E\phi(X)=\int\phi\,d\mu_X$（非负或可积时）可先对指示函数验证，再简单函数逼近。它说明可只用分布计算期望，无需知道样本空间细节。
 
@@ -71,7 +75,7 @@ $$
 
 大数律说明平均误差趋零，中心极限定理说明其典型大小为 $n^{-1/2}$，并描述放大后的形状。
 
-> 设独立同分布变量均值为 $m$、方差 $0<\sigma^2<\infty$，则 $\sqrt n(\overline X_n-m)/\sigma\Rightarrow N(0,1)$。
+> 设独立同分布变量均值为 $m$、方差 $0<\sigma^2<\infty$，则 $\sqrt n(\overline X_n-m)/\sigma\Rightarrow \mathcal N(0,1)$。
 
 令 $Y=(X-m)/\sigma$。其特征函数 $\varphi(t)=\mathbb Ee^{itY}$ 满足 $\varphi(0)=1$、$\varphi'(0)=i\mathbb EY=0$、$\varphi''(0)=-\mathbb EY^2=-1$。差商和二阶导数都由一阶或二阶可积矩控制，控制收敛使二阶导数连续。因此 Taylor 给 $\varphi(t)=1-t^2/2+o(t^2)$。独立性使标准化和的特征函数为
 
@@ -91,7 +95,7 @@ $$
 
 给定信息 $\mathcal G\subset\mathcal F$，我们希望用 $\mathcal G$-可测变量近似可积 $X$，并保证在每个已知事件上的总平均不变。
 
-> 因此定义 $Y=\mathbb E[X\mid\mathcal G]$ 满足 $Y$ 在 $\mathcal G$ 可测、可积，且 $\int_AY=\int_AX$ 对每个 $A\in\mathcal G$ 成立。
+> 因此定义 $Y=\mathbb E[X\mid\mathcal G]$ 满足 $Y$ 在 $\mathcal G$ 可测、可积，且 $\int_A Y\,d\mathbb P=\int_A X\,d\mathbb P$ 对每个 $A\in\mathcal G$ 成立。
 
 先对 $X\geq0$，在 $\mathcal G$ 上定义有限测度 $\nu(A)=\mathbb E[X\mathbf1_A]$。它对概率测度绝对连续，3.19 给密度 $Y\geq0$，并有 $\mathbb EY=\nu(\Omega)<\infty$。一般 $X$ 对正负部分分别构造后相减。若两个版本都满足条件，在事件 $\{Y_1>Y_2+1/k\}\in\mathcal G$ 积分比较，得该事件零测；交换两者，得到几乎处处唯一。
 
@@ -183,7 +187,7 @@ Markov 性指给定当前状态，未来条件分布不再依赖更早历史。�
 
 ## 9.14 Brown 运动的一个实际构造
 
-> 标准 Brown 运动要求起点为零、路径连续、独立平稳增量，且 $B_t-B_s\sim N(0,t-s)$。
+> 标准 Brown 运动要求起点为零、路径连续、独立平稳增量，且 $B_t-B_s\sim \mathcal N(0,t-s)$。
 
 这些要求是否能同时满足，并不是定义本身能保证的。下面用可数个独立标准正态变量构造它。
 
@@ -293,7 +297,7 @@ $$
 
 对任意两解之差重复同一估计，Gronwall 给差为零，即路径唯一性。线性增长还给 $\mathbb E\sup_{s\leq T}|X_s|^2\leq C_T(1+\mathbb E|X_0|^2)$；任意有限 $T$ 都可进行构造，唯一性保证区间间相容，故解不在有限时间爆破。只有局部 Lipschitz 时则先在离开有界状态区的停时前构造，不能自动得到全球解。
 
-例如 $dX=\mu Xdt+\sigma XdB$，对指数函数用 Itô 验证 $X_t=X_0\exp((\mu-\sigma^2/2)t+\sigma B_t)$。修正 $-\sigma^2/2$ 来自二阶项。这里使用给定的 Brown 和初始概率空间，故称强解；允许一同构造概率空间的弱解是另一种存在性问题。
+例如 $dX=aXdt+\sigma XdB$，其中 $a,\sigma$ 为实常数。对指数函数用 Itô 验证 $X_t=X_0\exp((a-\sigma^2/2)t+\sigma B_t)$。修正 $-\sigma^2/2$ 来自二阶项。漂移系数使用 $a$，与分布测度 $\mu_X$ 区分。这里使用给定的 Brown 和初始概率空间，故称强解；允许一同构造概率空间的弱解是另一种存在性问题。
 
 ## 9.19 Girsanov
 
@@ -322,7 +326,7 @@ $$
 =e^{-\lambda^2(t-s)/2}.
 $$
 
-这是不依赖过去的正态增量特征函数；由特征函数唯一性，增量独立于 $\mathcal F_s$ 且为 $N(0,t-s)$。路径连续且起点为零，所以 $\widetilde B$ 是 $\mathbb Q$-Brown，证明完成。把 $dB=d\widetilde B+\theta dt$ 代回方程，可核对漂移的符号。
+这是不依赖过去的正态增量特征函数；由特征函数唯一性，增量独立于 $\mathcal F_s$ 且为 $\mathcal N(0,t-s)$。路径连续且起点为零，所以 $\widetilde B$ 是 $\mathbb Q$-Brown，证明完成。把 $dB=d\widetilde B+\theta dt$ 代回方程，可核对漂移的符号。
 
 一般可预测 $\theta$ 可用 Novikov 条件 $\mathbb E\exp(\frac12\int_0^T\theta^2dt)<\infty$ 代替有界性。此时额外困难是证明指数局部鞅一致可积，称 Novikov 判据；上面的直接 $L^2$ 论证不再足够。本节的完整证明覆盖有界版本，一般判据作为进阶结论保留，不能把“正局部鞅”未经论证就当概率密度。
 
@@ -351,6 +355,6 @@ Monte Carlo 用独立样本均值近似 $\mathbb E\phi(X)$，有限方差下标�
 1. 证明若 $X$ 与 $\mathcal G$ 独立，则 $\mathbb E[X\mid\mathcal G]=\mathbb EX$。
 2. 计算 $\mathbb E(B_T^2-T)^2$。答案 $2T^2$，可用 Gaussian 四阶矩。
 3. 对 $f(x)=e^x$ 写 Itô 公式，解释 $e^{B_t-t/2}$ 为什么在有限时段为鞅。
-4. 从几何 Brown 显式解计算均值，答案 $\mathbb EX_t=X_0e^{\mu t}$（固定初值）。
+4. 从几何 Brown 显式解计算均值，答案 $\mathbb EX_t=X_0e^{at}$（固定初值）。
 
 [下一章：现代专题与交叉分支](10-topics.md)

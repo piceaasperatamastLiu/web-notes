@@ -8,9 +8,9 @@
 
 ## 10.1 几何分析
 
-这一节使用流形、PDE、Sobolev中的工具。给流形添加 Riemann 度量 $g$，即每个切空间的正定内积光滑变化，可定义长度、梯度、体积和能量。局部坐标中体积密度为 $\sqrt{\det g}\,dx$；度量体积作为密度不要求流形可定向。
+这一节使用流形、PDE、Sobolev中的工具。给流形添加 Riemann 度量 $g$，即每个切空间的正定内积光滑变化，可定义长度、梯度、体积和能量。体积测度统一记为 $\operatorname{vol}_g$，局部坐标中 $d\operatorname{vol}_g=\sqrt{\det(g_{ij})}\,dm_n(x)$；度量体积作为密度不要求流形可定向。下面的 $L^p(M)$ 均使用这一测度。
 
-几何分析用 PDE 研究几何。模型是能量 $E(u)=\frac12\int_M|\nabla_gu|_g^2dV_g$，其变分给 Laplace–Beltrami 方程。先掌握这一标量模型，再读调和映射、极小曲面和曲率方程。
+几何分析用 PDE 研究几何。模型是能量 $E(u)=\frac12\int_M|\nabla_gu|_g^2d\operatorname{vol}_g$，其变分给 Laplace–Beltrami 方程。先掌握这一标量模型，再读调和映射、极小曲面和曲率方程。
 
 ## 10.2 流形上的 Laplace 算子
 
@@ -21,13 +21,13 @@ $$
 \left(\sqrt{\det g}\,g^{ij}\partial_ju\right),
 $$
 
-重复指标求和。紧无边界流形上，$\int u\Delta_gu=-\int|\nabla_gu|^2$，因此 $-\Delta_g$ 非负。连通时核中的光滑函数只有常数。谱定理需要在 $L^2$ 中给出自伴实现；在正维数的非空紧无边界流形上，紧性和椭圆理论给离散谱 $0=\lambda_0\leq\lambda_1\leq\cdots\to\infty$，按重数计。
+重复指标求和。紧无边界流形上，$\int_M u\Delta_gu\,d\operatorname{vol}_g=-\int_M|\nabla_gu|_g^2\,d\operatorname{vol}_g$，因此 $-\Delta_g$ 非负。连通时核中的光滑函数只有常数。谱定理需要在 $L^2$ 中给出自伴实现；在正维数的非空紧无边界流形上，紧性和椭圆理论给离散谱 $0=\lambda_0\leq\lambda_1\leq\cdots\to\infty$，按重数计。
 
 例如，标准圆周长度 $2\pi$，$\Delta=\partial_\theta^2$，$e^{ik\theta}$ 的 $-\Delta$ 特征值 $k^2$。局部几何在谱上体现为振动模式。
 
 ## 10.3 热核与曲率
 
-热半群 $e^{t\Delta_g}$ 的核 $K_t(x,y)$ 给 $u(t,x)=\int K_t(x,y)u_0(y)dV_g(y)$。紧无边界流形上可用谱展开。对固定点，$t\downarrow0$ 时有
+热半群 $e^{t\Delta_g}$ 的核 $K_t(x,y)$ 给 $u(t,x)=\int K_t(x,y)u_0(y)d\operatorname{vol}_g(y)$。紧无边界流形上可用谱展开。对固定点，$t\downarrow0$ 时有
 
 $$
 K_t(x,x)\sim(4\pi t)^{-n/2}\left(1+\frac t6\operatorname{Scal}(x)+\cdots\right).
@@ -53,17 +53,17 @@ $C(K)$ 与 Hilbert 空间的 $\mathcal B(H)$ 是典型例子，前者交换，�
 
 ## 10.6 遍历论
 
-测度保持变换 $T$ 满足 $\mu(T^{-1}A)=\mu(A)$。在概率空间上，Birkhoff 定理说对 $f\in L^1$，时间平均 $n^{-1}\sum_{k=0}^{n-1}f(T^kx)$ 几乎处处及 $L^1$ 收敛到 $\mathbb E[f\mid\mathcal I]$，$\mathcal I$ 为不变事件 $\sigma$-代数（模零集）。
+测度保持变换 $T$ 满足 $\mu(T^{-1}A)=\mu(A)$。在概率空间 $(\Omega,\mathcal F,\mathbb P)$ 上，则使用 $\mathbb P(T^{-1}A)=\mathbb P(A)$。Birkhoff 定理说对 $f\in L^1(\Omega,\mathcal F,\mathbb P)$，时间平均 $n^{-1}\sum_{k=0}^{n-1}f(T^kx)$ 几乎处处及 $L^1$ 收敛到 $\mathbb E[f\mid\mathcal I]$，$\mathcal I$ 为不变事件 $\sigma$-代数（模零集）。
 
-遍历表示不变事件只有概率 0 或 1，此时极限为 $\int f$。圆周无理旋转 $x\mapsto x+\alpha\pmod1$ 是例子：对指数函数，几何和除以 $n$ 趋零；三角多项式逼近再给连续函数均值收敛。完整可积版本用遍历定理。
+遍历表示不变事件只有概率 0 或 1，此时极限为 $\int_\Omega f\,d\mathbb P$。圆周无理旋转 $x\mapsto x+\alpha\pmod1$ 是例子，此时概率测度取 $m_{\mathbb T}$：对指数函数，几何和除以 $n$ 趋零；三角多项式逼近再给连续函数均值收敛。完整可积版本用遍历定理。
 
-## 10.7 非标准分析 ★
+## 10.7 非标准分析 ☆
 
 非标准分析构造实数的扩张 $\,{}^*\mathbb R$，含非零无穷小和无限大数，并有适用语言内的迁移原理。有限超实数可取标准部分；可微性可表述为所有非零无穷小 $h$ 的差商标准部分等于 $f'(x)$。
 
 它需要逻辑、超积与内部集合工具。迁移不适用于任意涉及“标准”的外部命题；标准部分映射本身是外部操作。入门可比较 $\varepsilon$–$\delta$ 连续定义与无穷小表述，而不是把无穷小当普通实数。
 
-## 10.8 p进分析 ★
+## 10.8 p进分析 ☆
 
 > 对素数 $p$，非零有理数写为 $p^k a/b$，其中 $p$ 不整除 $ab$，定义 $|x|_p=p^{-k}$。
 
@@ -113,6 +113,8 @@ $$
 
 图像可视为二维函数，平滑由热流或卷积完成。边缘是快速变化或 BV 跳跃。典型去噪模型为 $\min_u\frac12\|u-f\|_2^2+\lambda|Du|(\Omega)$，后项为 BV 总变差，鼓励保留边缘而惩罚过多振荡。
 
+这里 $\Omega\subset\mathbb R^2$，$L^2$ 范数使用 $m_2$；BV 函数的分布导数 $Du$ 是向量值 Radon 测度，$|Du|$ 是它的总变差测度，不是函数 $u$ 的绝对值。它推广了第 3 章一维增量测度 $\nu_F$ 的观点。
+
 总变差项不可微，需次微分、对偶或分裂算法；若把它简单写为处处 $|\nabla u|$，会漏掉跳跃的奇异部分。离散图像模型还需说明边界约定与差分定义。
 
 ## 10.14 机器学习中的积分与下降估计
@@ -156,7 +158,7 @@ Chebyshev 只用方差给多项式尾界，独立有界变量还允许指数尾�
 
 ## 10.16 Delta 方法与 Laplace 渐近
 
-如果已经知道估计量的渐近分布，光滑变换后的分布可以由线性近似得到。设 $\sqrt n(\widehat\theta_n-\theta)\Rightarrow N(0,\Sigma)$，$g$ 在 $\theta$ 可微。分布收敛使放大误差有统一概率尾控制，因而 $\widehat\theta_n\to\theta$ 依概率。可微性给
+如果已经知道估计量的渐近分布，光滑变换后的分布可以由线性近似得到。设 $\sqrt n(\widehat\theta_n-\theta)\Rightarrow \mathcal N(0,\Sigma)$，$g$ 在 $\theta$ 可微。分布收敛使放大误差有统一概率尾控制，因而 $\widehat\theta_n\to\theta$ 依概率。可微性给
 
 $$
 g(\widehat\theta_n)-g(\theta)
@@ -165,7 +167,7 @@ g(\widehat\theta_n)-g(\theta)
 \quad\text{依概率}.
 $$
 
-放大误差在概率意义下有界，所以 $\sqrt n r_n\to0$ 依概率。给定连续测试函数，先把主项限制在高概率紧集上，用一致连续性控制小扰动，再控制紧集外尾部，即可证明加上此余项不改变分布极限。因此得到 $\sqrt n(g(\widehat\theta_n)-g(\theta))\Rightarrow N(0,Dg\Sigma Dg^{\mathsf T})$。若 $Dg=0$，一阶极限退化，需要更高阶展开。
+放大误差在概率意义下有界，所以 $\sqrt n r_n\to0$ 依概率。给定连续测试函数，先把主项限制在高概率紧集上，用一致连续性控制小扰动，再控制紧集外尾部，即可证明加上此余项不改变分布极限。因此得到 $\sqrt n(g(\widehat\theta_n)-g(\theta))\Rightarrow \mathcal N(0,Dg\Sigma Dg^{\mathsf T})$。若 $Dg=0$，一阶极限退化，需要更高阶展开。
 
 Laplace 方法处理另一类渐近：积分质量随大参数集中到最小点。设 $\phi\in C^2([a,b])$ 有唯一内部全局极小点 $x_0$，$\phi''(x_0)>0$；$A$ 连续且 $A(x_0)\ne0$。取小邻域，Taylor 给 $\phi(x)-\phi(x_0)\geq c(x-x_0)^2$。邻域外紧集上则有正间隙 $\phi-\phi(x_0)\geq\delta>0$，其积分比主尺度指数更小。
 

@@ -41,7 +41,7 @@ $$
 
 ## 3.5 双线性形式
 
-双线性型 $B:V\times V\to k$ 对两变量线性。选基后 $B(x,y)=x^TAy$，换基矩阵变为 $P^TAP$，称合同，和相似不同。
+双线性型 $B:V\times V\to k$ 对两变量线性。选基后 $B(x,y)=x^{\mathsf T}Ay$，换基矩阵变为 $P^{\mathsf T}AP$，称合同，和相似不同。
 
 型非退化表示 $B(v,w)=0$ 对所有 $w$ 成立只可能 $v=0$，等价于 $A$ 可逆，也等价于 $V\to V^*$ 为同构。对非退化型，子空间的正交补维数为 $\dim V-\dim U$，但未必有 $V=U\oplus U^\perp$：不定型可能存在非零向量与自身正交。
 
@@ -94,6 +94,8 @@ $$
 ## 3.10 谱定理初步 ★
 
 伴随由 $\langle Tv,w\rangle=\langle v,T^\dagger w\rangle$ 定义，在正交基中是共轭转置。
+
+明确地，标准复内积是 $\langle x,y\rangle=x^{\mathsf T}\overline y$，因此 $A^\dagger=\overline A^{\mathsf T}$。Riesz 识别 $y\mapsto\langle\,\cdot\,,y\rangle$ 给出线性泛函，但这个识别本身对 $y$ 是共轭线性的；3.4 的对偶映射则始终是线性的。
 
 > 复有限维内积空间的正规算子 $TT^\dagger=T^\dagger T$ 有标准正交特征基。实对称算子也有实标准正交特征基。
 

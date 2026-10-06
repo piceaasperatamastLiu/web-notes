@@ -29,6 +29,7 @@ nav:
   - 卡尔曼滤波: others/Kalman.md
   - 因子图: others/factor.md
 - AI讲义:
+  - 共同符号约定: ai/notation.md
   - 现代分析学:
     - 讲义首页: ai/analysis/index.md
     - 学习指南与综合自测: ai/analysis/study-guide.md
