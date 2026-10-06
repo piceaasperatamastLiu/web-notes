@@ -44,6 +44,18 @@ nav:
     - 第9章 概率与随机分析: ai/analysis/09-probability.md
     - 第10章 现代专题与交叉分支: ai/analysis/10-topics.md
     - 附录与参考文献: ai/analysis/appendices.md
+  - 代数学:
+    - 讲义首页: ai/algebra/index.md
+    - 学习指南与综合自测: ai/algebra/study-guide.md
+    - 第0章 预备: ai/algebra/00-preliminaries.md
+    - 第1章 群论: ai/algebra/01-groups.md
+    - 第2章 环、模、域: ai/algebra/02-rings.md
+    - 第3章 线性代数: ai/algebra/03-linear.md
+    - 第4章 多重线性与Clifford代数: ai/algebra/04-multilinear.md
+    - 第5章 表示论: ai/algebra/05-representations.md
+    - 第6章 李代数及其表示: ai/algebra/06-lie.md
+    - 第7章 同调代数和高级专题: ai/algebra/07-advanced.md
+    - 附录A–F与参考文献: ai/algebra/appendices.md
 
 markdown_extensions:
   - pymdownx.arithmatex:
